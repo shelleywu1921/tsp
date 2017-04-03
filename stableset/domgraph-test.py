@@ -68,17 +68,20 @@ def create_dom_graph(domfilename,surplus_bound,node_num_upper_bound):
  print('running time: %.5f seconds' % (end-start)) 
  return G
 
-'''
+
 ## testing for create_dom_graph
 ## passed
+'''
 def test_create_dom_graph_pr76():
  G=create_dom_graph('pr76.dom',1, 100000)
  assert G.number_of_nodes()==66
  assert G.node[0]['vertices']==set([59,39,40])
  assert G.has_edge(0,1)
  assert not G.has_edge(0,3)
+'''
 
 ## passed
+'''
 def test_create_dom_graph_att532():
     G=create_dom_graph('att532.dom',0.5, 5000)
     assert G.number_of_nodes()==5000
@@ -111,6 +114,8 @@ find_stable_set(G, total_surplus_bound) takes a graph G that represents a domfil
 
 Returned value:
     [ listof_candidate_dom, total_surplus]
+    listof_candidate_dom is a list of nodes in G
+    total_surplus is a float
     
 Requirements:
     * G: a graph produced by create_dom_graph, representing a collection of dominoes
@@ -129,7 +134,7 @@ def find_stable_set(G, total_surplus_bound):
   max_stable_set=nx.maximal_independent_set(G)
   if len(max_stable_set)< 3: 
 	return None
-  max_stable_set.sort(key=lambda x: G.node[x]['surplus']) 
+  max_stable_set.sort(key=lambda x: G.node[x]['surplus'])
   first_node=max_stable_set[0]
   candidate_dom =[ first_node ]
   total_surplus=G.node[first_node]['surplus']
@@ -148,11 +153,33 @@ def find_stable_set(G, total_surplus_bound):
 		total_surplus=total_surplus+i_minus_one_surplus+i_surplus
 	  else:
 		break
+  if len(candidate_dom)<3:
+      return None
+  else:
+      return [candidate_dom,total_surplus]
 
-  return [candidate_dom,total_surplus]
+## Testing for find_stable_set
+def test_find_stable_set_pr76():
+    G = create_dom_graph('pr76.dom',1, 100000)
+    candidate_dom, total_surplus = find_stable_set(G, 0.75)
+    assert len(candidate_dom)%2 == 1
+    assert total_surplus < 0.75
 
+if __name__ == '__main__':
+    start =timer()
+    
+    G = create_dom_graph('pr76.dom',1, 100000)
+    for i in range(10):
+        candidate_dom, total_surplus= find_stable_set(G,0.75)
+        print('There are %d teeth' % (len(candidate_dom)))
+        print('The teeth are:', candidate_dom)
+        print('Total surplus: %.5f' % total_surplus)
+        print('\n')
 
+    end=timer
+    print('running time: %.5f' % (end-start))
 
+## Another test for find_stable_set
 def run_find_stable_set_n_times(G,surplus_bound, ntimes):
  start =timer()
  counter3=0
