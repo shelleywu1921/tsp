@@ -11,6 +11,9 @@ create_dom_graph(domfilename, surplus_bound, node_num_upper_bound) takes in domf
     It also prints the running time in seconds
 
     However, the program stops when the number of eligible nodes in G reaches node_num_upper_bound.
+    
+Returned value:
+    G
 
 Requirements:
     * domfile is a .dom file. see math.uwaterloo.ca/~bico/qss
@@ -21,7 +24,7 @@ Example:
 create_dom_graph('pr76.dom', 0.5, 5000)
 
 Note:
-The best choices for surplus_bound and node_num_upper_bound varies depending on domfile.  
+The best choices for surplus_bound and node_num_upper_bound varies depending on domfile.
 '''
 
 
@@ -48,7 +51,7 @@ def create_dom_graph(domfilename,surplus_bound,node_num_upper_bound):
       break
      
  domfile.close()
- print('number of nodes included: %d' % (G.number_of_nodes()))
+ print('number of nodes in the graph G: %d' % (G.number_of_nodes()))
   
  for u in G.nodes():
 	for v in G.nodes():
@@ -61,7 +64,26 @@ def create_dom_graph(domfilename,surplus_bound,node_num_upper_bound):
  return G
 
 
-def find_stable_set(G, surplus_bound):
+''' 
+find_stable_set(G, total_surplus_bound) takes a graph G that represents a domfile (i.e. a graph produced by create_dom_graph, and total_surplus_bound, and returns an odd stable set of G and its total surplus (the sum of the surpluses of everything in the odd stable set). Moreover, its total surplus < total_surplus_bound.
+
+Returned value:
+    [ listof_candidate_dom, total_surplus]
+    
+Requirements:
+    * G: a graph produced by create_dom_graph, representing a collection of dominoes
+    * total_surplus_bound: a float between 0 and 1
+    
+Example:
+G =create_dom_graph('pr76.dom', 0.5, 5000)
+find_stable_set(G, 0.75)
+
+Note: 
+
+'''
+
+
+def find_stable_set(G, total_surplus_bound):
   max_stable_set=nx.maximal_independent_set(G)
   if len(max_stable_set)< 3: 
 	return None
@@ -79,7 +101,7 @@ def find_stable_set(G, surplus_bound):
 	  i_minus_one_surplus=G.node[i_minus_one_node]['surplus']
           i_surplus=G.node[i_node]['surplus']
 
-	  if total_surplus + i_minus_one_surplus + i_surplus < surplus_bound: 
+	  if total_surplus + i_minus_one_surplus + i_surplus < total_surplus_bound:
 		candidate_dom=candidate_dom+[i_minus_one_node, i_node]
 		total_surplus=total_surplus+i_minus_one_surplus+i_surplus
 	  else:
