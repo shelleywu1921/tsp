@@ -4,6 +4,9 @@ import networkx as nx
 from timeit import default_timer as timer
 
 
+## this is the testing file for domgraph.py
+## Testing create_dom_graph and find_stable_set
+
 
 '''
 create_dom_graph(domfilename, surplus_bound, node_num_upper_bound) takes in domfile, surplus_bound, node_num_upper_bound, and create a graph G whose nodes correspond to the dominoes in domfile. (u,v) is an edge in G, if and only if the dominoes represented by u and v intersect.
@@ -59,12 +62,51 @@ def create_dom_graph(domfilename,surplus_bound,node_num_upper_bound):
 	  vteeth=G.node[v]['vertices']
 	  if (v!=u) and not uteeth.isdisjoint(vteeth):
 		G.add_edge(u,v)
+
+ print('number of edges in the graph G: %d' % (G.number_of_edges()))
  end=timer()
  print('running time: %.5f seconds' % (end-start)) 
  return G
 
+'''
+## testing for create_dom_graph
+## passed
+def test_create_dom_graph_pr76():
+ G=create_dom_graph('pr76.dom',1, 100000)
+ assert G.number_of_nodes()==66
+ assert G.node[0]['vertices']==set([59,39,40])
+ assert G.has_edge(0,1)
+ assert not G.has_edge(0,3)
 
-''' 
+## passed
+def test_create_dom_graph_att532():
+    G=create_dom_graph('att532.dom',0.5, 5000)
+    assert G.number_of_nodes()==5000
+    assert G.node[0]['vertices']==set([529,527,528])
+    assert G.node[0]['surplus']==0.0006
+    assert G.node[0]['Asize']==1
+    assert G.node[0]['Bsize']==2
+'''
+
+
+## More_testings
+
+'''
+>>> import domgraph as dg
+>>> G=dg.create_dom_graph('att532.dom',0.5, 5000)
+number of nodes in the graph G: 5000
+running time: 97.29837 seconds
+>>> G.number_of_edges()
+11450125
+>>> G.number_of_nodes()
+5000
+
+'''
+
+
+
+
+'''
 find_stable_set(G, total_surplus_bound) takes a graph G that represents a domfile (i.e. a graph produced by create_dom_graph, and total_surplus_bound, and returns an odd stable set of G and its total surplus (the sum of the surpluses of everything in the odd stable set). Moreover, its total surplus < total_surplus_bound.
 
 Returned value:
