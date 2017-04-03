@@ -4,6 +4,10 @@ import networkx as nx
 from timeit import default_timer as timer
 
 '''
+really??
+'''
+
+'''
 create_dom_graph(domfilename) takes in a .dom file and create a graph G whose nodes correspond to the dominoes, and if (u,v) is an edge, then the domino u and v intersect.
 ''' 
 
