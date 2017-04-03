@@ -114,38 +114,7 @@ def find_stable_set(G, total_surplus_bound):
 
 
 
-def run_find_stable_set_n_times(G,surplus_bound, ntimes):
- start =timer()
- counter3=0
- counter5=0
- counter7=0
- counter9=0
- counter11=0
- for i in range(ntimes):
-  stable=find_stable_set(G,surplus_bound)
-  num_of_dom=len(stable[0])
-  surplus=stable[1]
-  if num_of_dom>=11:
-   counter11+=1
-  elif num_of_dom==3:
-   counter3+=1
-  elif num_of_dom==5:
-   counter5+=1  
-  elif num_of_dom==7:
-   counter7+=1   
-  elif num_of_dom==9:
-   counter9+=1
-  print('number of dominoes: %d, surplus: %.4f'%(num_of_dom, surplus)) 
- 
- end=timer()
- print('3 dominoes: %d, which is %.3f '% (counter3, counter3/ntimes))
- print('5 dominoes: %d, which is %.3f '% (counter5, counter5/ntimes))
- print('7 dominoes: %d, which is %.3f '% (counter7, counter7/ntimes))
- print('9 dominoes: %d, which is %.3f '% (counter9, counter9/ntimes))
- print('>=11 dominoes: %d, which is %.3f '% (counter11, counter11/ntimes))
- 
-       
- print('running time: %.5f seconds' %(end-start))
+
 
 
 
