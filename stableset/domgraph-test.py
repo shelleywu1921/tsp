@@ -165,53 +165,29 @@ def test_find_stable_set_pr76():
     assert len(candidate_dom)%2 == 1
     assert total_surplus < 0.75
 
+## another test for pr76
 if __name__ == '__main__':
     start =timer()
     
-    G = create_dom_graph('pr76.dom',1, 100000)
-    for i in range(10):
-        candidate_dom, total_surplus= find_stable_set(G,0.75)
-        print('There are %d teeth' % (len(candidate_dom)))
-        print('The teeth are:', candidate_dom)
-        print('Total surplus: %.5f' % total_surplus)
-        print('\n')
+    G = create_dom_graph('pr76.dom',1, 100000)      # can make changes here
+    for i in range(30):                             # can make changes here
+        returned_find_stable_set=find_stable_set(G,0.9) # can make changes here
+        if returned_find_stable_set != None:
+            candidate_dom, total_surplus=returned_find_stable_set
+            print('There are %d teeth' % len(candidate_dom))
+            print('The teeth are:', candidate_dom)
+            for node in candidate_dom:
+                surplus=G.node[node]['surplus']
+                print('Node %d has surplus: %.5f' %(node, surplus) )
+            
+            print('Total surplus: %.5f' % total_surplus)
+            print('\n')
 
-    end=timer
-    print('running time: %.5f' % (end-start))
+    end=timer()
+    print('running time: %.5f seconds' % (end-start))
 
-## Another test for find_stable_set
-def run_find_stable_set_n_times(G,surplus_bound, ntimes):
- start =timer()
- counter3=0
- counter5=0
- counter7=0
- counter9=0
- counter11=0
- for i in range(ntimes):
-  stable=find_stable_set(G,surplus_bound)
-  num_of_dom=len(stable[0])
-  surplus=stable[1]
-  if num_of_dom>=11:
-   counter11+=1
-  elif num_of_dom==3:
-   counter3+=1
-  elif num_of_dom==5:
-   counter5+=1  
-  elif num_of_dom==7:
-   counter7+=1   
-  elif num_of_dom==9:
-   counter9+=1
-  print('number of dominoes: %d, surplus: %.4f'%(num_of_dom, surplus)) 
- 
- end=timer()
- print('3 dominoes: %d, which is %.3f '% (counter3, counter3/ntimes))
- print('5 dominoes: %d, which is %.3f '% (counter5, counter5/ntimes))
- print('7 dominoes: %d, which is %.3f '% (counter7, counter7/ntimes))
- print('9 dominoes: %d, which is %.3f '% (counter9, counter9/ntimes))
- print('>=11 dominoes: %d, which is %.3f '% (counter11, counter11/ntimes))
- 
-       
- print('running time: %.5f seconds' %(end-start))
+
+
 
 
 
