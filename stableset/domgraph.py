@@ -59,6 +59,7 @@ def create_dom_graph(domfilename,surplus_bound,node_num_upper_bound):
 	  vteeth=G.node[v]['vertices']
 	  if (v!=u) and not uteeth.isdisjoint(vteeth):
 		G.add_edge(u,v)
+ print('number of edges in the graph G: %d' % (G.number_of_edges()))
  end=timer()
  print('running time: %.5f seconds' % (end-start)) 
  return G
