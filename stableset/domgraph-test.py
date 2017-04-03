@@ -159,13 +159,19 @@ def find_stable_set(G, total_surplus_bound):
       return [candidate_dom,total_surplus]
 
 ## Testing for find_stable_set
+## passed
+'''
 def test_find_stable_set_pr76():
     G = create_dom_graph('pr76.dom',1, 100000)
     candidate_dom, total_surplus = find_stable_set(G, 0.75)
     assert len(candidate_dom)%2 == 1
     assert total_surplus < 0.75
+'''
 
 ## another test for pr76
+## passed
+'''
+
 if __name__ == '__main__':
     start =timer()
     
@@ -185,9 +191,31 @@ if __name__ == '__main__':
 
     end=timer()
     print('running time: %.5f seconds' % (end-start))
+'''
 
 
+## another test for att532
+## passed
+'''
+if __name__ == '__main__':
+    start =timer()
+    
+    G = create_dom_graph('att532.dom',0.5, 5000)      # can make changes here
+    for i in range(30):                             # can make changes here
+        returned_find_stable_set=find_stable_set(G,0.75) # can make changes here
+        if returned_find_stable_set != None:
+            candidate_dom, total_surplus=returned_find_stable_set
+            print('There are %d teeth' % len(candidate_dom))
+            print('The teeth are:', candidate_dom)
+            for node in candidate_dom:
+                surplus=G.node[node]['surplus']
+                print('Node %d has surplus: %.5f' %(node, surplus) )
+            
+            print('Total surplus: %.5f' % total_surplus)
+            print('\n')
 
-
+    end=timer()
+    print('running time: %.5f seconds' % (end-start))
+'''
 
 
