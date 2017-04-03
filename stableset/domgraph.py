@@ -3,13 +3,19 @@ from __future__ import division
 import networkx as nx
 from timeit import default_timer as timer
 
-'''
-really??
-'''
+
 
 '''
-create_dom_graph(domfilename) takes in a .dom file and create a graph G whose nodes correspond to the dominoes, and if (u,v) is an edge, then the domino u and v intersect.
-''' 
+create_dom_graph(domfilename, surplus_bound) takes in a domfile, a .dom file, and surplus_bound, a float, and create a graph G whose nodes correspond to the dominoes in domfile. If (u,v) is an edge in G, then the dominoes represented by u and v intersect.
+
+Requirement: 
+    * domfile is a .dom file. see math.uwaterloo.ca/~bico/qss
+    * surplus_bound is a float, between 0 and 1. Only dominoes whose surplus <= surplus bound will be considered. 
+    
+    
+
+'''
+
 
 '''
 we only take dominoes with surplus <=surplus_bound
