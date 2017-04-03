@@ -107,8 +107,10 @@ def find_stable_set(G, total_surplus_bound):
 		total_surplus=total_surplus+i_minus_one_surplus+i_surplus
 	  else:
 		break
-
-  return [candidate_dom,total_surplus]
+  if len(candidate_dom)<3:
+    return None
+  else:
+    return [candidate_dom,total_surplus]
 
 
 
