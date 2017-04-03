@@ -6,22 +6,26 @@ from timeit import default_timer as timer
 
 
 '''
-create_dom_graph(domfilename, surplus_bound) takes in a domfile, a .dom file, and surplus_bound, a float, and create a graph G whose nodes correspond to the dominoes in domfile. If (u,v) is an edge in G, then the dominoes represented by u and v intersect.
+create_dom_graph(domfilename, surplus_bound, node_num_upper_bound) takes in domfile, surplus_bound, node_num_upper_bound, and create a graph G whose nodes correspond to the dominoes in domfile. (u,v) is an edge in G, if and only if the dominoes represented by u and v intersect.
 
-Requirement: 
+    It also prints the running time in seconds
+
+    However, the program stops when the number of eligible nodes in G reaches node_num_upper_bound.
+
+Requirements:
     * domfile is a .dom file. see math.uwaterloo.ca/~bico/qss
-    * surplus_bound is a float, between 0 and 1. Only dominoes whose surplus <= surplus bound will be considered. 
+    * surplus_bound is a float, between 0 and 1. Only dominoes whose surplus <= surplus bound will be considered.
+    * node_num_upper_bound: int
     
-    
+Example:
+create_dom_graph('pr76.dom', 0.5, 5000)
 
+Note:
+The best choices for surplus_bound and node_num_upper_bound varies depending on domfile.  
 '''
 
 
-'''
-we only take dominoes with surplus <=surplus_bound
-''' 
-
-def create_dom_graph(domfilename,surplus_bound):
+def create_dom_graph(domfilename,surplus_bound,node_num_upper_bound):
  start=timer()
  domfile=open(domfilename,'r')
  firstline=domfile.readline().split()
@@ -40,7 +44,7 @@ def create_dom_graph(domfilename,surplus_bound):
   
      G.add_node(i, surplus=surplus, Asize=Asize, Bsize=Bsize, A=A, B=B, vertices= vertices)
     
-     if G.number_of_nodes()==5000:
+     if G.number_of_nodes()==node_num_upper_bound:
       break
      
  domfile.close()
