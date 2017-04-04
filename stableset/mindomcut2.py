@@ -77,11 +77,32 @@ def test_build_support_graph_pr76():
 '''
 
 ## test for att532
+## passed
+'''
 if __name__ =="__main__":
     F=build_support_graph('att532.x')
     print('Number of edges: %d' % F.number_of_edges())
     print('Number of nodes: %d' % F.number_of_nodes())
-    #print(list(F.edges(data=True)))
+    print(list(F.edges(data=True)))
+'''
+
+## one more test for pr76
+## passed
+'''
+def test_build_support_graph_pr76():
+    F=build_support_graph('att532.x')
+    assert F.number_of_edges()==818
+    assert F.number_of_nodes()==532
+    assert F.has_edge(0,2)
+    assert F.has_edge(0,1)
+    assert F.has_edge(159,142)
+    assert F.has_edge(496,486)
+    assert not F.has_edge(1,75)
+    assert not F.has_edge(0,0)
+    assert F[21][27]['weight']==0.790773
+'''
+
+
 
 def shrink_dom_graph(F,G,candidate_dom,pattern):
     inHandle=set()
