@@ -128,6 +128,8 @@ Requirements:
     * candidate_dom: a list of nodes in G, such that the corresponding dominoes are disjoint. Total weight should <1
     * pattern: a string of {0,1} that has the same length as candidate_dom
                if pattern[i]=='0', then the domino represented by candidate_dom[i] has A in handle and B bot in handle
+Warning:
+    * Fbar and F are aliases. So this function modifies F. In the end Fbar and F are the same
 '''
 
 def add_s_t(F,G,candidate_dom, pattern):
@@ -147,13 +149,105 @@ def add_s_t(F,G,candidate_dom, pattern):
             notinHandle=notinHandle.union(A)
                 
     # construct Fbar by adding s and t. s: inHandle, t: notinHandle
-    Fbar=F
+    Fbar=F      # this is an alias!
     Fbar.add_edges_from(list(('s',x) for x in inHandle), weight=10)
     Fbar.add_edges_from(list(('t',y) for y in notinHandle), weight=10)
 
     return [Fbar, inHandle, notinHandle]
 
+## Testing time!
+## for pr76
+## check if inHandle and notinHandle match the pattern
+def test_add_s_t_pr76_0():
+    from domgraph import create_dom_graph
+    F=build_support_graph('pr76.x')
+    G=create_dom_graph('pr76.dom', 0.5, 5000)
+    total_surplus_bound=0.75
+    candidate_dom,total_surplus = find_stable_set(G, total_surplus_bound)
+    pattern0='0'*len(candidate_dom)
 
+    inH_0=set()
+    ninH_0=set()
+    
+    for node in candidate_dom:
+        A=G.node[node]['A']
+        assert len(A) !=0
+        B=G.node[node]['B']
+        inH_0.union(A)
+        assert len(inH_0)==0
+        ninH_0.union(B)
+
+    Fbar, inHandle, notinHandle = add_s_t(F,G,candidate_dom,pattern0)
+    assert inHandle==inH_0
+    assert notinHandle==ninH_0
+
+
+def test_add_s_t_pr76_1():
+    from domgraph import create_dom_graph
+    F=build_support_graph('pr76.x')
+    G=create_dom_graph('pr76.dom', 0.5, 5000)
+    total_surplus_bound=0.75
+    candidate_dom,total_surplus = find_stable_set(G, total_surplus_bound)
+    pattern1='1'*len(candidate_dom)
+
+    inH_1=set()
+    ninH_1=set()
+
+
+def test_add_s_t_pr76_2():
+    from domgraph import create_dom_graph
+    F=build_support_graph('pr76.x')
+    G=create_dom_graph('pr76.dom', 0.5, 5000)
+    total_surplus_bound=0.75
+    candidate_dom,total_surplus = find_stable_set(G, total_surplus_bound)
+    pattern2='01'*len(candidate_dom)
+
+    inH_2=set()
+    ninH_2=set()
+
+def test_add_s_t_pr76_3():
+    from domgraph import create_dom_graph
+    F=build_support_graph('pr76.x')
+    G=create_dom_graph('pr76.dom', 0.5, 5000)
+    total_surplus_bound=0.75
+    candidate_dom,total_surplus = find_stable_set(G, total_surplus_bound)
+    pattern3='100'*len(candidate_dom)
+
+    inH_3=set()
+    ninH_3=set()
+
+
+## test if Fbar has the correct number of nodes, if 's' is only adj to things in inHandle (similarly, 't'), and the weights of the new edges (s,x), (t,y) are correct (equals 10)
+## passed
+def test_add_s_t_pr76_4():
+    from domgraph import create_dom_graph
+    import copy
+    import networkx as nx
+    F=build_support_graph('pr76.x')
+    Fprime=copy.deepcopy(F)
+    
+    G=create_dom_graph('pr76.dom', 0.5, 5000)
+    total_surplus_bound=0.75
+    candidate_dom,total_surplus = find_stable_set(G, total_surplus_bound)
+    pattern0='0'*len(candidate_dom)
+
+    Fbar, inHandle, notinHandle = add_s_t(F,G,candidate_dom,pattern0)
+    assert Fbar.number_of_nodes()==Fprime.number_of_nodes()+2
+    assert Fbar.has_node('s')
+    assert Fbar.has_node('t')
+    assert Fbar.degree('s')==len(inHandle)
+    assert Fbar.degree('t')==len(notinHandle)
+    for neig in Fbar.neighbors('s'):
+        assert Fbar['s'][neig]['weight'] ==10
+        assert neig in inHandle
+    for neig in Fbar.neighbors('t'):
+        assert Fbar['t'][neig]['weight'] ==10
+        assert neig in notinHandle
+
+    from networkx import is_isomorphic
+    Fbar.remove_node('s')
+    Fbar.remove_node('t')
+    assert is_isomorphic(Fbar,Fprime)
 
 
 
