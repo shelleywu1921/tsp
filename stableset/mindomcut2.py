@@ -4,9 +4,23 @@ from itertools import product
 from timeit import default_timer as timer
 
 
+'''
+A bit of notations: 
+G denotes the graph where nodes represent dominoes
+F denotes the support graph of x*
+'''
 
 '''
-this takes the support graph of a fract solution and contract every thing in unionA and unionB
+mindomcut2 is based on a different approach than mindomcut to find handles. Suppose we have an odd collection of
+disjoint dominoes, where the A's are in H and the B's are not in H. 
+
+Step1: Construct Fbar, a supergraph of F, as follows: add a vertex s to F, and edges (s,u) with huge edge weights (say 10) for all u in UnionA. Add another vertex t and edges (t,v) with huge edge weights for all v in UnionB.
+Step2: Compute a min cost st cut in Fbar. If it represents an eligible handle, then the weight of the cut must <1 ==> the part containing s must also contain UnionA, and the part containing t must also contain UnionB
+'''
+
+
+'''
+build_support_graph
 '''
 
 def build_support_graph(fracsolu):
