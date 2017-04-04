@@ -294,8 +294,18 @@ def test_add_s_t_pr76_4():
 
 
 
-
-def find_handle(F,G,candidate_dom, total_surplus,vio_upper_bd):
+# find_handle
+'''
+find_handle(F,G,candidate_dom, total_surplus, comb_upper_bd) takes
+    F: the support graph of x*, 
+    G: the graph representing dominoes, 
+    candidate_dom: a list of nodes in G representing disjoint dominoes, 
+    total_surplus: the total surplus of dominoes in candidate_dom
+    comb_upper_bound: a float >=0, <1
+and returns
+    
+'''
+def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
     start=timer()
     all_patterns=list(product([0,1], repeat=len(candidate_dom)))
     for pattern in all_patterns:
@@ -307,25 +317,25 @@ def find_handle(F,G,candidate_dom, total_surplus,vio_upper_bd):
         notinHandle=shrink[4]
         
         cutweight, partitions = nx.minimum_cut(Fshrink, s,t, capacity='weight')
-        if cutweight + total_surplus < vio_upper_bd:
+        if cutweight + total_surplus < comb_upper_bd:
             edge_cut_list=[]
             for p1_node in partitions[0]:
                 for p2_node in partitions[1]:
                     if Fshrink.has_edge(p1_node,p2_node):
                         edge_cut_list.append((p1_node,p2_node))
-            end=timer()
-            print('cut weight = %.5f' % cutweight)
-            print('total surplus = %.5f' % total_surplus)
-            print('cut weight + total surplus = %.5f' % cutweight+total_surplus)
+        end=timer()
+        print('cut weight = %.5f' % cutweight)
+        print('total surplus = %.5f' % total_surplus)
+        print('cut weight + total surplus = %.5f' % cutweight+total_surplus)
+        
+        print('running time = %.5f seconds \n'% (end-start))
+        
+        return [cutweight, cutweight+total_surplus, edge_cut_list] 
             
-            print('running time = %.5f seconds \n'% (end-start))
-            
-            return [cutweight, cutweight+total_surplus, edge_cut_list] 
-            
-def find_many_combs(F,G,vio_upper_bd, surplus_bound, ncombs):
+def find_many_combs(F,G,comb_upper_bd, surplus_bound, ncombs):
     for i in range(ncombs):
         stable=find_stable_set(G,surplus_bound) 
         candidate_dom=stable[0]
         total_surplus=stable[1]
-        find_handle(F,G,candidate_dom, total_surplus,vio_upper_bd)
+        find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd)
         
