@@ -2,7 +2,7 @@ import networkx as nx
 from domgraph import find_stable_set
 from itertools import product
 from timeit import default_timer as timer
-
+from ABcut import edges_cross
 
 '''
 A bit of notations: 
@@ -296,12 +296,6 @@ def test_add_s_t_pr76_4():
 
 # find_handle
 '''
-Preliminaries:
-    A comb inequality H, T1, T2...Tk is violated iff 
-            x(delta(H)) + sum x(delta(Ti)) <3k+1
-        iff x(delta(H)) + sum 1/2 2x(delta(Ti)) < 3k+1
-        iff x(delta(H)) 
-    
 find_handle(F,G,candidate_dom, total_surplus, comb_upper_bd) takes
     F: the support graph of x*, 
     G: the graph representing dominoes, 
@@ -310,11 +304,41 @@ find_handle(F,G,candidate_dom, total_surplus, comb_upper_bd) takes
     comb_upper_bound: a float >=0, <1
 and returns
 
+
 '''
+
 def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
     start=timer()
+    
+    # for each node in candidate_dom, LHS =1/2surplus(Ti)-x*(E(A,B))
+    # sumLHS = \sum 1/2 surplus(Ti)-x*(E(Ai,Bi)). Independ on H, the handle chosen
+    LHS_list=[]
+    for node in candidate_dom:
+        A=G.node[node]['A']
+        B=G.node[node]['B']
+        E_A_B=edges_cross(F,A,B)
+        xE_A_B=sum(F[u][v]['weight'] for (u,v) in E_A_B)
+        LHS= 0.5*G.node[node]['surplus'] - xE_A_B
+        LHS_list.append(RHS)
+    sumLHS=sum(x for x in LHS_list)
+    
     all_patterns=list(product([0,1], repeat=len(candidate_dom)))
     for pattern in all_patterns:
+        Fbar, inHandle, notinHandle = add_s_t(F,G,candidate_dom,pattern)
+        xdeltaH, partitions = nx.minimum_cut(Fbar, 's','t', capacity='weight')
+        
+        comb_surplus=xdeltaH + sumLHS
+        
+        if comb_surplus < comb_upper_bd:
+            deltaH =[]
+            for p1_node in partitions[0]:
+                for p2_node in partitions[1]:
+                    if Fbar.has_edge(p1_node,p2_node):
+                        deltaH.append((p1_node,p2_node))
+
+    end=timer()
+        
+'''
         shrink=shrink_dom_graph(F,G,candidate_dom,pattern)
         Fshrink= shrink[0]
         s=shrink[1]
@@ -337,7 +361,8 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
         print('running time = %.5f seconds \n'% (end-start))
         
         return [cutweight, cutweight+total_surplus, edge_cut_list] 
-            
+'''
+
 def find_many_combs(F,G,comb_upper_bd, surplus_bound, ncombs):
     for i in range(ncombs):
         stable=find_stable_set(G,surplus_bound) 
