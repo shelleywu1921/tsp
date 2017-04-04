@@ -296,6 +296,12 @@ def test_add_s_t_pr76_4():
 
 # find_handle
 '''
+Preliminaries:
+    A comb inequality H, T1, T2...Tk is violated iff 
+            x(delta(H)) + sum x(delta(Ti)) <3k+1
+        iff x(delta(H)) + sum 1/2 2x(delta(Ti)) < 3k+1
+        iff x(delta(H)) 
+    
 find_handle(F,G,candidate_dom, total_surplus, comb_upper_bd) takes
     F: the support graph of x*, 
     G: the graph representing dominoes, 
@@ -303,7 +309,7 @@ find_handle(F,G,candidate_dom, total_surplus, comb_upper_bd) takes
     total_surplus: the total surplus of dominoes in candidate_dom
     comb_upper_bound: a float >=0, <1
 and returns
-    
+
 '''
 def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
     start=timer()
