@@ -20,7 +20,13 @@ Step2: Compute a min cost st cut in Fbar. If it represents an eligible handle, t
 
 
 '''
-build_support_graph
+build_support_graph(fracsolu) takes a fractional solution to the TSP (a .x file) and returns F, the support graph of the fractional solution
+
+Requirements:
+    fracsolu is a .x file
+    
+Examples:
+    build_support_graph('pr76.x')
 '''
 
 def build_support_graph(fracsolu):
@@ -39,6 +45,25 @@ def build_support_graph(fracsolu):
         F.add_edge(u,v,weight=edge_wt)
     
     return F
+
+
+## Testing build_support_graph
+#
+
+if __name__ =="__main__":
+    F=build_support_graph('pr76.x')
+
+def test_build_support_graph_pr76():
+    F=build_support_graph('pr76.x')
+    assert F.number_of_edges()==95
+    assert F.number_of_nodes()==76
+    assert F.has_edge(0,75)
+    assert F.has_edge(0,22)
+    assert F.has_edge(59,58)
+    assert F.has_edge(74,75)
+    assert not F.has_edge(1,75)
+    assert not F.has_edge(0,0)
+    assert F[0][75]['weight']==1.00000
 
 def shrink_dom_graph(F,G,candidate_dom,pattern):
     inHandle=set()
