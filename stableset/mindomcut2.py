@@ -109,11 +109,25 @@ def test_build_support_graph_pr76():
 
 # add_s_t
 '''
-   
-Requirement: 
-    * candidate_dom: a list of nodes in G, such that the corresponding dominoes are disjoint
+add_s_t(F,G,candidate_dom, pattern) takes F, the support graph of x*, G, a graph representing dominoes, candidate_dom, a list of disjoint dominoes with total weight <1, and pattern that says which half of a domino goes inside the handle. It returns [Fbar, inHandle, notinHandle]. 
+
+Fbar is a supergraph of F with two extra vertices: 's' and 't'. (x,'s') is an edge if and only if x is in inHandle. Similarly, (y,'t') is an edge if and only if y is in notinHandle. All edges incident to 's' and 't' have weight 10
+
+Example:
+    from domgraph import create_dom_graph
+
+    F=build_support_graph('pr76.x')
+    G=create_dom_graph('pr76.dom', 0.5, 5000)
+    candidate_dom,total_surplus = find_stable_set(G, total_surplus_bound)
+    pattern='01001' # suppose candidate_dom has length 5
+
+    add_s_t(F,G,candidate_dom, pattern)
+    
+
+Requirements:
+    * candidate_dom: a list of nodes in G, such that the corresponding dominoes are disjoint. Total weight should <1
     * pattern: a string of {0,1} that has the same length as candidate_dom
-               if pattern[i]==0, then the domino represented by candidate_dom[i] has A in handle and B bot in handle
+               if pattern[i]=='0', then the domino represented by candidate_dom[i] has A in handle and B bot in handle
 '''
 
 def add_s_t(F,G,candidate_dom, pattern):
@@ -125,7 +139,7 @@ def add_s_t(F,G,candidate_dom, pattern):
         A=G.node[domnode]['A']
         B=G.node[domnode]['B']
 
-        if pattern[i]==0:
+        if pattern[i]=='0':
             inHandle= inHandle.union(A)
             notinHandle=notinHandle.union(B)
         else:
