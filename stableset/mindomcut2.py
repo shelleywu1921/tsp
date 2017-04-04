@@ -134,34 +134,14 @@ def add_s_t(F,G,candidate_dom, pattern):
                 
     # construct Fbar by adding s and t. s: inHandle, t: notinHandle
     Fbar=F
-    
+    Fbar.add_edges_from(list(('s',x) for x in inHandle), weight=10)
+    Fbar.add_edges_from(list(('t',y) for y in notinHandle), weight=10)
+
+    return [Fbar, inHandle, notinHandle]
 
 
 
-def shrink_dom_graph(F,G,candidate_dom,pattern):
-    inHandle=set()
-    notinHandle=set()
-    for i in range(len(candidate_dom)):
-        domnode=candidate_dom[i]
-        A=G.node[domnode]['A']
-        B=G.node[domnode]['B']
-        
-        if pattern[i]==0:
-            inHandle= inHandle.union(A)
-            notinHandle=notinHandle.union(B)
-        else:
-            inHandle= inHandle.union(B)
-            notinHandle=notinHandle.union(A)            
-    Fshrink=F
-    s=inHandle.pop()
-    t=notinHandle.pop()
-    
-    for vertex in inHandle:
-        Fshrink=nx.contracted_nodes(Fshrink,s,vertex, self_loops=False)
-    for vertex in notinHandle:
-        Fshrink=nx.contracted_nodes(Fshrink,t,vertex, self_loops=False)
-    
-    return [Fshrink,s,t, inHandle, notinHandle]
+
 
 def find_handle(F,G,candidate_dom, total_surplus,vio_upper_bd):
     start=timer()
