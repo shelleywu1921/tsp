@@ -158,6 +158,8 @@ def add_s_t(F,G,candidate_dom, pattern):
 ## Testing time!
 ## for pr76
 ## check if inHandle and notinHandle match the pattern
+## all passed
+'''
 def test_add_s_t_pr76_0():
     from domgraph import create_dom_graph
     F=build_support_graph('pr76.x')
@@ -171,11 +173,9 @@ def test_add_s_t_pr76_0():
     
     for node in candidate_dom:
         A=G.node[node]['A']
-        assert len(A) !=0
+        inH_0=inH_0.union(A)
         B=G.node[node]['B']
-        inH_0.union(A)
-        assert len(inH_0)==0
-        ninH_0.union(B)
+        ninH_0=ninH_0.union(B)
 
     Fbar, inHandle, notinHandle = add_s_t(F,G,candidate_dom,pattern0)
     assert inHandle==inH_0
@@ -193,6 +193,16 @@ def test_add_s_t_pr76_1():
     inH_1=set()
     ninH_1=set()
 
+    for node in candidate_dom:
+        A=G.node[node]['A']
+        B=G.node[node]['B']
+        inH_1=inH_1.union(B)
+        ninH_1=ninH_1.union(A)
+    
+    Fbar, inHandle, notinHandle = add_s_t(F,G,candidate_dom,pattern1)
+    assert inHandle==inH_1
+    assert notinHandle==ninH_1
+
 
 def test_add_s_t_pr76_2():
     from domgraph import create_dom_graph
@@ -204,6 +214,22 @@ def test_add_s_t_pr76_2():
 
     inH_2=set()
     ninH_2=set()
+    
+    for i in range(len(candidate_dom)):
+        node = candidate_dom[i]
+        A=G.node[node]['A']
+        B=G.node[node]['B']
+        if i%2==0:
+            inH_2=inH_2.union(A)
+            ninH_2=ninH_2.union(B)
+        else:
+            inH_2=inH_2.union(B)
+            ninH_2=ninH_2.union(A)
+
+    Fbar, inHandle, notinHandle = add_s_t(F,G,candidate_dom,pattern2)
+    assert inHandle==inH_2
+    assert notinHandle==ninH_2
+
 
 def test_add_s_t_pr76_3():
     from domgraph import create_dom_graph
@@ -216,9 +242,25 @@ def test_add_s_t_pr76_3():
     inH_3=set()
     ninH_3=set()
 
+    for i in range(len(candidate_dom)):
+        node = candidate_dom[i]
+        A=G.node[node]['A']
+        B=G.node[node]['B']
+        if i%3==0:
+            inH_3=inH_3.union(B)
+            ninH_3=ninH_3.union(A)
+        else:
+            inH_3=inH_3.union(A)
+            ninH_3=ninH_3.union(B)
+
+    Fbar, inHandle, notinHandle = add_s_t(F,G,candidate_dom,pattern3)
+    assert inHandle==inH_3
+    assert notinHandle==ninH_3
+'''
 
 ## test if Fbar has the correct number of nodes, if 's' is only adj to things in inHandle (similarly, 't'), and the weights of the new edges (s,x), (t,y) are correct (equals 10)
 ## passed
+'''
 def test_add_s_t_pr76_4():
     from domgraph import create_dom_graph
     import copy
@@ -248,6 +290,8 @@ def test_add_s_t_pr76_4():
     Fbar.remove_node('s')
     Fbar.remove_node('t')
     assert is_isomorphic(Fbar,Fprime)
+'''
+
 
 
 
