@@ -2,7 +2,7 @@ import networkx as nx
 from domgraph import find_stable_set
 from itertools import product
 from timeit import default_timer as timer
-from ABcut import edges_cross
+import copy
 
 '''
 A bit of notations: 
@@ -129,7 +129,7 @@ Requirements:
     * pattern: a string of {0,1} that has the same length as candidate_dom
                if pattern[i]=='0', then the domino represented by candidate_dom[i] has A in handle and B bot in handle
 Warning:
-    * Fbar and F are aliases. So this function modifies F. In the end Fbar and F are the same
+    * Fbar and F are NOT aliases.
 '''
 
 def add_s_t(F,G,candidate_dom, pattern):
@@ -149,9 +149,9 @@ def add_s_t(F,G,candidate_dom, pattern):
             notinHandle=notinHandle.union(A)
                 
     # construct Fbar by adding s and t. s: inHandle, t: notinHandle
-    Fbar=F      # this is an alias!
-    Fbar.add_edges_from(list(('s',x) for x in inHandle), weight=10)
-    Fbar.add_edges_from(list(('t',y) for y in notinHandle), weight=10)
+    Fbar=copy.deepcopy(F)      # this is NOT an alias!
+    Fbar.add_edges_from(list(('s',x) for x in inHandle), weight=100)
+    Fbar.add_edges_from(list(('t',y) for y in notinHandle), weight=100)
 
     return [Fbar, inHandle, notinHandle]
 
@@ -303,8 +303,18 @@ find_handle(F,G,candidate_dom, total_surplus, comb_upper_bd) takes
     total_surplus: the total surplus of dominoes in candidate_dom
     comb_upper_bound: a float >=0, <1
 and returns
+    H: the handle found, if there is one with comb_surplus < comb_upper_bd
+    None: if it couldnt find any handle as above
 
 
+Example:
+    from domgraph import create_dom_graph
+
+    F=build_support_graph('pr76.x')
+    G=create_dom_graph('pr76.dom', 0.5, 5000)
+    candidate_dom,total_surplus = find_stable_set(G, total_surplus_bound)
+
+    find_handle(F,G,candidate_dom,total_surplus, 0.9)
 '''
 
 def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
@@ -316,33 +326,72 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
     for node in candidate_dom:
         A=G.node[node]['A']
         B=G.node[node]['B']
+        
+        from ABcut import edges_cross
         E_A_B=edges_cross(F,A,B)
         xE_A_B=sum(F[u][v]['weight'] for (u,v) in E_A_B)
+        #        print('x*(E(A,B))=%.5f' % xE_A_B)
+        
         LHS= 0.5*G.node[node]['surplus'] - xE_A_B
-        LHS_list.append(RHS)
-    sumLHS=sum(x for x in LHS_list)
+        LHS_list.append(LHS)
+            #print('LHS= %.5f' % LHS)
     
-    all_patterns=list(product([0,1], repeat=len(candidate_dom)))
-    for pattern in all_patterns:
+    sumLHS=sum(x for x in LHS_list)
+    # print(sumLHS)
+    
+    all_patterns=list(product(['0','1'], repeat=len(candidate_dom)))
+    for lst_pattern in all_patterns:
+        pattern=''.join(lst_pattern)
         Fbar, inHandle, notinHandle = add_s_t(F,G,candidate_dom,pattern)
+
+        '''
+        print('inHandle:')
+        print(inHandle)
+        
+        print('notinHandle:')
+        print(notinHandle)
+        '''
         xdeltaH, partitions = nx.minimum_cut(Fbar, 's','t', capacity='weight')
+        '''
+        print('H:')
+        print(partitions[0])
+        
+        print((inHandle< partitions[0]) or (notinHandle < partitions[0]))
+        
+        print('x(delta(H))= %.5f' % xdeltaH)
+        '''
         
         comb_surplus=xdeltaH + sumLHS
+        '''
+        print('comb_surplus: %.5f' % comb_surplus)
+        print('\n')
+        '''
         
         if comb_surplus < comb_upper_bd:
+            print('success!!!!!!!!!!!!!!')
+            print(partitions[0])
+            print('comb surplus: %.5f' % comb_surplus)
             return partitions[0]
-            
-            
-            deltaH =[]
-            for p1_node in partitions[0]:
-                for p2_node in partitions[1]:
-                    if Fbar.has_edge(p1_node,p2_node):
-                        deltaH.append((p1_node,p2_node))
 
+    return None
     end=timer()
-    print('running time: %.5f seconds' % (end-start))
+#    print('running time: %.5f seconds' % (end-start))
 
-    return
+if __name__ =='__main__':
+    from domgraph import create_dom_graph
+    
+    F=build_support_graph('pr76.x')
+    G=create_dom_graph('pr76.dom', 0.5, 5000)
+    for i in range(100):
+        candidate_dom,total_surplus = find_stable_set(G, 0.75)
+        find_handle(F,G,candidate_dom,total_surplus, 0.9)
+
+'''
+        print('candidate_dom:')
+        print(candidate_dom)
+        print('total surplus of dominoes: %.5f' %total_surplus)
+'''
+
         
 '''
         shrink=shrink_dom_graph(F,G,candidate_dom,pattern)
