@@ -30,6 +30,8 @@ Examples:
 '''
 
 def build_support_graph(fracsolu):
+    start=timer()
+    
     fracfile=open(fracsolu,'r')
     first_line=map(int,fracfile.readline().split())
     num_of_vertices=first_line[0]
@@ -43,16 +45,24 @@ def build_support_graph(fracsolu):
         edge_wt=float(line[2])
         F.add_nodes_from([u,v])
         F.add_edge(u,v,weight=edge_wt)
-    
+    end=timer()
+    print('Running time: %.5f seconds' %(end-start))
     return F
 
 
 ## Testing build_support_graph
-#
-
+## passed
+'''
 if __name__ =="__main__":
     F=build_support_graph('pr76.x')
+    #    print('Number of edges: %d' % F.number_of_edges())
+    #    print('Number of nodes: %d' % F.number_of_nodes()) # this prints the edge weights as well
+    print(list(F.edges(data=True)))
+'''
 
+## one more test for pr76
+## passed
+'''
 def test_build_support_graph_pr76():
     F=build_support_graph('pr76.x')
     assert F.number_of_edges()==95
@@ -64,6 +74,14 @@ def test_build_support_graph_pr76():
     assert not F.has_edge(1,75)
     assert not F.has_edge(0,0)
     assert F[0][75]['weight']==1.00000
+'''
+
+## test for att532
+if __name__ =="__main__":
+    F=build_support_graph('att532.x')
+    print('Number of edges: %d' % F.number_of_edges())
+    print('Number of nodes: %d' % F.number_of_nodes())
+    #print(list(F.edges(data=True)))
 
 def shrink_dom_graph(F,G,candidate_dom,pattern):
     inHandle=set()
