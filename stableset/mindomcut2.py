@@ -19,6 +19,7 @@ Step2: Compute a min cost st cut in Fbar. If it represents an eligible handle, t
 '''
 
 
+# build_support_graph
 '''
 build_support_graph(fracsolu) takes a fractional solution to the TSP (a .x file) and returns F, the support graph of the fractional solution
 
@@ -101,6 +102,39 @@ def test_build_support_graph_pr76():
     assert not F.has_edge(0,0)
     assert F[21][27]['weight']==0.790773
 '''
+
+
+
+
+
+# add_s_t
+'''
+   
+Requirement: 
+    * candidate_dom: a list of nodes in G, such that the corresponding dominoes are disjoint
+    * pattern: a string of {0,1} that has the same length as candidate_dom
+               if pattern[i]==0, then the domino represented by candidate_dom[i] has A in handle and B bot in handle
+'''
+
+def add_s_t(F,G,candidate_dom, pattern):
+    # determines what is in handle and what is not in handle according to the pattern
+    inHandle=set()
+    notinHandle=set()
+    for i in range(len(candidate_dom)):
+        domnode=candidate_dom[i]
+        A=G.node[domnode]['A']
+        B=G.node[domnode]['B']
+
+        if pattern[i]==0:
+            inHandle= inHandle.union(A)
+            notinHandle=notinHandle.union(B)
+        else:
+            inHandle= inHandle.union(B)
+            notinHandle=notinHandle.union(A)
+                
+    # construct Fbar by adding s and t. s: inHandle, t: notinHandle
+    Fbar=F
+    
 
 
 
