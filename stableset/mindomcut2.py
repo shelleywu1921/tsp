@@ -330,6 +330,9 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
         comb_surplus=xdeltaH + sumLHS
         
         if comb_surplus < comb_upper_bd:
+            return partitions[0]
+            
+            
             deltaH =[]
             for p1_node in partitions[0]:
                 for p2_node in partitions[1]:
@@ -337,6 +340,9 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
                         deltaH.append((p1_node,p2_node))
 
     end=timer()
+    print('running time: %.5f seconds' % (end-start))
+
+    return
         
 '''
         shrink=shrink_dom_graph(F,G,candidate_dom,pattern)
