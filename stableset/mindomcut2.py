@@ -420,7 +420,7 @@ if __name__ =='__main__':
 	comb_upper_bound =0.9   # less than 1
 	
 	#for the loop
-	find_handle_ntimes = 10000  # number of times you want to run findhandle
+	find_handle_ntimes = 1000  # number of times you want to run findhandle
 	####################################################################
 	
 	F=build_support_graph(supp_graph_name)
@@ -453,7 +453,7 @@ if __name__ =='__main__':
 
 	## WRITING TO RECORD ###################################################
 	# for recording the trial
-	trialname=domfilename.split('.')[0]+ '_4' + '.md'
+	trialname=domfilename.split('.')[0]+ '_5' + '.md'
 	trialfile=open(trialname,'w')
 	trialfile.write('NOTE: only consider combs with more than 5 teeth! \n')
 	trialfile.write(domfilename.split('.')[0]+ '\n')
