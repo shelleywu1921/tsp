@@ -2,6 +2,7 @@ import networkx as nx
 from domgraph import find_stable_set
 from itertools import product
 from timeit import default_timer as timer
+from copy import copy
 
 
 
@@ -40,7 +41,7 @@ def shrink_dom_graph(F,G,candidate_dom,pattern):
         else:
             inHandle= inHandle.union(B)
             notinHandle=notinHandle.union(A)            
-    Fshrink=F
+    Fshrink=nx.MultiGraph(F)
     s=inHandle.pop()
     t=notinHandle.pop()
     
@@ -80,6 +81,7 @@ def find_handle(F,G,candidate_dom, total_surplus,vio_upper_bd):
         notinHandle=shrink[4]
         
         xdeltaH, partitions = nx.minimum_cut(Fshrink, s,t, capacity='weight')
+        print('xdeltaH: %.5f' %xdeltaH)
         comb_surplus=xdeltaH+sumLHS
         
         if comb_surplus< vio_upper_bd:
