@@ -336,7 +336,7 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
         LHS_list.append(LHS)
     
     sumLHS=sum(x for x in LHS_list)
-    # print(sumLHS)
+    #    print(sumLHS)
     
     all_patterns=list(product(['0','1'], repeat=len(candidate_dom)))
     for lst_pattern in all_patterns:
@@ -357,7 +357,7 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
         
         print((inHandle< partitions[0]) or (notinHandle < partitions[0]))
         '''
-        #print('x(delta(H))= %.5f' % xdeltaH)
+        #   print('x(delta(H))= %.5f' % xdeltaH)
         
         
         comb_surplus=xdeltaH + sumLHS
@@ -379,9 +379,9 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
 if __name__ =='__main__':
     from domgraph import create_dom_graph
     start=timer()
-    F=build_support_graph('pr76.x')
-    G=create_dom_graph('pr76.dom', 1.0, 5000)
-    for i in range(1000):
+    F=build_support_graph('att532.x')
+    G=create_dom_graph('att532.dom', 1.0, 5000)
+    for i in range(10):
         find_ss=find_stable_set(G,3)
         if find_ss != None:
             candidate_dom,total_surplus = find_ss
