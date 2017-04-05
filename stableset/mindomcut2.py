@@ -340,7 +340,7 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
     # print(sumLHS)
     
     all_patterns=list(product(['0','1'], repeat=len(candidate_dom)))
-    for lst_pattern in all_patterns[:10]:
+    for lst_pattern in all_patterns[0:2]:
         pattern=''.join(lst_pattern)
         Fbar, inHandle, notinHandle = add_s_t(F,G,candidate_dom,pattern)
 
@@ -382,7 +382,7 @@ if __name__ =='__main__':
     
     F=build_support_graph('pr76.x')
     G=create_dom_graph('pr76.dom', 0.5, 5000)
-    for i in range(10):
+    for i in range(100000):
         candidate_dom,total_surplus = find_stable_set(G, 0.75)
         find_handle(F,G,candidate_dom,total_surplus, 0.9)
 
