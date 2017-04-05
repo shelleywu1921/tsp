@@ -35,3 +35,5 @@ if __name__ =='__main__':
 
 Tried 100 and 1000 for `#Here`. Running time: `44.80712 seconds` and `471.89071 seconds` respectively. `No violated comb found`, unfortunately.
 
+Tried 1 and 10 for att532. Running time: `128.87578 seconds` and `222.66239 seconds` respectively. No violated comb found
+
