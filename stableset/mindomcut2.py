@@ -403,8 +403,8 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
 if __name__ =='__main__':
 	from domgraph import create_dom_graph
 	start=timer()
-	F=build_support_graph('pr76.x')
-	G=create_dom_graph('pr76.dom', 1.0, 5000)
+	F=build_support_graph('bowtie.x')
+	G=create_dom_graph('bowtie.dom', 1.0, 5000)
 	pbar = ProgressBar(widgets=[Percentage(), Bar()], maxval=300).start()
 	counter =0
 	for i in range(100000):
