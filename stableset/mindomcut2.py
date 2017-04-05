@@ -420,7 +420,7 @@ if __name__ =='__main__':
 	comb_upper_bound =0.9   # less than 1
 	
 	#for the loop
-	find_handle_ntimes = 10  # number of times you want to run findhandle
+	find_handle_ntimes = 10000  # number of times you want to run findhandle
 	####################################################################
 	
 	F=build_support_graph(supp_graph_name)
@@ -453,8 +453,9 @@ if __name__ =='__main__':
 
 	## WRITING TO RECORD ###################################################
 	# for recording the trial
-	trialname=domfilename.split('.')[0]+ '_1' + '.md'
+	trialname=domfilename.split('.')[0]+ '_4' + '.md'
 	trialfile=open(trialname,'w')
+	trialfile.write('NOTE: only consider combs with more than 5 teeth! \n')
 	trialfile.write(domfilename.split('.')[0]+ '\n')
 	trialfile.write('Surplus bound on each domino: %.4f \n' % surplus_bound)
 	trialfile.write('Number of nodes in G: %d \n' % G.number_of_nodes())
@@ -470,6 +471,7 @@ if __name__ =='__main__':
 	trialfile.write('Total running time: %.5f seconds' % (end-start))
 	trialfile.close()
 	print('Total number of sets of candidate_dom considered: %d' % counter)
+	print('Combs found: %d \n' % combs_found)
 	print('Total time: %.5f seconds' % (end-start))
 '''
         print('candidate_dom:')
