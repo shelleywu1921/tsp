@@ -452,17 +452,17 @@ if __name__ =='__main__':
 
 	## WRITING TO RECORD ###################################################
 	# for recording the trial
-	trialname=domfilename.split('.')[0]+ '1' + '.txt'
+	trialname=domfilename.split('.')[0]+ '1' + '.md'
 	trialfile=open(trialname,'w')
 	trialfile.write(domfilename.split('.')[0])
-	trialfile.write('Surplus bound on each domino: %.4f ' % surplus_bound)
-	trialfile.write('Number of nodes in G: %d' % G.number_of_nodes())
-	trialfile.write('Total surplus of stable sets: %.4f' % total_stable_set_surplus_bound )
-	trialfile.write('Pattern upper bound: %d' % pattern_upper_bound)
-	trialfile.write('Comb surplus upper bound (<1): %.4f' % comb_upper_bound)
-	trialfile.write('Running find_handle: %d times' % find_handle_ntimes)
-	trialfile.write('Number of candidate_dom considered %d' % counter)
-	trialfile.write('Combs found: %d' % combs_found)
+	trialfile.write('Surplus bound on each domino: %.4f \n' % surplus_bound)
+	trialfile.write('Number of nodes in G: %d \n' % G.number_of_nodes())
+	trialfile.write('Bound on total surplus of stable sets: %.4f \n' % total_stable_set_surplus_bound )
+	trialfile.write('Pattern upper bound: %d \n' % pattern_upper_bound)
+	trialfile.write('Comb surplus upper bound (<1): %.4f \n' % comb_upper_bound)
+	trialfile.write('Running find_handle: %d times \n' % find_handle_ntimes)
+	trialfile.write('Number of candidate_dom considered %d \n' % counter)
+	trialfile.write('Combs found: %d \n' % combs_found)
 	
 	end=timer()
 	print('Total number of sets of candidate_dom considered: %d' % counter)
