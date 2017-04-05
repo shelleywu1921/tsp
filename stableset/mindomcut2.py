@@ -5,7 +5,7 @@ import time
 from timeit import default_timer as timer
 from copy import deepcopy
 from progressbar import ProgressBar, Percentage, Bar
-
+import math 
 '''
 A bit of notations: 
 G denotes the graph where nodes represent dominoes
@@ -336,6 +336,7 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
     # for each node in candidate_dom, LHS =1/2surplus(Ti)-x*(E(A,B))
     # sumLHS = \sum 1/2 surplus(Ti)-x*(E(Ai,Bi)). Independ on H, the handle chosen
     LHS_list=[]
+    print('Number of teeth: %d ' % len(candidate_dom))
     for node in candidate_dom:
         A=G.node[node]['A']
         B=G.node[node]['B']
@@ -349,64 +350,81 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
         LHS_list.append(LHS)
     
     sumLHS=sum(x for x in LHS_list)
+    
     #print(sumLHS)
     
     all_patterns=list(product(['0','1'], repeat=len(candidate_dom)))
-    for lst_pattern in all_patterns:
-        pattern=''.join(lst_pattern)
-        Fbar, inHandle, notinHandle = add_s_t(F,G,candidate_dom,pattern)
-
-        '''
-        print('inHandle:')
-        print(inHandle)
-        
-        print('notinHandle:')
-        print(notinHandle)
-        '''
-        xdeltaH, partitions = nx.minimum_cut(Fbar, 's','t', capacity='weight')
-        '''
-        print('H:')
-        print(partitions[0])
-        
-        print((inHandle< partitions[0]) or (notinHandle < partitions[0]))
-        '''
-       # print('x(delta(H))= %.5f' % xdeltaH)
-        
-        
-        comb_surplus=xdeltaH + sumLHS
-        '''
-        print('comb_surplus: %.5f' % comb_surplus)
-        print('\n')
-        '''
-        
-        if comb_surplus < comb_upper_bd:
-            print('success!!!!!!!!!!!!!!')
-            print(partitions[0])
-            print('comb surplus: %.5f' % comb_surplus)
-            return partitions[0]
-        del_s_t(F)
+    
+    if len(all_patterns) < 20:
+    	step =1
+    else: 
+    	step= math.floor(len(all_patterns)/20)
+    	
+    for i in range(len(all_patterns)):
+    	if i%step == 0:
+			lst_pattern=all_patterns[i]
+			pattern=''.join(lst_pattern)
+			Fbar, inHandle, notinHandle = add_s_t(F,G,candidate_dom,pattern)
+			'''
+			print('inHandle:')
+			print(inHandle)
+	
+			print('notinHandle:')
+			print(notinHandle)
+			'''
+			xdeltaH, partitions = nx.minimum_cut(Fbar, 's','t', capacity='weight')
+			'''
+			print('H:')
+			print(partitions[0])
+	
+			print((inHandle< partitions[0]) or (notinHandle < partitions[0]))
+			'''
+			#print('x(delta(H))= %.5f' % xdeltaH)
+	
+	
+			comb_surplus=xdeltaH + sumLHS
+			'''
+			print('comb_surplus: %.5f' % comb_surplus)
+			
+			print('\n')
+			'''
+	
+			if comb_surplus < comb_upper_bd:
+				print('success!!!!!!!!!!!!!!')
+				print(partitions[0])
+				print('comb surplus: %.5f' % comb_surplus)
+				return partitions[0]
+			del_s_t(F)
 		
     return None
     end=timer()
-#    print('running time: %.5f seconds' % (end-start))
+    print('running time: %.5f seconds' % (end-start))
 
 if __name__ =='__main__':
-    from domgraph import create_dom_graph
-    start=timer()
-    F=build_support_graph('att532.x')
-    G=create_dom_graph('att532.dom', 1.0, 5000)
-    pbar = ProgressBar(widgets=[Percentage(), Bar()], maxval=300).start()
+	from domgraph import create_dom_graph
+	start=timer()
+	F=build_support_graph('pr76.x')
+	G=create_dom_graph('pr76.dom', 1.0, 5000)
+	pbar = ProgressBar(widgets=[Percentage(), Bar()], maxval=300).start()
+	counter =0
+	for i in range(100000):
+		time.sleep(0.01)
+		find_ss=find_stable_set(G,1.5) # less than 2
+		if find_ss != None:
+			counter=counter+1
+			candidate_dom,total_surplus = find_ss
+			find_handle(F,G,candidate_dom,total_surplus, 0.9)
+			#pbar.update(i+1)
 
-    for i in range(1000):
-        time.sleep(0.01)
-        find_ss=find_stable_set(G,1.5) # less than 2
-        if find_ss != None:
-            candidate_dom,total_surplus = find_ss
-            find_handle(F,G,candidate_dom,total_surplus, 0.9)
-    	pbar.update(i+1)
-    pbar.finish()
-    end=timer()
-    print('Total time: %.5f seconds' % (end-start))
+		try:
+			pbar.update(i+1)
+		except ValueError:
+			pass
+	
+	pbar.finish()
+	end=timer()
+	print('Total number of sets of candidate_dom considered: %d' % counter)
+	print('Total time: %.5f seconds' % (end-start))
 '''
         print('candidate_dom:')
         print(candidate_dom)

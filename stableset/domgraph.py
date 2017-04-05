@@ -3,6 +3,8 @@ from __future__ import division
 import networkx as nx
 from timeit import default_timer as timer
 
+import math
+
 
 
 '''
@@ -35,20 +37,32 @@ def create_dom_graph(domfilename,surplus_bound,node_num_upper_bound):
  num_of_dom=int(firstline[1])
  
  G=nx.Graph()
+ 
+ '''
+ add the following lines to make the nodes more evenly distributed over the graphs
+ '''
+ if num_of_dom < node_num_upper_bound:
+ 	step = 1
+ else:
+ 	step = math.floor(num_of_dom/node_num_upper_bound)
+ 	print('step= %d' % step)
+ 	
  for i in range(num_of_dom): 
    line=domfile.readline().split()
    surplus=float(line[0])
-   if surplus<=surplus_bound:
-     Asize=int(line[1]) 
-     Bsize=int(line[2])
-     A=set(map(int, line[3:3+Asize]))
-     B=set(map(int,line[3+Asize:]))
-     vertices=set(map(int, line[3:])) 
+   if i % step ==0:
+	   if surplus<=surplus_bound:
+		 Asize=int(line[1]) 
+		 Bsize=int(line[2])
+		 A=set(map(int, line[3:3+Asize]))
+		 B=set(map(int,line[3+Asize:]))
+		 vertices=set(map(int, line[3:])) 
   
-     G.add_node(i, surplus=surplus, Asize=Asize, Bsize=Bsize, A=A, B=B, vertices= vertices)
+	
+		 G.add_node(i, surplus=surplus, Asize=Asize, Bsize=Bsize, A=A, B=B, vertices= vertices)
     
-     if G.number_of_nodes()==node_num_upper_bound:
-      break
+   #  if G.number_of_nodes()==node_num_upper_bound:
+		#  break
      
  domfile.close()
  print('number of nodes in the graph G: %d' % (G.number_of_nodes()))
