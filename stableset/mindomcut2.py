@@ -343,13 +343,13 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
         from ABcut import edges_cross
         E_A_B=edges_cross(F,A,B)
         xE_A_B=sum(F[u][v]['weight'] for (u,v) in E_A_B)
-        #        print('x*(E(A,B))=%.5f' % xE_A_B)
+        #print('x*(E(A,B))=%.5f' % xE_A_B)
         
         LHS= 0.5*G.node[node]['surplus'] - xE_A_B
         LHS_list.append(LHS)
     
     sumLHS=sum(x for x in LHS_list)
-    #    print(sumLHS)
+    #print(sumLHS)
     
     all_patterns=list(product(['0','1'], repeat=len(candidate_dom)))
     for lst_pattern in all_patterns:
@@ -370,7 +370,7 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
         
         print((inHandle< partitions[0]) or (notinHandle < partitions[0]))
         '''
-        #   print('x(delta(H))= %.5f' % xdeltaH)
+       # print('x(delta(H))= %.5f' % xdeltaH)
         
         
         comb_surplus=xdeltaH + sumLHS
@@ -384,7 +384,8 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
             print(partitions[0])
             print('comb surplus: %.5f' % comb_surplus)
             return partitions[0]
-
+        del_s_t(F)
+		
     return None
     end=timer()
 #    print('running time: %.5f seconds' % (end-start))
@@ -392,17 +393,17 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
 if __name__ =='__main__':
     from domgraph import create_dom_graph
     start=timer()
-    F=build_support_graph('pr76.x')
-    G=create_dom_graph('pr76.dom', 1.0, 5000)
+    F=build_support_graph('att532.x')
+    G=create_dom_graph('att532.dom', 1.0, 5000)
     pbar = ProgressBar(widgets=[Percentage(), Bar()], maxval=300).start()
 
-    for i in range(100):
+    for i in range(1000):
         time.sleep(0.01)
-        find_ss=find_stable_set(G,3)
+        find_ss=find_stable_set(G,1.5) # less than 2
         if find_ss != None:
             candidate_dom,total_surplus = find_ss
             find_handle(F,G,candidate_dom,total_surplus, 0.9)
-        pbar.update(i+1)
+    	pbar.update(i+1)
     pbar.finish()
     end=timer()
     print('Total time: %.5f seconds' % (end-start))
