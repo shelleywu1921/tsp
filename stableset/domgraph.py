@@ -64,7 +64,11 @@ def create_dom_graph(domfilename,surplus_bound,node_num_upper_bound):
  print('running time: %.5f seconds' % (end-start)) 
  return G
 
-
+def save_dom_graph(domfilename, surplus_bound, node_num_upper_bound):
+	G=create_dom_graph(domfilename, surplus_bound, node_num_upper_bound)
+	graphname=domfile.split('.')[0] + '_'+ str(surplus_bound) + '_'+ str(node_num_upper_bound)
+	write_gexf(G, domgraphs/graphname)
+	
 ''' 
 find_stable_set(G, total_surplus_bound) takes a graph G that represents a domfile (i.e. a graph produced by create_dom_graph, and total_surplus_bound, and returns an odd stable set of G and its total surplus (the sum of the surpluses of everything in the odd stable set). Moreover, its total surplus < total_surplus_bound.
 
