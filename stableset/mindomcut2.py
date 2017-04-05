@@ -330,7 +330,7 @@ Example:
     find_handle(F,G,candidate_dom,total_surplus, 0.9)
 '''
 
-def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
+def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd,pattern_upper_bound):
     start=timer()
     
     # for each node in candidate_dom, LHS =1/2surplus(Ti)-x*(E(A,B))
@@ -355,10 +355,10 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
     
     all_patterns=list(product(['0','1'], repeat=len(candidate_dom)))
     
-    if len(all_patterns) < 20:
+    if len(all_patterns) < pattern_upper_bound:
     	step =1
     else: 
-    	step= math.floor(len(all_patterns)/20)
+    	step= math.floor(len(all_patterns)/pattern_upper_bound)
     	
     for i in range(len(all_patterns)):
     	if i%step == 0:
@@ -403,17 +403,44 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
 if __name__ =='__main__':
 	from domgraph import create_dom_graph
 	start=timer()
-	F=build_support_graph('bowtie.x')
-	G=create_dom_graph('bowtie.dom', 1.0, 5000)
+	supp_graph_name='bowtie.x'
+	
+	## VARIABLES ######################################################
+	#for create_dom_graph
+	domfilename='bowtie.dom'
+	surplus_bound=1.0
+	node_num_upper_bound=5000
+
+	#for find_stable_set 
+	total_stable_set_surplus_bound=1.5 # less than 2
+	
+	#for find_handle
+	pattern_upper_bound=20
+	comb_upper_bound =0.9   # less than 1
+	
+	#for the loop
+	find_handle_ntimes = 10 # number of times you want to run findhandle
+	####################################################################
+	
+	F=build_support_graph(supp_graph_name)
+	G=create_dom_graph(domfilename, surplus_bound, node_num_upper_bound)
+	
+	#wedget
 	pbar = ProgressBar(widgets=[Percentage(), Bar()], maxval=300).start()
+	
+
+	
 	counter =0
-	for i in range(100000):
+	combs_found=0
+	for i in range(find_handle_ntimes):
 		time.sleep(0.01)
-		find_ss=find_stable_set(G,1.5) # less than 2
+		find_ss=find_stable_set(G,total_stable_set_surplus_bound) # less than 2
 		if find_ss != None:
 			counter=counter+1
 			candidate_dom,total_surplus = find_ss
-			find_handle(F,G,candidate_dom,total_surplus, 0.9)
+			fh=find_handle(F,G,candidate_dom,total_surplus, comb_upper_bound,pattern_upper_bound)
+			if fh !=None:
+				combs_found = combs_found+1
 			#pbar.update(i+1)
 
 		try:
@@ -422,6 +449,21 @@ if __name__ =='__main__':
 			pass
 	
 	pbar.finish()
+
+	## WRITING TO RECORD ###################################################
+	# for recording the trial
+	trialname=domfilename.split('.')[0]+ '1' + '.txt'
+	trialfile=open(trialname,'w')
+	trialfile.write(domfilename.split('.')[0])
+	trialfile.write('Surplus bound on each domino: %.4f ' % surplus_bound)
+	trialfile.write('Number of nodes in G: %d' % G.number_of_nodes())
+	trialfile.write('Total surplus of stable sets: %.4f' % total_stable_set_surplus_bound )
+	trialfile.write('Pattern upper bound: %d' % pattern_upper_bound)
+	trialfile.write('Comb surplus upper bound (<1): %.4f' % comb_upper_bound)
+	trialfile.write('Running find_handle: %d times' % find_handle_ntimes)
+	trialfile.write('Number of candidate_dom considered %d' % counter)
+	trialfile.write('Combs found: %d' % combs_found)
+	
 	end=timer()
 	print('Total number of sets of candidate_dom considered: %d' % counter)
 	print('Total time: %.5f seconds' % (end-start))
