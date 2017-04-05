@@ -131,7 +131,7 @@ Requirements:
     * pattern: a string of {0,1} that has the same length as candidate_dom
                if pattern[i]=='0', then the domino represented by candidate_dom[i] has A in handle and B bot in handle
 Warning:
-    * Fbar and F are NOT aliases.
+    * Fbar and F are aliases.
 '''
 
 def add_s_t(F,G,candidate_dom, pattern):
@@ -151,7 +151,7 @@ def add_s_t(F,G,candidate_dom, pattern):
             notinHandle=notinHandle.union(A)
                 
     # construct Fbar by adding s and t. s: inHandle, t: notinHandle
-    Fbar=deepcopy(F)      # this is NOT an alias!
+    Fbar=F     # this is an alias!
     Fbar.add_edges_from(list(('s',x) for x in inHandle), weight=100)
     Fbar.add_edges_from(list(('t',y) for y in notinHandle), weight=100)
 
@@ -294,6 +294,17 @@ def test_add_s_t_pr76_4():
     assert is_isomorphic(Fbar,Fprime)
 '''
 
+# del_s_t
+'''
+The above add_s_t has changed F. F now has two extra vertices, 's' and 't', 
+whose adjacent edges all have huge weights. 
+
+del_s_t(F) takes F, that is changed by add_s_t, and deletes 's', 't' and all their adjacent 
+edges
+'''
+def del_s_t(F):
+	F.remove_node('s')
+	F.remove_node('t')
 
 
 # find_handle
