@@ -2,7 +2,7 @@ import networkx as nx
 from domgraph import find_stable_set
 from itertools import product
 from timeit import default_timer as timer
-from copy import copy
+from copy import deepcopy
 
 '''
 A bit of notations: 
@@ -149,7 +149,7 @@ def add_s_t(F,G,candidate_dom, pattern):
             notinHandle=notinHandle.union(A)
                 
     # construct Fbar by adding s and t. s: inHandle, t: notinHandle
-    Fbar=copy(F)      # this is NOT an alias!
+    Fbar=deepcopy(F)      # this is NOT an alias!
     Fbar.add_edges_from(list(('s',x) for x in inHandle), weight=100)
     Fbar.add_edges_from(list(('t',y) for y in notinHandle), weight=100)
 
@@ -334,13 +334,12 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
         
         LHS= 0.5*G.node[node]['surplus'] - xE_A_B
         LHS_list.append(LHS)
-            #print('LHS= %.5f' % LHS)
     
     sumLHS=sum(x for x in LHS_list)
     # print(sumLHS)
     
     all_patterns=list(product(['0','1'], repeat=len(candidate_dom)))
-    for lst_pattern in all_patterns[:10]:
+    for lst_pattern in all_patterns:
         pattern=''.join(lst_pattern)
         Fbar, inHandle, notinHandle = add_s_t(F,G,candidate_dom,pattern)
 
@@ -357,9 +356,9 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
         print(partitions[0])
         
         print((inHandle< partitions[0]) or (notinHandle < partitions[0]))
-        
-        print('x(delta(H))= %.5f' % xdeltaH)
         '''
+        #print('x(delta(H))= %.5f' % xdeltaH)
+        
         
         comb_surplus=xdeltaH + sumLHS
         '''
@@ -381,10 +380,12 @@ if __name__ =='__main__':
     from domgraph import create_dom_graph
     start=timer()
     F=build_support_graph('pr76.x')
-    G=create_dom_graph('pr76.dom', 0.5, 5000)
-    for i in range(10000):
-        candidate_dom,total_surplus = find_stable_set(G, 0.75)
-        find_handle(F,G,candidate_dom,total_surplus, 0.9)
+    G=create_dom_graph('pr76.dom', 1.0, 5000)
+    for i in range(1000):
+        find_ss=find_stable_set(G,3)
+        if find_ss != None:
+            candidate_dom,total_surplus = find_ss
+            find_handle(F,G,candidate_dom,total_surplus, 0.9)
     end=timer()
     print('Total time: %.5f seconds' % (end-start))
 '''
