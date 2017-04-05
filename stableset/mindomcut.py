@@ -53,6 +53,23 @@ def shrink_dom_graph(F,G,candidate_dom,pattern):
 
 def find_handle(F,G,candidate_dom, total_surplus,vio_upper_bd):
     start=timer()
+    
+    LHS_list=[]
+    for node in candidate_dom:
+        A=G.node[node]['A']
+        B=G.node[node]['B']
+        
+        from ABcut import edges_cross
+        E_A_B=edges_cross(F,A,B)
+        xE_A_B=sum(F[u][v]['weight'] for (u,v) in E_A_B)
+        #        print('x*(E(A,B))=%.5f' % xE_A_B)
+        
+        LHS= 0.5*G.node[node]['surplus'] - xE_A_B
+        LHS_list.append(LHS)
+    #print('LHS= %.5f' % LHS)
+    
+    sumLHS=sum(x for x in LHS_list)
+
     all_patterns=list(product([0,1], repeat=len(candidate_dom)))
     for pattern in all_patterns:
         shrink=shrink_dom_graph(F,G,candidate_dom,pattern)
@@ -62,21 +79,42 @@ def find_handle(F,G,candidate_dom, total_surplus,vio_upper_bd):
         inHandle=shrink[3]
         notinHandle=shrink[4]
         
-        cutweight, partitions = nx.minimum_cut(Fshrink, s,t, capacity='weight')
-        if cutweight + total_surplus < vio_upper_bd:
-            edge_cut_list=[]
+        xdeltaH, partitions = nx.minimum_cut(Fshrink, s,t, capacity='weight')
+        comb_surplus=xdeltaH+sumLHS
+        
+        if comb_surplus< vio_upper_bd:
+            end=timer()
+            print('success!!!!!!!!!!!!!!')
+            print(partitions[0])
+            print('comb surplus: %.5f' % comb_surplus)
+            return None
+            '''
+           edge_cut_list=[]
             for p1_node in partitions[0]:
                 for p2_node in partitions[1]:
                     if Fshrink.has_edge(p1_node,p2_node):
                         edge_cut_list.append((p1_node,p2_node))
-            end=timer()
+            '''
+                
+
+            
+            '''
             print('cut weight = %.5f' % cutweight)
             print('total surplus = %.5f' % total_surplus)
             print('cut weight + total surplus = %.5f' % cutweight+total_surplus)
             
             print('running time = %.5f seconds \n'% (end-start))
-            
-            return [cutweight, cutweight+total_surplus, edge_cut_list] 
+            '''
+    print('Fails :(')
+    return None #[cutweight, cutweight+total_surplus, edge_cut_list]
+if __name__ =='__main__':
+    from domgraph import create_dom_graph
+    
+    F=build_support_graph('bowtie.x')
+    G=create_dom_graph('bowtie.dom', 0.5, 5000)
+    for i in range(1):
+        candidate_dom,total_surplus = find_stable_set(G, 0.75)
+        find_handle(F,G,candidate_dom,total_surplus, 0.9)
             
 def find_many_combs(F,G,vio_upper_bd, surplus_bound, ncombs):
     for i in range(ncombs):
