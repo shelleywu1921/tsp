@@ -1,8 +1,10 @@
 import networkx as nx
 from domgraph import find_stable_set
 from itertools import product
+import time
 from timeit import default_timer as timer
 from copy import deepcopy
+from progressbar import ProgressBar, Percentage, Bar
 
 '''
 A bit of notations: 
@@ -379,13 +381,18 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd):
 if __name__ =='__main__':
     from domgraph import create_dom_graph
     start=timer()
-    F=build_support_graph('att532.x')
-    G=create_dom_graph('att532.dom', 1.0, 5000)
-    for i in range(10):
+    F=build_support_graph('pr76.x')
+    G=create_dom_graph('pr76.dom', 1.0, 5000)
+    pbar = ProgressBar(widgets=[Percentage(), Bar()], maxval=300).start()
+
+    for i in range(100):
+        time.sleep(0.01)
         find_ss=find_stable_set(G,3)
         if find_ss != None:
             candidate_dom,total_surplus = find_ss
             find_handle(F,G,candidate_dom,total_surplus, 0.9)
+        pbar.update(i+1)
+    pbar.finish()
     end=timer()
     print('Total time: %.5f seconds' % (end-start))
 '''
