@@ -403,23 +403,24 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd,pattern_upper_bou
 if __name__ =='__main__':
 	from domgraph import create_dom_graph
 	start=timer()
-	supp_graph_name='bowtie.x'
 	
 	## VARIABLES ######################################################
+	supp_graph_name='pr76.x'
+
 	#for create_dom_graph
-	domfilename='bowtie.dom'
+	domfilename='pr76.dom'
 	surplus_bound=1.0
 	node_num_upper_bound=5000
 
 	#for find_stable_set 
-	total_stable_set_surplus_bound=1.5 # less than 2
+	total_stable_set_surplus_bound=2 # less than 2
 	
 	#for find_handle
 	pattern_upper_bound=20
 	comb_upper_bound =0.9   # less than 1
 	
 	#for the loop
-	find_handle_ntimes = 10 # number of times you want to run findhandle
+	find_handle_ntimes = 10  # number of times you want to run findhandle
 	####################################################################
 	
 	F=build_support_graph(supp_graph_name)
@@ -452,11 +453,12 @@ if __name__ =='__main__':
 
 	## WRITING TO RECORD ###################################################
 	# for recording the trial
-	trialname=domfilename.split('.')[0]+ '1' + '.md'
+	trialname=domfilename.split('.')[0]+ '_1' + '.md'
 	trialfile=open(trialname,'w')
-	trialfile.write(domfilename.split('.')[0])
+	trialfile.write(domfilename.split('.')[0]+ '\n')
 	trialfile.write('Surplus bound on each domino: %.4f \n' % surplus_bound)
 	trialfile.write('Number of nodes in G: %d \n' % G.number_of_nodes())
+	trialfile.write('Number of edges in G: %d \n' % G.number_of_edges())
 	trialfile.write('Bound on total surplus of stable sets: %.4f \n' % total_stable_set_surplus_bound )
 	trialfile.write('Pattern upper bound: %d \n' % pattern_upper_bound)
 	trialfile.write('Comb surplus upper bound (<1): %.4f \n' % comb_upper_bound)
@@ -465,6 +467,8 @@ if __name__ =='__main__':
 	trialfile.write('Combs found: %d \n' % combs_found)
 	
 	end=timer()
+	trialfile.write('Total running time: %.5f seconds' % (end-start))
+	trialfile.close()
 	print('Total number of sets of candidate_dom considered: %d' % counter)
 	print('Total time: %.5f seconds' % (end-start))
 '''
