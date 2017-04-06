@@ -64,6 +64,7 @@ Solution: Modify find_stable_set so that the number of teeth is between 5 to 9
 Note that for att532, surplus on each domino is `0.75`, and total surplus of stable sets is `1.75`. The graph G is smaller. We set the upper bound of nodes on G to be 5000, but the actual number of nodes is 2446, ish.
 
 Moreover, the comb surplus upper bound is 1.0
+
 `test_duplication_3-5att532`: Since the number of candidate teeth is small, there were a lot of duplications. In the end, 1/10 of the stable sets found are unique. 
 
 `test_find_handle_3-5_att532`: No comb 
