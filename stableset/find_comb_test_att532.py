@@ -1,4 +1,11 @@
 '''
+This is dedicated to finding combs for att532
+Going to change find_stable_set such that all stable sets have number of teeth <=9
+'''
+
+
+# find_com_test.py
+'''
 I've decided to move the finding comb __name__=='__main__' from mindomcut2.py
 to here.
 
@@ -28,7 +35,7 @@ if __name__ =='__main__':
 	total_stable_set_surplus_bound=2 # less than 2
 	
 	#for find_handle
-	pattern_upper_bound=130
+	pattern_upper_bound=530	
 	comb_upper_bound =1.0   # less than 1
 	
 	#for the loop
@@ -58,7 +65,7 @@ if __name__ =='__main__':
 		# for recording the trial
 		trialname='test_find_handle_'+domfilename.split('.')[0]+ '_'+str(k+3) + '.md'
 		trialfile=open(trialname,'w')
-		trialfile.write('NOTE: only consider combs with more than 5 teeth! \n')
+		trialfile.write('NOTE: only consider combs with more than 5 teeth, and <= 9 teeth! \n')
 		trialfile.write('WARNING: comb_upper_bound changed to 1.0! Dont get too excited! \n')		
 		trialfile.write(domfilename.split('.')[0]+ '\n')
 		trialfile.write('Surplus bound on each domino: %.4f \n' % surplus_bound)
