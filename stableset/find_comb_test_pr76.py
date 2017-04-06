@@ -63,7 +63,7 @@ if __name__ =='__main__':
 
 		## WRITING TO RECORD ###################################################
 		# for recording the trial
-		trialname='test_find_handle_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
+		trialname='test_find_handle_3teeth'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
 		trialfile=open(trialname,'w')
 		#trialfile.write('NOTE: only consider combs with more than 5 teeth! \n')
 		trialfile.write('WARNING: comb_upper_bound changed to 1.0! Dont get too excited! \n')		
