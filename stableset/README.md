@@ -69,4 +69,8 @@ Moreover, the comb surplus upper bound is 1.0
 
 `test_find_handle_3-5_att532`: No comb 
 
+#### Is there anything wrong with my code?
+I tried `correctness_test_find_handle_pr76` to test if the code finds ANY violated comb inequality (comb_surplus_bound = 1.0) when the number of teeth is not restricted. 
+
+No comb found, as usual 
 

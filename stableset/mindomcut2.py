@@ -383,11 +383,11 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd,pattern_upper_bou
 	
 	
 			comb_surplus=xdeltaH + sumLHS
-			'''
+			
 			print('comb_surplus: %.5f' % comb_surplus)
 			
-			print('\n')
-			'''
+			#print('\n')
+			
 	
 			if comb_surplus < comb_upper_bd:
 				print('success!!!!!!!!!!!!!!')
