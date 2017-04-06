@@ -41,7 +41,7 @@ if __name__ =='__main__':
 	for k in range(1,5): # k=1,2,3,4	
 		counter =0 # number of candidate_dom (i.e. number of stable sets) considered
 		combs_found=0
-		find_handle_nktimes= 10*k
+		find_handle_nktimes= 10**k
 
 		for i in range(find_handle_nktimes):
 			find_ss=find_stable_set(G,total_stable_set_surplus_bound) # less than 2
@@ -73,6 +73,7 @@ if __name__ =='__main__':
 
 
 		## WRITE COMB ##################################################
+		
 		end=timer()
 		trialfile.write('Total running time: %.5f seconds' % (end-start))
 		trialfile.close()
