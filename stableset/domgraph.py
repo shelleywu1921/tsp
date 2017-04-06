@@ -121,13 +121,16 @@ def find_stable_set(G, total_surplus_bound):
 	  i_node=max_stable_set[i]
 	  i_minus_one_surplus=G.node[i_minus_one_node]['surplus']
           i_surplus=G.node[i_node]['surplus']
-
+  
 	  if total_surplus + i_minus_one_surplus + i_surplus < total_surplus_bound:
 		candidate_dom=candidate_dom+[i_minus_one_node, i_node]
 		total_surplus=total_surplus+i_minus_one_surplus+i_surplus
 	  else:
 		break
-  if len(candidate_dom)<5:  # changed from 3 to 5: only consider combs with 5 teeth or more!
+	  
+	  if len(candidate_dom) =9:	# up to 9 teeth
+	  	break
+  if len(candidate_dom)<3:  # changed from 5 to 3
     return None
   else:
     return [candidate_dom,total_surplus]

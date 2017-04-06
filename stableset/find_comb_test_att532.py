@@ -1,6 +1,8 @@
 '''
 This is dedicated to finding combs for att532
-Going to change find_stable_set such that all stable sets have number of teeth <=9
+From the printed results of test_find_handle_att532 1~6, which were not recorded,
+observed that the number of teeth in a stable set tends to be large: around 9~27 (WOW)
+
 '''
 
 
@@ -35,20 +37,19 @@ if __name__ =='__main__':
 	total_stable_set_surplus_bound=2 # less than 2
 	
 	#for find_handle
-	pattern_upper_bound=530	
+	pattern_upper_bound=530
 	comb_upper_bound =1.0   # less than 1
 	
 	#for the loop
-	find_handle_ntimes = 100000  # number of times you want to run findhandle
 	####################################################################
 	
 	F=build_support_graph(supp_graph_name)
 	G=create_dom_graph(domfilename, surplus_bound, node_num_upper_bound)
 	
-	for k in range(1,5): # k=1,2,3,4	
+	for k in range(1,3): # k=1,2	
 		counter =0 # number of candidate_dom (i.e. number of stable sets) considered
 		combs_found=0
-		find_handle_nktimes= 10**k
+		find_handle_nktimes= 10**k		# number of times you want to run find_handle
 
 		for i in range(find_handle_nktimes):
 			find_ss=find_stable_set(G,total_stable_set_surplus_bound) # less than 2
@@ -63,9 +64,9 @@ if __name__ =='__main__':
 
 		## WRITING TO RECORD ###################################################
 		# for recording the trial
-		trialname='test_find_handle_'+domfilename.split('.')[0]+ '_'+str(k+3) + '.md'
+		trialname='test_find_handle_3-9_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
 		trialfile=open(trialname,'w')
-		trialfile.write('NOTE: only consider combs with more than 5 teeth, and <= 9 teeth! \n')
+		trialfile.write('NOTE: only consider combs 3~9 teeth! \n')
 		trialfile.write('WARNING: comb_upper_bound changed to 1.0! Dont get too excited! \n')		
 		trialfile.write(domfilename.split('.')[0]+ '\n')
 		trialfile.write('Surplus bound on each domino: %.4f \n' % surplus_bound)
