@@ -77,6 +77,9 @@ No comb found, as usual
 ### Restrict to only 3 teeth
 In `3teeth_test_find_handle_pr76`, we only consider combs with 3 teeth. About 1/10 of total stable sets considered produce violated combs. However, their comb_surplus is fairly close to 1.0. For example, their comb_surplus is like 0.9999 
 
+Now try `3teeth_test_find_handle_att532` for att532. No violated comb
 
+### SET COMB SURPLUS TO `1.5`
+You can tell how 
 
 
