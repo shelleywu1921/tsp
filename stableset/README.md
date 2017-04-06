@@ -38,5 +38,16 @@ Tried 100 and 1000 for `#Here`. Running time: `44.80712 seconds` and `471.89071 
 Tried 1 and 10 for att532. Running time: `128.87578 seconds` and `222.66239 seconds` respectively. No violated comb found
 
 
+## April 5
+Brute force to see if there is any violated comb (<0.9) for pr76. 
+
 ## April 6
 ### Tested duplication: 
+Test to see how repetitive are the stable sets generated. See `test_repetition.py`. 
+
+`test_duplication_pr76`: The number of unique stable sets tend to 15,000 as the number of iterations tends to infinity. 
+
+`test_duplication_att532`: In constrast, the stable sets found in att532 doesn't have many duplications.
+
+### Finding combs:
+`test_find_handle_att532 1~6`: No combs 
