@@ -38,7 +38,7 @@ if __name__ =='__main__':
 	
 	#for find_handle
 	pattern_upper_bound=530
-	comb_upper_bound =1.0   # less than 1
+	comb_upper_bound =1.5   # less than 1
 	
 	#for the loop
 	####################################################################
@@ -64,7 +64,7 @@ if __name__ =='__main__':
 
 		## WRITING TO RECORD ###################################################
 		# for recording the trial
-		trialname='3teeth_test_find_handle_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
+		trialname='notviol_test_find_handle_3-7_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
 		trialfile=open(trialname,'w')
 		trialfile.write('NOTE: only consider combs 3~5 teeth! \n')
 		trialfile.write('WARNING: comb_upper_bound changed to 1.0! Dont get too excited! \n')		
