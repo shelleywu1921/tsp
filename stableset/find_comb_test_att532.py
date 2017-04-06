@@ -30,11 +30,11 @@ if __name__ =='__main__':
 
 	#for create_dom_graph
 	domfilename='att532.dom'
-	surplus_bound=1.0
+	surplus_bound=0.75
 	node_num_upper_bound=5000
 
 	#for find_stable_set 
-	total_stable_set_surplus_bound=2 # less than 2
+	total_stable_set_surplus_bound=1.75 # less than 2
 	
 	#for find_handle
 	pattern_upper_bound=530
