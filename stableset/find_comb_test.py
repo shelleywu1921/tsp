@@ -29,7 +29,7 @@ if __name__ =='__main__':
 	
 	#for find_handle
 	pattern_upper_bound=130
-	comb_upper_bound =0.9   # less than 1
+	comb_upper_bound =1.0   # less than 1
 	
 	#for the loop
 	find_handle_ntimes = 100000  # number of times you want to run findhandle
@@ -71,6 +71,8 @@ if __name__ =='__main__':
 		trialfile.write('Number of candidate_dom considered %d \n' % counter)
 		trialfile.write('Combs found: %d \n' % combs_found)
 
+
+		## WRITE COMB ##################################################
 		end=timer()
 		trialfile.write('Total running time: %.5f seconds' % (end-start))
 		trialfile.close()
