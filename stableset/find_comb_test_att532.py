@@ -46,7 +46,7 @@ if __name__ =='__main__':
 	F=build_support_graph(supp_graph_name)
 	G=create_dom_graph(domfilename, surplus_bound, node_num_upper_bound)
 	
-	for k in range(1,3): # k=1,2	
+	for k in range(3,4): # k=3	
 		counter =0 # number of candidate_dom (i.e. number of stable sets) considered
 		combs_found=0
 		find_handle_nktimes= 10**k		# number of times you want to run find_handle
@@ -64,9 +64,9 @@ if __name__ =='__main__':
 
 		## WRITING TO RECORD ###################################################
 		# for recording the trial
-		trialname='test_find_handle_3-7_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
+		trialname='test_find_handle_3-5_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
 		trialfile=open(trialname,'w')
-		trialfile.write('NOTE: only consider combs 3~7 teeth! \n')
+		trialfile.write('NOTE: only consider combs 3~5 teeth! \n')
 		trialfile.write('WARNING: comb_upper_bound changed to 1.0! Dont get too excited! \n')		
 		trialfile.write(domfilename.split('.')[0]+ '\n')
 		trialfile.write('Surplus bound on each domino: %.4f \n' % surplus_bound)
