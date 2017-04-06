@@ -54,6 +54,8 @@ At some point, I set comb_upper_bound from 0.9 to 1.0
 Created `find_comb_test_pr76.py` and `find_comb_test_att532.py` dedicated to these two examples.
 
 `test_find_handle_att532 1~6`: No combs found. However, noticed that the printed number of teeth for each iteration of find_handle is HUGE: around 9~27
+
 Solution: Modify find_stable_set so that the number of teeth is between 5 to 9
 
-`test_find_handle_pr76`: No combs found either. 
+`test_find_handle_pr76`: No combs found either. I wonder if I should all combs to have three teeth.
+
