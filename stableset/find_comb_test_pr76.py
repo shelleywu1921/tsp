@@ -45,7 +45,7 @@ if __name__ =='__main__':
 	F=build_support_graph(supp_graph_name)
 	G=create_dom_graph(domfilename, surplus_bound, node_num_upper_bound)
 	
-	for k in range(1,5): # k=1,2,3,4	
+	for k in range(1,4): # k=1,2,3,4	
 		counter =0 # number of candidate_dom (i.e. number of stable sets) considered
 		combs_found=0
 		find_handle_nktimes= 10**k
@@ -65,7 +65,7 @@ if __name__ =='__main__':
 		# for recording the trial
 		trialname='test_find_handle_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
 		trialfile=open(trialname,'w')
-		trialfile.write('NOTE: only consider combs with more than 5 teeth! \n')
+		#trialfile.write('NOTE: only consider combs with more than 5 teeth! \n')
 		trialfile.write('WARNING: comb_upper_bound changed to 1.0! Dont get too excited! \n')		
 		trialfile.write(domfilename.split('.')[0]+ '\n')
 		trialfile.write('Surplus bound on each domino: %.4f \n' % surplus_bound)
@@ -73,7 +73,7 @@ if __name__ =='__main__':
 		trialfile.write('Number of edges in G: %d \n' % G.number_of_edges())
 		trialfile.write('Bound on total surplus of stable sets: %.4f \n' % total_stable_set_surplus_bound )
 		trialfile.write('Pattern upper bound: %d \n' % pattern_upper_bound)
-		trialfile.write('Comb surplus upper bound (<1): %.4f \n' % comb_upper_bound)
+		trialfile.write('Comb surplus upper bound (<=1): %.4f \n' % comb_upper_bound)
 		trialfile.write('Running find_handle: %d times \n' % find_handle_nktimes)
 		trialfile.write('Number of candidate_dom considered %d \n' % counter)
 		trialfile.write('Combs found: %d \n' % combs_found)
