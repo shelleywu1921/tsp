@@ -453,7 +453,7 @@ if __name__ =='__main__':
 
 	## WRITING TO RECORD ###################################################
 	# for recording the trial
-	trialname=domfilename.split('.')[0]+ '_7' + '.md'
+	trialname=domfilename.split('.')[0]+ '_8' + '.md'
 	trialfile=open(trialname,'w')
 	trialfile.write('NOTE: only consider combs with more than 5 teeth! \n')
 	trialfile.write(domfilename.split('.')[0]+ '\n')
