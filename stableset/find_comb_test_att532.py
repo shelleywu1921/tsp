@@ -73,7 +73,7 @@ if __name__ =='__main__':
 		trialfile.write('Number of nodes in G: %d \n' % G.number_of_nodes())
 		trialfile.write('Number of edges in G: %d \n' % G.number_of_edges())
 		trialfile.write('Bound on total surplus of stable sets: %.4f \n' % total_stable_set_surplus_bound )
-		trialfile.write('Pattern upper bound: %d \n. Note: now consider all possible patterns, since number of teeth<=9' % pattern_upper_bound)
+		trialfile.write('Pattern upper bound: %d \n. Note: now consider all possible patterns, since number of teeth<=9\n' % pattern_upper_bound)
 		trialfile.write('Comb surplus upper bound (<1): %.4f \n' % comb_upper_bound)
 		trialfile.write('Running find_handle: %d times \n' % find_handle_nktimes)
 		trialfile.write('Number of candidate_dom considered %d \n' % counter)
