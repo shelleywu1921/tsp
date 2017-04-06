@@ -64,9 +64,9 @@ if __name__ =='__main__':
 
 		## WRITING TO RECORD ###################################################
 		# for recording the trial
-		trialname='test_find_handle_3-9_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
+		trialname='test_find_handle_3-7_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
 		trialfile=open(trialname,'w')
-		trialfile.write('NOTE: only consider combs 3~9 teeth! \n')
+		trialfile.write('NOTE: only consider combs 3~7 teeth! \n')
 		trialfile.write('WARNING: comb_upper_bound changed to 1.0! Dont get too excited! \n')		
 		trialfile.write(domfilename.split('.')[0]+ '\n')
 		trialfile.write('Surplus bound on each domino: %.4f \n' % surplus_bound)
