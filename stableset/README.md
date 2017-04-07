@@ -82,11 +82,17 @@ Now try `3teeth_test_find_handle_att532` for att532. No violated comb
 ### SET COMB SURPLUS TO `1.5`
 You can tell how desparate I am. I am not even looking for violated combs!!!!!!! Well, call those light combs (say comb with surplus 1.5-ish)
 
-`notviol_test_find_handle` :
+`notviol_test_find_handle_att532` :
 
 When the number of teeth is 3, performs pretty well on att532, found a couple of light combs, and was fast too! 
 
-When thhe number of teeth is 5, (I set the upper bound of the number of teeth to be 5, but in most cases they are exactly 5. att532 seems to have large stable sets where each node has a small surplus)
+When thhe number of teeth is 5, (I set the upper bound of the number of teeth to be 5, but in most cases they are exactly 5. att532 seems to have large stable sets where each node has a small surplus), the comb surpluses for each (Handle, Teeth) tend to be larger, say 2~5. It still runs pretty fast. 
+
+`CONJECTURE:` based on the observation above, comb surplus for 5-teeth combs are bounded by some 5-ish (5.00042) number. Another observation is that the light combs found have surplus 1.42 ish. Wonder if it implies some structural properties about the graph.
+
+`Reasoning:` I pretty much stared at all numbers printed out
+
+`Next step maybe?`: test  `notviol_test_find_handle_att532` again, but record the number of occurance on each interval. 
 
 Maybe we can do an interval distribution count tomorrow???
 
