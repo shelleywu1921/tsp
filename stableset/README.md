@@ -80,8 +80,15 @@ In `3teeth_test_find_handle_pr76`, we only consider combs with 3 teeth. About 1/
 Now try `3teeth_test_find_handle_att532` for att532. No violated comb
 
 ### SET COMB SURPLUS TO `1.5`
-You can tell how desparate I am. I am not even looking for violated combs!!!!!!! 
-Number of teeth is from 3 to 7. 
+You can tell how desparate I am. I am not even looking for violated combs!!!!!!! Well, call those light combs (say comb with surplus 1.5-ish)
+
+`notviol_test_find_handle` :
+
+When the number of teeth is 3, performs pretty well on att532, found a couple of light combs, and was fast too! 
+
+When thhe number of teeth is 5, 
+
+Maybe we can do an interval distribution count tomorrow???
 
 
 
