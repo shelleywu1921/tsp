@@ -49,7 +49,18 @@ if __name__ =='__main__':
 	for k in range(1,3): # k=1,2
 		counter =0 # number of candidate_dom (i.e. number of stable sets) considered
 		
-		combs_found=0
+		##for the intervals:
+		0_to_1 = 0
+		1_to_2 = 0
+		2_to_3 = 0
+		3_to_4 = 0
+		4_to_5 = 0
+		5_to_6 = 0
+		6_to_7 = 0
+		7_to_8 = 0
+		more_than_8 = 0 
+		
+		#combs_found=0
 		
 		find_handle_nktimes= 10**k		# number of times you want to run find_handle
 
