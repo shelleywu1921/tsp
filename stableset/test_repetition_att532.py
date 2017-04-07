@@ -34,7 +34,7 @@ if __name__=='__main__':
 	F=build_support_graph(supp_graph_name)
 	G=create_dom_graph(domfilename, surplus_bound, node_num_upper_bound)	
 
-	for k in range(1,10): # k=1,2,3,4
+	for k in range(1,4): # k=1,2,3
 		find_stable_set_nktimes=10**(k)
 		without_dup_collection_of_n_stable_sets=set()
 		with_dup=0 # count how many stable sets found with duplication
@@ -49,9 +49,9 @@ if __name__=='__main__':
 
 		## WRITING TO RECORD ###################################################
 		# for recording the trial
-		trialname='test_duplication_3-5'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
+		trialname='test_duplication_3_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
 		trialfile=open(trialname,'w')
-		trialfile.write('NOTE: only consider combs with 3 to 5 teeth! \n')
+		trialfile.write('NOTE: only consider combs with 3 teeth! \n')
 		trialfile.write(domfilename.split('.')[0]+ '\n\n')
 
 		# write duplication

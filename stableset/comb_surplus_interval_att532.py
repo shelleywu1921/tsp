@@ -6,28 +6,23 @@ observed that the number of teeth in a stable set tends to be large: around 9~27
 '''
 
 
-# find_com_test.py
-'''
-I've decided to move the finding comb __name__=='__main__' from mindomcut2.py
-to here.
-
-Deleted progreebar, not useful after all. Too lazy to fix it
-
-Moreover, I have added a loop so that the program creates multiple files
-'''
-
-from domgraph import create_dom_graph, find_stable_set
-from timeit import default_timer as timer
-from mindomcut2 import find_handle, build_support_graph
-
 '''
 comb_surplus_interval is pretty much like find_handle. However, instead of going through patterns
 and stop once it finds a comb with surplus < comb_upper_bound, it goes through all patterns and 
 record the comb_surplus for each pattern. 
-
 '''
+
+import networkx as nx
+from domgraph import create_dom_graph, find_stable_set
+from timeit import default_timer as timer
+from mindomcut2 import find_handle, build_support_graph
+from itertools import product
+from mindomcut2 import add_s_t, del_s_t
+
+
 def comb_surplus_interval(F,G,candidate_dom, total_surplus ,pattern_upper_bound):
     start=timer()
+    global zero_to_one, one_to_two, two_to_three, three_to_four, four_to_five, five_to_six, six_to_seven, seven_to_eight, more_than_eight
     
     # for each node in candidate_dom, LHS =1/2surplus(Ti)-x*(E(A,B))
     # sumLHS = \sum 1/2 surplus(Ti)-x*(E(Ai,Bi)). Independ on H, the handle chosen
@@ -89,7 +84,7 @@ def comb_surplus_interval(F,G,candidate_dom, total_surplus ,pattern_upper_bound)
 			elif 3<= comb_surplus <4:
 				three_to_four+=1
 			elif 4<= comb_surplus <5:
-				four_to_five+=1
+				four_to_five +=1
 			elif 5<= comb_surplus <6:
 				five_to_six+=1
 			elif 6<= comb_surplus <7:
@@ -117,6 +112,16 @@ def comb_surplus_interval(F,G,candidate_dom, total_surplus ,pattern_upper_bound)
     #print('running time: %.5f seconds' % (end-start))
 
 
+
+# find_com_test.py
+'''
+I've decided to move the finding comb __name__=='__main__' from mindomcut2.py
+to here.
+
+Deleted progreebar, not useful after all. Too lazy to fix it
+
+Moreover, I have added a loop so that the program creates multiple files
+'''
 
 
 
@@ -147,7 +152,7 @@ if __name__ =='__main__':
 	F=build_support_graph(supp_graph_name)
 	G=create_dom_graph(domfilename, surplus_bound, node_num_upper_bound)
 	
-	for k in range(1,3): # k=1,2
+	for k in range(1,2): # k=1,2
 		counter =0 # number of candidate_dom (i.e. number of stable sets) considered
 		
 		# for the intervals:
@@ -204,14 +209,30 @@ if __name__ =='__main__':
 
         # interval recording
         trialfile.write('Comb surpluses: \n')
-        trialfile.write('0 <= comb_surplus < 1:{0:10} %d' % zero_to_one)
-        
+        trialfile.write('0 <= comb_surplus < 1:{0:10} \n'.format(zero_to_one))
+        trialfile.write('1 <= comb_surplus < 2:{0:10} \n'.format(one_to_two))
+        trialfile.write('2 <= comb_surplus < 3:{0:10} \n'.format(two_to_three))
+        trialfile.write('3 <= comb_surplus < 4:{0:10} \n'.format(three_to_four))
+        trialfile.write('4 <= comb_surplus < 5:{0:10} \n'.format(four_to_five))
+        trialfile.write('5 <= comb_surplus < 6:{0:10} \n'.format(five_to_six))
+        trialfile.write('6 <= comb_surplus < 7:{0:10} \n'.format(six_to_seven))
+        trialfile.write('7 <= comb_surplus < 8:{0:10} \n'.format(seven_to_eight))
+        trialfile.write('>= 8:{0:27} \n'.format(more_than_eight))
+    
 
 		## WRITE COMB ######################################################################
 		
-		end=timer()
-		trialfile.write('Total running time: %.5f seconds' % (end-start))
-		trialfile.close()
-		print('Total number of sets of candidate_dom considered: %d' % counter)
-		print('Combs found: %d \n' % combs_found)
-		print('Total time: %.5f seconds' % (end-start))
+        end=timer()
+        trialfile.write('Total running time: %.5f seconds' % (end-start))
+        trialfile.close()
+        print('Total number of sets of candidate_dom considered: %d' % counter)
+
+        #print('Combs found: %d \n' % combs_found)
+
+        print('Total time: %.5f seconds' % (end-start))
+
+
+
+
+
+
