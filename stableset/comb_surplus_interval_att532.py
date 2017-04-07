@@ -114,7 +114,7 @@ def comb_surplus_interval(F,G,candidate_dom, total_surplus ,pattern_upper_bound)
 		
     return None
     end=timer()
-    print('running time: %.5f seconds' % (end-start))
+    #print('running time: %.5f seconds' % (end-start))
 
 
 
@@ -169,19 +169,23 @@ if __name__ =='__main__':
 			if find_ss != None:
 				counter=counter+1
 				candidate_dom,total_surplus = find_ss
+				
+				interval=comb_surplus_interval(F,G,candidate_dom, total_surplus ,pattern_upper_bound)
+				
+				'''
 				fh=find_handle(F,G,candidate_dom,total_surplus, comb_upper_bound,pattern_upper_bound)
 				if fh !=None:
 					combs_found = combs_found+1
-					
+				'''	
 
 
 		## WRITING TO RECORD ###################################################
 		# for recording the trial
         
         # PLEASE CHECK THEM!!!!!!!!!!!!!!!!!!!!!!!!!
-		trialname='notviol_test_find_handle_5_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
+		trialname='interval_3_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
 		trialfile=open(trialname,'w')
-		trialfile.write('NOTE: only consider combs 5 teeth! \n')
+		trialfile.write('Trying patterns for %d candidate doms of size 3. \n' % counter)
 		trialfile.write('WARNING: comb_upper_bound changed to %.4f! NOT EVEN A VIOLATED COMB! \n' % comb_upper_bound)
         #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         
