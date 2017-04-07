@@ -86,7 +86,7 @@ You can tell how desparate I am. I am not even looking for violated combs!!!!!!!
 
 When the number of teeth is 3, performs pretty well on att532, found a couple of light combs, and was fast too! 
 
-When thhe number of teeth is 5, 
+When thhe number of teeth is 5, (I set the upper bound of the number of teeth to be 5, but in most cases they are exactly 5. att532 seems to have large stable sets where each node has a small surplus)
 
 Maybe we can do an interval distribution count tomorrow???
 
