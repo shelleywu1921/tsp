@@ -92,9 +92,8 @@ When thhe number of teeth is 5, (I set the upper bound of the number of teeth to
 
 `Reasoning:` I pretty much stared at all numbers printed out
 
-`Next step maybe?`: test  `notviol_test_find_handle_att532` again, but record the number of occurance on each interval. 
+`Next step maybe?`: test  `notviol_test_find_handle_att532` again, but record the number of occurance on each interval, for 3, 5, 7, 9, 11, etc teeth
 
-Maybe we can do an interval distribution count tomorrow???
-
+`WARNING:` Haven't thought about the repetitions of stable sets though.... Will it give us some smart and efficient way to run our code?
 
 
