@@ -99,6 +99,13 @@ When thhe number of teeth is 5, (I set the upper bound of the number of teeth to
 
 ## April 7
 
-### `interval_find_handle_att532`: 
+### Record the comb surpluses
+The plan is to run test_find_handle_att532. Instead of outputing the number of comb surpluses < some number, we output the number of comb surpluses in different intervals. Test this for 3-teeth combs, 5-teeth combs, 7-teeth combs, etc separately. 
+ 
+`interval_3_find_handle_att532`:
+
+`interval_5_find_handle_att532`:
+
+`interval_7_find_handle_att532`: 
  
 
