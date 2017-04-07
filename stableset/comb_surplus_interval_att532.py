@@ -81,23 +81,23 @@ def comb_surplus_interval(F,G,candidate_dom, total_surplus ,pattern_upper_bound)
 			comb_surplus=xdeltaH + sumLHS
 			
 			if 0<= comb_surplus < 1:
-				0_to_1 +=1
+				zero_to_one +=1
 			elif 1<= comb_surplus <2:
-				1_to_2+=1
+				one_to_two+=1
 			elif 2<= comb_surplus <3:
-				2_to_3+=1
+				two_to_three+=1
 			elif 3<= comb_surplus <4:
-				3_to_4+=1
+				three_to_four+=1
 			elif 4<= comb_surplus <5:
-				4_to_5+=1
+				four_to_five+=1
 			elif 5<= comb_surplus <6:
-				5_to_6+=1
+				five_to_six+=1
 			elif 6<= comb_surplus <7:
-				6_to_7+=1				
+				six_to_seven+=1				
 			elif 7<= comb_surplus <8:
-				7_to_8+=1
+				seven_to_eight+=1
 			else:
-				more_than_8+=1																						
+				more_than_eight+=1																						
 			print('comb_surplus: %.5f' % comb_surplus)
 			
 			#print('\n')
@@ -151,15 +151,15 @@ if __name__ =='__main__':
 		counter =0 # number of candidate_dom (i.e. number of stable sets) considered
 		
 		# for the intervals:
-		0_to_1 = 0
-		1_to_2 = 0
-		2_to_3 = 0
-		3_to_4 = 0
-		4_to_5 = 0
-		5_to_6 = 0
-		6_to_7 = 0
-		7_to_8 = 0
-		more_than_8 = 0 
+		zero_to_one = 0
+		one_to_two = 0
+		two_to_three = 0
+		three_to_four = 0
+		four_to_five = 0
+		five_to_six = 0
+		six_to_seven = 0
+		seven_to_eight = 0
+		more_than_eight = 0 
 		
 		# for the loop		
 		find_handle_nktimes= 10**k		# number of times you want to run find_handle
@@ -186,7 +186,6 @@ if __name__ =='__main__':
 		trialname='interval_3_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
 		trialfile=open(trialname,'w')
 		trialfile.write('Trying patterns for %d candidate doms of size 3. \n' % counter)
-		trialfile.write('WARNING: comb_upper_bound changed to %.4f! NOT EVEN A VIOLATED COMB! \n' % comb_upper_bound)
         #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         
 		trialfile.write(domfilename.split('.')[0]+ '\n')
@@ -196,14 +195,17 @@ if __name__ =='__main__':
 		trialfile.write('Bound on total surplus of stable sets: %.4f \n' % total_stable_set_surplus_bound )
         
         #THIS WARNING NOTE MAY NEED SOME CHANGE AS WELL
-		trialfile.write('Pattern upper bound: %d. Note: now consider all possible patterns, since number of teeth<=9\n' % pattern_upper_bound)
+		trialfile.write('Pattern upper bound: %d. \n Note: now consider all possible patterns, since number of teeth<=9\n' % pattern_upper_bound)
         #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         
-		trialfile.write('Comb surplus upper bound: %.4f \n' % comb_upper_bound)
-		trialfile.write('Running find_handle: %d times \n' % find_handle_nktimes)
-		trialfile.write('Number of candidate_dom considered %d \n' % counter)
-		trialfile.write('Combs found: %d \n' % combs_found)
+		trialfile.write('Running comb_surplus_interval: %d times \n' % find_handle_nktimes)
+		trialfile.write('Number of candidate_dom considered %d \n \n' % counter)
 
+
+        # interval recording
+        trialfile.write('Comb surpluses: \n')
+        trialfile.write('0 <= comb_surplus < 1:{0:10} %d' % zero_to_one)
+        
 
 		## WRITE COMB ######################################################################
 		
