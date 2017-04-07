@@ -97,3 +97,8 @@ When thhe number of teeth is 5, (I set the upper bound of the number of teeth to
 `WARNING:` Haven't thought about the repetitions of stable sets though.... Will it give us some smart and efficient way to run our code?
 
 
+## April 7
+
+### `interval_find_handle_att532`: 
+ 
+
