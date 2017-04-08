@@ -22,7 +22,7 @@ from mindomcut2 import add_s_t, del_s_t
 
 def comb_surplus_interval(F,G,candidate_dom, total_surplus ,pattern_upper_bound):
     start=timer()
-    global zero_to_one, one_to_two, one_to_two_1, one_to_two_2, one_to_two_3, one_to_two_4, one_to_two_5, two_to_three_1, two_to_three_2, two_to_three_3, two_to_three_4, two_to_three_5, two_to_three, three_to_four, three_to_four_1, three_to_four_2, three_to_four_3, three_to_four_4, three_to_four_5, four_to_five, four_to_five_1, four_to_five_2, four_to_five_3, four_to_five_4, four_to_five_5, five_to_six, six_to_seven, seven_to_eight, more_than_eight
+    global zero_to_one,one_to_two, one_to_two_1, one_to_two_2, one_to_two_3, one_to_two_4, one_to_two_5, two_to_three_1, two_to_three_2, two_to_three_3, two_to_three_4, two_to_three_5, two_to_three, three_to_four, three_to_four_1, three_to_four_2, three_to_four_3, three_to_four_4, three_to_four_5, four_to_five, four_to_five_1, four_to_five_2, four_to_five_3, four_to_five_4, four_to_five_5, five_to_six, six_to_seven, seven_to_eight, more_than_eight
     
     # for each node in candidate_dom, LHS =1/2surplus(Ti)-x*(E(A,B))
     # sumLHS = \sum 1/2 surplus(Ti)-x*(E(Ai,Bi)). Independ on H, the handle chosen
@@ -136,8 +136,8 @@ def comb_surplus_interval(F,G,candidate_dom, total_surplus ,pattern_upper_bound)
                 three_to_four+=1
 
 
-#elif 3<= comb_surplus <4:
-#               three_to_four+=1
+            #elif 3<= comb_surplus <4:
+            #three_to_four+=1
 
             elif 4<= comb_surplus <4.2:
                 four_to_five_1 +=1
@@ -155,8 +155,8 @@ def comb_surplus_interval(F,G,candidate_dom, total_surplus ,pattern_upper_bound)
                 four_to_five_5+=1
                 four_to_five+=1
             
-#elif 4<= comb_surplus <5:
-#               four_to_five +=1
+            #elif 4<= comb_surplus <5:
+            # four_to_five +=1
             elif 5<= comb_surplus <6:
                 five_to_six+=1
             elif 6<= comb_surplus <7:
@@ -165,7 +165,7 @@ def comb_surplus_interval(F,G,candidate_dom, total_surplus ,pattern_upper_bound)
                 seven_to_eight+=1
             else:
                 more_than_eight+=1
-            ##############################################################
+
 
             print('comb_surplus: %.5f' % comb_surplus)
 			
@@ -198,34 +198,50 @@ Moreover, I have added a loop so that the program creates multiple files
 '''
 
 
+def test_repetition_ktimes(k):
+        start=timer()
+        find_stable_set_nktimes=10**(k)
+        without_dup_collection_of_n_stable_sets=set()
+        with_dup=0 # count how many stable sets found with duplication
+        for i in range(find_stable_set_nktimes):
+            find_ss=find_stable_set(G,total_stable_set_surplus_bound) # less than 2
+            if find_ss != None:
+                with_dup=with_dup+1
+                candidate_dom,total_surplus = find_ss
+                without_dup_collection_of_n_stable_sets.add(frozenset(candidate_dom))
+
+        without_dup=len(without_dup_collection_of_n_stable_sets)
+
+        ## WRITING TO RECORD ###################################################
+        # for recording the trial
+        trialname='test_duplication_5_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
+        trialfile=open(trialname,'w')
+        trialfile.write('NOTE: only consider combs with 5 teeth! \n')
+        trialfile.write(domfilename.split('.')[0]+ '\n\n')
+
+        # write duplication
+        trialfile.write('With duplicaition, %d stable sets were considered \n' % with_dup)
+        trialfile.write('Without duplication, %d stable sets were considered \n' % without_dup)
+        trialfile.write('Running find_stable_set: %d times \n\n' % find_stable_set_nktimes)
+
+
+        trialfile.write('Number of nodes in G: %d \n' % G.number_of_nodes())
+        trialfile.write('Number of edges in G: %d \n' % G.number_of_edges())
+        trialfile.write('Surplus bound on each domino: %.4f \n' % surplus_bound)
+        trialfile.write('Bound on total surplus of stable sets: %.4f \n' % total_stable_set_surplus_bound )
+
+        end=timer()
+        trialfile.write('Total running time: %.5f seconds' % (end-start))
+
+        trialfile.close()
+        print('With duplicaition, %d stable sets were considered \n' % with_dup)
+        print('Without duplicaition, %d stable sets were considered \n' % without_dup)
+        print('Total time: %.5f seconds \n \n' % (end-start))
 
 
 
-if __name__ =='__main__':
-	
-    ## VARIABLES ######################################################
-    supp_graph_name='att532.x'
 
-    #for create_dom_graph
-    domfilename='att532.dom'
-    surplus_bound=0.75
-    node_num_upper_bound=5000
-
-    #for find_stable_set 
-    total_stable_set_surplus_bound=1.75 # less than 2
-
-    #for find_handle
-    pattern_upper_bound=530
-
-    #comb_upper_bound =1.5   # less than 1
-
-
-    ####################################################################
-
-    F=build_support_graph(supp_graph_name)
-    G=create_dom_graph(domfilename, surplus_bound, node_num_upper_bound)
-
-    for k in range(1,3): # k=1,2
+def comb_surplus_interval_ktimes(k):
         start = timer()
         counter =0 # number of candidate_dom (i.e. number of stable sets) considered
 
@@ -362,6 +378,40 @@ if __name__ =='__main__':
 
 
 
+
+
+
+if __name__ =='__main__':
+	
+    ## VARIABLES ######################################################
+    supp_graph_name='att532.x'
+
+    #for create_dom_graph
+    domfilename='att532.dom'
+    surplus_bound=0.75
+    node_num_upper_bound=5000
+
+    #for find_stable_set 
+    total_stable_set_surplus_bound=1.75 # less than 2
+
+    #for find_handle
+    pattern_upper_bound=530
+
+    #comb_upper_bound =1.5   # less than 1
+
+
+    ####################################################################
+
+    F=build_support_graph(supp_graph_name)
+    G=create_dom_graph(domfilename, surplus_bound, node_num_upper_bound)
+
+    ## test_repetitions:
+    for k in range(1,6):
+        test_repetition_ktimes(k):
+
+    ## comb_surplus_interval:
+    for k in range(1,3): # k=1,2
+        comb_surplus_interval_ktimes(k):
 
 
 

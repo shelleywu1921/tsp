@@ -97,7 +97,7 @@ When thhe number of teeth is 5, (I set the upper bound of the number of teeth to
 `WARNING:` Haven't thought about the repetitions of stable sets though.... Will it give us some smart and efficient way to run our code?
 
 
-## April 7
+## April 7&8
 
 ### Record the comb surpluses
 The plan is to run test_find_handle_att532. Instead of outputing the number of comb surpluses < some number, we output the number of comb surpluses in different intervals. Test this for 3-teeth combs, 5-teeth combs, 7-teeth combs, etc separately. 
