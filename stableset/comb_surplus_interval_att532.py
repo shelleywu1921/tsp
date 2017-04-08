@@ -22,7 +22,7 @@ from mindomcut2 import add_s_t, del_s_t
 
 def comb_surplus_interval(F,G,candidate_dom, total_surplus ,pattern_upper_bound):
     start=timer()
-    global zero_to_one,one_to_two, one_to_two_1, one_to_two_2, one_to_two_3, one_to_two_4, one_to_two_5, two_to_three_1, two_to_three_2, two_to_three_3, two_to_three_4, two_to_three_5, two_to_three, three_to_four, three_to_four_1, three_to_four_2, three_to_four_3, three_to_four_4, three_to_four_5, four_to_five, four_to_five_1, four_to_five_2, four_to_five_3, four_to_five_4, four_to_five_5, five_to_six, six_to_seven, seven_to_eight, more_than_eight
+    global zero_to_one,one_to_two, one_to_two_1, one_to_two_2, one_to_two_3, one_to_two_4, one_to_two_5, two_to_three_1, two_to_three_2, two_to_three_3, two_to_three_4, two_to_three_5, two_to_three, three_to_four, three_to_four_1, three_to_four_2, three_to_four_3, three_to_four_4, three_to_four_5, four_to_five, four_to_five_1, four_to_five_2, four_to_five_3, four_to_five_4, four_to_five_5, five_to_six, five_to_six_1, five_to_six_2, five_to_six_3, five_to_six_4, five_to_six_5, six_to_seven, seven_to_eight, more_than_eight
     
     # for each node in candidate_dom, LHS =1/2surplus(Ti)-x*(E(A,B))
     # sumLHS = \sum 1/2 surplus(Ti)-x*(E(Ai,Bi)). Independ on H, the handle chosen
@@ -116,8 +116,6 @@ def comb_surplus_interval(F,G,candidate_dom, total_surplus ,pattern_upper_bound)
                 two_to_three_5+=1
                 two_to_three+=1
 
-            #elif 2<= comb_surplus <3:
-            #two_to_three+=1
 
             elif 3<= comb_surplus <3.2:
                 three_to_four_1 +=1
@@ -136,9 +134,6 @@ def comb_surplus_interval(F,G,candidate_dom, total_surplus ,pattern_upper_bound)
                 three_to_four+=1
 
 
-            #elif 3<= comb_surplus <4:
-            #three_to_four+=1
-
             elif 4<= comb_surplus <4.2:
                 four_to_five_1 +=1
                 four_to_five +=1
@@ -155,10 +150,24 @@ def comb_surplus_interval(F,G,candidate_dom, total_surplus ,pattern_upper_bound)
                 four_to_five_5+=1
                 four_to_five+=1
             
-            #elif 4<= comb_surplus <5:
-            # four_to_five +=1
-            elif 5<= comb_surplus <6:
-                five_to_six+=1
+
+            elif 5<= comb_surplus <5.2:
+                five_to_six_1 +=1
+                five_to_six +=1
+            elif 5.2<= comb_surplus <5.4:
+                five_to_six_2 +=1
+                five_to_six +=1
+            elif 5.4<= comb_surplus <5.6:
+                five_to_six_3 +=1
+                five_to_six +=1
+            elif 5.6<= comb_surplus <5.8:
+                five_to_six_4 +=1
+                five_to_six +=1
+            elif 5.8<= comb_surplus <6.0:
+                five_to_six_5 +=1
+                five_to_six +=1
+            
+
             elif 6<= comb_surplus <7:
                 six_to_seven+=1				
             elif 7<= comb_surplus <8:
@@ -288,45 +297,48 @@ def comb_surplus_interval_ktimes(k):
 
         # interval recording
         trialfile.write('Comb surpluses: \n')
-        trialfile.write('0 <= comb_surplus < 1:{0:10} \n\n'.format(zero_to_one))
+        trialfile.write('0.0 <= comb_surplus < 1:{0:8} \n\n'.format(zero_to_one))
 
-        trialfile.write('1 <= comb_surplus < 1.2:{0:8} \n'.format(one_to_two_1))
+        trialfile.write('1.0 <= comb_surplus < 1.2:{0:8} \n'.format(one_to_two_1))
         trialfile.write('1.2 <= comb_surplus < 1.4:{0:8} \n'.format(one_to_two_2))
         trialfile.write('1.4 <= comb_surplus < 1.6:{0:8} \n'.format(one_to_two_3))
         trialfile.write('1.6 <= comb_surplus < 1.8:{0:8} \n'.format(one_to_two_4))
         trialfile.write('1.8 <= comb_surplus < 2.0:{0:8} \n'.format(one_to_two_5))
-        trialfile.write('1 <= comb_surplus < 2:{0:10} \n\n'.format(one_to_two))
+        trialfile.write('1.0 <= comb_surplus < 2.0:{0:8} \n\n'.format(one_to_two))
 
 
-        trialfile.write('2 <= comb_surplus < 2.2:{0:8} \n'.format(two_to_three_1))
+        trialfile.write('2.0 <= comb_surplus < 2.2:{0:8} \n'.format(two_to_three_1))
         trialfile.write('2.2 <= comb_surplus < 2.4:{0:8} \n'.format(two_to_three_2))
         trialfile.write('2.4 <= comb_surplus < 2.6:{0:8} \n'.format(two_to_three_3))
         trialfile.write('2.6 <= comb_surplus < 2.8:{0:8} \n'.format(two_to_three_4))
         trialfile.write('2.8 <= comb_surplus < 3.0:{0:8} \n'.format(two_to_three_5))
-        trialfile.write('2 <= comb_surplus < 3:{0:10} \n\n'.format(two_to_three))
+        trialfile.write('2.0 <= comb_surplus < 3.0:{0:8} \n\n'.format(two_to_three))
 
-        trialfile.write('3 <= comb_surplus < 3.2:{0:8} \n'.format(three_to_four_1))
+        trialfile.write('3.0 <= comb_surplus < 3.2:{0:8} \n'.format(three_to_four_1))
         trialfile.write('3.2 <= comb_surplus < 3.4:{0:8} \n'.format(three_to_four_2))
         trialfile.write('3.4 <= comb_surplus < 3.6:{0:8} \n'.format(three_to_four_3))
         trialfile.write('3.6 <= comb_surplus < 3.8:{0:8} \n'.format(three_to_four_4))
         trialfile.write('3.8 <= comb_surplus < 4.0:{0:8} \n'.format(three_to_four_5))
-        trialfile.write('3 <= comb_surplus < 4:{0:10} \n\n'.format(three_to_four))
+        trialfile.write('3.0 <= comb_surplus < 4.0:{0:8} \n\n'.format(three_to_four))
 
-#   trialfile.write('2 <= comb_surplus < 3:{0:10} \n'.format(two_to_three))
-#       trialfile.write('3 <= comb_surplus < 4:{0:10} \n'.format(three_to_four))
 
-        trialfile.write('4 <= comb_surplus < 4.2:{0:8} \n'.format(four_to_five_1))
+        trialfile.write('4.0 <= comb_surplus < 4.2:{0:8} \n'.format(four_to_five_1))
         trialfile.write('4.2 <= comb_surplus < 4.4:{0:8} \n'.format(four_to_five_2))
         trialfile.write('4.4 <= comb_surplus < 4.6:{0:8} \n'.format(four_to_five_3))
         trialfile.write('4.6 <= comb_surplus < 4.8:{0:8} \n'.format(four_to_five_4))
         trialfile.write('4.8 <= comb_surplus < 5.0:{0:8} \n'.format(four_to_five_5))
-        trialfile.write('4 <= comb_surplus < 5:{0:10} \n\n'.format(four_to_five))
+        trialfile.write('4.0 <= comb_surplus < 5.0:{0:8} \n\n'.format(four_to_five))
 
-#        trialfile.write('4 <= comb_surplus < 5:{0:10} \n'.format(four_to_five))
-        trialfile.write('5 <= comb_surplus < 6:{0:10} \n'.format(five_to_six))
-        trialfile.write('6 <= comb_surplus < 7:{0:10} \n'.format(six_to_seven))
-        trialfile.write('7 <= comb_surplus < 8:{0:10} \n'.format(seven_to_eight))
-        trialfile.write('>= 8:{0:27} \n'.format(more_than_eight))
+        trialfile.write('5.0 <= comb_surplus < 5.2:{0:8} \n'.format(five_to_six_1))
+        trialfile.write('5.2 <= comb_surplus < 5.4:{0:8} \n'.format(five_to_six_2))
+        trialfile.write('5.4 <= comb_surplus < 5.6:{0:8} \n'.format(five_to_six_3))
+        trialfile.write('5.6 <= comb_surplus < 5.8:{0:8} \n'.format(five_to_six_4))
+        trialfile.write('5.8 <= comb_surplus < 6.0:{0:8} \n'.format(five_to_six_5))
+        trialfile.write('5.0 <= comb_surplus < 6.0:{0:8} \n\n'.format(five_to_six))
+        
+        trialfile.write('6.0 <= comb_surplus < 7.0:{0:8} \n'.format(six_to_seven))
+        trialfile.write('7.0 <= comb_surplus < 8.0:{0:8} \n'.format(seven_to_eight))
+        trialfile.write('>= 8.0:{0:27} \n'.format(more_than_eight))
 
 
         ## WRITE COMB ######################################################################
@@ -411,6 +423,12 @@ if __name__ =='__main__':
         four_to_five_5 = 0 #4.8~5.0
 
         five_to_six = 0
+        five_to_six_1 = 0 #5~5.2
+        five_to_six_2 = 0 #5.2~5.4
+        five_to_six_3 = 0 #5.4~5.6
+        five_to_six_4 = 0 #5.6~5.8
+        five_to_six_5 = 0 #5.8~6.0
+
         six_to_seven = 0
         seven_to_eight = 0
         more_than_eight = 0
