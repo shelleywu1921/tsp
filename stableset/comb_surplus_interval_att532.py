@@ -242,44 +242,8 @@ def test_repetition_ktimes(k):
 
 
 def comb_surplus_interval_ktimes(k):
+        global counter
         start = timer()
-        counter =0 # number of candidate_dom (i.e. number of stable sets) considered
-
-        # for the intervals:
-        zero_to_one = 0
-
-        one_to_two = 0
-        one_to_two_1 = 0 # 1~1.2
-        one_to_two_2 = 0 # 1.2~1.4
-        one_to_two_3 = 0 #1.4~1.6
-        one_to_two_4 = 0 #1.6~1.8
-        one_to_two_5 = 0 #1.8~2.0
-
-        two_to_three = 0
-        two_to_three_1 = 0 # 2~2.2
-        two_to_three_2 = 0 #2.2~2.4
-        two_to_three_3 = 0 # 2.4~2.6
-        two_to_three_4 = 0 # 2.6~2.8
-        two_to_three_5 = 0 #2.8~3.0
-
-        three_to_four = 0
-        three_to_four_1 = 0 #3~3.2
-        three_to_four_2 = 0 #3.2~3.4
-        three_to_four_3 = 0 #3.4~3.6
-        three_to_four_4 = 0 #3.6~3.8
-        three_to_four_5 = 0 #3.8~4.0
-
-        four_to_five = 0
-        four_to_five_1 = 0 #4~4.2
-        four_to_five_2 = 0 #4.2~4.4
-        four_to_five_3 = 0 #4.4~4.6
-        four_to_five_4 = 0 #4.6~4.8
-        four_to_five_5 = 0 #4.8~5.0
-
-        five_to_six = 0
-        six_to_seven = 0
-        seven_to_eight = 0
-        more_than_eight = 0 
 
 		# for the loop		
         find_handle_nktimes= 10**k		# number of times you want to run find_handle
@@ -406,12 +370,52 @@ if __name__ =='__main__':
     G=create_dom_graph(domfilename, surplus_bound, node_num_upper_bound)
 
     ## test_repetitions:
+    '''
     for k in range(1,6):
-        test_repetition_ktimes(k):
-
+        test_repetition_ktimes(k)
+    '''
+    
     ## comb_surplus_interval:
     for k in range(1,3): # k=1,2
-        comb_surplus_interval_ktimes(k):
+        counter =0 # number of candidate_dom (i.e. number of stable sets) considered
+
+        # for the intervals:
+        zero_to_one = 0
+
+        one_to_two = 0
+        one_to_two_1 = 0 # 1~1.2
+        one_to_two_2 = 0 # 1.2~1.4
+        one_to_two_3 = 0 #1.4~1.6
+        one_to_two_4 = 0 #1.6~1.8
+        one_to_two_5 = 0 #1.8~2.0
+
+        two_to_three = 0
+        two_to_three_1 = 0 # 2~2.2
+        two_to_three_2 = 0 #2.2~2.4
+        two_to_three_3 = 0 # 2.4~2.6
+        two_to_three_4 = 0 # 2.6~2.8
+        two_to_three_5 = 0 #2.8~3.0
+
+        three_to_four = 0
+        three_to_four_1 = 0 #3~3.2
+        three_to_four_2 = 0 #3.2~3.4
+        three_to_four_3 = 0 #3.4~3.6
+        three_to_four_4 = 0 #3.6~3.8
+        three_to_four_5 = 0 #3.8~4.0
+
+        four_to_five = 0
+        four_to_five_1 = 0 #4~4.2
+        four_to_five_2 = 0 #4.2~4.4
+        four_to_five_3 = 0 #4.4~4.6
+        four_to_five_4 = 0 #4.6~4.8
+        four_to_five_5 = 0 #4.8~5.0
+
+        five_to_six = 0
+        six_to_seven = 0
+        seven_to_eight = 0
+        more_than_eight = 0
+        
+        comb_surplus_interval_ktimes(k)
 
 
 
