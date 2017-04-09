@@ -223,9 +223,9 @@ def test_repetition_ktimes(k):
 
         ## WRITING TO RECORD ###################################################
         # for recording the trial
-        trialname='test_duplication_5_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
+        trialname='test_duplication_7_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
         trialfile=open(trialname,'w')
-        trialfile.write('NOTE: only consider combs with 5 teeth! \n')
+        trialfile.write('NOTE: only consider combs with 7 teeth! \n')
         trialfile.write(domfilename.split('.')[0]+ '\n\n')
 
         # write duplication
@@ -276,9 +276,9 @@ def comb_surplus_interval_ktimes(k):
 		# for recording the trial
         
         # PLEASE CHECK THEM!!!!!!!!!!!!!!!!!!!!!!!!!
-        trialname='interval_5_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
+        trialname='interval_7_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
         trialfile=open(trialname,'w')
-        trialfile.write('Trying patterns for %d candidate doms of size 5. \n' % counter)
+        trialfile.write('Trying patterns for %d candidate doms of size 7. \n' % counter)
         #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         
         trialfile.write(domfilename.split('.')[0]+ '\n')
@@ -382,13 +382,13 @@ if __name__ =='__main__':
     G=create_dom_graph(domfilename, surplus_bound, node_num_upper_bound)
 
     ## test_repetitions:
-    '''
+    
     for k in range(1,6):
         test_repetition_ktimes(k)
-    '''
+    
     
     ## comb_surplus_interval:
-    for k in range(1,3): # k=1,2
+    for k in range(1,4): # k=1,2
         counter =0 # number of candidate_dom (i.e. number of stable sets) considered
 
         # for the intervals:
