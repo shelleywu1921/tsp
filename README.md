@@ -23,6 +23,9 @@ We break the interval [0,8] to smaller intervals. The program computes possible 
 
 Initially, the program only records the number of comb inequalities with surplus < 0.9. As the number of distinct dominoes converge when k becomes large, we tried this on k = 100000 for `pr76`, and claim this to be almost exhaustive. We only considered odd sets with >=5 number of teeth. Unfortunately, it did not find any violated comb. Once we allow the number of teeth to be 3, and record the number of comb inequalities with surplus < 1.0, the program found around 1/10 k violated combs. However, those violations may be caused by rounding errors, since they are around 10^-4 away from 1.
 
+
+
+
   
 
   
