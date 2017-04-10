@@ -30,7 +30,7 @@ Violated combs found: 95
 ```
 
 #### att532:
-Despite that no violated comb has been found, it was observed that there are plenty combs with surpluses only a bit larger than 1.  
+Despite that no violated comb has been found, there are plenty combs with surpluses only a bit larger than 1.  Maybe 
 
 
 
@@ -50,3 +50,4 @@ Despite that no violated comb has been found, it was observed that there are ple
 #### Problems on large graphs (e.g. `att532`)
 
 ### Running time and performance, details of implementation:
+
