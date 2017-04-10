@@ -109,13 +109,13 @@ The file `comb_surplus_interval_att532.py` records all comb surpluses generated 
 
 `interval_5_att532`: The interval between 3 and 4 has the most number of combs.
 
-`interval_7_att532`: The intervak between 4 and 6, and between 5 and § has the most number of combs
+`interval_7_att532`: The interval between 4 and 6, and between 5 and § has the most number of combs
 
 
 ## April 9&10
 
 ### fl1577
-We computed the 3, 5, 7 teeth intervals for fl1577, like what we did for att532. We will record the performance later, but so far looks like it performs well. For 3 teeth and 5 teeth, it found a couple of violated comb inequalites, which I unfortunately did not record, or got overwritten. Well, will do that later. The difference compared to att532 though, is that we resetted 
+We computed the 3, 5, 7 teeth intervals for fl1577, like what we did for att532. We will record the performance later, but so far looks like it performs well. For 3 teeth and 5 teeth, it found a couple of violated comb inequalities, which I unfortunately did not record, or got overwritten. Well, will do that later. The difference compared to att532 though, is that we reset/
 ```python
     #for create_dom_graph
     surplus_bound=0.5
@@ -127,9 +127,23 @@ We computed the 3, 5, 7 teeth intervals for fl1577, like what we did for att532.
 
 I am not sure if this is because the support graph of fl1577 is intrinsically better, or it is due to the setting above. However, to test it out, we are gonna try the above setting for att532. 
 
-#### `interval_3_fl1577`
-For k=100 the running time is about 15 minutes. The interval [2,3) has the most comb surpluses. However, we did find 14 violated combs, whose surpluses was unfortunately unrecorded. On the plus side, there are a few combs with surpluses just a bit above 1.0.
+#### `interval_3_fl1577`: 3 teeth on fl1577
+For k=100 the running time is about 15 minutes. The interval [2,3) has the most comb surpluses. All surpluses are below 4. However, we did find 14 violated combs, whose surpluses was unfortunately unrecorded. On the plus side, there are a few combs with surpluses just a bit above 1.0.
 
-#### `interval_5_fl1577`
-For k=100 the running time is about 40 minutes. The interval [3,4) and [4,5) have the most comb surpluses. Twice for k=100 the program found 2 violated combs, with surplus 0.992-ish, which could be caused by rounding errors. 
+We redid the same test but recorded violated comb surpluses this time. For example, in `interval_3_fl1577_4.md`, it looks like
+```
+Violated comb surpluses:
+0.99987
+0.99987
+0.99836
+0.99836
+0.99994
+0.99990
+0.99990
+0.99994
+1.00000
+``` 
+
+#### `interval_5_fl1577`: 5 teeth on fl1577
+For k=100 the running time is about 40 minutes. The interval [3,4) and [4,5) have the most comb surpluses. Twice for k=100 the program found 2 violated combs, with surplus 0.992-ish, which could be caused by rounding errors. Unfortunately they were overwritten. 
  
