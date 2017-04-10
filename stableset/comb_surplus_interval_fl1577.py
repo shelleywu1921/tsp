@@ -380,13 +380,13 @@ if __name__ =='__main__':
     G=create_dom_graph(domfilename, surplus_bound, node_num_upper_bound)
 
     ## test_repetitions:
-    
+    '''
     for k in range(1,6):
         test_repetition_ktimes(k)
-    
+    '''
     
     ## comb_surplus_interval:
-    for k in range(1,3): # k=1,2
+    for k in range(2,3): # k=1,2
         counter =0 # number of candidate_dom (i.e. number of stable sets) considered
 
         # for the intervals:
