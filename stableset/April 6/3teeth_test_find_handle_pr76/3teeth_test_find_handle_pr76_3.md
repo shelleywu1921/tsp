@@ -1,4 +1,4 @@
-WARNING: comb_upper_bound changed to 1.0! Dont get too excited! 
+WARNING: comb_upper_bound changed to 1.0! Dont get too excited! 
 pr76
 Surplus bound on each domino: 1.0000 
 Number of nodes in G: 66 
