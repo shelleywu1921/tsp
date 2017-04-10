@@ -52,6 +52,6 @@ Comb surpluses:
 >= 8.0:                          0 
 
 Violated comb surpluses:
-0.99928
-0.99928
+0.9992830000000001
+0.9992830000000001
 Total running time: 2489.88011 seconds
