@@ -9,3 +9,8 @@ Call the support graph of x* `F`. The methodology is first constructing a graph 
 To compute a handle for the odd set of disjoint dominoes, we need to decide upon which half of each domino should be inside the handle. This is done by an exhaustive enumeration on all possible ways of assigning halves of dominoes to handles if the number of dominoes is small, and randomly examine possible patterns if the number of dominoes is large.    After knowing which halves are inside the handle and which halves are not, we construct a supergraph of the support graph `F`, called `Fbar`, by adding a node `s` and a node `t` to `F`. `s` and `t` are adjacent to  nodes in the dominoes that are supposed to be inside and outside the handle, respectively. Moreover, the weights of the new edges incident to `s` and `t` are significantly big numbers, say 100.  Compute the min cost s-t cut in `Fbar`. The cut is very unlikely to use any edge incident to `s` or to `t`. (From experiments, the cut weights are usually below 10). Hence, the cut separates the inside-handle halves of the dominoes from the outside-handle halves.    
 
 The min cost s-t cut is the handle such that the comb surplus is the smallest give the assignment of which parts should be inside the handle. If the total surplus of the comb using the min cost s-t cut as the handle is < 1, then we find a violated comb! 
+
+### Results on the implementation:
+#### Problems on small graphs (e.g. `pr76`):
+
+#### Problems on large graphs (e.g. `att532`)
