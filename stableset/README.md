@@ -126,4 +126,10 @@ We computed the 3, 5, 7 teeth intervals for fl1577, like what we did for att532.
 ```
 
 I am not sure if this is because the support graph of fl1577 is intrinsically better, or it is due to the setting above. However, to test it out, we are gonna try the above setting for att532. 
+
+#### `interval_3_fl1577`
+For k=100 the running time is about 15 minutes. The interval [2,3) has the most comb surpluses. However, we did find 14 violated combs, whose surpluses was unfortunately unrecorded. On the plus side, there are a few combs with surpluses just a bit above 1.0.
+
+#### `interval_5_fl1577`
+For k=100 the running time is about 40 minutes. The interval [3,4) and [4,5) have the most comb surpluses. Twice for k=100 the program found 2 violated combs, with surplus 0.992-ish, which could be caused by rounding errors. 
  

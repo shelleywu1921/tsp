@@ -391,7 +391,7 @@ if __name__ =='__main__':
     
     
     ## comb_surplus_interval:
-    for k in range(1,4): # k=1,2
+    for k in range(1,3): # k=1,2
         counter =0 # number of candidate_dom (i.e. number of stable sets) considered
 
         # for the intervals:
