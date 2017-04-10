@@ -1,7 +1,5 @@
 '''
-This is dedicated to finding combs for att532
-From the printed results of test_find_handle_att532 1~6, which were not recorded,
-observed that the number of teeth in a stable set tends to be large: around 9~27 (WOW)
+This is dedicated to finding combs for fl1577
 
 '''
 
@@ -22,7 +20,7 @@ from mindomcut2 import add_s_t, del_s_t
 
 def comb_surplus_interval(F,G,candidate_dom, total_surplus ,pattern_upper_bound):
     start=timer()
-    global zero_to_one,one_to_two, one_to_two_1, one_to_two_2, one_to_two_3, one_to_two_4, one_to_two_5, two_to_three_1, two_to_three_2, two_to_three_3, two_to_three_4, two_to_three_5, two_to_three, three_to_four, three_to_four_1, three_to_four_2, three_to_four_3, three_to_four_4, three_to_four_5, four_to_five, four_to_five_1, four_to_five_2, four_to_five_3, four_to_five_4, four_to_five_5, five_to_six, five_to_six_1, five_to_six_2, five_to_six_3, five_to_six_4, five_to_six_5, six_to_seven, seven_to_eight, more_than_eight
+    global zero_to_one,one_to_two, one_to_two_1, one_to_two_2, one_to_two_3, one_to_two_4, one_to_two_5, two_to_three_1, two_to_three_2, two_to_three_3, two_to_three_4, two_to_three_5, two_to_three, three_to_four, three_to_four_1, three_to_four_2, three_to_four_3, three_to_four_4, three_to_four_5, four_to_five, four_to_five_1, four_to_five_2, four_to_five_3, four_to_five_4, four_to_five_5, five_to_six, five_to_six_1, five_to_six_2, five_to_six_3, five_to_six_4, five_to_six_5, six_to_seven, seven_to_eight, more_than_eight, viol_comb_surplus_lst
     
     # for each node in candidate_dom, LHS =1/2surplus(Ti)-x*(E(A,B))
     # sumLHS = \sum 1/2 surplus(Ti)-x*(E(Ai,Bi)). Independ on H, the handle chosen
@@ -77,9 +75,9 @@ def comb_surplus_interval(F,G,candidate_dom, total_surplus ,pattern_upper_bound)
 			
             ## Intervals:
             if 0<= comb_surplus < 1:
-                zero_to_one +=1
-
-        
+				zero_to_one +=1
+				viol_comb_surplus_lst.append(comb_surplus)
+	
             elif 1<= comb_surplus <1.2:
                 one_to_two_1+=1
                 one_to_two+=1
@@ -223,9 +221,9 @@ def test_repetition_ktimes(k):
 
         ## WRITING TO RECORD ###################################################
         # for recording the trial
-        trialname='test_duplication_7_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
+        trialname='test_duplication_3_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
         trialfile=open(trialname,'w')
-        trialfile.write('NOTE: only consider combs with 7 teeth! \n')
+        trialfile.write('NOTE: only consider combs with 3 teeth! \n')
         trialfile.write(domfilename.split('.')[0]+ '\n\n')
 
         # write duplication
@@ -251,20 +249,20 @@ def test_repetition_ktimes(k):
 
 
 def comb_surplus_interval_ktimes(k):
-        global counter
-        start = timer()
+		global counter, viol_comb_surplus_lst
+		start = timer()
 
 		# for the loop		
-        find_handle_nktimes= 10**k		# number of times you want to run find_handle
+		find_handle_nktimes= 10**k		# number of times you want to run find_handle
 
-        for i in range(find_handle_nktimes):
+		for i in range(find_handle_nktimes):
 			find_ss=find_stable_set(G,total_stable_set_surplus_bound) # less than 2
 			if find_ss != None:
 				counter=counter+1
 				candidate_dom,total_surplus = find_ss
-				
+			
 				interval=comb_surplus_interval(F,G,candidate_dom, total_surplus ,pattern_upper_bound)
-				
+			
 				'''
 				fh=find_handle(F,G,candidate_dom,total_surplus, comb_upper_bound,pattern_upper_bound)
 				if fh !=None:
@@ -274,83 +272,88 @@ def comb_surplus_interval_ktimes(k):
 
 		## WRITING TO RECORD ###################################################
 		# for recording the trial
-        
-        # PLEASE CHECK THEM!!!!!!!!!!!!!!!!!!!!!!!!!
-        trialname='interval_7_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
-        trialfile=open(trialname,'w')
-        trialfile.write('Trying patterns for %d candidate doms of size 7. \n' % counter)
-        #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        
-        trialfile.write(domfilename.split('.')[0]+ '\n')
-        trialfile.write('Surplus bound on each domino: %.4f \n' % surplus_bound)
-        trialfile.write('Number of nodes in G: %d \n' % G.number_of_nodes())
-        trialfile.write('Number of edges in G: %d \n' % G.number_of_edges())
-        trialfile.write('Bound on total surplus of stable sets: %.4f \n' % total_stable_set_surplus_bound )
-        
-        #THIS WARNING NOTE MAY NEED SOME CHANGE AS WELL
-        trialfile.write('Pattern upper bound: %d. \n Note: now consider all possible patterns, since number of teeth<=9\n' % pattern_upper_bound)
-        #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        
-        trialfile.write('Running comb_surplus_interval: %d times \n' % find_handle_nktimes)
-        trialfile.write('Number of candidate_dom considered %d \n \n' % counter)
+	
+		# PLEASE CHECK THEM!!!!!!!!!!!!!!!!!!!!!!!!!
+		trialname='interval_3_'+domfilename.split('.')[0]+ '_'+str(k) + '.md'
+		trialfile=open(trialname,'w')
+		trialfile.write('Trying patterns for %d candidate doms of size 3. \n' % counter)
+		#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	
+		trialfile.write(domfilename.split('.')[0]+ '\n')
+		trialfile.write('Surplus bound on each domino: %.4f \n' % surplus_bound)
+		trialfile.write('Number of nodes in G: %d \n' % G.number_of_nodes())
+		trialfile.write('Number of edges in G: %d \n' % G.number_of_edges())
+		trialfile.write('Bound on total surplus of stable sets: %.4f \n' % total_stable_set_surplus_bound )
+	
+		#THIS WARNING NOTE MAY NEED SOME CHANGE AS WELL
+		trialfile.write('Pattern upper bound: %d. \n Note: now consider all possible patterns, since number of teeth<=9\n' % pattern_upper_bound)
+		#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	
+		trialfile.write('Running comb_surplus_interval: %d times \n' % find_handle_nktimes)
+		trialfile.write('Number of candidate_dom considered %d \n \n' % counter)
 
 
-        # interval recording
-        trialfile.write('Comb surpluses: \n')
-        trialfile.write('0.0 <= comb_surplus < 1:{0:8} \n\n'.format(zero_to_one))
+		# interval recording
+		trialfile.write('Comb surpluses: \n')
+		trialfile.write('0.0 <= comb_surplus < 1:{0:8} \n\n'.format(zero_to_one))
 
-        trialfile.write('1.0 <= comb_surplus < 1.2:{0:8} \n'.format(one_to_two_1))
-        trialfile.write('1.2 <= comb_surplus < 1.4:{0:8} \n'.format(one_to_two_2))
-        trialfile.write('1.4 <= comb_surplus < 1.6:{0:8} \n'.format(one_to_two_3))
-        trialfile.write('1.6 <= comb_surplus < 1.8:{0:8} \n'.format(one_to_two_4))
-        trialfile.write('1.8 <= comb_surplus < 2.0:{0:8} \n'.format(one_to_two_5))
-        trialfile.write('1.0 <= comb_surplus < 2.0:{0:8} \n\n'.format(one_to_two))
-
-
-        trialfile.write('2.0 <= comb_surplus < 2.2:{0:8} \n'.format(two_to_three_1))
-        trialfile.write('2.2 <= comb_surplus < 2.4:{0:8} \n'.format(two_to_three_2))
-        trialfile.write('2.4 <= comb_surplus < 2.6:{0:8} \n'.format(two_to_three_3))
-        trialfile.write('2.6 <= comb_surplus < 2.8:{0:8} \n'.format(two_to_three_4))
-        trialfile.write('2.8 <= comb_surplus < 3.0:{0:8} \n'.format(two_to_three_5))
-        trialfile.write('2.0 <= comb_surplus < 3.0:{0:8} \n\n'.format(two_to_three))
-
-        trialfile.write('3.0 <= comb_surplus < 3.2:{0:8} \n'.format(three_to_four_1))
-        trialfile.write('3.2 <= comb_surplus < 3.4:{0:8} \n'.format(three_to_four_2))
-        trialfile.write('3.4 <= comb_surplus < 3.6:{0:8} \n'.format(three_to_four_3))
-        trialfile.write('3.6 <= comb_surplus < 3.8:{0:8} \n'.format(three_to_four_4))
-        trialfile.write('3.8 <= comb_surplus < 4.0:{0:8} \n'.format(three_to_four_5))
-        trialfile.write('3.0 <= comb_surplus < 4.0:{0:8} \n\n'.format(three_to_four))
+		trialfile.write('1.0 <= comb_surplus < 1.2:{0:8} \n'.format(one_to_two_1))
+		trialfile.write('1.2 <= comb_surplus < 1.4:{0:8} \n'.format(one_to_two_2))
+		trialfile.write('1.4 <= comb_surplus < 1.6:{0:8} \n'.format(one_to_two_3))
+		trialfile.write('1.6 <= comb_surplus < 1.8:{0:8} \n'.format(one_to_two_4))
+		trialfile.write('1.8 <= comb_surplus < 2.0:{0:8} \n'.format(one_to_two_5))
+		trialfile.write('1.0 <= comb_surplus < 2.0:{0:8} \n\n'.format(one_to_two))
 
 
-        trialfile.write('4.0 <= comb_surplus < 4.2:{0:8} \n'.format(four_to_five_1))
-        trialfile.write('4.2 <= comb_surplus < 4.4:{0:8} \n'.format(four_to_five_2))
-        trialfile.write('4.4 <= comb_surplus < 4.6:{0:8} \n'.format(four_to_five_3))
-        trialfile.write('4.6 <= comb_surplus < 4.8:{0:8} \n'.format(four_to_five_4))
-        trialfile.write('4.8 <= comb_surplus < 5.0:{0:8} \n'.format(four_to_five_5))
-        trialfile.write('4.0 <= comb_surplus < 5.0:{0:8} \n\n'.format(four_to_five))
+		trialfile.write('2.0 <= comb_surplus < 2.2:{0:8} \n'.format(two_to_three_1))
+		trialfile.write('2.2 <= comb_surplus < 2.4:{0:8} \n'.format(two_to_three_2))
+		trialfile.write('2.4 <= comb_surplus < 2.6:{0:8} \n'.format(two_to_three_3))
+		trialfile.write('2.6 <= comb_surplus < 2.8:{0:8} \n'.format(two_to_three_4))
+		trialfile.write('2.8 <= comb_surplus < 3.0:{0:8} \n'.format(two_to_three_5))
+		trialfile.write('2.0 <= comb_surplus < 3.0:{0:8} \n\n'.format(two_to_three))
 
-        trialfile.write('5.0 <= comb_surplus < 5.2:{0:8} \n'.format(five_to_six_1))
-        trialfile.write('5.2 <= comb_surplus < 5.4:{0:8} \n'.format(five_to_six_2))
-        trialfile.write('5.4 <= comb_surplus < 5.6:{0:8} \n'.format(five_to_six_3))
-        trialfile.write('5.6 <= comb_surplus < 5.8:{0:8} \n'.format(five_to_six_4))
-        trialfile.write('5.8 <= comb_surplus < 6.0:{0:8} \n'.format(five_to_six_5))
-        trialfile.write('5.0 <= comb_surplus < 6.0:{0:8} \n\n'.format(five_to_six))
-        
-        trialfile.write('6.0 <= comb_surplus < 7.0:{0:8} \n'.format(six_to_seven))
-        trialfile.write('7.0 <= comb_surplus < 8.0:{0:8} \n'.format(seven_to_eight))
-        trialfile.write('>= 8.0:{0:27} \n'.format(more_than_eight))
+		trialfile.write('3.0 <= comb_surplus < 3.2:{0:8} \n'.format(three_to_four_1))
+		trialfile.write('3.2 <= comb_surplus < 3.4:{0:8} \n'.format(three_to_four_2))
+		trialfile.write('3.4 <= comb_surplus < 3.6:{0:8} \n'.format(three_to_four_3))
+		trialfile.write('3.6 <= comb_surplus < 3.8:{0:8} \n'.format(three_to_four_4))
+		trialfile.write('3.8 <= comb_surplus < 4.0:{0:8} \n'.format(three_to_four_5))
+		trialfile.write('3.0 <= comb_surplus < 4.0:{0:8} \n\n'.format(three_to_four))
 
 
-        ## WRITE COMB ######################################################################
-        
-        end=timer()
-        trialfile.write('Total running time: %.5f seconds' % (end-start))
-        trialfile.close()
-        print('Total number of sets of candidate_dom considered: %d' % counter)
+		trialfile.write('4.0 <= comb_surplus < 4.2:{0:8} \n'.format(four_to_five_1))
+		trialfile.write('4.2 <= comb_surplus < 4.4:{0:8} \n'.format(four_to_five_2))
+		trialfile.write('4.4 <= comb_surplus < 4.6:{0:8} \n'.format(four_to_five_3))
+		trialfile.write('4.6 <= comb_surplus < 4.8:{0:8} \n'.format(four_to_five_4))
+		trialfile.write('4.8 <= comb_surplus < 5.0:{0:8} \n'.format(four_to_five_5))
+		trialfile.write('4.0 <= comb_surplus < 5.0:{0:8} \n\n'.format(four_to_five))
 
-        #print('Combs found: %d \n' % combs_found)
+		trialfile.write('5.0 <= comb_surplus < 5.2:{0:8} \n'.format(five_to_six_1))
+		trialfile.write('5.2 <= comb_surplus < 5.4:{0:8} \n'.format(five_to_six_2))
+		trialfile.write('5.4 <= comb_surplus < 5.6:{0:8} \n'.format(five_to_six_3))
+		trialfile.write('5.6 <= comb_surplus < 5.8:{0:8} \n'.format(five_to_six_4))
+		trialfile.write('5.8 <= comb_surplus < 6.0:{0:8} \n'.format(five_to_six_5))
+		trialfile.write('5.0 <= comb_surplus < 6.0:{0:8} \n\n'.format(five_to_six))
+	
+		trialfile.write('6.0 <= comb_surplus < 7.0:{0:8} \n'.format(six_to_seven))
+		trialfile.write('7.0 <= comb_surplus < 8.0:{0:8} \n'.format(seven_to_eight))
+		trialfile.write('>= 8.0:{0:27} \n\n'.format(more_than_eight))
 
-        print('Total time: %.5f seconds' % (end-start))
+		trialfile.write('Violated comb surpluses:\n')
+		for item in viol_comb_surplus_lst:
+			trialfile.write('%.10f\n' % item)
+	
+		## WRITE COMB ######################################################################
+	
+		end=timer()
+		trialfile.write('Total running time: %.5f seconds' % (end-start))
+		trialfile.close()
+		print('Total number of sets of candidate_dom considered: %d' % counter)
+		print('Surpluses of violated combs: \n')
+		print(viol_comb_surplus_lst)
+
+		#print('Combs found: %d \n' % combs_found)
+
+		print('Total time: %.5f seconds' % (end-start))
 
 
 
@@ -364,8 +367,8 @@ if __name__ =='__main__':
 
     #for create_dom_graph
     domfilename='att532.dom'
-    surplus_bound=0.75
-    node_num_upper_bound=5000
+    surplus_bound=0.5
+    node_num_upper_bound=10000
 
     #for find_stable_set 
     total_stable_set_surplus_bound=1.75 # less than 2
@@ -432,6 +435,8 @@ if __name__ =='__main__':
         six_to_seven = 0
         seven_to_eight = 0
         more_than_eight = 0
+        
+        viol_comb_surplus_lst=[]
         
         comb_surplus_interval_ktimes(k)
 

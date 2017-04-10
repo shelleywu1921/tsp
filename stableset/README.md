@@ -115,5 +115,12 @@ The file `comb_surplus_interval_att532.py` records all comb surpluses generated 
 ## April 9&10
 
 ### fl1577
-We computed the 3, 5, 7 teeth intervals for fl1577, like what we did for att532. 
+We computed the 3, 5, 7 teeth intervals for fl1577, like what we did for att532. We will record the performance later, but so far looks like it performs well. For 3 teeth and 5 teeth, it found a couple of violated comb inequalites, which I unfortunately did not record, or got overwritten. Well, will do that later. The difference compared to att532 though, is that we resetted 
+```python
+    #for create_dom_graph
+    surplus_bound=0.5
+    node_num_upper_bound=10000
 
+    #for find_stable_set 
+    total_stable_set_surplus_bound=1.75
+```
