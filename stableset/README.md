@@ -124,3 +124,6 @@ We computed the 3, 5, 7 teeth intervals for fl1577, like what we did for att532.
     #for find_stable_set 
     total_stable_set_surplus_bound=1.75
 ```
+
+I am not sure if this is because the support graph of fl1577 is intrinsically better, or it is due to the setting above. However, to test it out, we are gonna try the above setting for att532. 
+ 
