@@ -143,7 +143,16 @@ Violated comb surpluses:
 0.99994
 1.00000
 ``` 
+which looks totally like rounding errors. Meh.
+
+There is very little duplication when k=10,000. However, about 2/3 are unique when k=100,000.
 
 #### `interval_5_fl1577`: 5 teeth on fl1577
-For k=100 the running time is about 40 minutes. The interval [3,4) and [4,5) have the most comb surpluses. Twice for k=100 the program found 2 violated combs, with surplus 0.992-ish, which could be caused by rounding errors. Unfortunately they were overwritten. 
+For k=100 the running time is about 40 minutes. The interval [3,4) and [4,5) have the most comb surpluses. All surpluses are below 6. Twice for k=100 the program found 2 violated combs, with surplus 0.992-ish, which could be caused by rounding errors. Unfortunately they were overwritten. 
  
+There is almost no duplication when k= 100,000. For example, in `test_duplication_5_fl1577_5.md`,
+```
+With duplicaition, 99878 stable sets were considered 
+Without duplication, 95932 stable sets were considered 
+Running find_stable_set: 100000 times 
+```
