@@ -1,7 +1,6 @@
 # The Travelling Salesman Problem: Finding violated comb inequalities
 ## Project update, April 10
 
-### Next step maybe?
 
 
 ### Description of the code
@@ -31,7 +30,7 @@ Violated combs found: 95
 ```
 
 #### att532:
-
+Despite that no violated comb has been found, it was observed that there are plenty combs with surpluses only a bit larger than 1.  
 
 
 
@@ -43,10 +42,11 @@ Violated combs found: 95
 
   
 
-  
 
 
 
 #### Problems on small graphs (e.g. `pr76`):
 
 #### Problems on large graphs (e.g. `att532`)
+
+### Running time and performance, details of implementation:
