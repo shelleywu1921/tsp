@@ -156,3 +156,5 @@ With duplicaition, 99878 stable sets were considered
 Without duplication, 95932 stable sets were considered 
 Running find_stable_set: 100000 times 
 ```
+
+#### `retry_3_att532`: use the setting for fl1577 described at the beginning of today's section
