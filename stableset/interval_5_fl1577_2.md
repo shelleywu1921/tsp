@@ -12,42 +12,46 @@ Number of candidate_dom considered 100
 Comb surpluses: 
 0.0 <= comb_surplus < 1:       2 
 
-1.0 <= comb_surplus < 1.2:      14 
+1.0 <= comb_surplus < 1.2:      16 
 1.2 <= comb_surplus < 1.4:       0 
-1.4 <= comb_surplus < 1.6:       0 
-1.6 <= comb_surplus < 1.8:      32 
-1.8 <= comb_surplus < 2.0:       4 
-1.0 <= comb_surplus < 2.0:      50 
+1.4 <= comb_surplus < 1.6:       6 
+1.6 <= comb_surplus < 1.8:      22 
+1.8 <= comb_surplus < 2.0:       0 
+1.0 <= comb_surplus < 2.0:      44 
 
-2.0 <= comb_surplus < 2.2:       0 
-2.2 <= comb_surplus < 2.4:      54 
-2.4 <= comb_surplus < 2.6:      10 
-2.6 <= comb_surplus < 2.8:      30 
-2.8 <= comb_surplus < 3.0:     275 
-2.0 <= comb_surplus < 3.0:     369 
+2.0 <= comb_surplus < 2.2:       6 
+2.2 <= comb_surplus < 2.4:      40 
+2.4 <= comb_surplus < 2.6:      40 
+2.6 <= comb_surplus < 2.8:      16 
+2.8 <= comb_surplus < 3.0:     199 
+2.0 <= comb_surplus < 3.0:     301 
 
-3.0 <= comb_surplus < 3.2:     287 
-3.2 <= comb_surplus < 3.4:      84 
-3.4 <= comb_surplus < 3.6:      58 
-3.6 <= comb_surplus < 3.8:     360 
-3.8 <= comb_surplus < 4.0:      30 
-3.0 <= comb_surplus < 4.0:     819 
+3.0 <= comb_surplus < 3.2:     361 
+3.2 <= comb_surplus < 3.4:      38 
+3.4 <= comb_surplus < 3.6:      54 
+3.6 <= comb_surplus < 3.8:     308 
+3.8 <= comb_surplus < 4.0:     150 
+3.0 <= comb_surplus < 4.0:     911 
 
-4.0 <= comb_surplus < 4.2:     168 
-4.2 <= comb_surplus < 4.4:     568 
-4.4 <= comb_surplus < 4.6:     118 
-4.6 <= comb_surplus < 4.8:     118 
-4.8 <= comb_surplus < 5.0:     979 
-4.0 <= comb_surplus < 5.0:    1951 
+4.0 <= comb_surplus < 4.2:     198 
+4.2 <= comb_surplus < 4.4:     470 
+4.4 <= comb_surplus < 4.6:     266 
+4.6 <= comb_surplus < 4.8:     132 
+4.8 <= comb_surplus < 5.0:     849 
+4.0 <= comb_surplus < 5.0:    1915 
 
-5.0 <= comb_surplus < 5.2:       9 
+5.0 <= comb_surplus < 5.2:      27 
 5.2 <= comb_surplus < 5.4:       0 
 5.4 <= comb_surplus < 5.6:       0 
 5.6 <= comb_surplus < 5.8:       0 
 5.8 <= comb_surplus < 6.0:       0 
-5.0 <= comb_surplus < 6.0:       9 
+5.0 <= comb_surplus < 6.0:      27 
 
 6.0 <= comb_surplus < 7.0:       0 
 7.0 <= comb_surplus < 8.0:       0 
 >= 8.0:                          0 
-Total running time: 2632.70447 seconds
+
+Violated comb surpluses:
+0.99928
+0.99928
+Total running time: 2489.88011 seconds

@@ -1,6 +1,9 @@
 # The Travelling Salesman Problem: Finding violated comb inequalities
 ## Project update, April 10
 
+### Next step maybe?
+
+
 ### Description of the code
 I wrote a program to find violated comb inequalities, given x* (e.g. `pr76.x`) and the set of dominoes with surplus < 1 (e.g. `pr76.dom`). 
 
@@ -11,10 +14,14 @@ To compute a handle for the odd set of disjoint dominoes, we need to decide upon
 The min cost s-t cut is the handle such that the comb surplus is the smallest give the assignment of which parts should be inside the handle. If the total surplus of the comb using the min cost s-t cut as the handle is < 1, then we find a violated comb! 
 
 ### Results on the implementation:
-Given x* (e.g. `pr76.x`) and the set of dominoes (e.g. `pr76.dom`), the program first generates k odd sets of disjoint dominoes. (k = 10, 100, 1000, etc). Then for each odd set of disjoint dominoes, it computes the best handle for possible arrangements of halves inside and outside the handle.  
+Given x* (e.g. `pr76.x`) and the set of dominoes (e.g. `pr76.dom`), the program first generates k odd sets of disjoint dominoes. (k = 10, 100, 1000, etc). 
 
+Then for each odd set of disjoint dominoes, it computes the best handle for possible arrangements of halves inside and outside the handle.  
+
+We hope that if there exists violated comb inequalities, we will eventually find one by sampling enough combs (i.e. make k large).
+
+#### `pr76`
 
 #### Problems on small graphs (e.g. `pr76`):
-
 
 #### Problems on large graphs (e.g. `att532`)
