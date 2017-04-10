@@ -15,12 +15,16 @@ The min cost s-t cut is the handle such that the comb surplus is the smallest gi
 
 ### Results on the implementation:
 Given x* (e.g. `pr76.x`) and the set of dominoes (e.g. `pr76.dom`), the program first generates k odd sets of disjoint dominoes. (k = 10, 100, 1000, etc). 
-
 Then for each odd set of disjoint dominoes, it computes the best handle for possible arrangements of halves inside and outside the handle.  
+We hope that if there exists violated comb inequalities, we will eventually find one by sampling enough combs (i.e. make k large, and sample all possible arrangements).
 
-We hope that if there exists violated comb inequalities, we will eventually find one by sampling enough combs (i.e. make k large).
+We break the interval [0,8] to small intervals. The program computes possible handles for k odd sets of dominoes, and outpot the number of occurrences of comb surpluses in each interval. for possible handles for k stable sets.   
 
-#### `pr76`
+Initially, the program only record the number of comb inequalities if the surplus is < 0.9. We tried this on `pr76` for k = 100000 and on `att532` for k = 10. Unfortunately, there was no violated comb found. 
+
+  
+
+#### `pr76`: 
 
 #### Problems on small graphs (e.g. `pr76`):
 

@@ -391,7 +391,7 @@ if __name__ =='__main__':
     '''
     
     ## comb_surplus_interval:
-    for k in range(3,5): # k=1,2
+    for k in range(2,3): # k=1,2
         counter =0 # number of candidate_dom (i.e. number of stable sets) considered
 
         # for the intervals:
@@ -438,7 +438,7 @@ if __name__ =='__main__':
         
         viol_comb_surplus_lst=[]
         
-        comb_surplus_interval_ktimes(2)
+        comb_surplus_interval_ktimes(k)
 
 
 
