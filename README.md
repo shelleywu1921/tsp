@@ -1,9 +1,9 @@
 # The Travelling Salesman Problem: Finding violated comb inequalities
-## Project update, April 10
+# Project update, April 10
 
 
 
-### Description of the code
+## Description of the code
 I wrote a program to find violated comb inequalities, given x* (e.g. `pr76.x`) and the set of dominoes with surplus < 1 (e.g. `pr76.dom`). 
 
 Call the support graph of x* `F`. The methodology is first constructing a graph `G` where the nodes represent dominoes, and `(u,v)` is an edge in `G` if and only if the dominoes represented by u and v intersect.  Then we run a finding stable sets heuristic on `G` to find an odd stable set. The stable set represents a set of disjoint dominoes in the support  graph `F`. 
@@ -12,7 +12,7 @@ To compute a handle for the odd set of disjoint dominoes, we need to decide upon
 
 The min cost s-t cut is the handle such that the comb surplus is the smallest give the assignment of which parts should be inside the handle. If the total surplus of the comb using the min cost s-t cut as the handle is < 1, then we find a violated comb! 
 
-### Results on the implementation:
+## Results on the implementation:
 Given x* (e.g. `pr76.x`) and the set of dominoes (e.g. `pr76.dom`), the program first generates k odd sets of disjoint dominoes. (k = 10, 100, 1000, etc). 
 Then for each odd set of disjoint dominoes, it computes the best handle for possible arrangements of halves inside and outside the handle.  
 
@@ -20,7 +20,7 @@ We hope that if there exists violated comb inequalities, we will eventually find
 
 We break the interval [0,8] to smaller intervals. The program computes possible handles for k odd sets of dominoes, and outputs the number of occurrences of comb surpluses in each interval. 
 
-#### pr76: 
+### pr76: 
 Initially, the program only records the number of comb inequalities with surplus < 0.9. As the number of distinct dominoes converge when k becomes large, we tried this on k = 100000 for `pr76`, and claim this to be almost exhaustive. We only considered odd sets with >=5 number of teeth. Unfortunately, it did not find any violated comb. Once we allow the number of teeth to be 3, and record the number of comb inequalities with surplus < 1.0, the program found around 1/10 k violated combs. However, those violations may be caused by rounding errors, since they are around 10^-4 away from 1.
 
 For example, in tsp/stableset/April 6/3teeth_test_find_handle_pr76
@@ -29,13 +29,13 @@ Number of odd sets of teeth considered: 1000
 Violated combs found: 95
 ```
 
-#### att532:
+### att532:
 Despite that no violated comb has been found, there are plenty combs with surpluses only a bit larger than 1.  Maybe 
 
 
 
 
-#### fl1577:
+### fl1577:
 
 
 
@@ -45,9 +45,9 @@ Despite that no violated comb has been found, there are plenty combs with surplu
 
 
 
-#### Problems on small graphs (e.g. `pr76`):
+### Problems on small graphs (e.g. `pr76`):
 
-#### Problems on large graphs (e.g. `att532`)
+### Problems on large graphs (e.g. `att532`)
 
-### Running time and performance, details of implementation:
+## Running time and performance, details of implementation:
 
