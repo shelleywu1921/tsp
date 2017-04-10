@@ -30,6 +30,7 @@ Violated combs found: 95
 ```
 
 ### att532:
+For large examples like `att532` and `fl1577`, the number of 
 Despite that no violated comb has been found, there are plenty combs with surpluses only a bit larger than 1.  
 
 

@@ -128,7 +128,7 @@ def find_stable_set(G, total_surplus_bound):
 	  else:
 		break
 	  
-	  if len(candidate_dom) ==3:	# up to 3 teeth
+	  if len(candidate_dom) ==7:	# up to 7 teeth
 	  	break
 	  
   if len(candidate_dom)<3:  # changed from 5 to 3
