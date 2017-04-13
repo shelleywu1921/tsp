@@ -75,7 +75,7 @@ def create_dom_graph(domfilename,surplus_bound,node_num_upper_bound):
 		G.add_edge(u,v)
  print('number of edges in the graph G: %d' % (G.number_of_edges()))
  end=timer()
- print('running time: %.5f seconds' % (end-start)) 
+ print('create_dom_graph running time: %.5f seconds' % (end-start))
  return G
 
 '''
@@ -104,7 +104,7 @@ Note:
 '''
 
 
-def find_stable_set(G, total_surplus_bound):
+def find_stable_set(G, total_surplus_bound, max_teeth_num):
   max_stable_set=nx.maximal_independent_set(G)
   if len(max_stable_set)< 3: 
 	return None
@@ -128,7 +128,7 @@ def find_stable_set(G, total_surplus_bound):
 	  else:
 		break
 	  
-	  if len(candidate_dom) ==7:	# up to 7 teeth
+	  if len(candidate_dom) == max_teeth_num:	# up to 5 teeth
 	  	break
 	  
   if len(candidate_dom)<3:  # changed from 5 to 3
