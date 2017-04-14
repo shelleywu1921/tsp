@@ -80,7 +80,7 @@ def find_comb(F,G,handle_pool):
 		
 		eligible_teeth=find_all_teeth(F,G,handle)
 		if len(list(eligible_teeth.nodes())) >=3:
-			for k in range(5): 
+			for k in range(10): 
 				odd_teeth = nx.maximal_independent_set(eligible_teeth) # this is a set
 				if len(odd_teeth) >= 3: 
 					if len(odd_teeth)%2==0:
@@ -119,7 +119,7 @@ def find_comb(F,G,handle_pool):
 if __name__ == "__main__":
 	# Variables:
 	## creat_dom_graph:
-	teeth_surplus_bound = 0.75
+	teeth_surplus_bound = 1.0
 	node_num_upper_bd = 20000
 
 	## find_all_teeth:
@@ -133,7 +133,7 @@ if __name__ == "__main__":
 	
 	# start:
 	start = timer()
-	newfilename='att532_handle_to_teeth_2.txt'
+	newfilename='att532_handle_to_teeth_3.txt'
 	newfile=open(newfilename, 'w')
 	
 	newfile.write('Variables: \n')
