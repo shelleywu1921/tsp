@@ -48,9 +48,9 @@ def find_all_teeth(F, G, handle):
 			vteeth=eligible_teeth.node[v]['vertices']
 			if (v!=u) and not uteeth.isdisjoint(vteeth):
 				eligible_teeth.add_edge(u,v)
-	newfile.write('All eligible teeth for this handle are: \n')
+	newfile.write(' All eligible teeth for this handle are: \n')
 	newfile.write(repr(set(eligible_teeth.nodes())) +' \n')
-	newfile.write('Total number of eligible teeth is: %d \n' % len(list(eligible_teeth.nodes())))
+	newfile.write(' Total number of eligible teeth is: %d \n' % len(list(eligible_teeth.nodes())))
 
 	print('total number of dominoes that can be teeth of the comb is: %d' % len(list(eligible_teeth.nodes())))
 	return eligible_teeth
@@ -85,10 +85,10 @@ def find_comb(F,G,handle_pool):
 					if len(odd_teeth)%2==0:
 						odd_teeth.pop()
 					
-					newfile.write('Maximal disjoint teeth set: \n')
+					newfile.write(' Maximal disjoint teeth set: \n')
 					newfile.write(repr(odd_teeth) + '\n')
 					print('Number of disjoint teeth: %d' % len(odd_teeth))
-					newfile.write('Number of disjoint teeth: %d \n' % len(odd_teeth))
+					newfile.write(' Number of disjoint teeth: %d \n' % len(odd_teeth))
 					
 					x_delta_H = x_delta_S(F, handle)
 					LHS = x_delta_H + sum(x_delta_S(F,G.node[T]['vertices']) for T in odd_teeth)
@@ -100,7 +100,7 @@ def find_comb(F,G,handle_pool):
 						viol_comb['comb_surplus']= comb_surplus
 						viol_comb_set.add(viol_comb)
 						counter +=1
-					newfile.write('comb surplus (<1.0 is good!): %.5f \n\n' % comb_surplus)
+					newfile.write(' comb surplus (<1.0 is good!): %.5f \n\n' % comb_surplus)
 					print('comb surplus: %.5f' %comb_surplus)
 	newfile.write('total number of violated comb is %d: \n ' % counter)
 	newfile.write('And they are: \n ')
