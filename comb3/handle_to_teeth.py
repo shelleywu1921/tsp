@@ -3,7 +3,7 @@ from domgraph2 import create_dom_graph, find_stable_set
 from ABcut import edges_cross
 from itertools import product
 import networkx as nx
-
+from timeit import default_timer as timer
 '''
 handle_pool = all_handles('att532.pool.txt')
 
@@ -19,7 +19,7 @@ def all_handles(handlefilename):
     first_line=handlefile.readline().split()
     for i in range(int(first_line[1])):
         number_of_node=int(handlefile.readline().split()[0])
-        handle_set=set(map(int,handlefile.readline().split()))
+        handle_set=frozenset(map(int,handlefile.readline().split()))
         if number_of_node >=3:
             handle_pool.add(handle_set)
     handlefile.close()
@@ -46,7 +46,7 @@ def find_all_teeth(F, G, handle):
             vteeth=eligible_teeth.node[v]['vertices']
             if (v!=u) and not uteeth.isdisjoint(vteeth):
                 eligible_teeth.add_edge(u,v)
-    print('total number of dominoes that can be teeth of the comb is: %d' % len(eligible_teeth))
+    print('total number of dominoes that can be teeth of the comb is: %d' % len(list(eligible_teeth.nodes())))
     return eligible_teeth
 
 
@@ -65,25 +65,29 @@ def x_delta_S(F, S):
 def find_comb(F,G,handle_pool):
 	counter = 0
 	viol_comb_set = set()
-    for handle in handle_pool:
-        eligible_teeth=find_all_teeth(F,G,handle)
-        odd_teeth = nx.maximal_independent_set(eligible_teeth) # this is a set
-        if len(odd_length) >= 3: 
-			if len(odd_teeth)%2==0:
-				odd_teeth.pop()
-			print('Number of teeth: %d' % len(odd_teeth))
+	for handle in handle_pool:
+		eligible_teeth=find_all_teeth(F,G,handle)
+		if len(list(eligible_teeth.nodes())) >=3:
+			for k in range(5): 
+				odd_teeth = nx.maximal_independent_set(eligible_teeth) # this is a set
+				if len(odd_teeth) >= 3: 
+					if len(odd_teeth)%2==0:
+						odd_teeth.pop()
+					print('Number of teeth: %d' % len(odd_teeth))
 
-			x_delta_H = x_delta_S(F, handle)
-			LHS = x_delta_H + sum(x_delta_S(F,G.node[T]['vertices']) for T in odd_teeth)
-			comb_surplus = LHS - 3*len(odd_teeth)
-				if comb_surplus < 1: 
-					viol_comb = dict()
-					viol_comb['handle']=handle
-					viol_comb['teeth'] = odd_teeth
-					viol_comb['comb_surplus']= comb_surplus
-					viol_comb_set.add(viol_comb)
-					counter +=1
-			print('comb surplus: %.5f' %comb_surplus)
+					x_delta_H = x_delta_S(F, handle)
+					LHS = x_delta_H + sum(x_delta_S(F,G.node[T]['vertices']) for T in odd_teeth)
+					comb_surplus = LHS - 3*len(odd_teeth)
+					if comb_surplus < 1: 
+						viol_comb = dict()
+						viol_comb['handle']=handle
+						viol_comb['teeth'] = odd_teeth
+						viol_comb['comb_surplus']= comb_surplus
+						viol_comb_set.add(viol_comb)
+						counter +=1
+					print('comb surplus: %.5f' %comb_surplus)
+	print('total number of violated comb is %d:' % counter)
+	print('And they are:')
 	print(viol_comb_set)
 	return viol_comb_set
 
@@ -93,7 +97,7 @@ if __name__ == "__main__":
     ## Variables:
     ## creat_dom_graph:
     teeth_surplus_bound = 0.75
-    node_num_upper_bd = 10000
+    node_num_upper_bd = 50000
 
     ## find_all_teeth:
     epsilon= 0.1        #
@@ -103,15 +107,18 @@ if __name__ == "__main__":
     pattern_upper_bound = 530
     max_teeth_num = 5
     '''
+    
+    start = timer()
     # constants:
     F=build_support_graph('att532.x')
     G=create_dom_graph('att532.dom', teeth_surplus_bound, node_num_upper_bd)
     handle_pool= all_handles('att532.pool.txt')
 
-    find_comb(F,G,handle_pool)
+    viol_comb_set= find_comb(F,G,handle_pool)
 	
-	viol_comb_set = find_comb(F,G,handle_pool)
-
+	end=timer()
+	print('Total running time: %.5f'%(end-start))
+	
     
 
 
