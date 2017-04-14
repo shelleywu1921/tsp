@@ -100,7 +100,7 @@ def find_comb(F,G,handle_pool):
 						viol_comb['comb_surplus']= comb_surplus
 						viol_comb_set.add(viol_comb)
 						counter +=1
-					newfile.write('comb surplus (<1.0 is good!): %.5f \n' % comb_surplus)
+					newfile.write('comb surplus (<1.0 is good!): %.5f \n\n' % comb_surplus)
 					print('comb surplus: %.5f' %comb_surplus)
 	newfile.write('total number of violated comb is %d: \n ' % counter)
 	newfile.write('And they are: \n ')
