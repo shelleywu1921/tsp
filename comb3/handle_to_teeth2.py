@@ -74,7 +74,7 @@ def find_comb(F,G,handle_pool):
 	counter = 0
 	viol_comb_set = set()
 	for handle in handle_pool:
-		newfile.write('Handle: \n')
+		newfile.write('\n Handle: \n')
 		newfile.write(repr(handle) + '\n')
 		
 		eligible_teeth=find_all_teeth(F,G,handle)
@@ -133,6 +133,11 @@ if __name__ == "__main__":
 	start = timer()
 	newfilename='att532_handle_to_teeth_0.txt'
 	newfile=open(newfilename, 'w')
+	
+	newfile.write('Variables: \n')
+	newfile.write('teeth_surplus_bound: %.5f \n' % teeth_surplus_bound)
+	newfile.write('node_num_upper_bd: %d \n' % node_num_upper_bd)
+	newfile.write('epsilon: %.5f \n' % epsilon)
 	
 	# constants:
 	F=build_support_graph('att532.x')
