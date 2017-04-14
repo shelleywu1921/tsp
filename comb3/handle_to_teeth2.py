@@ -48,9 +48,9 @@ def find_all_teeth(F, G, handle):
 			vteeth=eligible_teeth.node[v]['vertices']
 			if (v!=u) and not uteeth.isdisjoint(vteeth):
 				eligible_teeth.add_edge(u,v)
-	newfile.write('All eligible teeth for this handle are:')
-	newfile.write(repr(set(eligible_teeth.nodes())))
-	newfile.write('Total number of eligible teeth is: %d' % len(list(eligible_teeth.nodes())))
+	newfile.write('All eligible teeth for this handle are: \n')
+	newfile.write(repr(set(eligible_teeth.nodes())) +' \n')
+	newfile.write('Total number of eligible teeth is: %d \n' % len(list(eligible_teeth.nodes())))
 
 	print('total number of dominoes that can be teeth of the comb is: %d' % len(list(eligible_teeth.nodes())))
 	return eligible_teeth
@@ -74,8 +74,8 @@ def find_comb(F,G,handle_pool):
 	counter = 0
 	viol_comb_set = set()
 	for handle in handle_pool:
-		newfile.write('Handle: ')
-		newfile.write(repr(handle))
+		newfile.write('Handle: \n')
+		newfile.write(repr(handle) + '\n')
 		
 		eligible_teeth=find_all_teeth(F,G,handle)
 		if len(list(eligible_teeth.nodes())) >=3:
@@ -85,10 +85,10 @@ def find_comb(F,G,handle_pool):
 					if len(odd_teeth)%2==0:
 						odd_teeth.pop()
 					
-					newfile.write('Maximal disjoint teeth set:')
-					newfile.write(repr(odd_teeth))
+					newfile.write('Maximal disjoint teeth set: \n')
+					newfile.write(repr(odd_teeth) + '\n')
 					print('Number of disjoint teeth: %d' % len(odd_teeth))
-					newfile.write('Number of disjoint teeth: %d' % len(odd_teeth))
+					newfile.write('Number of disjoint teeth: %d \n' % len(odd_teeth))
 					
 					x_delta_H = x_delta_S(F, handle)
 					LHS = x_delta_H + sum(x_delta_S(F,G.node[T]['vertices']) for T in odd_teeth)
@@ -102,9 +102,9 @@ def find_comb(F,G,handle_pool):
 						counter +=1
 					newfile.write('comb surplus (<1.0 is good!): %.5f \n' % comb_surplus)
 					print('comb surplus: %.5f' %comb_surplus)
-	newfile.write('total number of violated comb is %d:' % counter)
-	newfile.write('And they are:')
-	newfile.write(repr(viol_comb_set))
+	newfile.write('total number of violated comb is %d: \n ' % counter)
+	newfile.write('And they are: \n ')
+	newfile.write(repr(viol_comb_set) + '\n' )
 	
 	print('total number of violated comb is %d:' % counter)
 	print('And they are:')
