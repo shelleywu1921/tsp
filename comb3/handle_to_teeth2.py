@@ -118,7 +118,7 @@ if __name__ == "__main__":
 	# Variables:
 	## creat_dom_graph:
 	teeth_surplus_bound = 0.75
-	node_num_upper_bd = 5000
+	node_num_upper_bd = 10000
 
 	## find_all_teeth:
 	epsilon= 0.1        #
@@ -131,7 +131,7 @@ if __name__ == "__main__":
 	
 	# start:
 	start = timer()
-	newfilename='att532_handle_to_teeth_0.txt'
+	newfilename='att532_handle_to_teeth_1.txt'
 	newfile=open(newfilename, 'w')
 	
 	newfile.write('Variables: \n')
@@ -142,8 +142,12 @@ if __name__ == "__main__":
 	# constants:
 	F=build_support_graph('att532.x')
 	G=create_dom_graph('att532.dom', teeth_surplus_bound, node_num_upper_bd)
-	handle_pool= all_handles('att532.pool.txt')
 
+	newfile.write('Constants: \n')
+	newfile.write('Total number of dominoes: %d \n' % G.number_of_nodes())
+	
+	handle_pool= all_handles('att532.pool.txt')
+	
 	# main function
 	viol_comb_set= find_comb(F,G,handle_pool)
 
