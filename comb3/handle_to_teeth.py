@@ -94,31 +94,39 @@ def find_comb(F,G,handle_pool):
 
 
 if __name__ == "__main__":
-    ## Variables:
-    ## creat_dom_graph:
-    teeth_surplus_bound = 0.75
-    node_num_upper_bd = 50000
+	## Variables:
+	## creat_dom_graph:
+	teeth_surplus_bound = 0.75
+	node_num_upper_bd = 50000
 
-    ## find_all_teeth:
-    epsilon= 0.1        #
-    '''
-    comb_upper_bd = 2.5
-    total_surplus_bound = 2 # <=2
-    pattern_upper_bound = 530
-    max_teeth_num = 5
-    '''
-    
-    start = timer()
-    # constants:
-    F=build_support_graph('att532.x')
-    G=create_dom_graph('att532.dom', teeth_surplus_bound, node_num_upper_bd)
-    handle_pool= all_handles('att532.pool.txt')
+	## find_all_teeth:
+	epsilon= 0.1        #
+	'''
+	comb_upper_bd = 2.5
+	total_surplus_bound = 2 # <=2
+	pattern_upper_bound = 530
+	max_teeth_num = 5
+	'''
 
-    viol_comb_set= find_comb(F,G,handle_pool)
-	
+	start = timer()
+	# constants:
+	F=build_support_graph('att532.x')
+	G=create_dom_graph('att532.dom', teeth_surplus_bound, node_num_upper_bd)
+	handle_pool= all_handles('att532.pool.txt')
+
+	viol_comb_set= find_comb(F,G,handle_pool)
+
 	end=timer()
 	print('Total running time: %.5f'%(end-start))
 	
+		
+	'''
+	newfilename='att532_handle_to_teeth_0.txt'
+	newfile=open(newfilename, 'w')
+
+	newfile.close()
+	'''
+
     
 
 
