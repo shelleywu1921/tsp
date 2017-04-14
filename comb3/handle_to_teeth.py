@@ -19,9 +19,10 @@ def all_handles(handlefilename):
     first_line=handlefile.readline().split()
     for i in range(int(first_line[1])):
         number_of_node=int(handlefile.readline().split()[0])
-        handle_set=set(map(int,handlefile.readline.split()))
+        handle_set=set(map(int,handlefile.readline().split()))
         if number_of_node >=3:
             handle_pool.add(handle_set)
+    handlefile.close()
     return handle_pool
 
 
@@ -55,25 +56,36 @@ def x_delta_S(F, S):
         for v in F[u]:
             if (v not in S) and (v != 's') and (v !='t'):
                 delta.add((u,v))
-    print('The number of edges in delta is %d' % len(delta))
+    #print('The number of edges in delta is %d' % len(delta))
     delta_weight=sum(F[u][v]['weight'] for (u,v) in delta)
-    print(delta_weight)
+    #print(delta_weight)
     return delta_weight
 
 
 def find_comb(F,G,handle_pool):
+	counter = 0
+	viol_comb_set = set()
     for handle in handle_pool:
         eligible_teeth=find_all_teeth(F,G,handle)
         odd_teeth = nx.maximal_independent_set(eligible_teeth) # this is a set
-        if len(odd_teeth)%2==0:
-            odd_teeth.pop()
-        print('Number of teeth: %d' % len(odd_teeth))
+        if len(odd_length) >= 3: 
+			if len(odd_teeth)%2==0:
+				odd_teeth.pop()
+			print('Number of teeth: %d' % len(odd_teeth))
 
-        x_delta_H = x_delta_S(F, H)
-        LHS = x_delta_H + sum(x_delta_S(F,T) for T in odd_teeth)
-        comb_surplus = LHS - 3*len(odd_teeth)
-        print(comb_surplus)
-
+			x_delta_H = x_delta_S(F, handle)
+			LHS = x_delta_H + sum(x_delta_S(F,G.node[T]['vertices']) for T in odd_teeth)
+			comb_surplus = LHS - 3*len(odd_teeth)
+				if comb_surplus < 1: 
+					viol_comb = dict()
+					viol_comb['handle']=handle
+					viol_comb['teeth'] = odd_teeth
+					viol_comb['comb_surplus']= comb_surplus
+					viol_comb_set.add(viol_comb)
+					counter +=1
+			print('comb surplus: %.5f' %comb_surplus)
+	print(viol_comb_set)
+	return viol_comb_set
 
 
 
@@ -81,7 +93,7 @@ if __name__ == "__main__":
     ## Variables:
     ## creat_dom_graph:
     teeth_surplus_bound = 0.75
-    node_num_upper_bd = 5000
+    node_num_upper_bd = 10000
 
     ## find_all_teeth:
     epsilon= 0.1        #
@@ -97,7 +109,8 @@ if __name__ == "__main__":
     handle_pool= all_handles('att532.pool.txt')
 
     find_comb(F,G,handle_pool)
-
+	
+	viol_comb_set = find_comb(F,G,handle_pool)
 
     
 
