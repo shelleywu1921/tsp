@@ -1,0 +1,1445 @@
+Variables: 
+teeth_surplus_bound: 0.75000 
+node_num_upper_bd: 20000 
+epsilon: 0.10000 
+Constants: 
+Total number of dominoes: 10411 
+
+ Handle: 
+frozenset([160, 192, 149, 150, 167])
+ All eligible teeth for this handle are: 
+set([52101, 78855, 55944, 55951, 94738, 55958, 108311, 55832, 94367, 56098, 56231, 56105, 56112, 55839, 79177, 112077, 99407, 50519, 79576, 56168, 73577, 56042, 56049, 37618, 56056]) 
+ Total number of eligible teeth is: 25 
+
+ Handle: 
+frozenset([480, 455, 444, 460, 462, 466, 467, 468, 469, 476, 446])
+ All eligible teeth for this handle are: 
+set([13440, 13363, 13356, 13349]) 
+ Total number of eligible teeth is: 4 
+
+ Handle: 
+frozenset([448, 482, 453, 454, 392, 499, 439, 411, 477])
+ All eligible teeth for this handle are: 
+set([8512, 8540, 8547, 19334, 8519, 13321, 8554, 144151, 13293, 8526, 8561, 7056, 13265, 8533, 13335, 8568, 8505, 13244, 144158]) 
+ Total number of eligible teeth is: 19 
+ Maximal disjoint teeth set: 
+[8512, 13293, 144151]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 2.70079 
+
+ Maximal disjoint teeth set: 
+[13244, 19334, 8540]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 2.70942 
+
+
+ Handle: 
+frozenset([216, 219, 238])
+ All eligible teeth for this handle are: 
+set([140168, 135947, 136080, 36120, 135961, 136094, 135716, 135975, 135849, 136108, 40110, 136115, 136122, 135485, 135359, 135744, 136136, 140105, 135884, 136143, 140245, 140126, 140133, 126567, 40173, 40047, 39795, 135933]) 
+ Total number of eligible teeth is: 28 
+
+ Handle: 
+frozenset([238, 250, 237, 198, 431])
+ All eligible teeth for this handle are: 
+set([38787, 38661, 38794, 38668, 140175, 38675, 38682, 39599, 139013, 38689, 36134, 38696, 36141, 38703, 36148, 39606, 36169, 36155, 139069, 141246, 36162, 138824, 37961, 38731, 138957, 140238, 36176, 38738, 36183, 38745, 36190, 38752, 19425, 38759, 139090, 38766, 38773, 38647, 38780, 38654]) 
+ Total number of eligible teeth is: 40 
+
+ Handle: 
+frozenset([512, 513, 514, 515, 516, 517, 519, 520, 521, 522, 523, 524, 525, 526, 527, 528, 529, 191, 198, 216, 219, 221, 237, 238, 239, 242, 243, 250, 255, 273, 277, 284, 289, 301, 310, 313, 316, 329, 330, 335, 336, 340, 346, 349, 352, 353, 355, 360, 362, 377, 382, 385, 389, 400, 405, 420, 421, 431, 442, 445, 451, 456, 463, 464, 465, 470, 471, 472, 474, 475, 478, 479, 484, 486, 487, 488, 490, 496, 498, 502, 503, 505, 506, 507, 508, 509, 510, 511])
+ All eligible teeth for this handle are: 
+set([8547, 101766, 8519, 8554, 144235, 8526, 8561, 7056, 121009, 107282, 88403, 8533, 8505, 8568, 105511, 19579, 8540, 98301]) 
+ Total number of eligible teeth is: 18 
+ Maximal disjoint teeth set: 
+[8561, 105511, 19579]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.87132 
+
+ Maximal disjoint teeth set: 
+[8540, 105511, 19579]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.86758 
+
+ Maximal disjoint teeth set: 
+[105511, 19579, 8561]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.87132 
+
+ Maximal disjoint teeth set: 
+[19579, 8547, 105511]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.86777 
+
+
+ Handle: 
+frozenset([260, 293, 299, 240, 338, 276, 214, 311, 253, 318])
+ All eligible teeth for this handle are: 
+set([110789, 111118, 110831, 111251, 110873, 111279]) 
+ Total number of eligible teeth is: 6 
+
+ Handle: 
+frozenset([417, 462, 432, 434, 467, 406, 444, 446])
+ All eligible teeth for this handle are: 
+set([]) 
+ Total number of eligible teeth is: 0 
+
+ Handle: 
+frozenset([417, 455, 430, 399, 441, 379])
+ All eligible teeth for this handle are: 
+set([13832, 13076]) 
+ Total number of eligible teeth is: 2 
+
+ Handle: 
+frozenset([256, 257, 135, 264, 269, 272, 146, 276, 174, 153, 281, 155, 285, 161, 291, 293, 166, 295, 169, 193, 299, 173, 302, 175, 304, 178, 180, 182, 311, 314, 187, 189, 318, 320, 321, 197, 199, 200, 203, 204, 333, 206, 208, 211, 176, 223, 225, 165, 233, 244, 245, 249, 253])
+ All eligible teeth for this handle are: 
+set([73472, 59395, 52101, 84742, 56455, 26635, 52108, 111762, 52115, 58261, 94871, 59416, 62489, 67739, 77854, 59430, 79527, 59304, 58793, 70189, 66990, 56112, 99379, 65310, 86331, 74949, 59339, 112077, 37590, 50778, 94304, 59451, 94696, 37618, 108283]) 
+ Total number of eligible teeth is: 35 
+ Maximal disjoint teeth set: 
+[59304, 111762, 67739, 50778, 26635]
+ Number of disjoint teeth: 5 
+ comb surplus (<1.0 is good!): 5.85217 
+
+ Maximal disjoint teeth set: 
+[59430, 79527, 26635]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 7.41357 
+
+ Maximal disjoint teeth set: 
+[94696, 50778, 59430]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 7.03212 
+
+ Maximal disjoint teeth set: 
+[86331, 52108, 59451, 26635, 50778]
+ Number of disjoint teeth: 5 
+ comb surplus (<1.0 is good!): 5.85800 
+
+ Maximal disjoint teeth set: 
+[111762, 58793, 26635, 59304, 50778]
+ Number of disjoint teeth: 5 
+ comb surplus (<1.0 is good!): 5.85105 
+
+
+ Handle: 
+frozenset([472, 474, 475, 471])
+ All eligible teeth for this handle are: 
+set([148225, 11522, 11907, 150150, 11914, 150157, 11921, 150164, 11928, 148253, 11935, 7203, 13062, 11942, 10332, 11571, 7924, 10304, 11585, 13006, 11599, 10325, 11606, 11480, 13020, 11872, 13027, 150248, 13034, 11627, 11501, 11886, 150255, 13041, 11508, 11893, 13048, 11515, 11900]) 
+ Total number of eligible teeth is: 39 
+
+ Handle: 
+frozenset([512, 385, 514, 515, 516, 517, 519, 520, 521, 522, 523, 524, 525, 526, 527, 528, 505, 529, 405, 284, 289, 420, 421, 301, 513, 310, 313, 442, 316, 445, 191, 451, 456, 330, 463, 464, 465, 340, 470, 471, 472, 474, 475, 221, 478, 479, 352, 507, 484, 486, 487, 488, 362, 239, 496, 498, 242, 243, 502, 511, 377, 506, 255, 508, 509, 510, 277])
+ All eligible teeth for this handle are: 
+set([6146, 6153, 41986, 42000, 42007, 42014, 135716, 42021, 42028, 135114, 41993, 41531, 135744, 41538, 41545, 41552, 41559, 41566, 6160, 41573, 41062, 126567, 41580, 41069, 41587, 41076, 41083, 41090, 41104, 6083, 41111, 135849, 42154, 6090, 135870, 135359, 41671, 135884, 41678, 41685, 41692, 41699, 135401, 41713, 41720, 135933, 41734, 135947, 41741, 135443, 41748, 135961, 41755, 41762, 135975, 41769, 41776, 135989, 41783, 135485, 136003, 41797, 41804, 136017, 41811, 6132, 136031, 41825, 140133, 144235, 136045, 41839, 41846, 144249, 136059, 140168, 135562, 136080, 136094, 136101, 6566, 136108, 140210, 136115, 6118, 136122, 41916, 136129, 6594, 41923, 136136, 6601, 41930, 136143, 6608, 41937, 140245, 6615, 41944, 6622, 142303, 6139, 6629, 41958, 6636, 41965, 6643, 41972, 41979]) 
+ Total number of eligible teeth is: 109 
+ Maximal disjoint teeth set: 
+[41069, 6615, 144249]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.08249 
+
+ Maximal disjoint teeth set: 
+[41692, 6622, 144249]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.44395 
+
+ Maximal disjoint teeth set: 
+[135884, 144249, 6153]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.06901 
+
+ Maximal disjoint teeth set: 
+[41713, 6153, 144249]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.42709 
+
+ Maximal disjoint teeth set: 
+[41741, 144235, 6139]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.79259 
+
+
+ Handle: 
+frozenset([394, 373, 418])
+ All eligible teeth for this handle are: 
+set([22288, 22281, 22274]) 
+ Total number of eligible teeth is: 3 
+
+ Handle: 
+frozenset([40, 49, 55])
+ All eligible teeth for this handle are: 
+set([75362, 81410, 75341, 72786, 75348, 72758, 72793, 86009, 85981]) 
+ Total number of eligible teeth is: 9 
+
+ Handle: 
+frozenset([448, 481, 491, 461])
+ All eligible teeth for this handle are: 
+set([150451, 13181, 13167]) 
+ Total number of eligible teeth is: 3 
+
+ Handle: 
+frozenset([456, 465, 445])
+ All eligible teeth for this handle are: 
+set([143234, 119175, 128268, 22932, 132118, 121114, 138481, 148904, 148911, 132146, 148918, 148932, 126917, 148806, 148939, 148813, 148946, 148820, 148953, 16730, 148827, 148960, 126945, 143206, 148967, 129640, 148974, 133231, 128296, 22904]) 
+ Total number of eligible teeth is: 30 
+
+ Handle: 
+frozenset([392, 393, 395, 364, 369, 370, 411, 383])
+ All eligible teeth for this handle are: 
+set([22288, 22274, 13811, 13748, 13790]) 
+ Total number of eligible teeth is: 5 
+
+ Handle: 
+frozenset([481, 483, 485, 518, 491, 492, 495, 530, 531, 501, 504])
+ All eligible teeth for this handle are: 
+set([144942, 149814, 13279]) 
+ Total number of eligible teeth is: 3 
+
+ Handle: 
+frozenset([512, 385, 514, 515, 516, 517, 519, 405, 521, 522, 523, 524, 525, 526, 527, 528, 472, 529, 277, 284, 289, 475, 420, 421, 301, 520, 513, 310, 313, 442, 316, 445, 191, 448, 451, 198, 456, 330, 463, 464, 465, 340, 505, 471, 216, 474, 219, 221, 478, 479, 352, 484, 486, 487, 488, 362, 237, 238, 239, 496, 498, 242, 243, 502, 511, 377, 506, 507, 508, 509, 510, 255])
+ All eligible teeth for this handle are: 
+set([114177, 6146, 114051, 40327, 114184, 6153, 113162, 114443, 113666, 6125, 6160, 112504, 113428, 114198, 41433, 114457, 113435, 114205, 41118, 114464, 113953, 39515, 41125, 41510, 114471, 114345, 47019, 47026, 113330, 114485, 113974, 113848, 113981, 114240, 6594, 6083, 113477, 114247, 6601, 6090, 113099, 113484, 6608, 113617, 114002, 114226, 114261, 6615, 113624, 114009, 113883, 114268, 6622, 6629, 41440, 39522, 113379, 6566, 6118, 114408, 114282, 114156, 113106, 114030, 46319, 114289, 6643, 6132, 114219, 114422, 113526, 6139, 6636, 114415]) 
+ Total number of eligible teeth is: 74 
+
+ Handle: 
+frozenset([416, 417, 418, 423, 394, 429, 399, 432, 434, 436, 373, 406, 409, 379, 444, 426, 446])
+ All eligible teeth for this handle are: 
+set([22337, 22274, 22281, 22316, 22351, 22288, 22323, 22358, 22295, 22330, 22302]) 
+ Total number of eligible teeth is: 11 
+
+ Handle: 
+frozenset([483, 518, 492, 493, 494, 495, 530, 531, 500, 504])
+ All eligible teeth for this handle are: 
+set([144942, 149814, 13279]) 
+ Total number of eligible teeth is: 3 
+
+ Handle: 
+frozenset([145, 194, 244])
+ All eligible teeth for this handle are: 
+set([56763, 47894]) 
+ Total number of eligible teeth is: 2 
+
+ Handle: 
+frozenset([400, 482, 355, 388, 486, 521, 490, 397, 431, 368, 440, 498, 470, 503, 376, 477, 508, 525, 509, 410])
+ All eligible teeth for this handle are: 
+set([19201, 7427, 7812, 7301, 7686, 19208, 7532, 7434, 7819, 7693, 7294, 7651, 7441, 7826, 7574, 7448, 7833, 7707, 7581, 7455, 7840, 7329, 7588, 7462, 7847, 7336, 19096, 7595, 19117, 7854, 19229, 7602, 7665, 19124, 7350, 7735, 7224, 7609, 19103, 7357, 7742, 7616, 7490, 7364, 7749, 7238, 7623, 19145, 7371, 7756, 19152, 7763, 7252, 7511, 7385, 7770, 7259, 7546, 7518, 19173, 7504, 7266, 19131, 19110, 19089, 7784, 7273, 7658, 7525, 19180, 7343, 7777, 7280, 19313, 19187, 7413, 7287, 7672, 19194, 7420, 7497, 7679]) 
+ Total number of eligible teeth is: 82 
+
+ Handle: 
+frozenset([176, 161, 186, 146])
+ All eligible teeth for this handle are: 
+set([53060, 50757, 53130, 59311, 111601, 53018, 50778, 37758]) 
+ Total number of eligible teeth is: 8 
+ Maximal disjoint teeth set: 
+[53060, 50757, 37758]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.46462 
+
+ Maximal disjoint teeth set: 
+[53060, 50757, 37758]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.46462 
+
+ Maximal disjoint teeth set: 
+[50757, 53060, 37758]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.46462 
+
+ Maximal disjoint teeth set: 
+[111601, 37758, 50778]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.47415 
+
+
+ Handle: 
+frozenset([432, 530, 531, 518])
+ All eligible teeth for this handle are: 
+set([]) 
+ Total number of eligible teeth is: 0 
+
+ Handle: 
+frozenset([164, 136, 171, 121, 126, 127])
+ All eligible teeth for this handle are: 
+set([87395, 87556, 53445, 60872, 60809, 53802, 60907, 60879, 60816, 91217, 60914, 60536, 60921, 53242, 60795]) 
+ Total number of eligible teeth is: 15 
+ Maximal disjoint teeth set: 
+[60809, 87556, 53445]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.47166 
+
+ Maximal disjoint teeth set: 
+[60795, 53445, 91217]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.48119 
+
+ Maximal disjoint teeth set: 
+[60795, 91217, 53445]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.48119 
+
+ Maximal disjoint teeth set: 
+[91217, 53445, 60795]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.48119 
+
+
+ Handle: 
+frozenset([512, 385, 514, 515, 388, 389, 490, 519, 520, 521, 522, 523, 524, 397, 526, 527, 400, 505, 529, 405, 516, 525, 517, 496, 420, 421, 431, 477, 513, 440, 442, 445, 451, 456, 463, 464, 465, 340, 470, 471, 472, 474, 475, 349, 478, 479, 352, 528, 482, 355, 484, 486, 487, 488, 362, 368, 498, 499, 502, 503, 376, 377, 506, 507, 508, 509, 510, 511])
+ All eligible teeth for this handle are: 
+set([135170, 135177, 141323, 135184, 113169, 135191, 138264, 116249, 135198, 138271, 116256, 135205, 138278, 116263, 135212, 113197, 141491, 138292, 116277, 33033, 128058, 138299, 131936, 138306, 116291, 128072, 128079, 116305, 128086, 116312, 116319, 116326, 134127, 136297, 131943, 116333, 140399, 136304, 116340, 137333, 140406, 136311, 130683, 137340, 140413, 136318, 19586, 137347, 140420, 130697, 137354, 140427, 136332, 26768, 113176, 140434, 52885, 26775, 137368, 140441, 26782, 26789, 141484, 26803, 134099, 141498, 113183, 103614, 131957, 141505, 141512, 29386, 141519, 29393, 141526, 29400, 29407, 113190, 29414, 124796, 19495, 126700, 29421, 126707, 33012, 126714, 33019, 126721, 33026, 131950, 126728, 128044, 130690, 126735, 33040, 33047, 33054, 133000, 128051, 19593, 113204, 115003, 116543, 115010, 116550, 115017, 131915, 116557, 115024, 131922, 116564, 115031, 26761, 131929, 26796, 133007, 115038, 126693, 124768, 130704, 116578, 113211, 115045, 124775, 138285, 124782, 134120, 129395, 124789, 129402, 92540, 129409, 124803, 133014, 128065, 129416, 124810, 130711, 129423, 129430, 90265, 96152, 19355, 133021, 19362, 133028, 133035, 129437, 133042, 130718, 29428, 139202, 134085, 139209, 134092, 139216, 26579, 139223, 134106, 130725, 134113, 139237, 19432, 19439]) 
+ Total number of eligible teeth is: 164 
+ Maximal disjoint teeth set: 
+[124782, 19495, 52885]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.34610 
+
+ Maximal disjoint teeth set: 
+[131950, 90265, 19355]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.36181 
+
+ Maximal disjoint teeth set: 
+[128044, 52885, 19439]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.34460 
+
+ Maximal disjoint teeth set: 
+[134120, 26579, 19355]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.35657 
+
+ Maximal disjoint teeth set: 
+[135184, 19355, 96152]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.34943 
+
+
+ Handle: 
+frozenset([242, 243, 284, 277])
+ All eligible teeth for this handle are: 
+set([32130, 129283, 129157, 129031, 129290, 129171, 42644, 128149, 128534, 128926, 128709, 128037, 42413, 32046, 128947, 36022, 140217, 128443, 141372, 36029, 129087, 128576, 126273, 128835, 36036, 129206, 36043, 128205, 36050, 129108, 41209, 36057, 42588, 128093, 36064, 42469, 41195, 42350, 129010, 129269, 141204]) 
+ Total number of eligible teeth is: 41 
+
+ Handle: 
+frozenset([417, 418, 432, 434, 406, 409, 444])
+ All eligible teeth for this handle are: 
+set([13426, 13412]) 
+ Total number of eligible teeth is: 2 
+
+ Handle: 
+frozenset([455, 460, 462, 466, 467, 468, 469, 476, 446])
+ All eligible teeth for this handle are: 
+set([13426, 13363, 13356, 8645]) 
+ Total number of eligible teeth is: 4 
+
+ Handle: 
+frozenset([482, 490, 397, 431, 400, 499, 470, 503, 440, 477])
+ All eligible teeth for this handle are: 
+set([19201, 6146, 19208, 6153, 6160, 19089, 19222, 19096, 19229, 19103, 6566, 6629, 19117, 6643, 19124, 19145, 19131, 6594, 6083, 6601, 6090, 6608, 6615, 6104, 6622, 19173, 19152, 19110, 6118, 19180, 6125, 19313, 19187, 6132, 19194, 6139, 6636]) 
+ Total number of eligible teeth is: 37 
+
+ Handle: 
+frozenset([473, 466, 494])
+ All eligible teeth for this handle are: 
+set([13076, 11445]) 
+ Total number of eligible teeth is: 2 
+
+ Handle: 
+frozenset([394, 427, 467])
+ All eligible teeth for this handle are: 
+set([]) 
+ Total number of eligible teeth is: 0 
+
+ Handle: 
+frozenset([97, 68, 389, 353, 360, 156, 138, 172, 431, 400, 336, 116, 382, 470, 87, 346, 60, 94])
+ All eligible teeth for this handle are: 
+set([116228, 115206, 116235, 44044, 115213, 116242, 115731, 115738, 105511, 115766, 115255, 115262, 37961, 112567, 25676, 115794, 44639, 26208, 115815, 115304, 115822, 115311, 116158, 45689, 41594, 19579, 115836, 45696, 115843, 52878, 115857, 115864, 115353, 115885, 39599, 39606, 103607, 124607, 115906, 124614, 115402, 115920, 115927, 115941, 143080, 141351, 115948, 42224, 115444, 42231, 115962, 115983, 107282, 115486, 116004, 19243, 114996, 116025, 46396, 115528, 116046, 42833, 72023, 116067, 72037, 144235, 115052, 114541, 123760, 116081, 115570, 114548, 92533, 123767, 116088, 101766, 115591, 38794, 123788, 116109, 96145, 116116, 116123, 72100, 116137, 115626, 43435, 116144, 43442, 26551, 141246, 116172, 115661, 116179, 115157, 115108, 40411, 116193, 72163, 116200, 116221, 115696, 116214, 115703, 47096, 98301]) 
+ Total number of eligible teeth is: 106 
+ Maximal disjoint teeth set: 
+[115486, 107282, 72163]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.79396 
+
+ Maximal disjoint teeth set: 
+[124607, 98301, 26551]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 2.20144 
+
+ Maximal disjoint teeth set: 
+[103607, 116214, 72023]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.78323 
+
+ Maximal disjoint teeth set: 
+[38794, 107282, 143080]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 2.19888 
+
+ Maximal disjoint teeth set: 
+[42224, 72037, 26551]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.83565 
+
+
+ Handle: 
+frozenset([432, 417, 406, 399])
+ All eligible teeth for this handle are: 
+set([22309]) 
+ Total number of eligible teeth is: 1 
+
+ Handle: 
+frozenset([384, 354, 359, 371, 374, 410, 348])
+ All eligible teeth for this handle are: 
+set([25277, 25207]) 
+ Total number of eligible teeth is: 2 
+
+ Handle: 
+frozenset([97, 68, 389, 353, 360, 156, 138, 172, 431, 400, 336, 116, 382, 470, 87, 250, 346, 60, 61, 94])
+ All eligible teeth for this handle are: 
+set([114177, 113666, 114051, 101766, 40327, 114184, 113162, 114443, 52878, 96145, 107282, 114289, 113428, 114198, 114009, 114457, 113435, 114205, 41118, 114464, 113953, 39515, 41125, 41510, 114471, 114345, 47019, 47026, 113330, 114485, 113974, 26551, 113848, 113981, 114240, 41440, 113099, 113477, 114247, 141351, 113484, 103607, 25676, 114219, 113617, 113106, 114226, 114261, 113624, 41433, 113883, 114268, 26208, 112504, 39522, 113379, 144235, 86471, 114408, 19243, 114282, 105511, 114156, 114002, 114030, 46319, 143080, 88403, 86919, 92533, 114422, 113526, 19579, 98301, 114415]) 
+ Total number of eligible teeth is: 75 
+ Maximal disjoint teeth set: 
+[114177, 52878, 144235]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 2.19524 
+
+ Maximal disjoint teeth set: 
+[88403, 114485, 143080]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 2.19555 
+
+ Maximal disjoint teeth set: 
+[114345, 98301, 86471]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.79016 
+
+ Maximal disjoint teeth set: 
+[113526, 86471, 103607]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.79462 
+
+ Maximal disjoint teeth set: 
+[114226, 96145, 19579]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 2.20882 
+
+
+ Handle: 
+frozenset([354, 359, 371, 374, 440, 348])
+ All eligible teeth for this handle are: 
+set([25277, 25207]) 
+ Total number of eligible teeth is: 2 
+
+ Handle: 
+frozenset([256, 225, 293, 276, 245, 253])
+ All eligible teeth for this handle are: 
+set([110915, 111048, 141386, 32466, 140021, 110775]) 
+ Total number of eligible teeth is: 6 
+
+ Handle: 
+frozenset([449, 455, 427, 430, 399, 466, 373, 441, 473])
+ All eligible teeth for this handle are: 
+set([]) 
+ Total number of eligible teeth is: 0 
+
+ Handle: 
+frozenset([394, 427, 460, 462, 467, 468, 469, 444, 446])
+ All eligible teeth for this handle are: 
+set([]) 
+ Total number of eligible teeth is: 0 
+
+ Handle: 
+frozenset([440, 481, 508, 448])
+ All eligible teeth for this handle are: 
+set([31584, 137193, 135065, 147441, 145726, 148246, 29001, 24920, 143801, 148666, 148414]) 
+ Total number of eligible teeth is: 11 
+
+ Handle: 
+frozenset([145, 182, 193])
+ All eligible teeth for this handle are: 
+set([51352, 51324, 51359]) 
+ Total number of eligible teeth is: 3 
+
+ Handle: 
+frozenset([480, 455, 489, 460, 494, 497, 466, 469, 473, 476])
+ All eligible teeth for this handle are: 
+set([13363, 13356, 11445, 13349]) 
+ Total number of eligible teeth is: 4 
+
+ Handle: 
+frozenset([355, 349, 335])
+ All eligible teeth for this handle are: 
+set([26467]) 
+ Total number of eligible teeth is: 1 
+
+ Handle: 
+frozenset([304, 291, 302])
+ All eligible teeth for this handle are: 
+set([32165]) 
+ Total number of eligible teeth is: 1 
+
+ Handle: 
+frozenset([186, 173, 158])
+ All eligible teeth for this handle are: 
+set([51632, 50778, 111909, 52402]) 
+ Total number of eligible teeth is: 4 
+ Maximal disjoint teeth set: 
+[52402, 50778, 111909]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.02824 
+
+ Maximal disjoint teeth set: 
+[52402, 50778, 111909]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.02824 
+
+
+ Handle: 
+frozenset([489, 436, 429])
+ All eligible teeth for this handle are: 
+set([150500, 6503]) 
+ Total number of eligible teeth is: 2 
+
+ Handle: 
+frozenset([355, 329, 330, 335, 273, 340, 316, 349])
+ All eligible teeth for this handle are: 
+set([24962, 24710, 26754, 24045, 107282, 26649, 26656, 101766, 105511, 29225, 26670, 29239, 24248, 23870, 24388, 29253, 24136, 22729, 29260, 88403, 24794, 24031, 24549, 26663, 26733, 26740, 24437, 23926, 25081, 26747, 98301, 23422, 23807]) 
+ Total number of eligible teeth is: 33 
+ Maximal disjoint teeth set: 
+[26663, 98301, 24031]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.37044 
+
+ Maximal disjoint teeth set: 
+[22729, 26740, 88403]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.72931 
+
+ Maximal disjoint teeth set: 
+[23870, 107282, 26663]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.37227 
+
+ Maximal disjoint teeth set: 
+[23422, 105511, 26656]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.72893 
+
+
+ Handle: 
+frozenset([193, 130, 161, 135, 200, 169, 203, 173, 174, 176, 146, 211, 180, 181, 182, 153, 186, 187, 158])
+ All eligible teeth for this handle are: 
+set([140000, 54880, 49147, 112420, 36925, 53564, 37324, 48461, 37359, 49840, 48860, 139993, 112280, 50393, 51002, 56763, 52668, 49882]) 
+ Total number of eligible teeth is: 18 
+
+ Handle: 
+frozenset([197, 199, 204, 206, 208, 189, 223])
+ All eligible teeth for this handle are: 
+set([99393, 51429, 99491, 78820, 74949, 108297, 112140, 70189, 66990, 79149, 56112, 37618, 51989, 37590, 58793, 94808, 62489, 112077, 67739, 94892, 140021]) 
+ Total number of eligible teeth is: 21 
+ Maximal disjoint teeth set: 
+[37618, 140021, 94808]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.85242 
+
+ Maximal disjoint teeth set: 
+[94808, 140021, 74949]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.85623 
+
+ Maximal disjoint teeth set: 
+[51989, 56112, 140021]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.84350 
+
+ Maximal disjoint teeth set: 
+[112077, 94808, 140021]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.85341 
+
+ Maximal disjoint teeth set: 
+[78820, 66990, 140021]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.85845 
+
+
+ Handle: 
+frozenset([392, 393, 394, 395, 399, 406, 409, 411, 417, 418, 369, 427, 429, 430, 432, 434, 436, 439, 441, 444, 492, 446, 448, 449, 453, 454, 455, 457, 458, 460, 461, 462, 466, 467, 468, 469, 473, 476, 480, 483, 489, 364, 493, 494, 497, 370, 500, 373, 379, 383])
+ All eligible teeth for this handle are: 
+set([13202, 13762]) 
+ Total number of eligible teeth is: 2 
+
+ Handle: 
+frozenset([530, 500, 493, 494])
+ All eligible teeth for this handle are: 
+set([]) 
+ Total number of eligible teeth is: 0 
+
+ Handle: 
+frozenset([128, 139, 140, 149, 150])
+ All eligible teeth for this handle are: 
+set([63441, 61138, 68628, 75061, 83503]) 
+ Total number of eligible teeth is: 5 
+
+ Handle: 
+frozenset([512, 385, 514, 515, 516, 517, 490, 519, 405, 521, 522, 523, 524, 525, 526, 527, 528, 472, 529, 277, 284, 289, 475, 420, 421, 301, 477, 520, 499, 513, 310, 440, 313, 442, 316, 445, 191, 451, 198, 456, 330, 503, 463, 464, 465, 340, 505, 471, 216, 474, 219, 221, 478, 479, 352, 482, 484, 486, 487, 488, 362, 237, 238, 239, 496, 498, 242, 243, 502, 511, 377, 506, 507, 508, 509, 510, 255])
+ All eligible teeth for this handle are: 
+set([114177, 113666, 114051, 40327, 114184, 113162, 114443, 112504, 113428, 114198, 41433, 114457, 113435, 114205, 41118, 114464, 113953, 39515, 41125, 41510, 114471, 114345, 47019, 47026, 113330, 114485, 113974, 113848, 113981, 114240, 113477, 114247, 113099, 113484, 113617, 113106, 114226, 114261, 113624, 114009, 113883, 114268, 41440, 39522, 113379, 114408, 114282, 114156, 114002, 114030, 46319, 114289, 114219, 114422, 113526, 114415]) 
+ Total number of eligible teeth is: 56 
+
+ Handle: 
+frozenset([193, 130, 161, 135, 200, 169, 203, 173, 174, 176, 145, 211, 180, 181, 182, 187, 158])
+ All eligible teeth for this handle are: 
+set([140000, 112420, 111909, 37324, 37359, 52948, 139993, 50393, 50778, 36925, 50757]) 
+ Total number of eligible teeth is: 11 
+ Maximal disjoint teeth set: 
+[139993, 50757, 111909]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.47127 
+
+ Maximal disjoint teeth set: 
+[37324, 111909, 50757]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.46084 
+
+ Maximal disjoint teeth set: 
+[50393, 111909, 50757]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.47604 
+
+ Maximal disjoint teeth set: 
+[36925, 111909, 50757]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.46917 
+
+
+ Handle: 
+frozenset([518, 392, 530, 531, 411, 439, 448, 453, 454, 457, 458, 461, 481, 483, 485, 491, 492, 493, 494, 495, 500, 501, 504])
+ All eligible teeth for this handle are: 
+set([144151, 144158, 19334, 19327]) 
+ Total number of eligible teeth is: 4 
+
+ Handle: 
+frozenset([480, 449, 427, 460, 462, 467, 468, 469, 441, 476, 446])
+ All eligible teeth for this handle are: 
+set([13426, 13475, 11445]) 
+ Total number of eligible teeth is: 3 
+ Maximal disjoint teeth set: 
+[13426, 11445, 13475]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.59863 
+
+ Maximal disjoint teeth set: 
+[11445, 13475, 13426]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.59863 
+
+ Maximal disjoint teeth set: 
+[11445, 13475, 13426]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.59863 
+
+ Maximal disjoint teeth set: 
+[13426, 13475, 11445]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.59863 
+
+ Maximal disjoint teeth set: 
+[13475, 13426, 11445]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.59863 
+
+
+ Handle: 
+frozenset([352, 385, 420, 362, 340, 405, 377])
+ All eligible teeth for this handle are: 
+set([15232, 135170, 15365, 134127, 133000, 141484, 15757, 116494, 126735, 113169, 13951, 133042, 116249, 138264, 140441, 16282, 15855, 14364, 15645, 15134, 15519, 130725, 14119, 13993, 135212, 15533, 15407, 14728, 14770, 16051, 131957, 15799, 116536, 33012, 113211, 128086, 15421, 15477, 124768, 15351, 116291, 15813, 14406, 15687, 15176, 16331, 14798, 128044, 14161, 14035, 15701, 15190, 15575, 26761, 26803, 15631, 15589, 16093, 14245, 141526, 14203, 126693, 115045, 15911, 16233, 15463, 140399, 16240, 14077, 29428, 16373, 15953, 129437, 14840, 134085, 16191, 15995, 15869, 15743]) 
+ Total number of eligible teeth is: 79 
+
+ Handle: 
+frozenset([456, 465, 421, 445])
+ All eligible teeth for this handle are: 
+set([14217, 13965, 14224, 13972, 14231, 13979, 14238, 13986, 14245, 14119, 148904, 13993, 14252, 148911, 14259, 14133, 148918, 14266, 14140, 14273, 14147, 148932, 148806, 14280, 14154, 148939, 148813, 14161, 148946, 14035, 148820, 148953, 148827, 148960, 14049, 148967, 14056, 148974, 14063, 14070, 14203, 14077, 13951]) 
+ Total number of eligible teeth is: 43 
+
+ Handle: 
+frozenset([238, 237, 198, 477])
+ All eligible teeth for this handle are: 
+set([139013, 38668, 140175, 38675, 38682, 38661, 38689, 36134, 38696, 36141, 38703, 36148, 36155, 139069, 36162, 138824, 36169, 138957, 140238, 36176, 139090, 36183, 39515, 36190, 39522, 38647, 38654]) 
+ Total number of eligible teeth is: 27 
+
+ Handle: 
+frozenset([377, 420, 405, 385])
+ All eligible teeth for this handle are: 
+set([19845, 15757, 19859, 16282, 14364, 15645, 15134, 15519, 14245, 14119, 13993, 15407, 19761, 14770, 22197, 19768, 22204, 16191, 15351, 22211, 15813, 19782, 22218, 16331, 14798, 14035, 15701, 15190, 15575, 16093, 22239, 15995, 15589, 22246, 15463, 22253, 22260, 19831, 19775, 15869, 19866]) 
+ Total number of eligible teeth is: 41 
+
+ Handle: 
+frozenset([354, 359, 371, 374, 120, 348])
+ All eligible teeth for this handle are: 
+set([61985, 74179, 77413, 19719, 86471, 19698, 86919, 25207, 78106, 88410, 25277]) 
+ Total number of eligible teeth is: 11 
+ Maximal disjoint teeth set: 
+[25207, 74179, 19719]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.87602 
+
+ Maximal disjoint teeth set: 
+[61985, 19719, 25207]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.86767 
+
+ Maximal disjoint teeth set: 
+[25207, 86919, 19719]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.43052 
+
+
+ Handle: 
+frozenset([353, 389, 360, 431, 400, 336, 499, 501, 346, 382])
+ All eligible teeth for this handle are: 
+set([45696, 115843, 116228, 115206, 115052, 38794, 116235, 123788, 115213, 115983, 115857, 115731, 116116, 115864, 115353, 115738, 116123, 115486, 42231, 123760, 115108, 116081, 116137, 115626, 43435, 115885, 39599, 116144, 43442, 114996, 39606, 112567, 46396, 141246, 124607, 115906, 115766, 124614, 115528, 37961, 115402, 115255, 116172, 115661, 116046, 116109, 115920, 47096, 115794, 116179, 115157, 115927, 123767, 116004, 116221, 115962, 142303, 116193, 116067, 115941, 115815, 115304, 115948, 114541, 115822, 115311, 115696, 116200, 115570, 114548, 115262, 116214, 115703, 116088, 45689, 42224, 115836, 144249]) 
+ Total number of eligible teeth is: 78 
+
+ Handle: 
+frozenset([384, 388, 518, 521, 397, 400, 530, 531, 410, 411, 431, 371, 439, 440, 448, 453, 454, 457, 458, 461, 525, 504, 470, 477, 481, 482, 483, 485, 486, 359, 490, 491, 492, 493, 495, 498, 499, 501, 374, 503, 376, 508, 509])
+ All eligible teeth for this handle are: 
+set([98308, 7686, 7693, 141330, 7707, 16429, 105518, 7735, 7224, 7742, 7749, 7238, 7756, 7763, 7252, 16471, 7770, 7259, 7777, 7266, 7784, 7273, 7280, 7287, 16506, 7294, 16513, 7812, 7301, 7819, 19089, 7826, 16534, 19096, 7833, 19103, 7840, 7329, 19110, 7847, 7336, 19117, 7854, 7343, 19124, 7350, 19131, 11452, 7357, 7364, 103621, 19145, 7371, 19152, 7385, 19173, 19180, 19187, 7413, 19194, 7420, 19201, 7427, 19208, 7434, 7441, 7448, 19229, 7455, 7462, 7490, 7497, 7504, 7511, 7518, 88417, 7525, 7532, 19313, 7546, 26502, 101773, 7574, 7581, 7588, 7595, 7602, 7609, 7616, 7623, 7651, 7658, 7665, 7672, 7679]) 
+ Total number of eligible teeth is: 95 
+ Maximal disjoint teeth set: 
+[19131, 16513, 11452, 141330, 7602]
+ Number of disjoint teeth: 5 
+ comb surplus (<1.0 is good!): 1.79348 
+
+ Maximal disjoint teeth set: 
+[19187, 7756, 98308, 16534, 11452]
+ Number of disjoint teeth: 5 
+ comb surplus (<1.0 is good!): 2.16649 
+
+ Maximal disjoint teeth set: 
+[7588, 19089, 16471, 141330, 11452]
+ Number of disjoint teeth: 5 
+ comb surplus (<1.0 is good!): 1.81683 
+
+ Maximal disjoint teeth set: 
+[7518, 19187, 98308, 16506, 11452]
+ Number of disjoint teeth: 5 
+ comb surplus (<1.0 is good!): 2.16527 
+
+ Maximal disjoint teeth set: 
+[7350, 141330, 16513, 19180, 11452]
+ Number of disjoint teeth: 5 
+ comb surplus (<1.0 is good!): 1.80110 
+
+
+ Handle: 
+frozenset([417, 418, 444, 394, 395, 460, 429, 462, 399, 432, 434, 467, 468, 373, 406, 436, 409, 379, 476, 446, 469])
+ All eligible teeth for this handle are: 
+set([8645, 13454]) 
+ Total number of eligible teeth is: 2 
+
+ Handle: 
+frozenset([5, 6, 7, 8, 9, 10])
+ All eligible teeth for this handle are: 
+set([]) 
+ Total number of eligible teeth is: 0 
+
+ Handle: 
+frozenset([460, 430, 467, 468, 469, 462, 441, 444, 446])
+ All eligible teeth for this handle are: 
+set([13832, 13363, 13356, 13349]) 
+ Total number of eligible teeth is: 4 
+
+ Handle: 
+frozenset([139, 140, 149, 150])
+ All eligible teeth for this handle are: 
+set([64001, 58534, 58982, 58527]) 
+ Total number of eligible teeth is: 4 
+
+ Handle: 
+frozenset([457, 458, 454])
+ All eligible teeth for this handle are: 
+set([144928, 16436, 13181, 13167]) 
+ Total number of eligible teeth is: 4 
+
+ Handle: 
+frozenset([176, 193, 146, 203, 161])
+ All eligible teeth for this handle are: 
+set([109284, 109032, 53130, 50827, 59311, 111601, 53060, 53018, 37758]) 
+ Total number of eligible teeth is: 9 
+ Maximal disjoint teeth set: 
+[109032, 37758, 53060]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.45746 
+
+ Maximal disjoint teeth set: 
+[37758, 50827, 53060]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.45063 
+
+ Maximal disjoint teeth set: 
+[37758, 59311, 50827]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.45724 
+
+ Maximal disjoint teeth set: 
+[59311, 50827, 37758]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.45724 
+
+ Maximal disjoint teeth set: 
+[111601, 37758, 50827]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.45901 
+
+
+ Handle: 
+frozenset([512, 385, 514, 515, 388, 517, 490, 519, 520, 521, 522, 523, 524, 397, 526, 527, 528, 505, 529, 405, 516, 410, 525, 496, 420, 421, 513, 440, 442, 445, 451, 456, 463, 464, 465, 470, 471, 472, 474, 475, 477, 478, 479, 484, 486, 487, 488, 362, 368, 498, 502, 503, 376, 377, 506, 507, 508, 509, 510, 511])
+ All eligible teeth for this handle are: 
+set([139265, 142338, 134148, 117761, 139272, 142345, 113239, 134155, 139279, 142352, 134162, 117782, 142359, 134169, 117789, 134176, 117768, 135219, 113246, 117684, 135226, 135233, 117670, 135240, 138313, 117838, 135247, 113232, 117845, 135254, 138327, 117775, 117852, 135261, 138334, 113253, 117859, 128100, 138341, 117866, 128107, 138348, 128114, 113267, 22645, 117880, 128121, 22652, 117887, 128128, 133056, 22659, 139286, 117894, 128135, 113260, 22666, 117901, 128142, 22673, 117908, 22680, 136346, 117915, 22687, 140448, 136353, 117922, 137382, 140455, 136360, 117677, 137389, 140462, 136367, 138355, 137396, 140469, 130746, 137403, 140476, 136381, 130753, 137410, 140483, 130760, 137417, 130767, 133070, 130774, 141533, 141540, 26859, 141554, 130739, 26873, 141568, 117663, 26887, 131971, 126749, 29470, 126756, 29477, 126763, 29484, 26845, 126770, 29491, 126777, 29498, 126784, 29505, 126791, 33096, 26880, 33103, 33110, 26852, 8540, 33117, 8547, 33124, 8554, 33131, 8561, 33138, 115059, 8568, 144249, 115066, 131964, 115073, 141547, 115080, 139244, 131978, 115087, 7056, 131985, 115094, 117656, 131999, 124838, 26866, 129451, 124845, 129458, 139251, 124852, 113225, 129465, 117691, 129472, 124866, 133063, 117705, 116683, 129486, 117712, 116690, 133077, 117719, 116697, 133084, 139258, 117726, 142303, 116704, 138320, 133091, 124831, 132006, 116711, 117740, 142317, 116718, 131992, 117747, 142324, 116725, 117754, 142331, 134141]) 
+ Total number of eligible teeth is: 184 
+ Maximal disjoint teeth set: 
+[22666, 142303, 7056]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.51279 
+
+ Maximal disjoint teeth set: 
+[135233, 7056, 142303]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.51727 
+
+ Maximal disjoint teeth set: 
+[144249, 139258, 8561]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.51986 
+
+ Maximal disjoint teeth set: 
+[8540, 124831, 142303]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.51101 
+
+
+ Handle: 
+frozenset([496, 513, 527])
+ All eligible teeth for this handle are: 
+set([150304, 161, 98, 133, 168, 143689, 140, 112, 125713, 119, 154, 91, 150493, 126]) 
+ Total number of eligible teeth is: 14 
+
+ Handle: 
+frozenset([379, 394, 427, 373])
+ All eligible teeth for this handle are: 
+set([22274, 22309, 22281, 22288, 22295, 22302]) 
+ Total number of eligible teeth is: 6 
+
+ Handle: 
+frozenset([180, 173, 174])
+ All eligible teeth for this handle are: 
+set([51618, 111909, 51660, 52948, 51639, 111832]) 
+ Total number of eligible teeth is: 6 
+
+ Handle: 
+frozenset([512, 385, 514, 515, 516, 517, 519, 405, 521, 522, 523, 524, 525, 526, 527, 528, 472, 529, 277, 284, 289, 475, 420, 421, 301, 520, 513, 310, 313, 442, 316, 445, 191, 451, 198, 456, 330, 463, 464, 465, 340, 505, 471, 216, 474, 219, 221, 478, 479, 352, 484, 486, 487, 488, 362, 237, 238, 239, 496, 498, 242, 243, 502, 511, 377, 506, 507, 508, 509, 510, 255])
+ All eligible teeth for this handle are: 
+set([114177, 6146, 114051, 40327, 114184, 6153, 113162, 114443, 113666, 6125, 6160, 112504, 113428, 114198, 41433, 114457, 113435, 114205, 41118, 114464, 113953, 39515, 41125, 41510, 114471, 114345, 47019, 47026, 113330, 114485, 113974, 113848, 113981, 114240, 6594, 6083, 113477, 114247, 6601, 6090, 113099, 113484, 6608, 113617, 114002, 114226, 114261, 6615, 113624, 114009, 113883, 114268, 6622, 6629, 41440, 39522, 113379, 6566, 6118, 114408, 114282, 114156, 113106, 114030, 46319, 114289, 6643, 6132, 114219, 114422, 113526, 6139, 6636, 114415]) 
+ Total number of eligible teeth is: 74 
+
+ Handle: 
+frozenset([482, 485, 521, 490, 525, 397, 400, 499, 501, 470, 503, 440, 431, 508, 477])
+ All eligible teeth for this handle are: 
+set([385, 6405, 19201, 392, 364, 371, 399, 19089, 135058, 406, 19096, 147357, 19103, 6818, 148771, 19110, 19313, 19117, 24878, 413, 6832, 19208, 148659, 19124, 142261, 19131, 6846, 6335, 146881, 19229, 6853, 147014, 6881, 19145, 139083, 6860, 19152, 378, 6867, 133973, 343, 130522, 6363, 150451, 357, 336, 6370, 147427, 19173, 148582, 6874, 6377, 19180, 6384, 6888, 19187, 114366, 6391, 22008, 19194, 1659, 6398]) 
+ Total number of eligible teeth is: 62 
+ Maximal disjoint teeth set: 
+[392, 19173, 150451]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.40887 
+
+ Maximal disjoint teeth set: 
+[19117, 147357, 150451]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.42613 
+
+ Maximal disjoint teeth set: 
+[19145, 150451, 147014]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.40958 
+
+ Maximal disjoint teeth set: 
+[148659, 19145, 150451]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.42620 
+
+ Maximal disjoint teeth set: 
+[135058, 19089, 150451]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.41865 
+
+
+ Handle: 
+frozenset([164, 136, 170, 171, 141, 115, 151, 120, 121, 61, 126, 127])
+ All eligible teeth for this handle are: 
+set([50316, 61971, 57883, 54306, 61859, 72100, 50085, 55601, 54957, 61873, 62006, 61880, 62013, 50358, 57890, 72023, 62048, 72163, 72037, 72044, 61936, 61943, 72184]) 
+ Total number of eligible teeth is: 23 
+ Maximal disjoint teeth set: 
+[50358, 61943, 72163]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.02684 
+
+ Maximal disjoint teeth set: 
+[72184, 50358, 61873]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.38516 
+
+ Maximal disjoint teeth set: 
+[50085, 61936, 72184]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.39169 
+
+ Maximal disjoint teeth set: 
+[50358, 72100, 62048]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.37868 
+
+ Maximal disjoint teeth set: 
+[62013, 50316, 72184]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.39435 
+
+
+ Handle: 
+frozenset([516, 487, 502, 505, 506, 510, 479])
+ All eligible teeth for this handle are: 
+set([150017, 138754, 23555, 141960, 756, 138768, 119448, 141974, 1176, 2457, 672, 119462, 6062, 6069, 147126, 132468, 117173, 117187, 150213, 2534, 140875, 2380, 146510, 150227, 140889, 147042, 132454, 146790, 23569, 136808, 1897, 150003, 146804, 136822, 147966]) 
+ Total number of eligible teeth is: 35 
+
+ Handle: 
+frozenset([484, 488, 487, 456, 463, 464, 465, 502, 471, 472, 474, 475, 479])
+ All eligible teeth for this handle are: 
+set([12992, 143234, 149639, 5642, 8722, 146195, 22932, 6006, 5271, 121114, 133231, 5789, 11424, 5285, 149030, 128296, 119175, 146734, 5936, 5425, 132146, 5432, 145978, 6076, 5194, 146496, 146720, 146755, 5572, 5110, 146762, 5579, 13139, 5719, 5208, 16730, 126945, 5859, 5348, 129640, 146748, 146706, 148925, 147952, 138481, 145985, 5495]) 
+ Total number of eligible teeth is: 47 
+ Maximal disjoint teeth set: 
+[146706, 133231, 13139]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.01125 
+
+ Maximal disjoint teeth set: 
+[146195, 149030, 128296]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.01186 
+
+
+ Handle: 
+frozenset([257, 130, 135, 269, 272, 145, 174, 278, 280, 281, 283, 158, 291, 294, 169, 298, 302, 304, 307, 180, 181, 182, 312, 186, 315, 317, 320, 193, 194, 323, 325, 331, 333, 207, 339, 212, 203, 343, 344, 222, 226, 227, 231, 233, 211, 244, 187, 247, 248, 249])
+ All eligible teeth for this handle are: 
+set([109536, 111874, 109515, 49798, 109480, 51401, 49707, 109676, 109613, 36239, 51632, 53032, 49714, 47957, 109690, 49756, 53053, 59423]) 
+ Total number of eligible teeth is: 18 
+
+ Handle: 
+frozenset([497, 530, 500, 493, 494])
+ All eligible teeth for this handle are: 
+set([6503]) 
+ Total number of eligible teeth is: 1 
+
+ Handle: 
+frozenset([420, 405, 421])
+ All eligible teeth for this handle are: 
+set([16695, 16653, 16667, 14021, 14000, 16681, 16688, 18998, 14007, 16702, 19012, 16709, 16583, 16716, 19019, 14028, 16590, 144977, 19026, 16723, 16597, 144984, 19033, 16730, 16604, 144991, 19040, 144998, 145005, 14014]) 
+ Total number of eligible teeth is: 30 
+
+ Handle: 
+frozenset([307, 323, 339, 333, 343])
+ All eligible teeth for this handle are: 
+set([]) 
+ Total number of eligible teeth is: 0 
+
+ Handle: 
+frozenset([353, 389, 198, 289, 360, 237, 238, 431, 400, 336, 216, 346, 219, 250, 382])
+ All eligible teeth for this handle are: 
+set([43393, 43778, 41321, 41349, 141190, 132615, 132104, 132874, 43799, 43533, 43407, 43792, 132881, 43540, 43414, 132503, 132888, 131908, 132762, 43547, 140189, 43806, 132895, 43554, 132699, 43428, 43526, 132902, 132391, 132776, 43561, 132650, 43820, 132909, 43421, 43400, 43827, 132916, 132790, 132664, 43834, 132923, 132713, 126399, 140224, 43841, 132930, 132804, 43848, 132937, 132426, 132727, 31878, 132685, 43855, 142303, 41300, 43757, 132566, 132440, 132314, 41307, 43813, 43617, 41314, 140259, 136164, 43750, 132013, 32039, 132818, 41328, 132594, 43379, 43764, 132853, 41335, 43512, 144249, 43386, 43771, 132860, 41342, 43519]) 
+ Total number of eligible teeth is: 84 
+
+ Handle: 
+frozenset([480, 444, 460, 462, 467, 468, 469, 476, 446])
+ All eligible teeth for this handle are: 
+set([]) 
+ Total number of eligible teeth is: 0 
+
+ Handle: 
+frozenset([83, 69, 79])
+ All eligible teeth for this handle are: 
+set([67872, 67991, 69447]) 
+ Total number of eligible teeth is: 3 
+
+ Handle: 
+frozenset([354, 359, 490, 371, 374, 348])
+ All eligible teeth for this handle are: 
+set([7042, 6979, 7014, 19719, 7049, 6986, 6167, 6412, 7021, 6993, 19698, 7028, 25207, 7000, 7035, 25277, 7007]) 
+ Total number of eligible teeth is: 17 
+ Maximal disjoint teeth set: 
+[7035, 25207, 19719]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.44821 
+
+ Maximal disjoint teeth set: 
+[19719, 6979, 25207]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.44717 
+
+
+ Handle: 
+frozenset([256, 257, 133, 134, 135, 264, 269, 272, 146, 276, 174, 153, 281, 155, 285, 161, 291, 293, 166, 295, 169, 299, 173, 302, 175, 304, 72, 178, 180, 182, 311, 314, 187, 189, 318, 320, 193, 66, 197, 199, 200, 74, 203, 204, 77, 206, 208, 338, 211, 85, 176, 90, 55, 223, 225, 102, 165, 233, 108, 244, 245, 118, 119, 249, 122, 253])
+ All eligible teeth for this handle are: 
+set([68866, 59395, 52101, 73094, 56455, 68873, 108311, 73612, 67725, 73486, 70189, 65296, 59416, 94738, 52115, 67732, 73493, 73367, 72856, 62489, 73626, 67739, 73374, 94367, 66976, 73136, 56098, 73563, 84742, 70182, 59304, 58793, 83629, 66990, 73647, 56112, 83622, 65310, 59451, 73661, 74942, 108479, 73024, 74949, 52108, 59339, 58786, 112077, 60053, 73556, 58254, 37590, 50519, 50778, 63707, 66157, 72800, 63714, 59430, 66150, 73577, 99407, 62482, 61425, 65303, 73129, 73080, 37618, 56105, 84735, 61418, 58261]) 
+ Total number of eligible teeth is: 72 
+ Maximal disjoint teeth set: 
+[99407, 50778, 59339]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 7.44734 
+
+ Maximal disjoint teeth set: 
+[63707, 59395, 72856]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 7.45315 
+
+ Maximal disjoint teeth set: 
+[37618, 72800, 50778]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 7.44357 
+
+ Maximal disjoint teeth set: 
+[52101, 56455, 59304]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 7.44286 
+
+ Maximal disjoint teeth set: 
+[72856, 59339, 84735]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 7.44067 
+
+
+ Handle: 
+frozenset([248, 226, 227, 174, 247])
+ All eligible teeth for this handle are: 
+set([36834, 36547, 36841, 36554, 51660, 51639]) 
+ Total number of eligible teeth is: 6 
+
+ Handle: 
+frozenset([130, 182, 207])
+ All eligible teeth for this handle are: 
+set([54593, 51324, 51359]) 
+ Total number of eligible teeth is: 3 
+
+ Handle: 
+frozenset([225, 161, 200, 199, 173, 174, 176, 146, 180, 153])
+ All eligible teeth for this handle are: 
+set([109921, 51618, 110117, 51660, 140301, 52976, 110131, 51639, 109977, 52955, 109949, 110047]) 
+ Total number of eligible teeth is: 12 
+
+ Handle: 
+frozenset([353, 389, 360, 431, 400, 336, 346, 382])
+ All eligible teeth for this handle are: 
+set([45696, 115843, 116228, 115206, 115052, 38794, 116235, 123788, 115213, 115983, 115857, 115731, 116116, 115864, 115353, 115738, 116123, 115486, 42231, 123760, 115108, 116081, 116137, 115626, 43435, 115885, 39599, 116144, 43442, 114996, 39606, 112567, 46396, 141246, 124607, 115906, 115766, 124614, 115528, 37961, 115402, 115255, 116172, 115661, 116046, 116109, 115920, 47096, 115794, 116179, 115157, 115927, 123767, 116004, 116221, 115962, 142303, 116193, 116067, 115941, 115815, 115304, 115948, 114541, 115822, 115311, 115696, 116200, 115570, 114548, 115262, 116214, 115703, 116088, 45689, 42224, 115836, 144249]) 
+ Total number of eligible teeth is: 78 
+
+ Handle: 
+frozenset([391, 460, 462, 467, 468, 469, 444, 446])
+ All eligible teeth for this handle are: 
+set([]) 
+ Total number of eligible teeth is: 0 
+
+ Handle: 
+frozenset([440, 482, 410])
+ All eligible teeth for this handle are: 
+set([]) 
+ Total number of eligible teeth is: 0 
+
+ Handle: 
+frozenset([513, 389, 521, 525, 527, 528, 498, 431, 440, 442, 481, 336, 470, 346, 477, 478, 353, 482, 485, 486, 360, 490, 496, 400, 499, 501, 503, 508, 509, 382])
+ All eligible teeth for this handle are: 
+set([0, 116228, 115206, 10759, 116235, 44044, 147469, 150542, 28175, 116242, 115731, 147476, 28182, 145432, 115738, 150556, 145439, 147462, 141351, 134834, 43442, 132657, 127540, 115766, 115255, 127547, 115262, 63, 142912, 12355, 37961, 112567, 25676, 3661, 115213, 34384, 115794, 84, 34391, 44639, 26208, 115304, 133742, 115311, 148085, 45689, 41594, 19579, 148092, 45696, 115843, 147308, 115850, 21133, 115857, 115864, 147609, 147616, 124614, 138922, 134827, 130221, 39599, 138929, 9394, 39606, 4795, 150206, 133749, 4802, 146629, 146118, 115402, 146636, 146125, 9422, 4816, 144760, 3283, 9429, 115927, 125657, 135898, 9436, 125664, 115920, 115941, 139839, 2513, 143080, 115836, 9450, 141036, 42224, 9457, 141043, 115444, 42231, 115962, 259, 137991, 147721, 266, 115983, 147728, 280, 115486, 5411, 116004, 136997, 294, 142121, 19243, 301, 142128, 308, 114996, 46396, 322, 115528, 329, 116046, 42833, 2898, 135891, 116025, 147294, 150367, 116067, 147301, 144235, 115052, 114541, 123760, 116081, 114548, 114037, 123767, 116088, 128891, 114044, 128898, 115591, 115948, 38794, 123788, 15246, 143661, 30779, 115353, 124607, 131488, 115108, 115626, 43435, 150444, 147378, 15239, 26551, 147385, 141246, 147392, 149954, 115661, 4046, 149457, 115157, 146391, 2520, 40411, 146398, 146405, 24038, 115696, 17906, 116214, 115703, 47096, 3668, 116221]) 
+ Total number of eligible teeth is: 180 
+ Maximal disjoint teeth set: 
+[133749, 144235, 38794]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.40419 
+
+ Maximal disjoint teeth set: 
+[149954, 47096, 143080]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.39769 
+
+ Maximal disjoint teeth set: 
+[146125, 123788, 144235]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.42293 
+
+ Maximal disjoint teeth set: 
+[115927, 26551, 4795]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.41626 
+
+
+ Handle: 
+frozenset([360, 353, 346, 336, 503])
+ All eligible teeth for this handle are: 
+set([45696, 6146, 115843, 116228, 115206, 25991, 6153, 116235, 115213, 114541, 6160, 115857, 115731, 116116, 115864, 115738, 116123, 42231, 123760, 43435, 39599, 43442, 39606, 115255, 6132, 115262, 124607, 6083, 124614, 6090, 123767, 42224, 115920, 142289, 115927, 115941, 6118, 115815, 115304, 115948, 6125, 115822, 115311, 115696, 116081, 114548, 143094, 115703, 116088, 45689, 6139, 115836]) 
+ Total number of eligible teeth is: 52 
+ Maximal disjoint teeth set: 
+[115822, 6083, 143094]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.44478 
+
+ Maximal disjoint teeth set: 
+[115738, 6153, 143094]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.44951 
+
+ Maximal disjoint teeth set: 
+[115843, 6153, 143094]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.44951 
+
+ Maximal disjoint teeth set: 
+[42231, 6083, 143094]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.44929 
+
+
+ Handle: 
+frozenset([448, 481, 521, 490, 503, 440, 410, 508])
+ All eligible teeth for this handle are: 
+set([24836, 6923, 148876, 16142, 6930, 6419, 6937, 6447, 148764, 6944, 420, 1575, 6958, 129199, 114352, 131761, 6965, 6454, 116151, 147000, 6972, 6461, 135051, 6468, 6475, 133966, 6482, 148302, 146776, 6489, 119777, 127848, 6951, 148848, 7539, 6902, 141176, 150521, 147322, 28924, 6909]) 
+ Total number of eligible teeth is: 41 
+
+ Handle: 
+frozenset([416, 426, 429, 423])
+ All eligible teeth for this handle are: 
+set([145579]) 
+ Total number of eligible teeth is: 1 
+
+ Handle: 
+frozenset([320, 291, 325, 294, 307, 323, 331, 333, 302, 317, 304, 344, 339, 280, 278, 343, 312, 281, 315, 298, 283])
+ All eligible teeth for this handle are: 
+set([32165]) 
+ Total number of eligible teeth is: 1 
+
+ Handle: 
+frozenset([480, 460, 476, 469])
+ All eligible teeth for this handle are: 
+set([]) 
+ Total number of eligible teeth is: 0 
+
+ Handle: 
+frozenset([514, 516, 510])
+ All eligible teeth for this handle are: 
+set([]) 
+ Total number of eligible teeth is: 0 
+
+ Handle: 
+frozenset([512, 385, 514, 515, 516, 517, 519, 405, 522, 523, 524, 525, 526, 527, 528, 472, 529, 277, 284, 289, 475, 420, 421, 301, 505, 520, 513, 310, 313, 442, 316, 445, 191, 451, 198, 456, 330, 463, 464, 465, 340, 470, 471, 216, 474, 219, 221, 478, 479, 352, 484, 486, 487, 488, 362, 237, 238, 239, 496, 498, 242, 243, 502, 511, 377, 506, 507, 509, 510, 255])
+ All eligible teeth for this handle are: 
+set([114177, 113666, 114184, 113162, 114198, 114009, 114205, 41510, 1575, 114219, 114226, 147000, 114240, 113974, 114247, 114261, 39515, 114268, 39522, 114282, 114289, 114457, 41118, 41125, 114345, 129199, 114352, 131761, 113330, 113848, 6944, 141176, 113883, 113379, 114408, 6951, 46319, 6902, 28924, 24836, 114443, 16142, 6930, 6419, 113428, 6937, 113435, 148764, 114464, 113953, 114471, 6958, 6447, 6965, 6454, 6972, 113981, 114485, 6468, 113477, 6475, 113484, 133966, 114002, 146776, 6489, 127848, 144235, 114030, 6461, 148848, 7539, 113526, 112504, 144249, 147322, 114051, 40327, 135051, 148876, 114415, 420, 47019, 47026, 114422, 113099, 113617, 113106, 148302, 113624, 41433, 142303, 41440, 114156, 6482, 150521]) 
+ Total number of eligible teeth is: 96 
+ Maximal disjoint teeth set: 
+[420, 114240, 144249]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.43949 
+
+ Maximal disjoint teeth set: 
+[147322, 41510, 144249]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.42946 
+
+ Maximal disjoint teeth set: 
+[114184, 7539, 144249]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.43528 
+
+ Maximal disjoint teeth set: 
+[113526, 144235, 420]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.80859 
+
+ Maximal disjoint teeth set: 
+[114219, 144235, 420]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.80256 
+
+
+ Handle: 
+frozenset([432, 417, 406])
+ All eligible teeth for this handle are: 
+set([]) 
+ Total number of eligible teeth is: 0 
+
+ Handle: 
+frozenset([269, 272, 278, 280, 281, 283, 291, 294, 298, 302, 304, 307, 312, 315, 317, 320, 323, 325, 331, 333, 339, 343, 344])
+ All eligible teeth for this handle are: 
+set([32165]) 
+ Total number of eligible teeth is: 1 
+
+ Handle: 
+frozenset([482, 388, 490, 397, 431, 400, 499, 470, 503, 440, 410, 477])
+ All eligible teeth for this handle are: 
+set([19201, 6146, 19208, 6153, 6160, 19089, 19222, 19096, 52892, 19229, 19103, 6566, 6629, 19117, 6643, 19124, 19145, 19131, 6594, 6083, 6601, 6090, 6608, 6615, 6104, 26586, 6622, 19173, 19152, 144228, 19110, 6118, 19180, 6125, 19313, 19187, 6132, 19194, 6139, 6636]) 
+ Total number of eligible teeth is: 40 
+ Maximal disjoint teeth set: 
+[19110, 26586, 6146]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.35133 
+
+ Maximal disjoint teeth set: 
+[6118, 19313, 144228]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 2.67836 
+
+ Maximal disjoint teeth set: 
+[26586, 19131, 6643]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.36847 
+
+ Maximal disjoint teeth set: 
+[19194, 144228, 6153]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 2.98906 
+
+ Maximal disjoint teeth set: 
+[19187, 52892, 6083]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.34919 
+
+
+ Handle: 
+frozenset([226, 227, 231, 203, 173, 180])
+ All eligible teeth for this handle are: 
+set([36288, 109760, 140322, 36827, 111909, 51366, 112168, 35945, 51373, 109704, 52948, 111832, 109914, 51394, 36344]) 
+ Total number of eligible teeth is: 15 
+ Maximal disjoint teeth set: 
+[36827, 111832, 36288]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 4.99345 
+
+ Maximal disjoint teeth set: 
+[36344, 51366, 111909]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 5.00305 
+
+ Maximal disjoint teeth set: 
+[51394, 35945, 36288]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 4.99618 
+
+ Maximal disjoint teeth set: 
+[35945, 111909, 36344]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 4.99378 
+
+ Maximal disjoint teeth set: 
+[109914, 140322, 36344]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 5.00426 
+
+
+ Handle: 
+frozenset([482, 388, 485, 490, 397, 431, 400, 440, 499, 501, 470, 503, 376, 410, 477])
+ All eligible teeth for this handle are: 
+set([19201, 6146, 98308, 26502, 19208, 6153, 101773, 6160, 19089, 141330, 19222, 19096, 19229, 19103, 6566, 6629, 19117, 105518, 150451, 19124, 6601, 19131, 19152, 6594, 6083, 103621, 19145, 6090, 6643, 6608, 6615, 6104, 6622, 19173, 88417, 19110, 6118, 19180, 6125, 19313, 19187, 6132, 19194, 6139, 6636]) 
+ Total number of eligible teeth is: 45 
+ Maximal disjoint teeth set: 
+[6083, 19208, 98308]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.73225 
+
+ Maximal disjoint teeth set: 
+[101773, 19110, 6615]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.75271 
+
+ Maximal disjoint teeth set: 
+[19313, 6629, 150451]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.11471 
+
+ Maximal disjoint teeth set: 
+[19208, 98308, 6146]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.73408 
+
+ Maximal disjoint teeth set: 
+[19152, 6118, 141330]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 3.38214 
+
+
+ Handle: 
+frozenset([331, 325, 294])
+ All eligible teeth for this handle are: 
+set([]) 
+ Total number of eligible teeth is: 0 
+
+ Handle: 
+frozenset([313, 330, 316])
+ All eligible teeth for this handle are: 
+set([26761, 26768, 26775, 26782, 26789, 26796, 29358, 141491, 141498, 29372, 141505, 29379, 26803, 141512, 29386, 141519, 29393, 141526, 29400, 29274, 29407, 29414, 29288, 31850, 29421, 29295, 141484, 29428, 31864, 31871]) 
+ Total number of eligible teeth is: 30 
+
+ Handle: 
+frozenset([481, 482, 485, 490, 491, 499, 501, 440, 477])
+ All eligible teeth for this handle are: 
+set([7042, 6979, 7014, 7049, 6986, 6412, 7021, 6993, 7028, 6167, 7000, 7035, 7007]) 
+ Total number of eligible teeth is: 13 
+
+ Handle: 
+frozenset([164, 136, 170, 171, 141, 115, 151, 120, 121, 60, 61, 126, 127])
+ All eligible teeth for this handle are: 
+set([62048, 54306, 61859, 50085, 55601, 50316, 54957, 61936, 61873, 61971, 62006, 61943, 57890, 57883, 62013, 61880, 50358]) 
+ Total number of eligible teeth is: 17 
+ Maximal disjoint teeth set: 
+[61936, 55601, 57883]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.02135 
+
+ Maximal disjoint teeth set: 
+[62006, 50316, 57890]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.02312 
+
+ Maximal disjoint teeth set: 
+[62013, 50316, 57890]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.03265 
+
+ Maximal disjoint teeth set: 
+[62048, 50316, 57890]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.02312 
+
+ Maximal disjoint teeth set: 
+[61943, 54306, 57883]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.02346 
+
+
+ Handle: 
+frozenset([436, 429, 494])
+ All eligible teeth for this handle are: 
+set([]) 
+ Total number of eligible teeth is: 0 
+
+ Handle: 
+frozenset([448, 483, 453, 454, 457, 458, 461, 439, 411])
+ All eligible teeth for this handle are: 
+set([16513, 6531, 6538, 16429, 6517, 16534, 16506]) 
+ Total number of eligible teeth is: 7 
+
+ Handle: 
+frozenset([352, 385, 330, 340, 377, 313, 316, 362])
+ All eligible teeth for this handle are: 
+set([18816, 17409, 16898, 17283, 16772, 18949, 31745, 31752, 17801, 18186, 18956, 17549, 31759, 29456, 17682, 17171, 16814, 31766, 29463, 18459, 18592, 17955, 31780, 18725, 17969, 16604, 17479, 17325, 29358, 18865, 31794, 17843, 18228, 18998, 31801, 17339, 17724, 17857, 18242, 29379, 17094, 31815, 18634, 29372, 18445, 17745, 18389, 18774, 17017, 16856, 29274, 16975, 31836, 29533, 31829, 29442, 19040, 17248, 18011, 18403, 29540, 29288, 18025, 31850, 17899, 18767, 29295, 18676, 18550, 31864, 17913, 18683, 18172, 18907, 31871]) 
+ Total number of eligible teeth is: 75 
+
+ Handle: 
+frozenset([353, 389, 360, 431, 400, 336, 499, 501, 346, 410, 382])
+ All eligible teeth for this handle are: 
+set([45696, 115843, 116228, 115206, 115052, 38794, 116235, 123788, 115213, 115983, 115857, 115731, 116116, 115864, 115353, 115738, 116123, 115486, 42231, 123760, 115108, 116081, 116137, 115626, 43435, 115885, 39599, 116144, 43442, 114996, 39606, 112567, 46396, 141246, 124607, 115906, 115766, 124614, 115528, 37961, 115402, 115255, 116172, 115661, 116046, 116109, 115920, 47096, 115794, 116179, 115157, 115927, 123767, 116004, 116221, 115962, 142303, 116193, 116067, 115941, 115815, 115304, 115948, 114541, 115822, 115311, 115696, 116200, 115570, 114548, 115262, 116214, 115703, 116088, 45689, 42224, 115836, 144249]) 
+ Total number of eligible teeth is: 78 
+
+ Handle: 
+frozenset([384, 353, 389, 360, 400, 336, 346, 410, 382])
+ All eligible teeth for this handle are: 
+set([45696, 115843, 116228, 115206, 115052, 38794, 116235, 115213, 115983, 115857, 115731, 116116, 115864, 115738, 116123, 115486, 42231, 123760, 115108, 116081, 116137, 43435, 115885, 39599, 116144, 43442, 114996, 39606, 112567, 46396, 141246, 124607, 115906, 124614, 116193, 115528, 37961, 115402, 115255, 116172, 115661, 116046, 116109, 115920, 47096, 115794, 116179, 115157, 115927, 123767, 42224, 19677, 19425, 116067, 115941, 115815, 115304, 19691, 115948, 114541, 115822, 115311, 115696, 116200, 114548, 115262, 116214, 115703, 116088, 45689, 115962, 115836, 143101]) 
+ Total number of eligible teeth is: 73 
+ Maximal disjoint teeth set: 
+[115255, 19677, 143101]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.81566 
+
+ Maximal disjoint teeth set: 
+[116235, 19677, 143101]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.81905 
+
+ Maximal disjoint teeth set: 
+[115815, 19425, 19677]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.75654 
+
+
+ Handle: 
+frozenset([482, 486, 521, 490, 525, 498, 499, 501, 470, 503, 508, 509])
+ All eligible teeth for this handle are: 
+set([7427, 7812, 7301, 7686, 7434, 7819, 7693, 7441, 7826, 7574, 7448, 7833, 7707, 7581, 7455, 7840, 7329, 7588, 7462, 7847, 7336, 7721, 7595, 7854, 7343, 7602, 7350, 7735, 7224, 7609, 7483, 7357, 7742, 7616, 7490, 7364, 7749, 7238, 7623, 7497, 7371, 7756, 7504, 7763, 7252, 7511, 7385, 7770, 7259, 7518, 142303, 7777, 7266, 7651, 7525, 7784, 7273, 7658, 144235, 7532, 7280, 7665, 7413, 7287, 7672, 144249, 7546, 7420, 7294, 7679]) 
+ Total number of eligible teeth is: 70 
+
+ Handle: 
+frozenset([394, 399, 406, 417, 418, 427, 429, 430, 432, 436, 441, 444, 446, 449, 455, 460, 462, 466, 467, 468, 469, 473, 476, 480, 489, 493, 494, 497, 500, 373, 504, 379])
+ All eligible teeth for this handle are: 
+set([22337, 22274, 22281, 22316, 22351, 22288, 22323, 22358, 22295, 22330, 22302]) 
+ Total number of eligible teeth is: 11 
+
+ Handle: 
+frozenset([416, 423, 426, 429, 462, 432, 434, 467, 468, 469, 406, 436, 444, 446])
+ All eligible teeth for this handle are: 
+set([16562]) 
+ Total number of eligible teeth is: 1 
+
+ Handle: 
+frozenset([384, 354, 359, 371, 374, 440, 410, 348])
+ All eligible teeth for this handle are: 
+set([25277, 25207]) 
+ Total number of eligible teeth is: 2 
+
+ Handle: 
+frozenset([160, 192, 197, 166, 167, 204, 206, 175, 208, 178, 149, 150, 189, 223])
+ All eligible teeth for this handle are: 
+set([52192, 55958, 56231, 51912, 56042, 51975, 56168, 51919, 51926, 55944, 52178, 52136, 52150, 55832, 52185, 52122, 52143, 55951, 56049, 55839]) 
+ Total number of eligible teeth is: 20 
+
+ Handle: 
+frozenset([369, 370, 364, 374])
+ All eligible teeth for this handle are: 
+set([22386]) 
+ Total number of eligible teeth is: 1 
+
+ Handle: 
+frozenset([488, 465, 475, 484, 479])
+ All eligible teeth for this handle are: 
+set([143234, 150409, 150416, 10388, 147861, 10402, 10150, 150311, 128296, 10409, 150318, 147889, 132146, 150325, 10171, 150332, 147903, 148162, 150339, 10311, 147917, 10318, 9821, 126945, 149289, 149240, 22932, 10234]) 
+ Total number of eligible teeth is: 28 
+ Maximal disjoint teeth set: 
+[148162, 143234, 10171]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00752 
+
+ Maximal disjoint teeth set: 
+[148162, 10171, 149289]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00616 
+
+ Maximal disjoint teeth set: 
+[150318, 149289, 10318]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00485 
+
+ Maximal disjoint teeth set: 
+[150311, 126945, 10318]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00221 
+
+ Maximal disjoint teeth set: 
+[150339, 128296, 10311]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00319 
+
+
+ Handle: 
+frozenset([260, 293, 327, 299, 240, 338, 276, 213, 214, 311, 253, 318, 245])
+ All eligible teeth for this handle are: 
+set([141442, 110502, 141449, 110474, 110733, 32557, 141428, 141211, 111181, 141407]) 
+ Total number of eligible teeth is: 10 
+
+ Handle: 
+frozenset([484, 488, 487, 456, 465, 502, 472, 474, 475, 479])
+ All eligible teeth for this handle are: 
+set([143234, 119175, 8722, 146195, 22932, 6006, 11543, 5572, 121114, 133231, 149660, 5789, 11424, 5425, 128296, 11564, 149037, 146734, 5936, 149681, 132146, 6076, 5194, 146496, 146720, 149828, 5110, 146762, 5719, 16730, 126945, 5859, 129640, 146748, 146706, 148925, 147952, 138481, 145985]) 
+ Total number of eligible teeth is: 39 
+ Maximal disjoint teeth set: 
+[6006, 148925, 11543]
+ Number of disjoint teeth: 3 

@@ -116,16 +116,19 @@ if __name__ == "__main__":
 
 	viol_comb_set= find_comb(F,G,handle_pool)
 
+	'''
+	newfilename='att532_handle_to_teeth_0.txt'
+	newfile=open(newfilename, 'w')
+	
+	
+	newfile.close()
+	'''
+	
 	end=timer()
 	print('Total running time: %.5f'%(end-start))
 	
 		
-	'''
-	newfilename='att532_handle_to_teeth_0.txt'
-	newfile=open(newfilename, 'w')
 
-	newfile.close()
-	'''
 
     
 

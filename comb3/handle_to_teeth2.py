@@ -4,6 +4,7 @@ from ABcut import edges_cross
 from itertools import product
 import networkx as nx
 from timeit import default_timer as timer
+
 '''
 handle_pool = all_handles('att532.pool.txt')
 
@@ -72,7 +73,7 @@ def find_comb(F,G,handle_pool):
 	global newfile
 	
 	counter = 0
-	viol_comb_set = set()
+	viol_comb_set = list()
 	for handle in handle_pool:
 		newfile.write('\n Handle: \n')
 		newfile.write(repr(handle) + '\n')
@@ -98,7 +99,8 @@ def find_comb(F,G,handle_pool):
 						viol_comb['handle']=handle
 						viol_comb['teeth'] = odd_teeth
 						viol_comb['comb_surplus']= comb_surplus
-						viol_comb_set.add(viol_comb)
+						viol_comb_set.append(viol_comb)
+						
 						counter +=1
 					newfile.write(' comb surplus (<1.0 is good!): %.5f \n\n' % comb_surplus)
 					print('comb surplus: %.5f' %comb_surplus)
@@ -118,7 +120,7 @@ if __name__ == "__main__":
 	# Variables:
 	## creat_dom_graph:
 	teeth_surplus_bound = 0.75
-	node_num_upper_bd = 10000
+	node_num_upper_bd = 20000
 
 	## find_all_teeth:
 	epsilon= 0.1        #
@@ -131,7 +133,7 @@ if __name__ == "__main__":
 	
 	# start:
 	start = timer()
-	newfilename='att532_handle_to_teeth_1.txt'
+	newfilename='att532_handle_to_teeth_2.txt'
 	newfile=open(newfilename, 'w')
 	
 	newfile.write('Variables: \n')
