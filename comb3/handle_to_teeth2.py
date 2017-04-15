@@ -119,8 +119,8 @@ def find_comb(F,G,handle_pool):
 if __name__ == "__main__":
 	# Variables:
 	## creat_dom_graph:
-	teeth_surplus_bound = 1.0
-	node_num_upper_bd = 20000
+	teeth_surplus_bound = 0.75
+	node_num_upper_bd = 30000
 
 	## find_all_teeth:
 	epsilon= 0.1        #
@@ -133,7 +133,7 @@ if __name__ == "__main__":
 	
 	# start:
 	start = timer()
-	newfilename='att532_handle_to_teeth_3.txt'
+	newfilename='att532_handle_to_teeth_4.txt'
 	newfile=open(newfilename, 'w')
 	
 	newfile.write('Variables: \n')

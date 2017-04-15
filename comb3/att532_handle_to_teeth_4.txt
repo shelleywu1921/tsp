@@ -1,0 +1,4 @@
+Variables: 
+teeth_surplus_bound: 0.75000 
+node_num_upper_bd: 30000 
+epsilon: 0.10000 
