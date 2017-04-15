@@ -80,7 +80,7 @@ def find_comb(F,G,handle_pool):
 		
 		eligible_teeth=find_all_teeth(F,G,handle)
 		if len(list(eligible_teeth.nodes())) >=3:
-			for k in range(10): 
+			for k in range(100): 
 				odd_teeth = nx.maximal_independent_set(eligible_teeth) # this is a set
 				if len(odd_teeth) >= 3: 
 					if len(odd_teeth)%2==0:
@@ -123,7 +123,7 @@ if __name__ == "__main__":
 	node_num_upper_bd = 100000
 
 	## find_all_teeth:
-	epsilon= 0.1     #
+	epsilon= 0.01     #
 	'''
 	comb_upper_bd = 2.5
 	total_surplus_bound = 2 # <=2
@@ -133,7 +133,7 @@ if __name__ == "__main__":
 	
 	# start:
 	start = timer()
-	newfilename='att532_artificial_handle_to_teeth_1.txt'
+	newfilename='att532_artificial_handle_to_teeth_8.txt'
 	newfile=open(newfilename, 'w')
 	
 	newfile.write('Variables: \n')
@@ -148,7 +148,7 @@ if __name__ == "__main__":
 	newfile.write('Constants: \n')
 	newfile.write('Total number of dominoes: %d \n' % G.number_of_nodes())
 	
-	handle_pool= all_handles('att532.artificial_pool.txt')
+	handle_pool= all_handles('att532.artificial_pool2.txt')
 	
 	# main function
 	viol_comb_set= find_comb(F,G,handle_pool)
