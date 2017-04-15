@@ -6,6 +6,9 @@ import networkx as nx
 from timeit import default_timer as timer
 
 '''
+This is identical to handle_to_teeth3.py, except for the variables. I want to run two tests simultaneously
+'''
+'''
 handle_pool = all_handles('att532.pool.txt')
 
 '''
