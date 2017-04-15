@@ -120,10 +120,10 @@ if __name__ == "__main__":
 	# Variables:
 	## creat_dom_graph:
 	teeth_surplus_bound = 1.0
-	node_num_upper_bd = 50000
+	node_num_upper_bd = 100000
 
 	## find_all_teeth:
-	epsilon= 0.4      #
+	epsilon= 0.7     #
 	'''
 	comb_upper_bd = 2.5
 	total_surplus_bound = 2 # <=2
@@ -133,7 +133,7 @@ if __name__ == "__main__":
 	
 	# start:
 	start = timer()
-	newfilename='att532_handle_to_teeth_9.txt'
+	newfilename='att532_handle_to_teeth_10.txt'
 	newfile=open(newfilename, 'w')
 	
 	newfile.write('Variables: \n')
