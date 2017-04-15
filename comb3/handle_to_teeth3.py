@@ -1,5 +1,5 @@
 from mindomcut3 import build_support_graph, find_handle, add_s_t, del_s_t
-from domgraph3 import create_dom_graph, find_stable_set
+from domgraph4 import create_dom_graph2, find_stable_set
 from ABcut import edges_cross
 from itertools import product
 import networkx as nx
@@ -143,7 +143,7 @@ if __name__ == "__main__":
 	
 	# constants:
 	F=build_support_graph('att532.x')
-	G=create_dom_graph('att532.dom', teeth_surplus_bound, node_num_upper_bd)
+	G=create_dom_graph2('att532.dom', teeth_surplus_bound, node_num_upper_bd)
 
 	newfile.write('Constants: \n')
 	newfile.write('Total number of dominoes: %d \n' % G.number_of_nodes())

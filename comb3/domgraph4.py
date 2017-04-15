@@ -6,7 +6,8 @@ from timeit import default_timer as timer
 import math
 
 '''
-deleted Asize, Bsize, vertices of nodes in G to save memory
+same as domgraph3 but:
+edges betweens doms of G is not computed
 '''
 
 '''
@@ -32,7 +33,7 @@ The best choices for surplus_bound and node_num_upper_bound varies depending on 
 '''
 
 
-def create_dom_graph(domfilename,surplus_bound,node_num_upper_bound):
+def create_dom_graph2(domfilename,surplus_bound,node_num_upper_bound):
  start=timer()
  domfile=open(domfilename,'r')
  firstline=domfile.readline().split()
@@ -58,7 +59,7 @@ def create_dom_graph(domfilename,surplus_bound,node_num_upper_bound):
 		 Bsize=int(line[2])
 		 A=set(map(int, line[3:3+Asize]))
 		 B=set(map(int,line[3+Asize:]))
-		 vertices=set(map(int, line[3:])) 
+		 #vertices=set(map(int, line[3:])) 
   
 	
 		 G.add_node(i, surplus=surplus, A=A, B=B)
@@ -68,7 +69,7 @@ def create_dom_graph(domfilename,surplus_bound,node_num_upper_bound):
      
  domfile.close()
  print('number of nodes in the graph G: %d' % (G.number_of_nodes()))
-  
+ ''' 
  for u in G.nodes():
 	for v in G.nodes():
 	  uteeth =G.node[u]['A'].union(G.node[u]['B'])
@@ -76,6 +77,7 @@ def create_dom_graph(domfilename,surplus_bound,node_num_upper_bound):
 	  if (v!=u) and not uteeth.isdisjoint(vteeth):
 		G.add_edge(u,v)
  print('number of edges in the graph G: %d' % (G.number_of_edges()))
+ '''
  end=timer()
  print('create_dom_graph running time: %.5f seconds' % (end-start))
  return G
