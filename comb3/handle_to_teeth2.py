@@ -1,5 +1,5 @@
 from mindomcut3 import build_support_graph, find_handle, add_s_t, del_s_t
-from domgraph2 import create_dom_graph, find_stable_set
+from domgraph3 import create_dom_graph, find_stable_set
 from ABcut import edges_cross
 from itertools import product
 import networkx as nx
@@ -42,11 +42,11 @@ def find_all_teeth(F, G, handle):
 		# we only want that teeth if 1/2teethsurplus < x(E(A,B)), not even equality
 		if 0.5*G.node[domino]['surplus'] <= xE_A_B -epsilon:
 			if (G.node[domino]['A']<= handle and len(G.node[domino]['B']& handle) ==0 or G.node[domino]['B']<= handle and len(G.node[domino]['A']& handle) ==0):
-				eligible_teeth.add_node(domino, surplus = G.node[domino]['surplus'],vertices = G.node[domino]['vertices'])
+				eligible_teeth.add_node(domino) #, surplus = G.node[domino]['surplus'],vertices = G.node[domino]['A'].union(G.node[domino]['B']))
 	for u in eligible_teeth.nodes():
 		for v in eligible_teeth.nodes():
-			uteeth =eligible_teeth.node[u]['vertices']
-			vteeth=eligible_teeth.node[v]['vertices']
+			uteeth = G.node[u]['A'].union(G.node[u]['B'])
+			vteeth= G.node[v]['A'].union(G.node[v]['B']) 
 			if (v!=u) and not uteeth.isdisjoint(vteeth):
 				eligible_teeth.add_edge(u,v)
 	newfile.write(' All eligible teeth for this handle are: \n')
@@ -92,7 +92,7 @@ def find_comb(F,G,handle_pool):
 					newfile.write(' Number of disjoint teeth: %d \n' % len(odd_teeth))
 					
 					x_delta_H = x_delta_S(F, handle)
-					LHS = x_delta_H + sum(x_delta_S(F,G.node[T]['vertices']) for T in odd_teeth)
+					LHS = x_delta_H + sum(x_delta_S(F,G.node[T]['A'].union(G.node[T]['B'])) for T in odd_teeth)
 					comb_surplus = LHS - 3*len(odd_teeth)
 					if comb_surplus < 1: 
 						viol_comb = dict()

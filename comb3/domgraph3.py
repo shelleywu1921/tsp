@@ -59,7 +59,7 @@ def create_dom_graph(domfilename,surplus_bound,node_num_upper_bound):
 		 vertices=set(map(int, line[3:])) 
   
 	
-		 G.add_node(i, surplus=surplus, Asize=Asize, Bsize=Bsize, A=A, B=B, vertices= vertices)
+		 G.add_node(i, surplus=surplus, Asize=Asize, Bsize=Bsize, A=A, B=B)
     
    #  if G.number_of_nodes()==node_num_upper_bound:
 		#  break
