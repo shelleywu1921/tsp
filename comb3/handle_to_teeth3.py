@@ -123,7 +123,7 @@ if __name__ == "__main__":
 	node_num_upper_bd = 100000
 
 	## find_all_teeth:
-	epsilon= 0.7     #
+	epsilon= 0.1     #
 	'''
 	comb_upper_bd = 2.5
 	total_surplus_bound = 2 # <=2
@@ -133,7 +133,7 @@ if __name__ == "__main__":
 	
 	# start:
 	start = timer()
-	newfilename='att532_handle_to_teeth_10.txt'
+	newfilename='att532_artificial_handle_to_teeth_1.txt'
 	newfile=open(newfilename, 'w')
 	
 	newfile.write('Variables: \n')
@@ -148,7 +148,7 @@ if __name__ == "__main__":
 	newfile.write('Constants: \n')
 	newfile.write('Total number of dominoes: %d \n' % G.number_of_nodes())
 	
-	handle_pool= all_handles('att532.pool.txt')
+	handle_pool= all_handles('att532.artificial_pool.txt')
 	
 	# main function
 	viol_comb_set= find_comb(F,G,handle_pool)
