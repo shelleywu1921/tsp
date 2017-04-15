@@ -41,7 +41,7 @@ def find_all_teeth(F, G, handle):
 	
 		# we only want that teeth if 1/2teethsurplus < x(E(A,B)), not even equality
 		if 0.5*G.node[domino]['surplus'] <= xE_A_B -epsilon:
-			if (G.node[domino]['A']<= handle and len(G.node[domino]['B']& handle) ==0 or G.node[domino]['B']<= handle and len(G.node[domino]['A']& handle) ==0):
+			if (A<= handle and len(B & handle) ==0) or (B<= handle and len(A& handle) ==0):
 				eligible_teeth.add_node(domino) #, surplus = G.node[domino]['surplus'],vertices = G.node[domino]['A'].union(G.node[domino]['B']))
 	for u in eligible_teeth.nodes():
 		for v in eligible_teeth.nodes():
