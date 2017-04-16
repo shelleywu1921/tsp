@@ -169,14 +169,14 @@ if __name__ == "__main__":
 	# main function
 	viol_comb_set= find_comb(F,G,handle_pool)
 
-	# writing to the handlefile
-	handlefilename = 'att532_handlepool_1.txt'
-	handlefile = open(handlefilename, 'w')
-	handlefile.write('532 '+ str(len(light_handles)) + '\n')
+	# writing to the newhandlefile
+	newhandlefilename = 'att532_handlepool_1.txt'
+	newhandlefile = open(newhandlefilename, 'w')
+	newhandlefile.write('532 '+ str(len(light_handles)) + '\n')
 	for handle in light_handles:
-		handlefile.write(str(len(handle)) + '\n')
-		handlefile.write(' '.join(map(str, handle)))
-	handlefile.close()
+		newhandlefile.write(str(len(handle)) + '\n')
+		newhandlefile.write(' '.join(map(str, handle)))
+	newhandlefile.close()
 	
 	end=timer()
 	print('Total running time: %.5f'%(end-start))
