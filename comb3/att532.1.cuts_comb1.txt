@@ -1,0 +1,6 @@
+Variables: 
+teeth_surplus_bound: 1.00000 
+node_num_upper_bd: 50000 
+epsilon: 0.10000 
+Constants: 
+Total number of dominoes: 50190 
