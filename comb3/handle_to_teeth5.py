@@ -10,6 +10,7 @@ The handle pool file used is a .cut.txt file
 
 '''
 handle_pool = all_handles('att532.1.cut.txt')
+There can be 1000 handles in handle_pool at most
 
 '''
 
@@ -21,7 +22,7 @@ def all_handles(handlefilename):
     handle_pool = set()
     handlefile=open(handlefilename, 'r')
     first_line=handlefile.readline().split()
-    for i in range(int(first_line[1])):
+    for i in range(min(1000,int(first_line[1]))):
         line = handlefile.readline().split()
         number_of_node=int(line[1])
         handle_set=frozenset(map(int,line[2:]))
