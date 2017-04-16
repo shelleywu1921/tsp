@@ -175,7 +175,7 @@ if __name__ == "__main__":
 	newhandlefile.write('532 '+ str(len(light_handles)) + '\n')
 	for handle in light_handles:
 		newhandlefile.write(str(len(handle)) + '\n')
-		newhandlefile.write(' '.join(map(str, handle)))
+		newhandlefile.write(' '.join(map(str, handle))+'\n')
 	newhandlefile.close()
 	
 	end=timer()
