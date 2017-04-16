@@ -4,6 +4,9 @@ from ABcut import edges_cross
 from itertools import product
 import networkx as nx
 from timeit import default_timer as timer
+'''
+This records all handles that have comb of weight <=1
+'''
 
 '''
 handle_pool = all_handles('att532.pool.txt')
@@ -70,17 +73,21 @@ def x_delta_S(F, S):
 
 
 def find_comb(F,G,handle_pool):
-	global newfile
+	global newfile, light_handles 
+	global acceptable_handle_csb
 	
 	counter = 0
 	viol_comb_set = list()
+	
 	for handle in handle_pool:
+		handle_counter = 0		# prevents duplication of handles in the list light_handles
+		
 		newfile.write('\n Handle: \n')
 		newfile.write(repr(handle) + '\n')
 		
 		eligible_teeth=find_all_teeth(F,G,handle)
 		if len(list(eligible_teeth.nodes())) >=3:
-			for k in range(100): 
+			for k in range(10): 
 				odd_teeth = nx.maximal_independent_set(eligible_teeth) # this is a set
 				if len(odd_teeth) >= 3: 
 					if len(odd_teeth)%2==0:
@@ -94,6 +101,9 @@ def find_comb(F,G,handle_pool):
 					x_delta_H = x_delta_S(F, handle)
 					LHS = x_delta_H + sum(x_delta_S(F,G.node[T]['vertices']) for T in odd_teeth)
 					comb_surplus = LHS - 3*len(odd_teeth)
+					if comb_surplus <= acceptable_handle_csb and handle_counter == 0: 
+						light_handles.append(handle)
+						handle_counter += 1
 					if comb_surplus < 1: 
 						viol_comb = dict()
 						viol_comb['handle']=handle
@@ -124,6 +134,9 @@ if __name__ == "__main__":
 
 	## find_all_teeth:
 	epsilon= 0.1     #
+	
+	## find_comb
+	acceptable_handle_csb = 1.2
 	'''
 	comb_upper_bd = 2.5
 	total_surplus_bound = 2 # <=2
@@ -133,13 +146,14 @@ if __name__ == "__main__":
 	
 	# start:
 	start = timer()
-	newfilename='from_att532_handlepool_1_1.txt'
+	newfilename='att532_handle_to_teeth_11.txt'
 	newfile=open(newfilename, 'w')
 	
 	newfile.write('Variables: \n')
 	newfile.write('teeth_surplus_bound: %.5f \n' % teeth_surplus_bound)
 	newfile.write('node_num_upper_bd: %d \n' % node_num_upper_bd)
 	newfile.write('epsilon: %.5f \n' % epsilon)
+	newfile.write('acceptable handle comb surplus bound: %.5f \n\n' % acceptable_handle_csb )
 	
 	# constants:
 	F=build_support_graph('att532.x')
@@ -148,11 +162,22 @@ if __name__ == "__main__":
 	newfile.write('Constants: \n')
 	newfile.write('Total number of dominoes: %d \n' % G.number_of_nodes())
 	
-	handle_pool= all_handles('att532_handlepool_1.txt')
+	handle_pool= all_handles('att532.pool.txt')
+	
+	light_handles = []
 	
 	# main function
 	viol_comb_set= find_comb(F,G,handle_pool)
 
+	# writing to the handlefile
+	handlefilename = 'att532_handlepool_1.txt'
+	handlefile = open(handlefilename, 'w')
+	handlefile.write('532 '+ str(len(light_handles)) + '\n')
+	for handle in light_handles:
+		handlefile.write(str(len(handle)) + '\n')
+		handlefile.write(' '.join(map(str, handle)))
+	handlefile.close()
+	
 	end=timer()
 	print('Total running time: %.5f'%(end-start))
 	newfile.write('\n Total running time: %.5f'%(end-start))
