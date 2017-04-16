@@ -38,7 +38,7 @@ def find_delta_weight(graph,nodes):
 
 if __name__=="__main__":
     F=build_support_graph('att532.x')
-    comb_filename = 'att532_comb1.txt'
+    comb_filename = 'att532_comb7.txt'
     
     comb_file = open(comb_filename,'r')
     number_of_hyperedges = int(comb_file.readline().split()[0])
