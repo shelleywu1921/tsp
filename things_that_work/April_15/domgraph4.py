@@ -50,19 +50,21 @@ def create_dom_graph2(domfilename,surplus_bound,node_num_upper_bound):
 		step = math.floor(num_of_dom/node_num_upper_bound)
 	print('step= %d' % step)
 
+
+
 	for i in range(num_of_dom): 
 		line=domfile.readline().split()
 		surplus=float(line[0])
-	if i % step ==0:
-	   if surplus<=surplus_bound:
-		 Asize=int(line[1]) 
-		 Bsize=int(line[2])
-		 A=set(map(int, line[3:3+Asize]))
-		 B=set(map(int,line[3+Asize:]))
-		 vertices=set(map(int, line[3:])) 
+		if i % step ==0:
+			if surplus<=surplus_bound:
+				Asize=int(line[1]) 
+				Bsize=int(line[2])
+				A=set(map(int, line[3:3+Asize]))
+				B=set(map(int,line[3+Asize:]))
+				vertices=set(map(int, line[3:])) 
 
 
-		 G.add_node(i, surplus=surplus, A=A, B=B, vertices = vertices)
+				G.add_node(i, surplus=surplus, A=A, B=B, vertices = vertices)
 
 	#  if G.number_of_nodes()==node_num_upper_bound:
 		#  break

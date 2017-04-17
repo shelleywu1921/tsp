@@ -127,7 +127,7 @@ if __name__ == "__main__":
 
 	# start:
 	start = timer()
-	newfilename='att532_handle_to_teeth_6.txt'
+	newfilename='att532_handle_to_teeth_100.txt'
 	newfile=open(newfilename, 'w')
 
 	newfile.write('Variables: \n')
