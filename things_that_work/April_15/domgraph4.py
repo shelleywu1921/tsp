@@ -113,36 +113,36 @@ Note:
 
 
 def find_stable_set(G, total_surplus_bound, max_teeth_num):
-  max_stable_set=nx.maximal_independent_set(G)
-  if len(max_stable_set)< 3: 
-	return None
-  max_stable_set.sort(key=lambda x: G.node[x]['surplus']) 
-  first_node=max_stable_set[0]
-  candidate_dom =[ first_node ]
-  total_surplus=G.node[first_node]['surplus']
+	max_stable_set=nx.maximal_independent_set(G)
+	if len(max_stable_set)< 3: 
+		return None
+	max_stable_set.sort(key=lambda x: G.node[x]['surplus']) 
+	first_node=max_stable_set[0]
+	candidate_dom =[ first_node ]
+	total_surplus=G.node[first_node]['surplus']
 
-  for i in range(1, len(max_stable_set)):
-	if i%2 ==1:
-	  pass
-	else:
-	  i_minus_one_node=max_stable_set[i-1]
-	  i_node=max_stable_set[i]
-	  i_minus_one_surplus=G.node[i_minus_one_node]['surplus']
-          i_surplus=G.node[i_node]['surplus']
+	for i in range(1, len(max_stable_set)):
+		if i%2 ==1:
+			pass
+		else:
+			i_minus_one_node=max_stable_set[i-1]
+			i_node=max_stable_set[i]
+			i_minus_one_surplus=G.node[i_minus_one_node]['surplus']
+			i_surplus=G.node[i_node]['surplus']
+
+			if total_surplus + i_minus_one_surplus + i_surplus < total_surplus_bound:
+				candidate_dom=candidate_dom+[i_minus_one_node, i_node]
+				total_surplus=total_surplus+i_minus_one_surplus+i_surplus
+			else:
+				break
+
+			if len(candidate_dom) == max_teeth_num:	# up to 5 teeth
+				break
   
-	  if total_surplus + i_minus_one_surplus + i_surplus < total_surplus_bound:
-		candidate_dom=candidate_dom+[i_minus_one_node, i_node]
-		total_surplus=total_surplus+i_minus_one_surplus+i_surplus
-	  else:
-		break
-	  
-	  if len(candidate_dom) == max_teeth_num:	# up to 5 teeth
-	  	break
-	  
-  if len(candidate_dom)<3:  # changed from 5 to 3
-    return None
-  else:
-    return [candidate_dom,total_surplus]
+	if len(candidate_dom)<3:  # changed from 5 to 3
+		return None
+	else:
+		return [candidate_dom,total_surplus]
 
 
 
