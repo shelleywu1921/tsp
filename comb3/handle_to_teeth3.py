@@ -9,11 +9,21 @@ from timeit import default_timer as timer
 handle_pool = all_handles('att532.pool.txt')
 
 '''
+# CONSTANTS:
+# F=build_support_graph('att532.x')
+# 	it is the support graph of att532.x
+# G=create_dom_graph2('att532.dom', teeth_surplus_bound, node_num_upper_bd)
+#   G is a graph with no edges. Each node represents a domino whose surplus < teeth_surplus_bound
+#   the total number of nodes in G is around node_num_upper_bd
+#   For example, G.node[k]['surplus'], G.node[k]['vertices'], G.node[k]['A'], G.node[k]['B']
+#   	where k is the k+1 th domino appearing in att532.dom
+
+
 
 
 # for example: all_handles('att532.pool.txt')
-# handle_pool is a set
-# each handle in handle_pool is also a set
+# and it produces handle_pool: a set of handles in the handlefilename (e.g. att532.pool.txt)
+# Each handle in handle_pool is a frozenset
 def all_handles(handlefilename):
     handle_pool = set()
     handlefile=open(handlefilename, 'r')
@@ -27,7 +37,11 @@ def all_handles(handlefilename):
     return handle_pool
 
 
-# eligible_teeth is a graph
+
+# the returned value: eligible_teeth, is a nx.Graph()
+# its nodes represents teeth in G that respect the handle given. 
+# Moreover, eligible_teeth contains all such nodes
+# (u,v) is an edge in eligible_teeth iff the dominoes u and v intersect
 def find_all_teeth(F, G, handle):
 	global newfile
 	
@@ -57,6 +71,8 @@ def find_all_teeth(F, G, handle):
 	return eligible_teeth
 
 
+# S is a set()
+# x_delta_S computes x(delta(S)) 
 def x_delta_S(F, S):
     delta=set()
     for u in S:
@@ -68,6 +84,10 @@ def x_delta_S(F, S):
     #print(delta_weight)
     return delta_weight
 
+
+# find_comb takes F the support graph, G the domino graph, and handle_pool, a set of handles
+# for each handle, it finds (at most 100) odd sets of disjoint teeth that respect the handle, 
+# then it computes the comb_surplus ( < 1.0 is good) of each comb
 
 def find_comb(F,G,handle_pool):
 	global newfile
@@ -124,16 +144,10 @@ if __name__ == "__main__":
 
 	## find_all_teeth:
 	epsilon= 0.1     #
-	'''
-	comb_upper_bd = 2.5
-	total_surplus_bound = 2 # <=2
-	pattern_upper_bound = 530
-	max_teeth_num = 5
-	'''
-	
+
 	# start:
 	start = timer()
-	newfilename='from_att532_handlepool_1_1.txt'
+	newfilename='from_att532_handlepool_1_1.txt'			# change it every time you run it! 
 	newfile=open(newfilename, 'w')
 	
 	newfile.write('Variables: \n')
@@ -153,6 +167,7 @@ if __name__ == "__main__":
 	# main function
 	viol_comb_set= find_comb(F,G,handle_pool)
 
+	# miscellaneous
 	end=timer()
 	print('Total running time: %.5f'%(end-start))
 	newfile.write('\n Total running time: %.5f'%(end-start))
