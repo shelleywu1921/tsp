@@ -5,7 +5,7 @@ from itertools import product
 import networkx as nx
 from timeit import default_timer as timer
 '''
-This records all handles that have comb of weight <=1
+This records all handles that have comb of surplus  <=1
 '''
 
 '''
