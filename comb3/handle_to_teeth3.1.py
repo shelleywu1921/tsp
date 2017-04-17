@@ -5,6 +5,8 @@ from itertools import product
 import networkx as nx
 from timeit import default_timer as timer
 
+
+
 '''
 handle_pool = all_handles('att532.pool.txt')
 
