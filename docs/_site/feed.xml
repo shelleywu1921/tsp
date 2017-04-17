@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-04-03T16:21:41-04:00</updated><id>http://localhost:4000/</id><title type="html">Insightful^2</title><subtitle>I am a third year undergraduate studying mathematics. My research experiences include ring theory, algebriac combinatorics, and combinatorial optimization. I look forward to learn some algebraic geometry in the summer!  
-Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-04-16T23:30:01-04:00</updated><id>http://localhost:4000/</id><title type="html">Project Teeth Problems</title><subtitle>The greatest are yet to be discovered. 
 </subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2017/04/03/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-04-03T16:09:50-04:00</published><updated>2017-04-03T16:09:50-04:00</updated><id>http://localhost:4000/jekyll/update/2017/04/03/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/04/03/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
@@ -12,4 +11,27 @@ Write an awesome description for your new site here. You can edit this line in _
 &lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">Really?! Hello World?</title><link href="http://localhost:4000/2017/04/03/hello-test.html" rel="alternate" type="text/html" title="Really?! Hello World?" /><published>2017-04-03T00:00:00-04:00</published><updated>2017-04-03T00:00:00-04:00</updated><id>http://localhost:4000/2017/04/03/hello-test</id><content type="html" xml:base="http://localhost:4000/2017/04/03/hello-test.html">&lt;h1 id=&quot;first-level-heading&quot;&gt;First-level heading&lt;/h1&gt;
+
+&lt;h2 id=&quot;second-level-heading&quot;&gt;Second-level heading&lt;/h2&gt;
+
+&lt;p&gt;this is a paragraph. Really?&lt;/p&gt;
+
+&lt;p&gt;This is a list&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Cat&lt;/li&gt;
+  &lt;li&gt;More cats&lt;/li&gt;
+  &lt;li&gt;Fuzzy cats&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;cat&lt;/li&gt;
+  &lt;li&gt;math&lt;/li&gt;
+  &lt;li&gt;math&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;em&gt;italicized&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;boldface&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;Gamma function&lt;/em&gt; satisfying &lt;span&gt;$\Gamma(n)=(n-1)! \quad \forall \; n \in \mathbb N$&amp;lt;\span&amp;gt; is via through the Euler integral.&lt;/span&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">First-level heading</summary></entry></feed>
