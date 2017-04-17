@@ -1,0 +1,9 @@
+The number of edges in delta is 10 
+x(delta(S))= 2.37367 
+The number of edges in delta is 14 
+x(delta(S))= 2.45474 
+The number of edges in delta is 7 
+x(delta(S))= 2.03982 
+The number of edges in delta is 11 
+x(delta(S))= 2.82917 
+comb surplus: 0.69741 

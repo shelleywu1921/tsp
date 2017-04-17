@@ -1,0 +1,535 @@
+Variables: 
+teeth_surplus_bound: 1.00000 
+node_num_upper_bd: 100000 
+epsilon: 0.10000 
+Constants: 
+Total number of dominoes: 150569 
+
+ Handle: 
+frozenset([385, 451, 420, 421, 456, 463, 464, 405, 377, 445])
+ All eligible teeth for this handle are: 
+set([12297, 12298, 12300, 12301, 12302, 12361, 12362, 12364, 12365, 12366, 12426, 12427, 12429, 12430, 12431, 145588, 145589, 145591, 145592, 145593, 145594, 145595, 145597, 145598, 145599, 145600, 145601, 145603, 145604, 145605, 12491, 12492, 145613, 12494, 145615, 12496, 145617, 145618, 145619, 145621, 145622, 145623, 145626, 145627, 145629, 145630, 145631, 145634, 145635, 145637, 145638, 145639, 145641, 145642, 145644, 145645, 145646, 145648, 145649, 145651, 145652, 145653, 145654, 145655, 145657, 145658, 145659, 12555, 12556, 12558, 12559, 12560, 149812, 12618, 12619, 12621, 12622, 12623, 16731, 12006, 12007, 12009, 22250, 12011, 12681, 12682, 12684, 12685, 12686, 12744, 12745, 12747, 12748, 12749, 12808, 12809, 12811, 12812, 12813, 12871, 12872, 12874, 12875, 12876, 12934, 12935, 12937, 12938, 12939, 12997, 12998, 13000, 13001, 13002, 13060, 13061, 13063, 13064, 13065, 148952, 144332, 145612, 12495, 145616, 11537, 11538, 11540, 11541, 11542, 19743, 19744, 19745, 19746, 19747, 19748, 19749, 19750, 19751, 19752, 19753, 19754, 19755, 19756, 19757, 19758, 19759, 19760, 19761, 19762, 19763, 19764, 19765, 19766, 19767, 19768, 19769, 19770, 19771, 19772, 19773, 19774, 19775, 19776, 19777, 19778, 19779, 19780, 19781, 19782, 19783, 19784, 11622, 11623, 11625, 11626, 11627, 19828, 19829, 19830, 19831, 19832, 19833, 19834, 19835, 19836, 19837, 19838, 19839, 19840, 19841, 19842, 19843, 19844, 19845, 19846, 19847, 19848, 19849, 19850, 19851, 19852, 19853, 19854, 19855, 19856, 19857, 19858, 19859, 19860, 19861, 19862, 19863, 19864, 19865, 19866, 19867, 19868, 19869, 11706, 11707, 11709, 11710, 11711, 19911, 19912, 19913, 19914, 19915, 19916, 19917, 19918, 19919, 19920, 19921, 19922, 19923, 19924, 19925, 19926, 19927, 19928, 19929, 19930, 19931, 19932, 19933, 19934, 19935, 19936, 19937, 19938, 19939, 19940, 19941, 19942, 19943, 19944, 19945, 19946, 19947, 19948, 19949, 19950, 19951, 19952, 11769, 11770, 11772, 11773, 11774, 19991, 14033, 11848, 11849, 11851, 11852, 11853, 145010, 11927, 11928, 11930, 11931, 11932, 22179, 22180, 22181, 22182, 22183, 22184, 22185, 22186, 22187, 22188, 22189, 22190, 22191, 22192, 22193, 22194, 22195, 22196, 22197, 22198, 22199, 22200, 22201, 22202, 22203, 22204, 22205, 22206, 22207, 22208, 22209, 22210, 22211, 22212, 22213, 22214, 22215, 22216, 22217, 22218, 22219, 22220, 22221, 22222, 22223, 22224, 22225, 22226, 22227, 22228, 22229, 22230, 22231, 22232, 22233, 22234, 22235, 22236, 22237, 22238, 22239, 22240, 22241, 22242, 22243, 22244, 22245, 22246, 22247, 22248, 22249, 12010, 22251, 22252, 22253, 22254, 22255, 22256, 22257, 22258, 22259, 22260, 22261, 22262, 149240, 149289, 12084, 12085, 12087, 12088, 12089, 12160, 12161, 12163, 12164, 12165, 12229, 12230, 12232, 12233, 12234, 149474]) 
+ Total number of eligible teeth is: 385 
+ Maximal disjoint teeth set: 
+[145641, 22184, 149812]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.42534 
+
+ Maximal disjoint teeth set: 
+[11853, 22251, 16731]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00978 
+
+ Maximal disjoint teeth set: 
+[19746, 12809, 144332]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00378 
+
+ Maximal disjoint teeth set: 
+[145593, 19828, 148952]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.45512 
+
+ Maximal disjoint teeth set: 
+[22216, 12430, 14033]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.01462 
+
+ Maximal disjoint teeth set: 
+[145603, 19933, 148952]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.38511 
+
+ Maximal disjoint teeth set: 
+[22262, 145657, 145010]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00603 
+
+ Maximal disjoint teeth set: 
+[19747, 11542, 149289]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.41543 
+
+ Maximal disjoint teeth set: 
+[22193, 13065, 14033]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.01560 
+
+ Maximal disjoint teeth set: 
+[12935, 22216, 14033]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.01469 
+
+ Maximal disjoint teeth set: 
+[19758, 145603, 145010]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.38188 
+
+ Maximal disjoint teeth set: 
+[22240, 12366, 149240]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.41670 
+
+ Maximal disjoint teeth set: 
+[13000, 19784, 14033]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00231 
+
+ Maximal disjoint teeth set: 
+[12160, 22251, 16731]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.01076 
+
+ Maximal disjoint teeth set: 
+[12809, 19748, 14033]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.42188 
+
+ Maximal disjoint teeth set: 
+[11541, 22221, 145010]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00083 
+
+ Maximal disjoint teeth set: 
+[12685, 19952, 149289]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00169 
+
+ Maximal disjoint teeth set: 
+[19939, 11930, 148952]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00450 
+
+ Maximal disjoint teeth set: 
+[19942, 12939, 149240]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00962 
+
+ Maximal disjoint teeth set: 
+[13002, 19831, 14033]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00306 
+
+ Maximal disjoint teeth set: 
+[145616, 19924, 149812]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.01292 
+
+ Maximal disjoint teeth set: 
+[19842, 149812, 12366]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.01352 
+
+ Maximal disjoint teeth set: 
+[13001, 22211, 149812]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00594 
+
+ Maximal disjoint teeth set: 
+[19845, 12556, 14033]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.37440 
+
+ Maximal disjoint teeth set: 
+[22244, 13065, 145010]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.37905 
+
+ Maximal disjoint teeth set: 
+[145630, 19920, 149289]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.41890 
+
+ Maximal disjoint teeth set: 
+[19750, 12362, 16731]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.41612 
+
+ Maximal disjoint teeth set: 
+[14033, 12681, 22222]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00357 
+
+ Maximal disjoint teeth set: 
+[22183, 12875, 149812]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.41383 
+
+
+ Handle: 
+frozenset([451, 420, 421, 456, 463, 464, 445])
+ All eligible teeth for this handle are: 
+set([115204, 132102, 12808, 12297, 12298, 12811, 12300, 12301, 12302, 129553, 12361, 122393, 90650, 133148, 13061, 12365, 116781, 13064, 124979, 103989, 12809, 129593, 121695, 122432, 124939, 139332, 142405, 12871, 11848, 11849, 12362, 11851, 12876, 11853, 12366, 12813, 116820, 123989, 29625, 134234, 12559, 104028, 11852, 135355, 139372, 142445, 11709, 12364, 145010, 107637, 11711, 124028, 134274, 11627, 11542, 12934, 12935, 12937, 12426, 12427, 12429, 12430, 12431, 135315, 11927, 11928, 11930, 11931, 11932, 12997, 12161, 138402, 12230, 119097, 22813, 12744, 145588, 145589, 145591, 145592, 145593, 145594, 145595, 145597, 145598, 145599, 145600, 145601, 145603, 145604, 88773, 12998, 13000, 13001, 138442, 12491, 12492, 145613, 12494, 145615, 12496, 145617, 145618, 145619, 145621, 145622, 145623, 117976, 145626, 12495, 145629, 145630, 113375, 16608, 145616, 145605, 102115, 145637, 12006, 14033, 12009, 145642, 12011, 88812, 145645, 145646, 144253, 121038, 145649, 145651, 145652, 145653, 145654, 128247, 149240, 145657, 137466, 145659, 92925, 12812, 118015, 96513, 123139, 13060, 92886, 13063, 16648, 13065, 102154, 12555, 12556, 12558, 119055, 12560, 11537, 11538, 11540, 11541, 130838, 136476, 140573, 12165, 137506, 145627, 96552, 149289, 123178, 141617, 143155, 149812, 12085, 119094, 12087, 12088, 12084, 145631, 12938, 130878, 12939, 22853, 13002, 12618, 12619, 113335, 12622, 12623, 121656, 145635, 12089, 141657, 98650, 143195, 12747, 119013, 119136, 145638, 11622, 11623, 11625, 11626, 12007, 145641, 12010, 33292, 12160, 98689, 12163, 12164, 105861, 126856, 145644, 12682, 12684, 12685, 12686, 133188, 19870, 12681, 145648, 27045, 107676, 105900, 126896, 12872, 145612, 12745, 136436, 11706, 11707, 12874, 11710, 121077, 12875, 12229, 19910, 12232, 12233, 12234, 145655, 12748, 12749, 12621, 148952, 145639, 115164, 145658, 132062, 144293, 29665, 149474, 140533, 33252, 11772, 128207, 90611, 119052, 27005, 11769, 11770, 145634, 11773, 11774]) 
+ Total number of eligible teeth is: 262 
+ Maximal disjoint teeth set: 
+[12812, 115164, 149289]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.01280 
+
+ Maximal disjoint teeth set: 
+[123139, 12165, 149812]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.37957 
+
+ Maximal disjoint teeth set: 
+[145592, 123178, 148952]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.83021 
+
+ Maximal disjoint teeth set: 
+[12686, 148952, 137506]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00809 
+
+ Maximal disjoint teeth set: 
+[133148, 13064, 148952]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00506 
+
+ Maximal disjoint teeth set: 
+[145603, 102154, 14033]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.42473 
+
+ Maximal disjoint teeth set: 
+[139372, 12491, 14033]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.01567 
+
+ Maximal disjoint teeth set: 
+[11626, 121695, 148952]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.36312 
+
+ Maximal disjoint teeth set: 
+[123178, 12997, 149812]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.37775 
+
+ Maximal disjoint teeth set: 
+[13064, 139332, 149812]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.01176 
+
+ Maximal disjoint teeth set: 
+[12084, 123989, 149812]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.41325 
+
+ Maximal disjoint teeth set: 
+[12997, 139372, 14033]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.01508 
+
+ Maximal disjoint teeth set: 
+[12875, 129553, 149289]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00607 
+
+ Maximal disjoint teeth set: 
+[105861, 11622, 149812]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.41335 
+
+ Maximal disjoint teeth set: 
+[12007, 134274, 14033]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00841 
+
+ Maximal disjoint teeth set: 
+[145597, 121695, 148952]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.38740 
+
+ Maximal disjoint teeth set: 
+[145659, 102115, 149812]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.41949 
+
+ Maximal disjoint teeth set: 
+[139372, 11538, 14033]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.01443 
+
+ Maximal disjoint teeth set: 
+[145646, 119055, 149240]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.37825 
+
+ Maximal disjoint teeth set: 
+[11625, 143195, 14033]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00202 
+
+ Maximal disjoint teeth set: 
+[144293, 149240, 145646]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.01023 
+
+ Maximal disjoint teeth set: 
+[119052, 12161, 14033]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.37326 
+
+ Maximal disjoint teeth set: 
+[12233, 119094, 149812]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.37027 
+
+ Maximal disjoint teeth set: 
+[123178, 12997, 14033]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.37912 
+
+ Maximal disjoint teeth set: 
+[145638, 135355, 14033]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.03126 
+
+ Maximal disjoint teeth set: 
+[145597, 117976, 148952]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.38681 
+
+
+ Handle: 
+frozenset([484, 488, 465, 474, 475, 479])
+ All eligible teeth for this handle are: 
+set([132146, 10414, 119830, 19991, 9752, 150338, 16731, 124066, 22932, 29740, 145970, 145971, 145972, 115253, 119870, 90688, 149058, 149059, 149060, 149061, 11648, 150098, 150099, 150100, 149077, 33366, 9818, 9819, 9820, 9821, 150117, 125030, 122471, 129641, 133232, 145010, 150324, 116864, 119176, 104068, 107714, 10383, 10384, 10385, 10386, 10387, 10388, 10389, 10390, 10391, 10392, 10401, 10402, 10403, 10404, 10405, 10406, 10407, 10408, 10409, 10410, 10411, 10412, 10413, 134318, 10415, 149683, 149684, 149685, 149686, 148160, 148161, 148162, 148163, 149702, 130925, 144332, 14033, 135398, 128296, 138482, 150260, 150261, 150262, 150263, 149240, 150265, 150266, 150267, 150268, 150269, 150270, 150271, 150272, 150273, 150274, 149289, 113425, 88851, 121115, 121733, 102192, 92963, 150311, 150312, 150313, 118058, 150315, 150316, 150317, 150318, 150319, 150320, 150321, 150322, 150323, 149812, 150325, 150326, 150327, 150328, 150329, 150330, 150331, 150332, 150333, 150334, 145973, 150336, 150337, 149314, 150339, 140612, 136518, 126945, 147852, 137546, 150314, 149474, 96591, 123216, 149846, 149847, 149848, 149849, 149339, 149340, 149341, 149342, 147928, 147938, 149865, 11629, 149358, 11631, 11632, 139411, 142484, 150335, 141696, 143234, 150403, 150404, 150405, 150406, 150407, 150408, 147849, 150410, 147851, 150412, 150413, 150414, 150415, 150416, 150417, 147860, 147861, 147862, 147863, 150340, 147877, 147878, 98727, 147880, 147888, 147889, 147890, 147891, 11630, 147901, 147902, 147903, 147904, 147850, 147914, 147915, 147916, 147917, 150264, 105938, 150409, 147926, 147927, 148952, 147929, 149983, 149984, 149985, 149986, 147939, 147940, 147941, 147879, 150411, 27121, 150002, 149337, 150101]) 
+ Total number of eligible teeth is: 219 
+ Maximal disjoint teeth set: 
+[150408, 90688, 150098]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.42139 
+
+ Maximal disjoint teeth set: 
+[150332, 19991, 149984]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00489 
+
+ Maximal disjoint teeth set: 
+[126945, 150117, 147929]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00681 
+
+ Maximal disjoint teeth set: 
+[147903, 11631, 14033]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00661 
+
+ Maximal disjoint teeth set: 
+[10408, 121733, 149702]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.36967 
+
+ Maximal disjoint teeth set: 
+[149358, 147915, 134318]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.03253 
+
+ Maximal disjoint teeth set: 
+[121733, 10410, 149865]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.36625 
+
+ Maximal disjoint teeth set: 
+[150327, 139411, 149341]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.01684 
+
+ Maximal disjoint teeth set: 
+[10414, 135398, 150117]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00727 
+
+ Maximal disjoint teeth set: 
+[147917, 149058, 107714]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.43969 
+
+ Maximal disjoint teeth set: 
+[119830, 150323, 149341]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.37183 
+
+ Maximal disjoint teeth set: 
+[150324, 149060, 136518]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00740 
+
+ Maximal disjoint teeth set: 
+[149848, 147889, 149289]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00156 
+
+ Maximal disjoint teeth set: 
+[150329, 118058, 149059]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.36755 
+
+ Maximal disjoint teeth set: 
+[147928, 150100, 130925]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00694 
+
+ Maximal disjoint teeth set: 
+[10412, 96591, 149702]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.41550 
+
+ Maximal disjoint teeth set: 
+[10415, 124066, 149358]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.41578 
+
+ Maximal disjoint teeth set: 
+[10389, 135398, 150002]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.03367 
+
+ Maximal disjoint teeth set: 
+[119870, 10414, 149358]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.41533 
+
+ Maximal disjoint teeth set: 
+[150415, 149358, 88851]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.41630 
+
+ Maximal disjoint teeth set: 
+[10412, 148952, 149865]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00071 
+
+ Maximal disjoint teeth set: 
+[10409, 149474, 150117]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00228 
+
+ Maximal disjoint teeth set: 
+[150328, 33366, 11631]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00300 
+
+ Maximal disjoint teeth set: 
+[150403, 22932, 11648]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00227 
+
+ Maximal disjoint teeth set: 
+[123216, 150415, 149685]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.37775 
+
+ Maximal disjoint teeth set: 
+[150408, 140612, 149865]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00280 
+
+
+ Handle: 
+frozenset([465, 479, 484, 502, 487])
+ All eligible teeth for this handle are: 
+set([150019, 33366, 135398, 10252, 5646, 5647, 5648, 150034, 8724, 8725, 8726, 19991, 146195, 102192, 7204, 29740, 132146, 7219, 115253, 119870, 145983, 90688, 145985, 5197, 5198, 5199, 5718, 5719, 5720, 11869, 125030, 122471, 129641, 149100, 146194, 133232, 145010, 88851, 150134, 146708, 149115, 116864, 104068, 119830, 139411, 142484, 5275, 5276, 5277, 5790, 5791, 5792, 124066, 134318, 107714, 14033, 150228, 149719, 150243, 5862, 5863, 5352, 5353, 5354, 138482, 149240, 7942, 7943, 143234, 113425, 146706, 146707, 146196, 121115, 150149, 146720, 146721, 146722, 92963, 5937, 128296, 149289, 118058, 146734, 146735, 5936, 5425, 5426, 5427, 149812, 146747, 146748, 146749, 8001, 8002, 8004, 8005, 8006, 8007, 8008, 146761, 137546, 5935, 96591, 123216, 145984, 149337, 16731, 145761, 145762, 145763, 149734, 146496, 130925, 5864, 6007, 6008, 6009, 149882, 146495, 5500, 5501, 141696, 149377, 149378, 121733, 146497, 119176, 149897, 5499, 146736, 149393, 149394, 27121, 22932, 140612, 136518, 98727, 146760, 146762, 6079, 6080, 6081, 5573, 5574, 5575, 144332, 105938, 11854, 148952, 7135, 149473, 149474, 126945, 147951, 147952, 147953, 5112, 5113, 5114, 149314, 10237]) 
+ Total number of eligible teeth is: 162 
+ Maximal disjoint teeth set: 
+[5198, 123216, 7942]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.37964 
+
+ Maximal disjoint teeth set: 
+[146196, 8002, 90688]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.43084 
+
+ Maximal disjoint teeth set: 
+[96591, 5276, 8006]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.41687 
+
+ Maximal disjoint teeth set: 
+[88851, 8002, 146748]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.42051 
+
+ Maximal disjoint teeth set: 
+[123216, 5936, 7942]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.37807 
+
+ Maximal disjoint teeth set: 
+[146497, 149100, 98727]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.42313 
+
+ Maximal disjoint teeth set: 
+[5500, 148952, 8007]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00039 
+
+ Maximal disjoint teeth set: 
+[14033, 5863, 8001]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00195 
+
+ Maximal disjoint teeth set: 
+[146748, 148952, 7135]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00434 
+
+ Maximal disjoint teeth set: 
+[5354, 92963, 8002]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.41650 
+
+ Maximal disjoint teeth set: 
+[129641, 146748, 8005]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.01151 
+
+ Maximal disjoint teeth set: 
+[5648, 149378, 119830]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.37617 
+
+ Maximal disjoint teeth set: 
+[146721, 140612, 8001]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00746 
+
+ Maximal disjoint teeth set: 
+[5277, 149289, 7943]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00137 
+
+ Maximal disjoint teeth set: 
+[92963, 150134, 147953]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.41940 
+
+ Maximal disjoint teeth set: 
+[6081, 143234, 8007]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00163 
+
+ Maximal disjoint teeth set: 
+[146736, 130925, 8008]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.02601 
+
+ Maximal disjoint teeth set: 
+[8007, 29740, 5864]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00091 
+
+ Maximal disjoint teeth set: 
+[5720, 10237, 135398]
+ Number of disjoint teeth: 3 
+ comb surplus (<1.0 is good!): 1.00831 
+
+total number of violated comb is 0: 
+ And they are: 
+ []
+
+ Total running time: 21.61256

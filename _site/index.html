@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>tsp by shelleywu1921</title>
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=5ca5023aebb05eda058569a15750f2311f9f6ce5">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>tsp</h1>
+        <p></p>
+
+        
+          <p class="view"><a href="http://github.com/shelleywu1921/tsp">View the Project on GitHub <small></small></a></p>
+        
+
+        
+
+        
+      </header>
+      <section>
+
+      <h1 id="the-travelling-salesman-problem-finding-violated-comb-inequalities">The Travelling Salesman Problem: Finding violated comb inequalities</h1>
+<h1 id="project-update-april-10">Project update, April 10</h1>
+
+<h2 id="description-of-the-code">Description of the code</h2>
+<p>I wrote a program to find violated comb inequalities, given x* (e.g. <code class="highlighter-rouge">pr76.x</code>) and the set of dominoes with surplus &lt; 1 (e.g. <code class="highlighter-rouge">pr76.dom</code>).</p>
+
+<p>Call the support graph of x* <code class="highlighter-rouge">F</code>. The methodology is first constructing a graph <code class="highlighter-rouge">G</code> where the nodes represent dominoes, and <code class="highlighter-rouge">(u,v)</code> is an edge in <code class="highlighter-rouge">G</code> if and only if the dominoes represented by u and v intersect.  Then we run a finding stable sets heuristic on <code class="highlighter-rouge">G</code> to find an odd stable set. The stable set represents a set of disjoint dominoes in the support  graph <code class="highlighter-rouge">F</code>.</p>
+
+<p>To compute a handle for the odd set of disjoint dominoes, we need to decide upon which half of each domino should be inside the handle. This is done by an exhaustive enumeration on all possible ways of assigning halves of dominoes to handles if the number of dominoes is small, and randomly examine possible patterns if the number of dominoes is large.    After knowing which halves are inside the handle and which halves are not, we construct a supergraph of the support graph <code class="highlighter-rouge">F</code>, called <code class="highlighter-rouge">Fbar</code>, by adding a node <code class="highlighter-rouge">s</code> and a node <code class="highlighter-rouge">t</code> to <code class="highlighter-rouge">F</code>. <code class="highlighter-rouge">s</code> and <code class="highlighter-rouge">t</code> are adjacent to  nodes in the dominoes that are supposed to be inside and outside the handle, respectively. Moreover, the weights of the new edges incident to <code class="highlighter-rouge">s</code> and <code class="highlighter-rouge">t</code> are significantly big numbers, say 100.  Compute the min cost s-t cut in <code class="highlighter-rouge">Fbar</code>. The cut is very unlikely to use any edge incident to <code class="highlighter-rouge">s</code> or to <code class="highlighter-rouge">t</code>. (From experiments, the cut weights are usually below 10). Hence, the cut separates the inside-handle halves of the dominoes from the outside-handle halves.</p>
+
+<p>The min cost s-t cut is the handle such that the comb surplus is the smallest give the assignment of which parts should be inside the handle. If the total surplus of the comb using the min cost s-t cut as the handle is &lt; 1, then we find a violated comb!</p>
+
+<h2 id="results-on-the-implementation">Results on the implementation:</h2>
+<p>Given x* (e.g. <code class="highlighter-rouge">pr76.x</code>) and the set of dominoes (e.g. <code class="highlighter-rouge">pr76.dom</code>), the program first generates k odd sets of disjoint dominoes. (k = 10, 100, 1000, etc). 
+Then for each odd set of disjoint dominoes, it computes the best handle for possible arrangements of halves inside and outside the handle.</p>
+
+<p>We hope that if there exists violated comb inequalities, we will eventually find one by sampling enough combs (i.e. make k large, and sample all possible arrangements).</p>
+
+<p>We break the interval [0,8] to smaller intervals. The program computes possible handles for k odd sets of dominoes, and outputs the number of occurrences of comb surpluses in each interval.</p>
+
+<h3 id="pr76">pr76:</h3>
+<p>Initially, the program only records the number of comb inequalities with surplus &lt; 0.9. As the number of distinct dominoes converge when k becomes large, we tried this on k = 100000 for <code class="highlighter-rouge">pr76</code>, and claim this to be almost exhaustive. We only considered odd sets with &gt;=5 number of teeth. Unfortunately, it did not find any violated comb. Once we allow the number of teeth to be 3, and record the number of comb inequalities with surplus &lt; 1.0, the program found around 1/10 k violated combs. However, those violations may be caused by rounding errors, since they are around 10^-4 away from 1.</p>
+
+<p>For example, in tsp/stableset/April 6/3teeth_test_find_handle_pr76</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>Number of odd sets of teeth considered: 1000
+Violated combs found: 95
+</code></pre>
+</div>
+
+<h3 id="att532">att532:</h3>
+<p>For large examples like <code class="highlighter-rouge">att532</code> and <code class="highlighter-rouge">fl1577</code>, the number of 
+Despite that no violated comb has been found, there are plenty combs with surpluses only a bit larger than 1.</p>
+
+<h3 id="fl1577">fl1577:</h3>
+
+<h3 id="problems-on-small-graphs-eg-pr76">Problems on small graphs (e.g. <code class="highlighter-rouge">pr76</code>):</h3>
+
+<h3 id="problems-on-large-graphs-eg-att532">Problems on large graphs (e.g. <code class="highlighter-rouge">att532</code>):</h3>
+
+<h2 id="running-time-and-performance-details-of-implementation">Running time and performance, details of implementation:</h2>
+
+
+
+      </section>
+      <footer>
+        
+        <p>This project is maintained by <a href="http://github.com/shelleywu1921">shelleywu1921</a></p>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+
+
+  
+  </body>
+</html>
