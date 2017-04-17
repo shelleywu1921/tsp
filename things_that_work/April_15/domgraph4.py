@@ -34,53 +34,55 @@ The best choices for surplus_bound and node_num_upper_bound varies depending on 
 
 
 def create_dom_graph2(domfilename,surplus_bound,node_num_upper_bound):
- start=timer()
- domfile=open(domfilename,'r')
- firstline=domfile.readline().split()
- num_of_dom=int(firstline[1])
- 
- G=nx.Graph()
- 
- '''
- add the following lines to make the nodes more evenly distributed over the graphs
- '''
- if num_of_dom < node_num_upper_bound:
- 	step = 1
- else:
- 	step = math.floor(num_of_dom/node_num_upper_bound)
- 	print('step= %d' % step)
- 	
- for i in range(num_of_dom): 
-   line=domfile.readline().split()
-   surplus=float(line[0])
-   if i % step ==0:
+	start=timer()
+	domfile=open(domfilename,'r')
+	firstline=domfile.readline().split()
+	num_of_dom=int(firstline[1])
+
+	G=nx.Graph()
+
+	'''
+	add the following lines to make the nodes more evenly distributed over the graphs
+	'''
+	if num_of_dom < node_num_upper_bound:
+		step = 1
+	else:
+		step = math.floor(num_of_dom/node_num_upper_bound)
+	print('step= %d' % step)
+
+	for i in range(num_of_dom): 
+		line=domfile.readline().split()
+		surplus=float(line[0])
+	if i % step ==0:
 	   if surplus<=surplus_bound:
 		 Asize=int(line[1]) 
 		 Bsize=int(line[2])
 		 A=set(map(int, line[3:3+Asize]))
 		 B=set(map(int,line[3+Asize:]))
 		 vertices=set(map(int, line[3:])) 
-  
-	
+
+
 		 G.add_node(i, surplus=surplus, A=A, B=B, vertices = vertices)
-    
-   #  if G.number_of_nodes()==node_num_upper_bound:
+
+	#  if G.number_of_nodes()==node_num_upper_bound:
 		#  break
-     
- domfile.close()
- print('number of nodes in the graph G: %d' % (G.number_of_nodes()))
- ''' 
- for u in G.nodes():
+ 
+	domfile.close()
+	print('number of nodes in the graph G: %d' % (G.number_of_nodes()))
+	''' 
+	for u in G.nodes():
 	for v in G.nodes():
 	  uteeth =G.node[u]['A'].union(G.node[u]['B'])
 	  vteeth=G.node[v]['A'].union(G.node[v]['B'])
 	  if (v!=u) and not uteeth.isdisjoint(vteeth):
 		G.add_edge(u,v)
- print('number of edges in the graph G: %d' % (G.number_of_edges()))
- '''
- end=timer()
- print('create_dom_graph running time: %.5f seconds' % (end-start))
- return G
+	print('number of edges in the graph G: %d' % (G.number_of_edges()))
+	'''
+	end=timer()
+	print('create_dom_graph running time: %.5f seconds' % (end-start))
+	return G
+
+
 
 '''
 def save_dom_graph(domfilename, surplus_bound, node_num_upper_bound):

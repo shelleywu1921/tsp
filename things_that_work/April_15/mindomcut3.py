@@ -34,24 +34,24 @@ Examples:
 '''
 
 def build_support_graph(fracsolu):
-    start=timer()
-    
-    fracfile=open(fracsolu,'r')
-    first_line=map(int,fracfile.readline().split())
-    num_of_vertices=first_line[0]
-    num_of_edges=first_line[1]
-    
-    F=nx.Graph()
-    for i in range(num_of_edges):
-        line=fracfile.readline().split()
-        u=int(line[0])
-        v=int(line[1])
-        edge_wt=float(line[2])
-        F.add_nodes_from([u,v])
-        F.add_edge(u,v,weight=edge_wt)
-    end=timer()
-    print('Running time: %.5f seconds' %(end-start))
-    return F
+	start=timer()
+
+	fracfile=open(fracsolu,'r')
+	first_line=map(int,fracfile.readline().split())
+	num_of_vertices=first_line[0]
+	num_of_edges=first_line[1]
+
+	F=nx.Graph()
+	for i in range(num_of_edges):
+		line=fracfile.readline().split()
+		u=int(line[0])
+		v=int(line[1])
+		edge_wt=float(line[2])
+		F.add_nodes_from([u,v])
+		F.add_edge(u,v,weight=edge_wt)
+	end=timer()
+	print('Running time: %.5f seconds' %(end-start))
+	return F
 
 
 ## Testing build_support_graph
@@ -136,27 +136,27 @@ Warning:
 '''
 
 def add_s_t(F,G,candidate_dom, pattern):
-    # determines what is in handle and what is not in handle according to the pattern
-    inHandle=set()
-    notinHandle=set()
-    for i in range(len(candidate_dom)):
-        domnode=candidate_dom[i]
-        A=G.node[domnode]['A']
-        B=G.node[domnode]['B']
+	# determines what is in handle and what is not in handle according to the pattern
+	inHandle=set()
+	notinHandle=set()
+	for i in range(len(candidate_dom)):
+		domnode=candidate_dom[i]
+		A=G.node[domnode]['A']
+		B=G.node[domnode]['B']
 
-        if pattern[i]=='0':
-            inHandle= inHandle.union(A)
-            notinHandle=notinHandle.union(B)
-        else:
-            inHandle= inHandle.union(B)
-            notinHandle=notinHandle.union(A)
-                
-    # construct Fbar by adding s and t. s: inHandle, t: notinHandle
-    Fbar=F     # this is an alias!
-    Fbar.add_edges_from(list(('s',x) for x in inHandle), weight=100)
-    Fbar.add_edges_from(list(('t',y) for y in notinHandle), weight=100)
+		if pattern[i]=='0':
+			inHandle= inHandle.union(A)
+			notinHandle=notinHandle.union(B)
+		else:
+			inHandle= inHandle.union(B)
+			notinHandle=notinHandle.union(A)
+		
+	# construct Fbar by adding s and t. s: inHandle, t: notinHandle
+	Fbar=F     # this is an alias!
+	Fbar.add_edges_from(list(('s',x) for x in inHandle), weight=100)
+	Fbar.add_edges_from(list(('t',y) for y in notinHandle), weight=100)
 
-    return [Fbar, inHandle, notinHandle]
+	return [Fbar, inHandle, notinHandle]
 
 ## Testing time!
 ## for pr76
@@ -332,44 +332,44 @@ Example:
 '''
 
 def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd,pattern_upper_bound):
-    start=timer()
-    
-    # for each node in candidate_dom, LHS =1/2surplus(Ti)-x*(E(A,B))
-    # sumLHS = \sum 1/2 surplus(Ti)-x*(E(Ai,Bi)). Independ on H, the handle chosen
-    LHS_list=[]
-    print('Number of teeth: %d ' % len(candidate_dom))
-    for node in candidate_dom:
-        A=G.node[node]['A']
-        B=G.node[node]['B']
-        
-        from ABcut import edges_cross
-        E_A_B=edges_cross(F,A,B)
-        xE_A_B=sum(F[u][v]['weight'] for (u,v) in E_A_B)
-        #print('x*(E(A,B))=%.5f' % xE_A_B)
-        
-        LHS= 0.5*G.node[node]['surplus'] - xE_A_B
-        LHS_list.append(LHS)
-    
-    sumLHS=sum(x for x in LHS_list)
-    
-    #print(sumLHS)
-    
-    all_patterns=list(product(['0','1'], repeat=len(candidate_dom)))
-    
-    if len(all_patterns) < pattern_upper_bound:
-    	step =1
-    else: 
-    	step= math.floor(len(all_patterns)/pattern_upper_bound)
-    	
-    for i in range(len(all_patterns)):
-    	if i%step == 0:
+	start=timer()
+
+	# for each node in candidate_dom, LHS =1/2surplus(Ti)-x*(E(A,B))
+	# sumLHS = \sum 1/2 surplus(Ti)-x*(E(Ai,Bi)). Independ on H, the handle chosen
+	LHS_list=[]
+	print('Number of teeth: %d ' % len(candidate_dom))
+	for node in candidate_dom:
+		A=G.node[node]['A']
+		B=G.node[node]['B']
+
+		from ABcut import edges_cross
+		E_A_B=edges_cross(F,A,B)
+		xE_A_B=sum(F[u][v]['weight'] for (u,v) in E_A_B)
+		#print('x*(E(A,B))=%.5f' % xE_A_B)
+
+		LHS= 0.5*G.node[node]['surplus'] - xE_A_B
+		LHS_list.append(LHS)
+
+	sumLHS=sum(x for x in LHS_list)
+
+	#print(sumLHS)
+
+	all_patterns=list(product(['0','1'], repeat=len(candidate_dom)))
+
+	if len(all_patterns) < pattern_upper_bound:
+		step =1
+	else: 
+		step= math.floor(len(all_patterns)/pattern_upper_bound)
+	
+	for i in range(len(all_patterns)):
+		if i%step == 0:
 			lst_pattern=all_patterns[i]
 			pattern=''.join(lst_pattern)
 			Fbar, inHandle, notinHandle = add_s_t(F,G,candidate_dom,pattern)
 			'''
 			print('inHandle:')
 			print(inHandle)
-	
+
 			print('notinHandle:')
 			print(notinHandle)
 			'''
@@ -377,29 +377,29 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd,pattern_upper_bou
 			'''
 			print('H:')
 			print(partitions[0])
-	
+
 			print((inHandle< partitions[0]) or (notinHandle < partitions[0]))
 			'''
 			#print('x(delta(H))= %.5f' % xdeltaH)
-	
-	
+
+
 			comb_surplus=xdeltaH + sumLHS
-			
+
 			print('comb_surplus: %.5f' % comb_surplus)
-			
+
 			#print('\n')
-			
 	
+
 			if comb_surplus < comb_upper_bd:
 				print('success!!!!!!!!!!!!!!')
 				print(partitions[0])
 				print('comb surplus: %.5f' % comb_surplus)
 				return partitions[0]
 			del_s_t(F)
-		
-    return None
-    end=timer()
-    print('running time: %.5f seconds' % (end-start))
+	
+	return None
+	end=timer()
+	print('running time: %.5f seconds' % (end-start))
 
 if __name__ =='__main__':
 	from domgraph import create_dom_graph

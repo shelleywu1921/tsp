@@ -20,8 +20,8 @@ def edges_cross(graph, nodes1, nodes2):
         nodes1 (set): set of nodes disjoint from nodes2
         nodes2 (set): set of nodes disjoint from nodes1.
         """
-    return {(u, v) for u in nodes1
-        for v in nodes2.intersection(graph.adj[u])}
+	return {(u, v) for u in nodes1
+		for v in nodes2.intersection(graph.adj[u])}
 
 
 ## Test
