@@ -5,6 +5,9 @@ from itertools import product
 import networkx as nx
 from timeit import default_timer as timer
 
+'''
+Things that this new version does: 
+''' 
 
 
 '''
