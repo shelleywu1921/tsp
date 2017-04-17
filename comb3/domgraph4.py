@@ -69,6 +69,8 @@ def create_dom_graph2(domfilename,surplus_bound,node_num_upper_bound):
      
  domfile.close()
  print('number of nodes in the graph G: %d' % (G.number_of_nodes()))
+ 
+ # code for computing the edges of G. Taking too much memory.
  ''' 
  for u in G.nodes():
 	for v in G.nodes():
@@ -78,6 +80,7 @@ def create_dom_graph2(domfilename,surplus_bound,node_num_upper_bound):
 		G.add_edge(u,v)
  print('number of edges in the graph G: %d' % (G.number_of_edges()))
  '''
+ 
  end=timer()
  print('create_dom_graph running time: %.5f seconds' % (end-start))
  return G

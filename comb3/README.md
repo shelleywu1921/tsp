@@ -1,5 +1,17 @@
 # Third Attempt to Find Violated Combs
 
+## April 17
+`handle_to_teeth3.py` is the code currently in use. Compared to the older versions `handle_to_teeth.py` and `handle_to_teeth2.py`, it runs wayyyyy faster. This is because  its construction of `G`, the domino graph, uses 
+
+```python
+from domgraph4 import create_dom_graph2 
+``` 
+`create_dom_graph2` is simply a recording of the dominoes and their vertices. Without computing the edges between nodes representing dominoes, it saves a lot of memory, and produces `G` instantly. 
+
+  
+
+ don't work that well because its construction of `G`, the domino graph, requires 
+
 
 
 
