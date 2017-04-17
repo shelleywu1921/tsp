@@ -2,7 +2,6 @@
 layout: page
 title: Heuristics
 permalink: /Heuristics/
-order: 2
 ---
 
 # we used some heuristics
