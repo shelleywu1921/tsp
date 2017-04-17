@@ -11,7 +11,13 @@ from domgraph4 import create_dom_graph2
 `create_dom_graph2` is simply a recording of the dominoes and their vertices. Without computing the edges between nodes representing dominoes, it saves a lot of memory, and produces `G` instantly.
 
 ## Performance: 
-The starting-with-handle method performs surprisingly well on the original handle pool posted, i.e. on `att532.pool.txt`. See `/att532.pool` for the data generated. It went through all 1796  handles in `att532.pool.txt` and all dominoes in `att532.dom` in 40 minutes. Moreover, within two runs of the program, it found 7 distinct violated 3-tooth combs. The code  used is `handle_to_teeth3.py`. To reproduce our data, remember to change the variables in the code. 
+The starting-with-handle method performs surprisingly well on the original handle pool posted, i.e. on `att532.pool.txt`. See `/att532.pool` for the data generated. It went through all 1796  handles in `att532.pool.txt` and all dominoes in `att532.dom` in 40 minutes. Moreover, within two runs of the program, it found 7 distinct violated 3-tooth combs. The code  used is `handle_to_teeth3.py`. 
+
+To repeat the same experiment, go to `tsp/things_that_work/April_15` and run 
+```bash
+$ python handle_to_teeth3.py
+```
+and it should output a file named `att532_handle_to_teeth_6.txt`.
 
 ## Observations:
 From looking at the printed data, it seems that all combs found via this method have 3, 5, or 7 teeth. However, only violated 3-tooth combs have been found. 
