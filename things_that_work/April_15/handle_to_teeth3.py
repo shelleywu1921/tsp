@@ -124,12 +124,6 @@ if __name__ == "__main__":
 
 	## find_all_teeth:
 	epsilon= 0.1       #
-	'''
-	comb_upper_bd = 2.5
-	total_surplus_bound = 2 # <=2
-	pattern_upper_bound = 530
-	max_teeth_num = 5
-	'''
 	
 	# start:
 	start = timer()
