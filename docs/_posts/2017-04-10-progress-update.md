@@ -1,7 +1,8 @@
 ---
 layout: post 
-title: Progress Update
+title: Progress Update 
 ---
+
 
 ## Description of the code
 I wrote a program to find violated comb inequalities, given x* (e.g. `pr76.x`) and the set of dominoes with surplus < 1 (e.g. `pr76.dom`). 
