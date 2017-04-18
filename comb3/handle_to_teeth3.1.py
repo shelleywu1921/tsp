@@ -7,7 +7,7 @@ from timeit import default_timer as timer
 
 '''
 Things that this new version does: 
-	1. add krange as a variable
+	1. add krange and handle num bound as variable
 	2. write a more detailed summary to the file
 
 Major changes made:
@@ -37,10 +37,11 @@ handle_pool = all_handles('att532.pool.txt')
 # and it produces handle_pool: a list of handles in the handlefilename (e.g. att532.pool.txt)
 # Each handle in handle_pool is a frozenset
 def all_handles(handlefilename):
+	global handle_num_bound
     handle_pool = list()
     handlefile=open(handlefilename, 'r')
     first_line=handlefile.readline().split()
-    for i in range(int(first_line[1])):
+    for i in range(min(int(first_line[1]), handle_num_bound):
         number_of_node=int(handlefile.readline().split()[0])
         handle_set=frozenset(map(int,handlefile.readline().split()))
         if number_of_node >=3:
@@ -183,6 +184,9 @@ if __name__ == "__main__":
 	teeth_surplus_bound = 1.0
 	node_num_upper_bd = 50000
 
+	## all_handles:
+	handle_num_bound = 1000
+
 	## find_all_teeth:
 	epsilon= 0.1     #
 	
@@ -191,23 +195,24 @@ if __name__ == "__main__":
 
 	# start:
 	start = timer()
-	newfilename='test_1.txt'			# change it every time you run it! 
+	newfilename='fl1577.pool_1.txt'			# change it every time you run it! 
 	newfile=open(newfilename, 'w')
 	
 	newfile.write('Variables: \n')
 	newfile.write('teeth_surplus_bound: %.5f \n' % teeth_surplus_bound)
 	newfile.write('node_num_upper_bd: %d \n' % node_num_upper_bd)
+	newfile.write('handle_num_bound: %d \n' % handle_num_bound)
 	newfile.write('epsilon: %.5f \n' % epsilon)
 	newfile.write('krange: %d \n \n' % krange)
 	
 	# constants:
-	F=build_support_graph('att532.x')
-	G=create_dom_graph2('att532.dom', teeth_surplus_bound, node_num_upper_bd)
+	F=build_support_graph('fl1577.x')
+	G=create_dom_graph2('fl1577.dom', teeth_surplus_bound, node_num_upper_bd)
 
 	newfile.write('Constants: \n')
 	newfile.write('Total number of dominoes: %d \n' % G.number_of_nodes())
 	
-	handle_pool= all_handles('test_att532.artificial_pool.txt')
+	handle_pool= all_handles('fl1577.pool.txt')
 	
 	# main function
 	viol_comb_list= find_comb(F,G,handle_pool)
