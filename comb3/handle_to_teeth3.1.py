@@ -194,7 +194,7 @@ if __name__ == "__main__":
 	node_num_upper_bd = 50000
 
 	## all_handles:
-	handle_num_bound = 1000
+	handle_num_bound = 2600
 	x_delta_H_bound = 15
 
 	## find_all_teeth:
@@ -205,7 +205,7 @@ if __name__ == "__main__":
 
 	# start:
 	start = timer()
-	newfilename='test_3.txt'			# change it every time you run it! 
+	newfilename='fl1577.pool_4.txt'			# change it every time you run it! 
 	newfile=open(newfilename, 'w')
 
 	
@@ -218,13 +218,13 @@ if __name__ == "__main__":
 	newfile.write('krange: %d \n \n' % krange)
 	
 	# constants:
-	F=build_support_graph('att532.x')
-	G=create_dom_graph2('att532.dom', teeth_surplus_bound, node_num_upper_bd)
+	F=build_support_graph('fl1577.x')											# you may need to change this
+	G=create_dom_graph2('fl1577.dom', teeth_surplus_bound, node_num_upper_bd)	# you may need to change this 
 
 	newfile.write('Constants: \n')
 	newfile.write('Total number of dominoes: %d \n' % G.number_of_nodes())
 
-	handle_pool= all_handles('test_att532.artificial_pool.txt')
+	handle_pool= all_handles('fl1577.pool.txt')					# you may need to change this
 	
 	newfile.write('Total number of handles considered: %d \n\n' % len(handle_pool))
 	# main function
