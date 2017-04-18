@@ -7,13 +7,14 @@ from timeit import default_timer as timer
 
 '''
 Things that this new version does: 
-	1. add krange and handle num bound as variable
-	2. write a more detailed summary to the file
+	1. add krange, handle_num_bound, x_delta_H_bound as variables
+	2. write a more detailed summary to the file. 
+	3. Note that in the end, 
+	handle_no is not the actual position of the handle in handlepool.txt, b/c some
+	handles in the handlepool are not eligible
 
 Major changes made:
-	1. handle_pool is now a list
-	2. Note that handle_no is not the actual position of the handle in handlepool.txt, b/c some
-	handles in the handlepool are not eligible
+	1. handle_pool is now a list of [frozenset, float]
 ''' 
 
 
@@ -35,18 +36,21 @@ handle_pool = all_handles('att532.pool.txt')
 
 # for example: all_handles('att532.pool.txt')
 # and it produces handle_pool: a list of handles in the handlefilename (e.g. att532.pool.txt)
-# Each handle in handle_pool is a frozenset
+# Each handle in handle_pool is a [frozenset, float], where frozenset represents the handle H,
+# and float represents x(delta(H))
 def all_handles(handlefilename):
-	global handle_num_bound
+	global handle_num_bound, x_delta_H_bound, F
 
 	handle_pool = list()
 	handlefile=open(handlefilename, 'r')
 	first_line=handlefile.readline().split()
 	for i in range(min(int(first_line[1]), handle_num_bound)):
 		number_of_node=int(handlefile.readline().split()[0])
-		handle_set=frozenset(map(int,handlefile.readline().split()))
-		if number_of_node >=3:
-			handle_pool.append(handle_set)
+		if number_of_node >= 3:
+			handle_set=frozenset(map(int,handlefile.readline().split()))
+			x_delta_H = x_delta_S(F,handle_set)
+			if x_delta_H <= x_delta_H_bound:
+				handle_pool.append([handle_set, x_delta_H])
 	handlefile.close()
 	return handle_pool
 
@@ -109,10 +113,12 @@ def find_comb(F,G,handle_pool):
 	counter = 0
 	viol_comb_list = list()
 	for i in range(len(handle_pool)):
-		handle = handle_pool[i]
+		handle = handle_pool[i][0]
 		newfile.write('\n Handle: \n')
 		newfile.write(repr(handle) + '\n')
-		
+		x_delta_H = handle_pool[i][1]
+
+
 		eligible_teeth=find_all_teeth(F,G,handle)
 		if len(list(eligible_teeth.nodes())) >=3:
 			for k in range(krange): 
@@ -126,7 +132,6 @@ def find_comb(F,G,handle_pool):
 					print('Number of disjoint teeth: %d' % len(odd_teeth))
 					newfile.write(' Number of disjoint teeth: %d \n' % len(odd_teeth))
 					
-					x_delta_H = x_delta_S(F, handle)
 					sum_x_delta_Ti = sum(x_delta_S(F,G.node[T]['vertices']) for T in odd_teeth)
 					LHS = x_delta_H + sum_x_delta_Ti
 					comb_surplus = LHS - 3*len(odd_teeth)
@@ -154,7 +159,7 @@ def find_comb(F,G,handle_pool):
 	newfile.write('And they are: \n')
 	for viol_comb in viol_comb_list:
 		newfile.write('comb surplus: %.5f \n' % viol_comb['comb_surplus'])
-		newfile.write('Handle: ' + repr(handle_pool[viol_comb['handle_no']]) + '\n')
+		newfile.write('Handle: ' + repr(handle_pool[viol_comb['handle_no']][0]) + '\n')
 		newfile.write('Number of Teeth: %d \n' % len(viol_comb['teeth']))
 		newfile.write('Teeth: ' + repr(viol_comb['teeth']) + '\n\n')
 
@@ -169,7 +174,7 @@ def find_comb(F,G,handle_pool):
 	print('And they are:')
 	for viol_comb in viol_comb_list:
 		print('comb surplus: %.5f ' % viol_comb['comb_surplus'])
-		print('Handle: ' + repr(handle_pool[viol_comb['handle_no']]))
+		print('Handle: ' + repr(handle_pool[viol_comb['handle_no']][0]))
 		print('Number of Teeth: %d' % len(viol_comb['teeth']))
 		print('Teeth: ' + repr(viol_comb['teeth']) + '\n')
 	
@@ -212,9 +217,10 @@ if __name__ == "__main__":
 
 	newfile.write('Constants: \n')
 	newfile.write('Total number of dominoes: %d \n' % G.number_of_nodes())
-	
+
 	handle_pool= all_handles('fl1577.pool.txt')
 	
+	newfile.write('Total number of handles considered: %d' % len(handle_pool))
 	# main function
 	viol_comb_list= find_comb(F,G,handle_pool)
 
