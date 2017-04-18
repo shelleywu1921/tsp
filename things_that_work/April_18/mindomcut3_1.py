@@ -10,6 +10,7 @@ import math
 
 '''
 commented out redundant things that are not used by htt.3.1.py
+pretty much everything except for build_support_graph
 '''
 
 '''
@@ -140,6 +141,8 @@ Warning:
     * Fbar and F are aliases.
 '''
 
+
+'''
 def add_s_t(F,G,candidate_dom, pattern):
     # determines what is in handle and what is not in handle according to the pattern
     inHandle=set()
@@ -162,6 +165,8 @@ def add_s_t(F,G,candidate_dom, pattern):
     Fbar.add_edges_from(list(('t',y) for y in notinHandle), weight=100)
 
     return [Fbar, inHandle, notinHandle]
+    
+'''
 
 ## Testing time!
 ## for pr76
@@ -308,10 +313,12 @@ whose adjacent edges all have huge weights.
 del_s_t(F) takes F, that is changed by add_s_t, and deletes 's', 't' and all their adjacent 
 edges
 '''
+
+'''
 def del_s_t(F):
 	F.remove_node('s')
 	F.remove_node('t')
-
+'''
 
 # find_handle
 '''
@@ -336,6 +343,7 @@ Example:
     find_handle(F,G,candidate_dom,total_surplus, 0.9)
 '''
 
+'''
 def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd,pattern_upper_bound):
     start=timer()
     
@@ -371,20 +379,20 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd,pattern_upper_bou
 			lst_pattern=all_patterns[i]
 			pattern=''.join(lst_pattern)
 			Fbar, inHandle, notinHandle = add_s_t(F,G,candidate_dom,pattern)
-			'''
-			print('inHandle:')
-			print(inHandle)
+			
+			#print('inHandle:')
+			#print(inHandle)
 	
-			print('notinHandle:')
-			print(notinHandle)
-			'''
+			#print('notinHandle:')
+			#print(notinHandle)
+			
 			xdeltaH, partitions = nx.minimum_cut(Fbar, 's','t', capacity='weight')
-			'''
-			print('H:')
-			print(partitions[0])
+			
+			#print('H:')
+			#print(partitions[0])
 	
-			print((inHandle< partitions[0]) or (notinHandle < partitions[0]))
-			'''
+			#print((inHandle< partitions[0]) or (notinHandle < partitions[0]))
+			
 			#print('x(delta(H))= %.5f' % xdeltaH)
 	
 	
@@ -406,6 +414,11 @@ def find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd,pattern_upper_bou
     end=timer()
     print('running time: %.5f seconds' % (end-start))
 
+'''
+
+
+
+'''
 if __name__ =='__main__':
 	from domgraph import create_dom_graph
 	start=timer()
@@ -479,14 +492,14 @@ if __name__ =='__main__':
 	print('Total number of sets of candidate_dom considered: %d' % counter)
 	print('Combs found: %d \n' % combs_found)
 	print('Total time: %.5f seconds' % (end-start))
-'''
-        print('candidate_dom:')
-        print(candidate_dom)
-        print('total surplus of dominoes: %.5f' %total_surplus)
-'''
+	
+        #print('candidate_dom:')
+        #print(candidate_dom)
+        #print('total surplus of dominoes: %.5f' %total_surplus)
+
 
         
-'''
+
         shrink=shrink_dom_graph(F,G,candidate_dom,pattern)
         Fshrink= shrink[0]
         s=shrink[1]
@@ -511,10 +524,13 @@ if __name__ =='__main__':
         return [cutweight, cutweight+total_surplus, edge_cut_list] 
 '''
 
+
+'''
 def find_many_combs(F,G,comb_upper_bd, surplus_bound, ncombs):
     for i in range(ncombs):
         stable=find_stable_set(G,surplus_bound) 
         candidate_dom=stable[0]
         total_surplus=stable[1]
         find_handle(F,G,candidate_dom, total_surplus,comb_upper_bd)
+'''
         

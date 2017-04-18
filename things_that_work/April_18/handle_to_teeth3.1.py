@@ -1,5 +1,5 @@
-from mindomcut3 import build_support_graph, find_handle, add_s_t, del_s_t
-from domgraph4 import create_dom_graph2, find_stable_set
+from mindomcut3_1 import build_support_graph #, find_handle, add_s_t, del_s_t
+from domgraph4_1 import create_dom_graph2 #, find_stable_set
 from ABcut import edges_cross
 from itertools import product
 import networkx as nx
