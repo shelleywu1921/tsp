@@ -205,8 +205,9 @@ if __name__ == "__main__":
 
 	# start:
 	start = timer()
-	newfilename='fl1577.pool_2.txt'			# change it every time you run it! 
+	newfilename='test_3.txt'			# change it every time you run it! 
 	newfile=open(newfilename, 'w')
+
 	
 	newfile.write('Variables: \n')
 	newfile.write('teeth_surplus_bound: %.5f \n' % teeth_surplus_bound)
@@ -217,13 +218,13 @@ if __name__ == "__main__":
 	newfile.write('krange: %d \n \n' % krange)
 	
 	# constants:
-	F=build_support_graph('fl1577.x')
-	G=create_dom_graph2('fl1577.dom', teeth_surplus_bound, node_num_upper_bd)
+	F=build_support_graph('att532.x')
+	G=create_dom_graph2('att532.dom', teeth_surplus_bound, node_num_upper_bd)
 
 	newfile.write('Constants: \n')
 	newfile.write('Total number of dominoes: %d \n' % G.number_of_nodes())
 
-	handle_pool= all_handles('fl1577.pool.txt')
+	handle_pool= all_handles('test_att532.artificial_pool.txt')
 	
 	newfile.write('Total number of handles considered: %d \n\n' % len(handle_pool))
 	# main function
@@ -234,9 +235,14 @@ if __name__ == "__main__":
 	print('Total running time: %.5f'%(end-start))
 	newfile.write('\n Total running time: %.5f'%(end-start))
 		
-
-
 	newfile.close()
-    
 
+	# write to the handle file
+	newhandlefilename='handle_'+ newfilename
+	newhandlefile = open(newhandlefilename, 'w')
 
+	newhandlefile.write('%d\n'%len(handle_pool))
+	for handle, x_delta_H in handle_pool:
+		newhandlefile.write( str(x_delta_H) + ' ' + ' '.join(map(str,handle))+ '\n')     
+
+	newhandlefile.close()
