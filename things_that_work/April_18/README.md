@@ -12,7 +12,7 @@ and make sure it is not a name of an existing file every time you run it. Otherw
 The strings  in line 221 and line 222:
 ```python
 F=build_support_graph('fl1577.x')
-G=create_dom_graph2(
+G=create_dom_graph2('fl1577.dom')
 ```
 
 The variables from line 191 to line 204:
