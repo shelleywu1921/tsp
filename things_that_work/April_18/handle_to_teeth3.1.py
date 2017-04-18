@@ -205,7 +205,7 @@ if __name__ == "__main__":
 
 	# start:
 	start = timer()
-	newfilename='fl1577.pool_4.txt'			# change it every time you run it! 
+	newfilename='fl1577.pool_100.txt'			# change it every time you run it!
 	newfile=open(newfilename, 'w')
 
 	
