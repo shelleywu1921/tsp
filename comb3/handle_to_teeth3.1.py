@@ -46,9 +46,11 @@ def all_handles(handlefilename):
 	first_line=handlefile.readline().split()
 	for i in range(min(int(first_line[1]), handle_num_bound)):
 		number_of_node=int(handlefile.readline().split()[0])
+		handle_set=frozenset(map(int,handlefile.readline().split()))
+
 		if number_of_node >= 3:
-			handle_set=frozenset(map(int,handlefile.readline().split()))
 			x_delta_H = x_delta_S(F,handle_set)
+			print(x_delta_H)
 			if x_delta_H <= x_delta_H_bound:
 				handle_pool.append([handle_set, x_delta_H])
 	handlefile.close()
@@ -164,10 +166,11 @@ def find_comb(F,G,handle_pool):
 		newfile.write('Teeth: ' + repr(viol_comb['teeth']) + '\n\n')
 
 	newfile.write('In summary: \n')
-	newfile.write('{0:<20}{1:<20}{2:<20}\n'.format('HandleNo', 'NOofTeeth', 'CombSurp'))
+	newfile.write('{0:<20}{1:<20}{2:<20}{3:<20}{4:<20}\n'.format('HandleNo', 'NOofTeeth', 
+		'x(delta(H))', 'sum x(delta(Ti))', 'CombSurp'))
 	for viol_comb in viol_comb_list: 
-		newfile.write('{0:<20}{1:<20}{2:<20}\n'.format(viol_comb['handle_no'], 
-			len(viol_comb['teeth']),viol_comb['comb_surplus']))
+		newfile.write('{0:<20}{1:<20}{2:<20}{3:<20}{4:<20}\n'.format(viol_comb['handle_no'], 
+			len(viol_comb['teeth']), viol_comb['x_delta_H'], viol_comb['sum_x_delta_Ti'], viol_comb['comb_surplus']))
 
 
 	print('total number of violated comb is %d:' % counter)
@@ -192,6 +195,7 @@ if __name__ == "__main__":
 
 	## all_handles:
 	handle_num_bound = 1000
+	x_delta_H_bound = 15
 
 	## find_all_teeth:
 	epsilon= 0.1     #
@@ -201,26 +205,27 @@ if __name__ == "__main__":
 
 	# start:
 	start = timer()
-	newfilename='fl1577.pool_1.txt'			# change it every time you run it! 
+	newfilename='test_2.txt'			# change it every time you run it! 
 	newfile=open(newfilename, 'w')
 	
 	newfile.write('Variables: \n')
 	newfile.write('teeth_surplus_bound: %.5f \n' % teeth_surplus_bound)
 	newfile.write('node_num_upper_bd: %d \n' % node_num_upper_bd)
 	newfile.write('handle_num_bound: %d \n' % handle_num_bound)
+	newfile.write('x_delta_H_bound: %.5f \n' % x_delta_H_bound)
 	newfile.write('epsilon: %.5f \n' % epsilon)
 	newfile.write('krange: %d \n \n' % krange)
 	
 	# constants:
-	F=build_support_graph('fl1577.x')
-	G=create_dom_graph2('fl1577.dom', teeth_surplus_bound, node_num_upper_bd)
+	F=build_support_graph('att532.x')
+	G=create_dom_graph2('att532.dom', teeth_surplus_bound, node_num_upper_bd)
 
 	newfile.write('Constants: \n')
 	newfile.write('Total number of dominoes: %d \n' % G.number_of_nodes())
 
-	handle_pool= all_handles('fl1577.pool.txt')
+	handle_pool= all_handles('test_att532.artificial_pool.txt')
 	
-	newfile.write('Total number of handles considered: %d' % len(handle_pool))
+	newfile.write('Total number of handles considered: %d \n\n' % len(handle_pool))
 	# main function
 	viol_comb_list= find_comb(F,G,handle_pool)
 
