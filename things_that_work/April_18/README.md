@@ -9,10 +9,11 @@ and make sure it is not a name of an existing file every time you run it. Otherw
 
 ### Other parameters in `handle_to_teeth3.1` that you may want to change:
 #### Test for a different graph:
-The strings  in line 221 and line 222:
+The strings  in line 221, 222, and 227:
 ```python
 F=build_support_graph('fl1577.x')
 G=create_dom_graph2('fl1577.dom')
+handle_pool= all_handles('fl1577.pool.txt')	
 ```
 
 The variables from line 191 to line 204:
@@ -25,3 +26,10 @@ epsilon= 0.1
 krange = 10
 ```
 
+### A small example for testing:
+Input the followings on line 221, 222, and 227:
+```python
+F=build_support_graph('att532.x')
+G=create_dom_graph2('att532.dom')
+handle_pool= all_handles('att532.pool.test.txt')	
+```
