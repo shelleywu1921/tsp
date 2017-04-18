@@ -7,6 +7,13 @@ from timeit import default_timer as timer
 
 '''
 Things that this new version does: 
+	1. add krange as a variable
+	2. write a more detailed summary to the file
+
+Major changes made:
+	1. handle_pool is now a list
+	2. Note that handle_no is not the actual position of the handle in handlepool.txt, b/c some
+	handles in the handlepool are not eligible
 ''' 
 
 
@@ -27,17 +34,17 @@ handle_pool = all_handles('att532.pool.txt')
 
 
 # for example: all_handles('att532.pool.txt')
-# and it produces handle_pool: a set of handles in the handlefilename (e.g. att532.pool.txt)
+# and it produces handle_pool: a list of handles in the handlefilename (e.g. att532.pool.txt)
 # Each handle in handle_pool is a frozenset
 def all_handles(handlefilename):
-    handle_pool = set()
+    handle_pool = list()
     handlefile=open(handlefilename, 'r')
     first_line=handlefile.readline().split()
     for i in range(int(first_line[1])):
         number_of_node=int(handlefile.readline().split()[0])
         handle_set=frozenset(map(int,handlefile.readline().split()))
         if number_of_node >=3:
-            handle_pool.add(handle_set)
+            handle_pool.append(handle_set)
     handlefile.close()
     return handle_pool
 
@@ -95,17 +102,18 @@ def x_delta_S(F, S):
 # then it computes the comb_surplus ( < 1.0 is good) of each comb
 
 def find_comb(F,G,handle_pool):
-	global newfile
-	
+	global newfile, krange
+
 	counter = 0
-	viol_comb_set = list()
-	for handle in handle_pool:
+	viol_comb_list = list()
+	for i in range(len(handle_pool)):
+		handle = handle_pool[i]
 		newfile.write('\n Handle: \n')
 		newfile.write(repr(handle) + '\n')
 		
 		eligible_teeth=find_all_teeth(F,G,handle)
 		if len(list(eligible_teeth.nodes())) >=3:
-			for k in range(100): 
+			for k in range(krange): 
 				odd_teeth = nx.maximal_independent_set(eligible_teeth) # this is a set
 				if len(odd_teeth) >= 3: 
 					if len(odd_teeth)%2==0:
@@ -117,27 +125,55 @@ def find_comb(F,G,handle_pool):
 					newfile.write(' Number of disjoint teeth: %d \n' % len(odd_teeth))
 					
 					x_delta_H = x_delta_S(F, handle)
-					LHS = x_delta_H + sum(x_delta_S(F,G.node[T]['vertices']) for T in odd_teeth)
+					sum_x_delta_Ti = sum(x_delta_S(F,G.node[T]['vertices']) for T in odd_teeth)
+					LHS = x_delta_H + sum_x_delta_Ti
 					comb_surplus = LHS - 3*len(odd_teeth)
+					
+					newfile.write('{0:<20}{1:<20}{2:<20}\n'.format('x(delta(H))', 'sum x(delta(Ti))', 'CombSurp'))
+					newfile.write('{0:<20}{1:<20}{2:<20}\n\n'.format(x_delta_H, sum_x_delta_Ti, comb_surplus))
+
+					
+					# for violated combs
 					if comb_surplus < 1: 
 						viol_comb = dict()
-						viol_comb['handle']=handle
+						#viol_comb['handle']=handle
+						viol_comb['handle_no'] = i
 						viol_comb['teeth'] = odd_teeth
+						viol_comb['x_delta_H']=x_delta_H
+						viol_comb['sum_x_delta_Ti']=sum_x_delta_Ti
 						viol_comb['comb_surplus']= comb_surplus
-						viol_comb_set.append(viol_comb)
+						viol_comb_list.append(viol_comb)
 						
 						counter +=1
-					newfile.write(' comb surplus (<1.0 is good!): %.5f \n\n' % comb_surplus)
+						
+					#newfile.write(' comb surplus (<1.0 is good!): %.5f \n\n' % comb_surplus)
 					print('comb surplus: %.5f' %comb_surplus)
-	newfile.write('total number of violated comb is %d: \n ' % counter)
-	newfile.write('And they are: \n ')
-	newfile.write(repr(viol_comb_set) + '\n' )
-	
+	newfile.write('\ntotal number of violated comb is %d: \n ' % counter)
+	newfile.write('And they are: \n')
+	for viol_comb in viol_comb_list:
+		newfile.write('comb surplus: %.5f \n' % viol_comb['comb_surplus'])
+		newfile.write('Handle: ' + repr(handle_pool[viol_comb['handle_no']]) + '\n')
+		newfile.write('Number of Teeth: %d \n' % len(viol_comb['teeth']))
+		newfile.write('Teeth: ' + repr(viol_comb['teeth']) + '\n\n')
+
+	newfile.write('In summary: \n')
+	newfile.write('{0:<20}{1:<20}{2:<20}\n'.format('HandleNo', 'NOofTeeth', 'CombSurp'))
+	for viol_comb in viol_comb_list: 
+		newfile.write('{0:<20}{1:<20}{2:<20}\n'.format(viol_comb['handle_no'], 
+			len(viol_comb['teeth']),viol_comb['comb_surplus']))
+
+
 	print('total number of violated comb is %d:' % counter)
 	print('And they are:')
-	print(viol_comb_set)
+	for viol_comb in viol_comb_list:
+		print('comb surplus: %.5f ' % viol_comb['comb_surplus'])
+		print('Handle: ' + repr(handle_pool[viol_comb['handle_no']]))
+		print('Number of Teeth: %d' % len(viol_comb['teeth']))
+		print('Teeth: ' + repr(viol_comb['teeth']) + '\n')
+	
+	
 
-	return viol_comb_set
+	return viol_comb_list
 
 
 
@@ -149,16 +185,20 @@ if __name__ == "__main__":
 
 	## find_all_teeth:
 	epsilon= 0.1     #
+	
+	## find_comb:
+	krange = 10
 
 	# start:
 	start = timer()
-	newfilename='from_att532_handlepool_1_1.txt'			# change it every time you run it! 
+	newfilename='test_1.txt'			# change it every time you run it! 
 	newfile=open(newfilename, 'w')
 	
 	newfile.write('Variables: \n')
 	newfile.write('teeth_surplus_bound: %.5f \n' % teeth_surplus_bound)
 	newfile.write('node_num_upper_bd: %d \n' % node_num_upper_bd)
 	newfile.write('epsilon: %.5f \n' % epsilon)
+	newfile.write('krange: %d \n \n' % krange)
 	
 	# constants:
 	F=build_support_graph('att532.x')
@@ -167,10 +207,10 @@ if __name__ == "__main__":
 	newfile.write('Constants: \n')
 	newfile.write('Total number of dominoes: %d \n' % G.number_of_nodes())
 	
-	handle_pool= all_handles('att532_handlepool_1.txt')
+	handle_pool= all_handles('test_att532.artificial_pool.txt')
 	
 	# main function
-	viol_comb_set= find_comb(F,G,handle_pool)
+	viol_comb_list= find_comb(F,G,handle_pool)
 
 	# miscellaneous
 	end=timer()

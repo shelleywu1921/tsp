@@ -1,0 +1,321 @@
+Variables: 
+teeth_surplus_bound: 1.00000 
+node_num_upper_bd: 50000 
+epsilon: 0.10000 
+krange: 10 
+ 
+Constants: 
+Total number of dominoes: 50190 
+
+ Handle: 
+frozenset([481, 482, 485, 491, 499, 501, 477])
+ All eligible teeth for this handle are: 
+set([8577, 8580, 8583, 8586, 8589, 7056, 8595, 8598, 8601, 8604, 6813, 144129, 8607, 8610, 6564, 8613, 8616, 8619, 145581, 8622, 8625, 8628, 7221, 8502, 8631, 8505, 8634, 8508, 8637, 8511, 8640, 6975, 8514, 8517, 8520, 8523, 8526, 8529, 112338, 8532, 8535, 144216, 8538, 8541, 8544, 8592, 8547, 8550, 8553, 8556, 6894, 8559, 8562, 8565, 8568, 144132, 8574]) 
+ Total number of eligible teeth is: 57 
+ Maximal disjoint teeth set: 
+[8526, 144129, 112338]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.373674            7.713702            1.087376            
+
+ Maximal disjoint teeth set: 
+[6894, 112338, 144132]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.373674            7.700134            1.073808            
+
+ Maximal disjoint teeth set: 
+[8634, 144132, 144216]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.373674            8.066612            1.440286            
+
+ Maximal disjoint teeth set: 
+[8514, 144132, 144216]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.373674            7.676016            1.04969             
+
+ Maximal disjoint teeth set: 
+[8532, 145581, 144132]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.373674            7.328044            0.701718            
+
+ Maximal disjoint teeth set: 
+[8514, 144216, 144129]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.373674            7.676016            1.04969             
+
+ Maximal disjoint teeth set: 
+[8550, 144129, 145581]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.373674            7.323735            0.697409            
+
+ Maximal disjoint teeth set: 
+[8559, 112338, 144129]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.373674            7.70822             1.081894            
+
+ Maximal disjoint teeth set: 
+[8604, 144216, 144132]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.373674            8.071247            1.444921            
+
+ Maximal disjoint teeth set: 
+[8505, 144132, 112338]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.373674            7.708078            1.081752            
+
+
+ Handle: 
+frozenset([481, 482, 485, 490, 491, 499, 501, 440, 477])
+ All eligible teeth for this handle are: 
+set([141312, 7041, 7044, 8406, 7047, 7050, 6999, 7053, 6414, 25239, 144132, 7023, 8388, 22563, 141480, 144129, 6333, 144960, 8385, 6978, 142275, 6084, 6981, 8391, 6984, 8394, 6987, 8397, 6990, 8400, 6993, 8403, 6996, 144213, 57942, 7383, 8409, 7002, 8412, 7005, 144222, 8415, 7008, 8418, 7011, 8421, 7014, 8424, 7017, 8427, 7020, 8430, 19695, 8433, 7026, 8436, 7029, 8439, 7032, 8442, 7035, 7038]) 
+ Total number of eligible teeth is: 62 
+ Maximal disjoint teeth set: 
+[8433, 144213, 144132]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.801875            7.66353             1.465405            
+
+ Maximal disjoint teeth set: 
+[7005, 142275, 144129]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.801875            7.237438            1.039313            
+
+ Maximal disjoint teeth set: 
+[144129, 6987, 25239]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.801875            7.245874            1.047749            
+
+ Maximal disjoint teeth set: 
+[8388, 141480, 144129]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.801875            7.699784            1.501659            
+
+ Maximal disjoint teeth set: 
+[6333, 141312, 144129]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.801875            7.665819            1.467694            
+
+ Maximal disjoint teeth set: 
+[7029, 57942, 144129]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.801875            7.277492            1.079367            
+
+ Maximal disjoint teeth set: 
+[8418, 22563, 144129]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.801875            7.698884            1.500759            
+
+ Maximal disjoint teeth set: 
+[141312, 8388, 144129]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.801875            7.667568            1.469443            
+
+ Maximal disjoint teeth set: 
+[8436, 144222, 144132]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.801875            7.659652            1.461527            
+
+ Maximal disjoint teeth set: 
+[8427, 22563, 144132]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+2.801875            7.700903            1.502778            
+
+
+ Handle: 
+frozenset([385, 451, 420, 421, 456, 463, 464, 405, 377, 445])
+ All eligible teeth for this handle are: 
+set([12297, 12300, 12813, 19914, 12876, 11853, 12366, 12426, 12939, 12429, 11928, 11931, 22179, 22182, 22185, 22188, 22191, 22194, 22197, 22200, 145593, 22203, 22218, 22206, 145599, 22209, 22212, 145605, 22215, 13002, 12492, 22221, 12495, 22224, 145617, 22227, 22230, 145623, 22233, 145626, 22236, 145629, 22239, 22242, 145635, 22245, 12006, 22248, 145641, 22251, 145644, 22254, 22257, 22260, 145653, 145659, 13065, 12555, 12558, 11538, 11541, 12165, 19743, 19746, 19749, 19752, 149289, 19755, 19758, 19761, 12084, 12087, 19764, 19770, 19773, 19776, 19779, 19782, 12618, 19767, 12621, 16731, 145638, 11622, 11625, 19830, 12009, 19833, 19836, 19839, 19842, 19845, 19848, 12681, 19851, 12684, 19854, 19857, 19860, 19863, 19866, 19869, 11706, 11709, 19911, 12744, 12234, 12747, 19917, 19920, 19923, 19926, 19929, 19932, 19935, 19938, 19941, 19944, 19947, 19950, 11769, 11772]) 
+ Total number of eligible teeth is: 122 
+ Maximal disjoint teeth set: 
+[145605, 19869, 149289]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999349            6.012381            1.01173             
+
+ Maximal disjoint teeth set: 
+[19845, 13002, 149289]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999349            6.371433            1.370782            
+
+ Maximal disjoint teeth set: 
+[12618, 22248, 16731]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999349            6.004298            1.003647            
+
+ Maximal disjoint teeth set: 
+[22242, 145623, 16731]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999349            6.36853             1.367879            
+
+ Maximal disjoint teeth set: 
+[19746, 145638, 16731]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999349            6.027085            1.026434            
+
+ Maximal disjoint teeth set: 
+[145617, 19749, 16731]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999349            6.424945            1.424294            
+
+
+ Handle: 
+frozenset([484, 488, 465, 474, 475, 479])
+ All eligible teeth for this handle are: 
+set([141696, 150273, 150405, 150408, 147849, 150411, 147852, 150414, 10383, 147888, 150417, 10386, 88851, 22932, 10389, 10392, 11631, 10401, 16731, 10404, 147879, 98727, 150312, 149289, 10410, 150315, 10413, 150318, 102192, 150321, 147891, 150324, 149685, 150327, 150330, 150333, 147903, 150336, 148161, 149058, 150339, 149061, 136518, 149985, 147915, 96591, 123216, 145971, 150099, 33366, 149847, 149337, 9819, 149340, 126945, 147939, 150117, 149865, 10407, 149358, 147927, 150261, 150264, 150267, 150270, 147861]) 
+ Total number of eligible teeth is: 66 
+ Maximal disjoint teeth set: 
+[147915, 149865, 96591]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999805            6.439166            1.438971            
+
+ Maximal disjoint teeth set: 
+[150312, 96591, 149358]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999805            6.41778             1.417585            
+
+ Maximal disjoint teeth set: 
+[10392, 33366, 149358]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999805            6.008044            1.007849            
+
+ Maximal disjoint teeth set: 
+[149358, 150321, 98727]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999805            6.415761            1.415566            
+
+ Maximal disjoint teeth set: 
+[136518, 147879, 149358]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999805            6.016139            1.015944            
+
+ Maximal disjoint teeth set: 
+[150411, 126945, 149847]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999805            6.002996            1.002801            
+
+ Maximal disjoint teeth set: 
+[149340, 150408, 123216]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999805            6.380027            1.379832            
+
+
+ Handle: 
+frozenset([465, 479, 484, 502, 487])
+ All eligible teeth for this handle are: 
+set([141696, 5718, 6081, 5646, 146706, 88851, 146196, 5499, 5277, 5790, 102192, 146721, 16731, 5574, 98727, 149289, 22932, 146736, 5937, 5427, 146748, 145983, 146496, 8001, 8004, 136518, 8007, 146760, 96591, 123216, 150228, 33366, 6009, 149337, 5199, 145761, 150243, 5862, 5352, 126945, 149100, 149394, 147951, 5112, 8724, 149115]) 
+ Total number of eligible teeth is: 46 
+ Maximal disjoint teeth set: 
+[88851, 5427, 149100]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999675            6.416759            1.416434            
+
+ Maximal disjoint teeth set: 
+[136518, 5199, 8007]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999675            6.008705            1.00838             
+
+ Maximal disjoint teeth set: 
+[149100, 5427, 102192]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999675            6.417105            1.41678             
+
+ Maximal disjoint teeth set: 
+[5277, 141696, 8001]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999675            6.003634            1.003309            
+
+ Maximal disjoint teeth set: 
+[146721, 102192, 8004]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999675            6.420202            1.419877            
+
+ Maximal disjoint teeth set: 
+[149289, 8007, 5427]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999675            6.001042            1.000717            
+
+
+ Handle: 
+frozenset([451, 420, 421, 456, 463, 464, 445])
+ All eligible teeth for this handle are: 
+set([132102, 12297, 12300, 12813, 116781, 103989, 133188, 12876, 11853, 12366, 116820, 104028, 107637, 134274, 88812, 12426, 12939, 12429, 135315, 11928, 11931, 107676, 145605, 138402, 145593, 145599, 88773, 13002, 12492, 121038, 12495, 145617, 92886, 145623, 145626, 145629, 16608, 145635, 119013, 145638, 12009, 145644, 145653, 128247, 137466, 145659, 92925, 96513, 13065, 12555, 119052, 12558, 119055, 11538, 11541, 136476, 105861, 96552, 149289, 12084, 119094, 12087, 121656, 119097, 130878, 12618, 12621, 141657, 121695, 119136, 12006, 11622, 11625, 145641, 12165, 12681, 12684, 139332, 27045, 105900, 29625, 11706, 11709, 121077, 12744, 12234, 12747, 115164, 33252, 11769, 11772]) 
+ Total number of eligible teeth is: 91 
+ Maximal disjoint teeth set: 
+[11931, 116820, 149289]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999349            6.372202            1.371551            
+
+ Maximal disjoint teeth set: 
+[132102, 145659, 149289]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999349            6.01418             1.013529            
+
+ Maximal disjoint teeth set: 
+[11541, 88773, 149289]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999349            6.413894            1.413243            
+
+ Maximal disjoint teeth set: 
+[105900, 11931, 149289]
+ Number of disjoint teeth: 3 
+x(delta(H))         sum x(delta(Ti))    CombSurp            
+3.999349            6.414069            1.413418            
+
+
+total number of violated comb is 2: 
+ And they are: 
+comb surplus: 0.70172 
+Handle: frozenset([481, 482, 485, 491, 499, 501, 477])
+Number of Teeth: 3 
+Teeth: [8532, 145581, 144132]
+
+comb surplus: 0.69741 
+Handle: frozenset([481, 482, 485, 491, 499, 501, 477])
+Number of Teeth: 3 
+Teeth: [8550, 144129, 145581]
+
+In summary: 
+HandleNo            NOofTeeth           CombSurp            
+0                   3                   0.701718            
+0                   3                   0.697409            
+
+ Total running time: 8.42177
