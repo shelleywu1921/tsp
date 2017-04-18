@@ -7,16 +7,15 @@ newfilename='fl1577.pool_100.txt'
 ```
 and make sure it is not a name of an existing file every time you run it. Otherwise, old files may get overwritten. 
 
-### Other parameters in `handle_to_teeth3.1` that you may want to change:
-#### Test for a different graph:
-The strings  in line 221, 222, and 227:
+### Other parameters in `handle_to_teeth3.1.py` that you may want to change:
+If you want to use it on a different graph, change the file names on line 221, 222, and 227:
 ```python
 F=build_support_graph('fl1577.x')
 G=create_dom_graph2('fl1577.dom')
 handle_pool= all_handles('fl1577.pool.txt')	
 ```
 
-The variables from line 191 to line 204:
+Changing the following variables from from line 191 to line 204 may yield different results!
 ```python 
 teeth_surplus_bound = 1.0
 node_num_upper_bd = 50000
