@@ -38,16 +38,17 @@ handle_pool = all_handles('att532.pool.txt')
 # Each handle in handle_pool is a frozenset
 def all_handles(handlefilename):
 	global handle_num_bound
-    handle_pool = list()
-    handlefile=open(handlefilename, 'r')
-    first_line=handlefile.readline().split()
-    for i in range(min(int(first_line[1]), handle_num_bound):
-        number_of_node=int(handlefile.readline().split()[0])
-        handle_set=frozenset(map(int,handlefile.readline().split()))
-        if number_of_node >=3:
-            handle_pool.append(handle_set)
-    handlefile.close()
-    return handle_pool
+
+	handle_pool = list()
+	handlefile=open(handlefilename, 'r')
+	first_line=handlefile.readline().split()
+	for i in range(min(int(first_line[1]), handle_num_bound)):
+		number_of_node=int(handlefile.readline().split()[0])
+		handle_set=frozenset(map(int,handlefile.readline().split()))
+		if number_of_node >=3:
+			handle_pool.append(handle_set)
+	handlefile.close()
+	return handle_pool
 
 
 
