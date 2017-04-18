@@ -6,6 +6,11 @@ from timeit import default_timer as timer
 import math
 
 '''
+4.1:
+domgraph4.py with find_stable_set code commented out
+'''
+
+'''
 same as domgraph3 but:
 edges betweens doms of G is not computed
 '''
@@ -110,7 +115,7 @@ Note:
 
 '''
 
-
+'''
 def find_stable_set(G, total_surplus_bound, max_teeth_num):
   max_stable_set=nx.maximal_independent_set(G)
   if len(max_stable_set)< 3: 
@@ -142,7 +147,7 @@ def find_stable_set(G, total_surplus_bound, max_teeth_num):
     return None
   else:
     return [candidate_dom,total_surplus]
-
+'''
 
 
 

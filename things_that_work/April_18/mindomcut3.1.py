@@ -1,12 +1,17 @@
 
 import networkx as nx
-from domgraph import find_stable_set
+# from domgraph import find_stable_set
 from itertools import product
 import time
 from timeit import default_timer as timer
 from copy import deepcopy
-from progressbar import ProgressBar, Percentage, Bar
+# from progressbar import ProgressBar, Percentage, Bar
 import math 
+
+'''
+commented out redundant things that are not used by htt.3.1.py
+'''
+
 '''
 A bit of notations: 
 G denotes the graph where nodes represent dominoes
