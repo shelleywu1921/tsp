@@ -26,7 +26,7 @@ epsilon= 0.1
 krange = 10
 ```
 
-### A small example for testing:
+## A small example for testing:
 Input the followings on line 221, 222, and 227:
 ```python
 F=build_support_graph('att532.x')
