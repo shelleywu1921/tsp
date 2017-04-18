@@ -26,7 +26,7 @@ krange = 10
 ```
 
 ## A small example for testing:
-Input the followings on line 221, 222, and 227:
+Input the following on line 221, 222, and 227:
 ```python
 F=build_support_graph('att532.x')
 G=create_dom_graph2('att532.dom')
