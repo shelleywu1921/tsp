@@ -1,5 +1,8 @@
 # Third Attempt to Find Violated Combs
 
+# April 18
+`handle_to_teeth3.1.py` is the code currently in use. Upgraded the data summary in the end of the output file. Also output a file of handles used.   
+
 # April 15
 
 ## Descriptions: 
