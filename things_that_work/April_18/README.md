@@ -17,12 +17,15 @@ handle_pool= all_handles('fl1577.pool.txt')
 
 Changing the following variables from from line 191 to line 204 may yield different results!
 ```python 
-teeth_surplus_bound = 1.0
-node_num_upper_bd = 50000
-handle_num_bound = 2600
-x_delta_H_bound = 15
-epsilon= 0.1     
-krange = 10
+teeth_surplus_bound = 1.0     # only dominoes with surpluses < t_s_b will be considered. Setting it =1.0 means considering all doms
+node_num_upper_bd = 50000     # only use about n_n_u_b dominoes from the .dom file
+handle_num_bound = 2600       # only use at most h_n_b handles  
+x_delta_H_bound = 15          # only handles with x(delta(H)) <= x_d_H_b will be considered as a candidate handle
+epsilon= 0.1                  # for each handle and all teeth that respects it, only consider those with 
+                              # 1/2*teeth_surplus < x(E(A:B)) - epsilon
+krange = 10                   # for each handle and a set of teeth that respects it, run odd stable set heuristics and 
+                              # compute the comb surpluses krange times. (This is because that the heuristic may yield a different result
+                              # each time)
 ```
 
 ## A small example for testing:
