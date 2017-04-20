@@ -21,7 +21,7 @@ def weighted_stable_set(graph):
     for node in graph.nodes():
         graph_obj.append(graph.node[node]['grwt'])
         graph_ub.append(1.1) # allow rounding errors
-        graph_lb.append(0.9) # allow rounding errors
+        graph_lb.append(-0.1) # allow rounding errors
         graph_ctype.append('B') # the columns should be binary
         graph_colnames.append('x'+str(node))
     
