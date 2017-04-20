@@ -7,6 +7,7 @@ import networkx
 
 
 # max weight stable set
+# return a list of stable set of nodes with maximum weight
 def weighted_stable_set(graph):
     # LP Model:
     ## nodes
@@ -86,11 +87,12 @@ def weighted_stable_set(graph):
         if binary >= 0.9:
             max_indep_set.append(node)
 
-    # naive way to obtain odd stable set
-    if len(max_indep_set) % 2 == 0:
+    # odd problem:
+    '''
+    if len(max_indep_set)%2 ==0:
         max_indep_set.sort(key=lambda x: graph.node[x]['grwt'])
         max_indep_set=max_indep_set[1:]
-
+    '''
     return max_indep_set
 
 

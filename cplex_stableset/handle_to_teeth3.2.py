@@ -5,6 +5,17 @@ from itertools import product
 import networkx as nx
 from timeit import default_timer as timer
 
+# stableset
+from stablesetmip import weighted_stable_set
+'''
+version 3.2
+1. changed the stable set function to be a cplex maximum weight stable set function
+    from stablesetmip import weighted_stable_set
+2. find_all_teeth now added an attribute to nodes in eligible_teeth:    
+    eligible_teeth.node[domino]['grwt']=xE_A_B - 0.5*G.node[domino]['surplus']
+'''
+
+
 '''
 Things that this new version does: 
 	1. add krange, handle_num_bound, x_delta_H_bound as variables
@@ -76,7 +87,7 @@ def find_all_teeth(F, G, handle):
 		# we only want that teeth if 1/2teethsurplus < x(E(A,B)), not even equality
 		if 0.5*G.node[domino]['surplus'] <= xE_A_B -epsilon:
 			if (A<= handle and len(B & handle) ==0) or (B<= handle and len(A& handle) ==0):
-				eligible_teeth.add_node(domino) #, surplus = G.node[domino]['surplus'],vertices = G.node[domino]['A'].union(G.node[domino]['B']))
+				eligible_teeth.add_node(domino, grwt = xE_A_B - 0.5*G.node[domino]['surplus']) #, surplus = G.node[domino]['surplus'],vertices = G.node[domino]['A'].union(G.node[domino]['B']))
 	for u in eligible_teeth.nodes():
 		for v in eligible_teeth.nodes():
 			uteeth = G.node[u]['vertices']
@@ -124,10 +135,12 @@ def find_comb(F,G,handle_pool):
 		eligible_teeth=find_all_teeth(F,G,handle)
 		if len(list(eligible_teeth.nodes())) >=3:
 			for k in range(krange): 
-				odd_teeth = nx.maximal_independent_set(eligible_teeth) # this is a set
-				if len(odd_teeth) >= 3: 
-					if len(odd_teeth)%2==0:
-						odd_teeth.pop()
+				odd_teeth = weighted_stable_set(eligible_teeth)
+				if odd_teeth !=None and len(odd_teeth) >= 3:
+                    # what do if the returned stable set is even
+                    if len(odd_teeth)%2==0:
+                        odd_teeth.sort(key=lambda x: eligible_teeth.node[x]['grwt'])
+                        odd_teeth = odd_teeth[1:]
 					
 					newfile.write(' Maximal disjoint teeth set: \n')
 					newfile.write(repr(odd_teeth) + '\n')
@@ -194,7 +207,7 @@ if __name__ == "__main__":
 	node_num_upper_bd = 50000
 
 	## all_handles:
-	handle_num_bound = 2600
+	handle_num_bound = 1000
 	x_delta_H_bound = 15
 
 	## find_all_teeth:
