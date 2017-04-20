@@ -44,7 +44,7 @@ def weighted_stable_set(graph):
     prob.variables.add(obj=graph_obj, lb=graph_lb, ub=graph_ub,
                        types=graph_ctype, names=graph_colnames)
 
-    prob.linear_constraints.add(lin_expr=graph_rows, sense=graph_sense,
+    prob.linear_constraints.add(lin_expr=graph_rows, senses=graph_sense,
                                 rhs=graph_rhs, names=graph_rownames)
 
     # solve the problem
