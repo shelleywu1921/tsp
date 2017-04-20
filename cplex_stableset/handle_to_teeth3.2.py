@@ -10,9 +10,11 @@ from stablesetmip import weighted_stable_set
 '''
 version 3.2
 1. changed the stable set function to be a cplex maximum weight stable set function
-    from stablesetmip import weighted_stable_set
+    from stablesetmip import weighted_stable_set. Odd stable set is still the naive way:
+    pop out the lightest set if the number is even
 2. find_all_teeth now added an attribute to nodes in eligible_teeth:    
     eligible_teeth.node[domino]['grwt']=xE_A_B - 0.5*G.node[domino]['surplus']
+3. Can consider settting krange = 1
 '''
 
 
@@ -214,11 +216,11 @@ if __name__ == "__main__":
 	epsilon= 0.1     #
 	
 	## find_comb:
-	krange = 1
+	krange = 10
 
 	# start:
 	start = timer()
-	newfilename='test_2.txt'			# change it every time you run it!
+	newfilename='fl1577_htt3.2_test_1.txt'			# change it every time you run it!
 	newfile=open(newfilename, 'w')
 
 	
@@ -231,13 +233,13 @@ if __name__ == "__main__":
 	newfile.write('krange: %d \n \n' % krange)
 	
 	# constants:
-	F=build_support_graph('att532.x')											# you may need to change this
-	G=create_dom_graph2('att532.dom', teeth_surplus_bound, node_num_upper_bd)	# you may need to change this
+	F=build_support_graph('fl1577.x')											# you may need to change this
+	G=create_dom_graph2('fl1577.dom', teeth_surplus_bound, node_num_upper_bd)	# you may need to change this
 
 	newfile.write('Constants: \n')
 	newfile.write('Total number of dominoes: %d \n' % G.number_of_nodes())
 
-	handle_pool= all_handles('att532.pool.test.txt')					# you may need to change this
+	handle_pool= all_handles('fl1577.pool.txt')					# you may need to change this
 	
 	newfile.write('Total number of handles considered: %d \n\n' % len(handle_pool))
 	# main function
