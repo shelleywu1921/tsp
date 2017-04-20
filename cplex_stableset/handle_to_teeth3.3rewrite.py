@@ -216,7 +216,7 @@ if __name__ == "__main__":
 
 	# start:
 	start = timer()
-	newfilename='att532_htt3.3rewrite_test_1.txt'			# change it every time you run it!
+	newfilename='fl1577_htt3.3rewrite_test_1.txt'			# change it every time you run it!
 	newfile=open(newfilename, 'w')
 
 	
@@ -229,13 +229,13 @@ if __name__ == "__main__":
 	newfile.write('krange: %d \n \n' % krange)
 	
 	# constants:
-	F=build_support_graph('att532.x')											# you may need to change this
-	G=create_dom_graph2('att532.dom', teeth_surplus_bound, node_num_upper_bd)	# you may need to change this
+	F=build_support_graph('fl1577.x')											# you may need to change this
+	G=create_dom_graph2('fl1577.dom', teeth_surplus_bound, node_num_upper_bd)	# you may need to change this
 
 	newfile.write('Constants: \n')
 	newfile.write('Total number of dominoes: %d \n' % G.number_of_nodes())
 
-	handle_pool= all_handles('att532.pool.test.txt')					# you may need to change this
+	handle_pool= all_handles('fl1577.pool.txt')					# you may need to change this
 	
 	newfile.write('Total number of handles considered: %d \n\n' % len(handle_pool))
 	# main function
