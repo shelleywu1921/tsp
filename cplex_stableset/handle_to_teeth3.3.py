@@ -141,11 +141,12 @@ def find_comb(F,G,handle_pool):
 		newfile.write(repr(handle) + '\n')
 		x_delta_H = handle_pool[i][1]
 
-
 		eligible_teeth=find_all_teeth(F,G,handle)
+    
         if len(list(eligible_teeth.nodes())) >=3:
             odd_teeth = odd_weighted_stable_set(eligible_teeth)
             print(odd_teeth)
+            
             if odd_teeth !=None and len(odd_teeth) >= 3:
 				newfile.write(' Maximal disjoint teeth set: \n')
 				newfile.write(repr(odd_teeth) + '\n')

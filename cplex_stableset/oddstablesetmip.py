@@ -80,14 +80,14 @@ def odd_weighted_stable_set(graph):
 
 
         # print a bunch of stuff:
-
+        '''
         print()
         ## solution.get_status() returns an integer code
         print("Solution status = ", prob.solution.get_status(), ":", end=' ')
         ## the following line prints the corresponding string
         print(prob.solution.status[prob.solution.get_status()])
         print("Solution value  = ", prob.solution.get_objective_value())
-
+        '''
         numcols = prob.variables.get_num()
         numrows = prob.linear_constraints.get_num()
 
@@ -97,9 +97,10 @@ def odd_weighted_stable_set(graph):
         #print(slack)
         #    print(x)
 
-
+        '''
         for i in range(len(slack)):
             print('Row ' +graph_rownames[i] + ' :  Slack = %10f' %  slack[i])
+        '''
 
         solution_list = []
         for j in range(len(x)-1):
