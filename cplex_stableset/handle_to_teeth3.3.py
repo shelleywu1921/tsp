@@ -11,6 +11,7 @@ from oddstablesetmip import odd_weighted_stable_set
 Version 3.3:
 1. changed the stable set function to be a cplex max weight odd stable set function
     from oddstabesetmip import odd_weighted_stable_set
+2. Removed krange I am tired of the indentation problem!!!!
 
 '''
 
@@ -142,40 +143,38 @@ def find_comb(F,G,handle_pool):
 
 
 		eligible_teeth=find_all_teeth(F,G,handle)
-		if len(list(eligible_teeth.nodes())) >=3:
-			for k in range(krange): 
-				odd_teeth = odd_weighted_stable_set(eligible_teeth)
-                print(odd_teeth)
-                if odd_teeth !=None and len(odd_teeth) >= 3:
+        if len(list(eligible_teeth.nodes())) >=3:
+            odd_teeth = odd_weighted_stable_set(eligible_teeth)
+            print(odd_teeth)
+            if odd_teeth !=None and len(odd_teeth) >= 3:
+				newfile.write(' Maximal disjoint teeth set: \n')
+				newfile.write(repr(odd_teeth) + '\n')
+				print('Number of disjoint teeth: %d' % len(odd_teeth))
+				newfile.write(' Number of disjoint teeth: %d \n' % len(odd_teeth))
 
-					newfile.write(' Maximal disjoint teeth set: \n')
-					newfile.write(repr(odd_teeth) + '\n')
-					print('Number of disjoint teeth: %d' % len(odd_teeth))
-					newfile.write(' Number of disjoint teeth: %d \n' % len(odd_teeth))
+				sum_x_delta_Ti = sum(x_delta_S(F,G.node[T]['vertices']) for T in odd_teeth)
+				LHS = x_delta_H + sum_x_delta_Ti
+				comb_surplus = LHS - 3*len(odd_teeth)
 
-					sum_x_delta_Ti = sum(x_delta_S(F,G.node[T]['vertices']) for T in odd_teeth)
-					LHS = x_delta_H + sum_x_delta_Ti
-					comb_surplus = LHS - 3*len(odd_teeth)
-
-					newfile.write('{0:<20}{1:<20}{2:<20}\n'.format('x(delta(H))', 'sum x(delta(Ti))', 'CombSurp'))
-					newfile.write('{0:<20}{1:<20}{2:<20}\n\n'.format(x_delta_H, sum_x_delta_Ti, comb_surplus))
+				newfile.write('{0:<20}{1:<20}{2:<20}\n'.format('x(delta(H))', 'sum x(delta(Ti))', 'CombSurp'))
+				newfile.write('{0:<20}{1:<20}{2:<20}\n\n'.format(x_delta_H, sum_x_delta_Ti, comb_surplus))
 
 
-					# for violated combs
-					if comb_surplus < 1: 
-					    viol_comb = dict()
-					    #viol_comb['handle']=handle
-					    viol_comb['handle_no'] = i
-					    viol_comb['teeth'] = odd_teeth
-					    viol_comb['x_delta_H']=x_delta_H
-					    viol_comb['sum_x_delta_Ti']=sum_x_delta_Ti
-					    viol_comb['comb_surplus']= comb_surplus
-					    viol_comb_list.append(viol_comb)
-					    
-					    counter +=1
-						
-					#newfile.write(' comb surplus (<1.0 is good!): %.5f \n\n' % comb_surplus)
-					print('comb surplus: %.5f' %comb_surplus)
+				# for violated combs
+				if comb_surplus < 1: 
+				    viol_comb = dict()
+				    #viol_comb['handle']=handle
+				    viol_comb['handle_no'] = i
+				    viol_comb['teeth'] = odd_teeth
+				    viol_comb['x_delta_H']=x_delta_H
+				    viol_comb['sum_x_delta_Ti']=sum_x_delta_Ti
+				    viol_comb['comb_surplus']= comb_surplus
+				    viol_comb_list.append(viol_comb)
+				    
+				    counter +=1
+					
+				#newfile.write(' comb surplus (<1.0 is good!): %.5f \n\n' % comb_surplus)
+				print('comb surplus: %.5f' %comb_surplus)
 	newfile.write('\ntotal number of violated comb is %d: \n ' % counter)
 	newfile.write('And they are: \n')
 	for viol_comb in viol_comb_list:
@@ -224,7 +223,7 @@ if __name__ == "__main__":
 
 	# start:
 	start = timer()
-	newfilename='test_htt3.3_1.txt'			# change it every time you run it!
+	newfilename='test_htt.3.3_2.txt'			# change it every time you run it!
 	newfile=open(newfilename, 'w')
 
 	
