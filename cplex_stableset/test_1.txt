@@ -1,0 +1,18 @@
+Variables: 
+teeth_surplus_bound: 1.00000 
+node_num_upper_bd: 50000 
+handle_num_bound: 1000 
+x_delta_H_bound: 15.00000 
+epsilon: 0.10000 
+krange: 10 
+ 
+Constants: 
+Total number of dominoes: 50190 
+Total number of handles considered: 6 
+
+
+ Handle: 
+frozenset([481, 482, 485, 491, 499, 501, 477])
+ All eligible teeth for this handle are: 
+set([8577, 8580, 8583, 8586, 8589, 7056, 8595, 8598, 8601, 8604, 6813, 144129, 8607, 8610, 6564, 8613, 8616, 8619, 145581, 8622, 8625, 8628, 7221, 8502, 8631, 8505, 8634, 8508, 8637, 8511, 8640, 6975, 8514, 8517, 8520, 8523, 8526, 8529, 112338, 8532, 8535, 144216, 8538, 8541, 8544, 8592, 8547, 8550, 8553, 8556, 6894, 8559, 8562, 8565, 8568, 144132, 8574]) 
+ Total number of eligible teeth is: 57 

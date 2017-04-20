@@ -40,7 +40,7 @@ def weighted_stable_set(graph):
 
     # create problem
     prob=cplex.Cplex()
-    prob.objective.set_sense(prob.objective.set_sense.maximize) # maximizing
+    prob.objective.set_sense(prob.objective.sense.maximize) # maximizing
     prob.variables.add(obj=graph_obj, lb=graph_lb, ub=graph_ub,
                        types=graph_ctype, names=graph_colnames)
 
