@@ -138,10 +138,10 @@ def find_comb(F,G,handle_pool):
 				odd_teeth = weighted_stable_set(eligible_teeth)
 				if odd_teeth !=None and len(odd_teeth) >= 3:
                     # what do if the returned stable set is even
-                    if len(odd_teeth)%2==0:
-                        odd_teeth.sort(key=lambda x: eligible_teeth.node[x]['grwt'])
-                        odd_teeth = odd_teeth[1:]
-					
+					if len(odd_teeth)%2==0:
+					    odd_teeth.sort(key=lambda x: eligible_teeth.node[x]['grwt'])
+					    odd_teeth = odd_teeth[1:]
+
 					newfile.write(' Maximal disjoint teeth set: \n')
 					newfile.write(repr(odd_teeth) + '\n')
 					print('Number of disjoint teeth: %d' % len(odd_teeth))
