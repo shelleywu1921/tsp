@@ -19,21 +19,21 @@ def odd_weighted_stable_set(graph):
     graph_obj=[]
     graph_ub=[]
     graph_lb=[]
-    graph_ctype = []
+    graph_ctype = ''
     graph_colnames = []
     for node in graph.nodes():
         graph_obj.append(graph.node[node]['grwt'])
         graph_ub.append(1.1) # allow rounding errors
         graph_lb.append(-0.1) # allow rounding errors
-        graph_ctype.append('B') # the columns should be binary
+        graph_ctype=graph_ctype+'B' # the columns should be binary
         graph_colnames.append('x'+str(node))
     
     # add the odd constraint: x_1 + ... + x_n = 2z+1
     # or x_1 + ... + x_n -2z = 1
     graph_obj.append(0.0)
     graph_ub.append(cplex.infinity)
-    graph_lb.append(0.0)
-    graph_ctype.append('I')
+    graph_lb.append(-0.1) # allow rounding errors
+    graph_ctype=graph_ctype+'I'
     graph_colnames.append('z')
 
     ## edges
@@ -54,8 +54,8 @@ def odd_weighted_stable_set(graph):
     graph_rhs.append(1.0)
     graph_rownames.append('odd_const_row')
     graph_sense=graph_sense+'E'
-    graph_rows.append([ ['x'+str(node) for i in graph.nodes()].append('z'),
-                       [1.0 for i in graph.nodes()].append(-2.0)  ])
+    graph_rows.append([ ['x'+str(node) for node in graph.nodes()]+['z'],
+                       [1.0 for node in graph.nodes()] + [2.0]  ])
 
 
     # create problem
@@ -72,6 +72,7 @@ def odd_weighted_stable_set(graph):
         prob.solve()
     except CplexError as exc:
         print(exc)
+        print('ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
         return None
 
 
