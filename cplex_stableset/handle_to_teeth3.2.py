@@ -214,11 +214,11 @@ if __name__ == "__main__":
 	epsilon= 0.1     #
 	
 	## find_comb:
-	krange = 10
+	krange = 1
 
 	# start:
 	start = timer()
-	newfilename='test_1.txt'			# change it every time you run it!
+	newfilename='test_2.txt'			# change it every time you run it!
 	newfile=open(newfilename, 'w')
 
 	
