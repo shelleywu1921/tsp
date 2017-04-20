@@ -25,6 +25,14 @@ def weighted_stable_set(graph):
         graph_ctype.append('B') # the columns should be binary
         graph_colnames.append('x'+str(node))
     
+    # add the odd constraint: x_1 + ... + x_n = 2z+1
+    # or x_1 + ... + x_n -2z = 1
+    graph_obj.append(0.0)
+    graph_ub.append(cplex.infinity)
+    graph_lb.append(0.0)
+    graph_ctype.append('I')
+    graph_colnames.append('z')
+
     ## edges
     graph_rhs=[]
     graph_rownames=[]
@@ -36,6 +44,15 @@ def weighted_stable_set(graph):
         graph_rownames.append('r'+str(u)+'_'+str(v))
         graph_sense=graph_sense+'L' # in <= form
         graph_rows.append([ ['x'+str(u), 'x'+str(v)], [1.0, 1.0] ])
+
+
+    # add the odd constraint: x_1 + ... + x_n = 2z+1
+    # or x_1 + ... + x_n -2z = 1
+    graph_rhs.append(1.0)
+    graph_rownames.append('odd_const_row')
+    graph_sense=graph_sense+'E'
+    graph_rows.append([ ['x'+str(node) for i in graph.nodes()].append('z'),
+                       [1.0 for i in graph.nodes()].append(-2.0)  ])
 
 
     # create problem
