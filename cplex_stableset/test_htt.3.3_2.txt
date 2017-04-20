@@ -58,4 +58,4 @@ total number of violated comb is 0:
 In summary: 
 HandleNo            NOofTeeth           x(delta(H))         sum x(delta(Ti))    CombSurp            
 
- Total running time: 12.76011
+ Total running time: 11.83726
