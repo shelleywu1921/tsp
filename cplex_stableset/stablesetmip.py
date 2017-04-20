@@ -70,17 +70,17 @@ def weighted_stable_set(graph):
     slack = prob.solution.get_linear_slacks()
     x = prob.solution.get_values()
 
-    print(slack)
-    print(x)
+#print(slack)
+#    print(x)
 
 
-    for row in graph_rownames:
-        print(row+' :  Slack = %10f' % (row, slack[row]))
+    for i in len(slack):
+        print('Row ' +graph_rownames[i] + ' :  Slack = %10f' % (graph_rownames[i], slack[i]))
 
     solution_list = []
-    for col in graph_colnames:
-        print(col+' :  Value = %10f' % (col, x[col]))
-        solution_list.append((int(col[1:]), x[col]))
+    for j in len(x):
+        print('Column ' +graph_colnames[j] + ' :  Value = %10f' % (graph_colnames[j], x[j]))
+        solution_list.append((int(graph_colnames[j][1:]), x[j]))
     print(solution_list)
 
     # may want to comment this out
