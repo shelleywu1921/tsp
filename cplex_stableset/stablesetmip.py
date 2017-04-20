@@ -34,7 +34,7 @@ def weighted_stable_set(graph):
     for u,v in graph.edges():
         graph_rhs.append(1.0)
         graph_rownames.append('r'+str(u)+'_'+str(v))
-        graph_sense=sense+'L' # in <= form
+        graph_sense=graph_sense+'L' # in <= form
         graph_rows.append([ ['x'+str(u), 'x'+str(v)], [1.0, 1.0] ])
 
 
