@@ -55,7 +55,7 @@ def odd_weighted_stable_set(graph):
     graph_rownames.append('odd_const_row')
     graph_sense=graph_sense+'E'
     graph_rows.append([ ['x'+str(node) for node in graph.nodes()]+['z'],
-                       [1.0 for node in graph.nodes()] + [2.0]  ])
+                       [1.0 for node in graph.nodes()] + [-2.0]  ])
 
 
     # create problem
