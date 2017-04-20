@@ -109,16 +109,12 @@ def odd_weighted_stable_set(graph):
 
     # may want to comment this out
     max_indep_set = []
-    for node, binary in solution_list[:-1]:
+    for node, binary in solution_list:
         if binary >= 0.9:
             max_indep_set.append(node)
 
     # odd problem:
-    '''
-    if len(max_indep_set)%2 ==0:
-        max_indep_set.sort(key=lambda x: graph.node[x]['grwt'])
-        max_indep_set=max_indep_set[1:]
-    '''
+
     return max_indep_set
 
 

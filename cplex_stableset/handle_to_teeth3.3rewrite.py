@@ -235,7 +235,7 @@ if __name__ == "__main__":
 	newfile.write('Constants: \n')
 	newfile.write('Total number of dominoes: %d \n' % G.number_of_nodes())
 
-	handle_pool= all_handles('fl1577.pool.txt')					# you may need to change this
+	handle_pool= all_handles('one_handle.txt')					# you may need to change this
 	
 	newfile.write('Total number of handles considered: %d \n\n' % len(handle_pool))
 	# main function
