@@ -216,11 +216,11 @@ if __name__ == "__main__":
 	epsilon= 0.1     #
 	
 	## find_comb:
-	krange = 10
+	krange = 1
 
 	# start:
 	start = timer()
-	newfilename='fl1577_htt3.2_test_1.txt'			# change it every time you run it!
+	newfilename='fl1577_htt3.2_test_2.txt'			# change it every time you run it!
 	newfile=open(newfilename, 'w')
 
 	
