@@ -74,11 +74,11 @@ def weighted_stable_set(graph):
 #    print(x)
 
 
-    for i in len(slack):
+    for i in range(len(slack)):
         print('Row ' +graph_rownames[i] + ' :  Slack = %10f' % (graph_rownames[i], slack[i]))
 
     solution_list = []
-    for j in len(x):
+    for j in range(len(x)):
         print('Column ' +graph_colnames[j] + ' :  Value = %10f' % (graph_colnames[j], x[j]))
         solution_list.append((int(graph_colnames[j][1:]), x[j]))
     print(solution_list)
