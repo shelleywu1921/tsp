@@ -7,10 +7,13 @@ import cplex
 from cplex.exceptions import CplexError
 import networkx
 
+'''
+Note that the odd stable set found may only have one element
+'''
 
 # max weight stable set
 # return a list of stable set of nodes with maximum weight
-def weighted_stable_set(graph):
+def odd_weighted_stable_set(graph):
     # LP Model:
     ## nodes
     graph_obj=[]

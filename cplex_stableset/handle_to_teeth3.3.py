@@ -6,7 +6,14 @@ import networkx as nx
 from timeit import default_timer as timer
 
 # stableset
-from stablesetmip import weighted_stable_set
+from oddstablesetmip import odd_weighted_stable_set
+'''
+Version 3.3:
+1. changed the stable set function to be a cplex max weight odd stable set function
+    from oddstabesetmip import odd_weighted_stable_set
+
+'''
+
 '''
 version 3.2
 1. changed the stable set function to be a cplex maximum weight stable set function
@@ -139,12 +146,6 @@ def find_comb(F,G,handle_pool):
 			for k in range(krange): 
 				odd_teeth = weighted_stable_set(eligible_teeth)
 				if odd_teeth !=None and len(odd_teeth) >= 3:
-                    # what do if the returned stable set is even
-                    '''
-					if len(odd_teeth)%2==0:
-					    odd_teeth.sort(key=lambda x: eligible_teeth.node[x]['grwt'])
-					    odd_teeth = odd_teeth[1:]
-                    '''
                         
 					newfile.write(' Maximal disjoint teeth set: \n')
 					newfile.write(repr(odd_teeth) + '\n')
