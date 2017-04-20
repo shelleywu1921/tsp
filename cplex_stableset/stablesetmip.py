@@ -7,16 +7,75 @@ import networkx
 
 
 # max weight stable set
-def construct_model(graph):
-    obj=[]
-    ub=[]
-    lb=[]
+def weighted_stable_set(graph):
+    # LP Model:
+    ## nodes
+    graph_obj=[]
+    graph_ub=[]
+    graph_lb=[]
+    graph_ctype = []
+    graph_colnames = []
+    for node in graph.nodes():
+        graph_obj.append(graph.node[node]['grwt'])
+        graph_ub.append(1.1) # allow rounding errors
+        graph_lb.append(0.9) # allow rounding errors
+        graph_ctype.append('B') # the columns should be binary
+        graph_colnames.append('x'+str(node))
     
-    ctype=['B' for node in graph.nodes()]
-    colnames=['x'+str(node) for node in Graph.nodes()]
-    rhs=[1.0 for edge in graph.edges()]
-    rownames=['r'+str(i) for i in len(graph.edges())]
-    sense=''.join(['L' for i in len(graph.edges())])
+    ## edges
+    graph_rhs=[]
+    graph_rownames=[]
+    graph_sense=''
+    graph_rows=[]
+    
+    for u,v in graph.edges():
+        graph_rhs.append(1.0)
+        graph_rownames.append('r'+str(u)+'_'+str(v))
+        graph_sense=sense+'L' # in <= form
+        graph_rows.append([ ['x'+str(u), 'x'+str(v)], [1.0, 1.0] ])
+
+
+    # create problem
+    prob=cplex.Cplex()
+    prob.objective.set_sense(prob.objective.set_sense.maximize) # maximizing
+    prob.variables.add(obj=graph_obj, lb=graph_lb, ub=graph_ub,
+                       types=graph_ctype, names=graph_colnames)
+
+    prob.linear_constraints.add(lin_expr=graph_rows, sense=graph_sense,
+                                rhs=graph_rhs, names=graph_rownames)
+
+    # solve the problem
+    try:
+        prob.solve()
+    except CplexError as exc:
+        print(exc)
+        return
+
+
+    # print a bunch of stuff:
+
+    print()
+    ## solution.get_status() returns an integer code
+    print("Solution status = ", prob.solution.get_status(), ":", end=' ')
+    ## the following line prints the corresponding string
+    print(prob.solution.status[prob.solution.get_status()])
+    print("Solution value  = ", prob.solution.get_objective_value())
+
+    numcols = prob.variables.get_num()
+    numrows = prob.linear_constraints.get_num()
+
+    slack = prob.solution.get_linear_slacks()
+    x = prob.solution.get_values()
+
+    print(slack)
+    print(x)
+
+    for row in graph_rownames:
+        print(row+' :  Slack = %10f' % (row, slack[row]))
+    for col in graph_colnames:
+        print(col+' :  Value = %10f' % (col, x[col]))
+
+
 
 
 
