@@ -49,7 +49,7 @@ def weighted_stable_set(graph):
         prob.solve()
     except CplexError as exc:
         print(exc)
-        return
+        return None
 
 
     # print a bunch of stuff:
@@ -70,10 +70,30 @@ def weighted_stable_set(graph):
     print(slack)
     print(x)
 
+
     for row in graph_rownames:
         print(row+' :  Slack = %10f' % (row, slack[row]))
+
+    solution_list = []
     for col in graph_colnames:
         print(col+' :  Value = %10f' % (col, x[col]))
+        solution_list.append((int(col[1:]), x[col]))
+    print(solution_list)
+
+    # may want to comment this out
+    max_indep_set = []
+    for node, binary in solution_list:
+        if binary >= 0.9:
+            max_indep_set.append(node)
+
+    # naive way to obtain odd stable set
+    if len(max_indep_set) % 2 == 0:
+        max_indep_set.sort(key=lambda x: graph.node[x]['grwt'])
+        max_indep_set=max_indep_set[1:]
+
+    return max_indep_set
+
+
 
 
 
