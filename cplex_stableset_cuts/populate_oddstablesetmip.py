@@ -4,9 +4,9 @@ from __future__ import print_function
 
 import sys
 import cplex
-from cplex.exceptions import CplexError
-from cplex.exceptions import CplexSolverError
-import networkx
+# from cplex.exceptions import CplexError
+# from cplex.exceptions import CplexSolverError
+# import networkx
 
 '''
 populate_oddstablesetmip.py
@@ -17,11 +17,11 @@ populate_oddstablesetmip.py
 Note that the odd stable set found may only have one element
 '''
 
-# graph here is a dict. graph['nodes'] is a list of [tooth(integer), xdT]
+# graph here is a dict. graph['nodes'] is a list of [tooth which is an int, xdT]
 # populate_odd_weighted_stableset(graph)
 # only consider stable sets with >= 3 nodes
 def populate_odd_weighted_stableset(graph,xdH):
-    global eps          # x(delta(H)) for the fixed handle H
+    global eps          # sum 3-x(d(Ti)) >= x(d(H)) - 1  + eps
 
     # LP Model:
     ## nodes
@@ -91,13 +91,26 @@ def populate_odd_weighted_stableset(graph,xdH):
     except cplex.exceptions.CplexError as e:
         print(e)
         return None
-    except cplex.exceptions.CplexSolverError:
+    except cplex.exceptions.CplexSolverError as e:
+        print(e)
         return None    
 
     for i in range(prob.solution.pool.get_num()):
         odd_teeth=[eligible_teeth['nodes'][j][0] for j ,x in enumerate(prob.solution.pool.get_values(i)[:-1]) if x ==1.0]
-        return prob.solution.pool.get_num()    
+        num_of_teeth=len(odd_teeth)
+        sum_xdT = sum(eligible_teeth['nodes'][j][1] for j,x in enumerate(prob.solution.pool.get_values(i)[:-1]) if x == 1.0)
+        comb_surplus = xdH+sum_xdT-3*num_of_teeth
 
+        newfile.write('Number of Teeth: %d \n' % len(odd_teeth))
+        newfile.write('Set of Teeth: \n'+ repr(odd_teeth))
+        newfile.write('{0:<20}{1:<20}{2:<20}\n'.format('x(delta(H))', 'sum x(delta(Ti))', 'CombSurp'))
+        newfile.write('{0:<20}{1:<20}{2:<20}\n\n'.format(xdH, sum_xdT , comb_surplus))
+    newfile.write('\n')
+
+    newfile.write('Total number of violated combs for this handle: %d' % prob.solution.pool.get_num())
+    return prob.solution.pool.get_num()    
+
+    '''
     print()
     # solution.get_status() returns an integer code
     print("Solution status = ", c.solution.get_status(), ":", end=' ')
@@ -155,65 +168,7 @@ def populate_odd_weighted_stableset(graph,xdH):
               (names[i], objval_i, numdiff, numcols))
 
 
-
-
-
-
-
-
-
-
-
-    # the two excepts dont really work
-    # force z >=1 and try on fl1577
-    except CplexError:
-        print('ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-        return None
-
-    except CplexSolverError:
-        print('CPLEX SOLVER ERROR!!!!!!!!!!!')
-        return None
-
-    # print a bunch of stuff:
     '''
-    print()
-    ## solution.get_status() returns an integer code
-    print("Solution status = ", prob.solution.get_status(), ":", end=' ')
-    ## the following line prints the corresponding string
-    print(prob.solution.status[prob.solution.get_status()])
-    print("Solution value  = ", prob.solution.get_objective_value())
-    '''
-    numcols = prob.variables.get_num()
-    numrows = prob.linear_constraints.get_num()
-
-    slack = prob.solution.get_linear_slacks()
-    x = prob.solution.get_values()
-
-    #print(slack)
-    #    print(x)
-
-    '''
-    for i in range(len(slack)):
-        print('Row ' +graph_rownames[i] + ' :  Slack = %10f' %  slack[i])
-    '''
-
-    solution_list = []
-    for j in range(len(x)-1):
-        print('Column ' +graph_colnames[j] + ' :  Value = %10f' %  x[j])
-        solution_list.append((int(graph_colnames[j][1:]), x[j]))
-    print('Column z: Value = %10f' % x[-1])
-
-    print(solution_list)
-
-    # may want to comment this out
-    max_indep_set = []
-    for node, binary in solution_list:
-        if binary >= 0.9:
-            max_indep_set.append(node)
-
-    # odd problem:
-
-    return max_indep_set
 
 
 
