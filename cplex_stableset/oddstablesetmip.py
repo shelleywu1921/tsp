@@ -5,6 +5,7 @@ from __future__ import print_function
 import sys
 import cplex
 from cplex.exceptions import CplexError
+from cplex.exceptions import CplexSolverError
 import networkx
 
 '''
@@ -32,7 +33,7 @@ def odd_weighted_stable_set(graph):
     # or x_1 + ... + x_n -2z = 1
     graph_obj.append(0.0)
     graph_ub.append(cplex.infinity)
-    graph_lb.append(-0.1) # allow rounding errors
+    graph_lb.append(-0.1) # Want z >=1 allow rounding errors
     graph_ctype=graph_ctype+'I'
     graph_colnames.append('z')
 
@@ -70,11 +71,16 @@ def odd_weighted_stable_set(graph):
     # solve the problem
     try:
         prob.solve()
-    except CplexError as exc:
-        print(exc)
+
+    # the two excepts dont really work
+    # force z >=1 and try on fl1577
+    except CplexError:
         print('ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
         return None
 
+    except CplexSolverError:
+        print('CPLEX SOLVER ERROR!!!!!!!!!!!')
+        return None
 
     # print a bunch of stuff:
     '''
