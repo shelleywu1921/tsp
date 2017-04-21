@@ -1,0 +1,262 @@
+Variables: 
+teeth_num_upper_bd: 20000.00000 
+handle_num_upper_bd: 1000 
+eps: 0.01500 
+
+Constants: 
+Total number of handles: 100 
+Total number of teeth: 12040 
+
+Handle Number: 0
+Handle too small, discarded 
+
+Handle Number: 1
+Handle too small, discarded 
+
+Handle Number: 2 
+Number of eligible_teeth: 0 
+Handle Set: frozenset([1961, 1932, 1902, 2033, 1971, 2004, 1981])
+eligible_teeth: []
+
+Too few eligible_teeth.
+
+Handle Number: 3 
+Number of eligible_teeth: 0 
+Handle Set: frozenset([1988, 1996, 2064, 1940, 1976, 2010])
+eligible_teeth: []
+
+Too few eligible_teeth.
+
+Handle Number: 4 
+Number of eligible_teeth: 0 
+Handle Set: frozenset([3228, 3210, 3434, 3340, 3386])
+eligible_teeth: []
+
+Too few eligible_teeth.
+
+Handle Number: 5 
+Number of eligible_teeth: 0 
+Handle Set: frozenset([3672, 3674, 3715, 3694])
+eligible_teeth: []
+
+Too few eligible_teeth.
+
+Handle Number: 6
+Handle too small, discarded 
+
+Handle Number: 7
+Handle too small, discarded 
+
+Handle Number: 8 
+Number of eligible_teeth: 1 
+Handle Set: frozenset([1984, 2124, 2513, 2642, 3446, 2872])
+eligible_teeth: [4458]
+
+Too few eligible_teeth.
+
+Handle Number: 9
+Handle too small, discarded 
+
+Handle Number: 10
+Handle too small, discarded 
+
+Handle Number: 11
+Handle too small, discarded 
+
+Handle Number: 12
+Handle too small, discarded 
+
+Handle Number: 13
+Handle too small, discarded 
+
+Handle Number: 14 
+Number of eligible_teeth: 1 
+Handle Set: frozenset([7960, 7971, 7964, 7966])
+eligible_teeth: [11805]
+
+Too few eligible_teeth.
+
+Handle Number: 15 
+Number of eligible_teeth: 0 
+Handle Set: frozenset([8123, 7972, 7980, 7898, 7963, 8060])
+eligible_teeth: []
+
+Too few eligible_teeth.
+
+Handle Number: 16 
+Number of eligible_teeth: 2 
+Handle Set: frozenset([14530, 14532, 14730, 14379, 14735, 14194, 14516, 14436, 14527])
+eligible_teeth: [4420, 5000]
+
+Too few eligible_teeth.
+
+Handle Number: 17
+Handle too small, discarded 
+
+Handle Number: 18 
+Number of eligible_teeth: 0 
+Handle Set: frozenset([7426, 7435, 7445, 7421])
+eligible_teeth: []
+
+Too few eligible_teeth.
+
+Handle Number: 19
+Handle too small, discarded 
+
+Handle Number: 20
+Handle too small, discarded 
+
+Handle Number: 21
+Handle too small, discarded 
+
+Handle Number: 22 
+Number of eligible_teeth: 1 
+Handle Set: frozenset([48105, 48098, 48107, 48084])
+eligible_teeth: [3074]
+
+Too few eligible_teeth.
+
+Handle Number: 23
+Handle too small, discarded 
+
+Handle Number: 24
+Handle too small, discarded 
+
+Handle Number: 25
+Handle too small, discarded 
+
+Handle Number: 26 
+Number of eligible_teeth: 0 
+Handle Set: frozenset([47055, 46991, 47057, 47026, 47030, 47032, 47035, 47038])
+eligible_teeth: []
+
+Too few eligible_teeth.
+
+Handle Number: 27
+Handle too small, discarded 
+
+Handle Number: 28
+Handle too small, discarded 
+
+Handle Number: 29
+Handle too small, discarded 
+
+Handle Number: 30
+Handle too small, discarded 
+
+Handle Number: 31
+Handle too small, discarded 
+
+Handle Number: 32
+Handle too small, discarded 
+
+Handle Number: 33
+Handle too small, discarded 
+
+Handle Number: 34
+Handle too small, discarded 
+
+Handle Number: 35
+Handle too small, discarded 
+
+Handle Number: 36
+Handle too small, discarded 
+
+Handle Number: 37
+Handle too small, discarded 
+
+Handle Number: 38
+Handle too small, discarded 
+
+Handle Number: 39
+Handle too small, discarded 
+
+Handle Number: 40 
+Number of eligible_teeth: 1 
+Handle Set: frozenset([9314, 9307, 9318])
+eligible_teeth: [11308]
+
+Too few eligible_teeth.
+
+Handle Number: 41
+Handle too small, discarded 
+
+Handle Number: 42 
+Number of eligible_teeth: 1 
+Handle Set: frozenset([9065, 8941, 8957, 8991])
+eligible_teeth: [3115]
+
+Too few eligible_teeth.
+
+Handle Number: 43 
+Number of eligible_teeth: 0 
+Handle Set: frozenset([8772, 9670, 8712, 8812, 9678, 9487, 9461])
+eligible_teeth: []
+
+Too few eligible_teeth.
+
+Handle Number: 44
+Handle too small, discarded 
+
+Handle Number: 45 
+Number of eligible_teeth: 0 
+Handle Set: frozenset([5242, 5206, 5214])
+eligible_teeth: []
+
+Too few eligible_teeth.
+
+Handle Number: 46 
+Number of eligible_teeth: 2 
+Handle Set: frozenset([3344, 3399, 3435, 3407])
+eligible_teeth: [4457, 4930]
+
+Too few eligible_teeth.
+
+Handle Number: 47
+Handle too small, discarded 
+
+Handle Number: 48 
+Number of eligible_teeth: 1 
+Handle Set: frozenset([13410, 13283, 13449, 13122, 13493, 13497, 13471])
+eligible_teeth: [4532]
+
+Too few eligible_teeth.
+
+Handle Number: 49 
+Number of eligible_teeth: 0 
+Handle Set: frozenset([7770, 8174, 8062, 7927])
+eligible_teeth: []
+
+Too few eligible_teeth.
+
+Handle Number: 50
+Handle too small, discarded 
+
+Handle Number: 51
+Handle too small, discarded 
+
+Handle Number: 52
+Handle too small, discarded 
+
+Handle Number: 53 
+Number of eligible_teeth: 1 
+Handle Set: frozenset([7652, 7818, 7697, 7620, 7739, 7903])
+eligible_teeth: [11359]
+
+Too few eligible_teeth.
+
+Handle Number: 54 
+Number of eligible_teeth: 1 
+Handle Set: frozenset([6947, 6943, 6940, 6965, 6951])
+eligible_teeth: [5411]
+
+Too few eligible_teeth.
+
+Handle Number: 55
+Handle too small, discarded 
+
+Handle Number: 56 
+Number of eligible_teeth: 3 
+Handle Set: frozenset([4929, 4875, 4908, 5005, 4883, 4884, 4887, 4947, 4959, 4892, 4894, 4895])
+eligible_teeth: [4498, 4992, 5347]
+

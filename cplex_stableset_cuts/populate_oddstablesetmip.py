@@ -63,8 +63,8 @@ def populate_odd_weighted_stableset(graph,xdH):
     graph_rhs.append(1.0)
     graph_rownames.append('odd_const_row')
     graph_sense=graph_sense+'E'
-    graph_rows.append([ ['x'+str(node) for node in graph.nodes()]+['z'],
-                       [1.0 for node in graph.nodes()] + [-2.0]  ])
+    graph_rows.append([ ['x'+str(toothname) for toothname, xdT in graph['nodes']]+['z'],
+                       [1.0 for i in graph['nodes']] + [-2.0]  ])
 
     # want to populate all solutions such that sum (3-x(d(T))) x_T >= x(d(H)) -1 + eps
     # so add the constraint to the model

@@ -71,12 +71,12 @@ def find_comb2(teeth_pool,handle_pool):
 		else: 
 			eligible_teeth=find_all_teeth2(teeth_pool, handleset)
 			newfile.write('Handle Number: %d \n' % handle)
-			newfile.write('Number of eligible_teeth: %d \n' len(eligible_teeth['nodes']))
+			newfile.write('Number of eligible_teeth: %d \n' % len(eligible_teeth['nodes']))
 			newfile.write('Handle Set: '+repr(handle_pool[handle]['cutset']) + '\n')
 			newfile.write('eligible_teeth: ' +repr([tooth for tooth, xdT in eligible_teeth['nodes']]) +'\n\n')
 			
 			print('Handle Number: %d' %handle)
-			print('Number of eligible_teeth: %d' len(eligible_teeth['nodes']))
+			print('Number of eligible_teeth: %d' % len(eligible_teeth['nodes']))
 
 			if len(eligible_teeth['nodes']) >=3:
 				num_viol_combs=populate_odd_weighted_stableset(eligible_teeth,xdH)
