@@ -202,10 +202,10 @@ if __name__ == "__main__":
 	# Variables:
 	## creat_dom_graph:
 	teeth_surplus_bound = 1.0
-	node_num_upper_bd = 70000
+	node_num_upper_bd = 100000
 
 	## all_handles:
-	handle_num_bound = 1000
+	handle_num_bound = 2600
 	x_delta_H_bound = 15
 
 	## find_all_teeth:
@@ -216,7 +216,7 @@ if __name__ == "__main__":
 
 	# start:
 	start = timer()
-	newfilename='fl1577_htt3.3rewrite_test_3.txt'			# change it every time you run it!
+	newfilename='fl1577_htt3.3rewrite_test_4.txt'			# change it every time you run it!
 	newfile=open(newfilename, 'w')
 
 	
