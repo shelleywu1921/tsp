@@ -1,4 +1,30 @@
 # April 20 Part 2:
+Now using `handle_to_teeth3.3rewrite.py` as the main code. Why not call it `handle_to_teeth3.3.py`? Because `handle_to_teeth3.3.py`'s indentation went wrong and it wouldn't work no matter how I tried to fix it. So in the end I had to rewrite it. 
+
+### What's new about the 3.3 version?
+
+Changed the finding max weight stable function 
+```python
+from stablesetmip import weighted_stable_set
+```
+to the finding max weight odd stable set function
+```python
+from oddstablesetmip import odd_weighted_stable_set
+```
+
+### How to create `odd_weight_stable_set`?
+Simply adding the constraints 
+```
+x_1 + ... + x_n = 2z + 1 
+z >= 0, integer
+```
+to the max weight stable set linear model will create turn the function into a max weight odd stable set function. Magical!
+
+Note that the max weight odd set found may only have one node. However, it won't affect the final result. Because if that is the case, then the handle won't have any violated comb.  
+
+
+
+
 
 
 
