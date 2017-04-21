@@ -110,65 +110,6 @@ def populate_odd_weighted_stableset(graph,xdH):
 
     return prob.solution.pool.get_num()    
 
-    '''
-    print()
-    # solution.get_status() returns an integer code
-    print("Solution status = ", c.solution.get_status(), ":", end=' ')
-    # the following line prints the corresponding string
-    print(c.solution.status[c.solution.get_status()])
-
-    numcols = c.variables.get_num()
-
-    # Print information about the incumbent
-    print()
-    print("Objective value of the incumbent  = ",
-          c.solution.get_objective_value())
-    x = c.solution.get_values()
-    for j in range(numcols):
-        print("Incumbent: Column %d:  Value = %10f" % (j, x[j]))
-
-    # Print information about other solutions
-    print()
-    numsol = c.solution.pool.get_num()
-    print("The solution pool contains %d solutions." % numsol)
-
-    numsolreplaced = c.solution.pool.get_num_replaced()
-    print("%d solutions were removed due to the solution pool "
-          "relative gap parameter." % numsolreplaced)
-
-    numsoltotal = numsol + numsolreplaced
-    print("In total, %d solutions were generated." % numsoltotal)
-
-    meanobjval = c.solution.pool.get_mean_objective_value()
-    print("The average objective value of the solutions is %.10g." %
-          meanobjval)
-
-    # write out the objective value of each solution and its
-    # difference to the incumbent
-    names = c.solution.pool.get_names()
-
-    print()
-    print("Solution        Objective       Number of variables")
-    print("                value           that differ compared to")
-    print("                                the incumbent")
-
-    for i in range(numsol):
-
-        objval_i = c.solution.pool.get_objective_value(i)
-
-        x_i = c.solution.pool.get_values(i)
-
-        # compute the number of variables that differ in solution i
-        # and in the incumbent
-        numdiff = 0
-        for j in range(numcols):
-            if abs(x_i[j] - x[j]) > epszero:
-                numdiff = numdiff + 1
-        print("%-15s %-10g      %d / %d" %
-              (names[i], objval_i, numdiff, numcols))
-
-
-    '''
 
 
 
