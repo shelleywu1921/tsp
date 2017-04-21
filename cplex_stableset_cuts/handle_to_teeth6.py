@@ -32,7 +32,7 @@ def find_all_teeth2(teeth_pool, handleset):
 		if (not cutset <= handleset) and (not cutset.isdisjoint(handleset)) :
 			eligible_teeth['nodes'].append( [tooth, xdT])
 	
-	for i in len(eligible_teeth['nodes']):
+	for i in range(len(eligible_teeth['nodes'])):
 		for j in range(i, len(eligible_teeth['nodes'])):
 			u=eligible_teeth['nodes'][i][0]		# cut number
 			v=eligible_teeth['nodes'][j][0]
@@ -41,9 +41,6 @@ def find_all_teeth2(teeth_pool, handleset):
 			if (v!=u) and not utooth.isdisjoint(vtooth):
 				eligible_teeth['edges'].add((u,v))
 				
-	newfile.write(' All eligible teeth for this handle are: \n')
-	newfile.write(repr(eligible_teeth['nodes']) +' \n')
-	newfile.write(' Total number of eligible teeth is: %d \n' % len(eligible_teeth['nodes']))
 
 	print('total number of dominoes that can be teeth of the comb is: %d' % len(eligible_teeth['nodes']))
 	return eligible_teeth	
@@ -64,19 +61,43 @@ def find_comb(teeth_pool,handle_pool):
 	for handle in handle_pool:
 		xdH=handle_pool[handle]['xds']
 		handleset=handle_pool[handle]['cutset']
-		eligible_teeth=find_all_teeth2(teeth_pool, handleset)
-		newfile.write('Handle Number: %d \n' %handle)
-		newfile.write('Number of eligible_teeth: %d \n' len(eligible_teeth['nodes']))
-		newfile.write('Handle Set: '+repr(handle_pool[handle]['cutset']) + '\n')
-		newfile.write('eligible_teeth: ' +repr([tooth for tooth, xdT in eligible_teeth['nodes']]) +'\n\n')
-		if len(eligible_teeth['nodes']) >=3:
-			num_viol_combs=populate_odd_weighted_stableset(eligible_teeth,xdH)
-			if num_viol_combs != None:
-				handle_counter +=1
-				comb_counter = comb_counter + num_viol_combs
-			else:
-				newfile.write('No violated comb using this handle is found. \n\n')
 
+		if len(handleset) <= 2:
+			newfile.write('Handle Number: %d\n' %handle)
+			newfile.write('Handle too small, discarded \n\n')
+			print('Handle Number: %d' %handle)
+			print('Handle too small, discarded')
+		else: 
+			eligible_teeth=find_all_teeth2(teeth_pool, handleset)
+			newfile.write('Handle Number: %d \n' % handle)
+			newfile.write('Number of eligible_teeth: %d \n' len(eligible_teeth['nodes']))
+			newfile.write('Handle Set: '+repr(handle_pool[handle]['cutset']) + '\n')
+			newfile.write('eligible_teeth: ' +repr([tooth for tooth, xdT in eligible_teeth['nodes']]) +'\n\n')
+			print('Handle Number: %d' %handle)
+			print('Number of eligible_teeth: %d \n' len(eligible_teeth['nodes']))
+
+			if len(eligible_teeth['nodes']) >=3:
+				num_viol_combs=populate_odd_weighted_stableset(eligible_teeth,xdH)
+				if num_viol_combs != None:
+					handle_counter +=1
+					comb_counter = comb_counter + num_viol_combs
+					print('More violated combs found!!!')
+					print('Number of handles that has a violated comb so far: %d' % handle_counter)
+					print('Number of violated combs found so far: %d' % comb_counter)
+
+				else:
+					newfile.write('No violated comb using this handle is found. \n\n')
+					print('No violated comb using this handle is found.')
+			else:
+				newfile.write('Too few eligible_teeth.\n\n')
+				print('Too few eligible_teeth.')
+
+	newfile.write('In summary: \n')
+	newfile.write('Number of handles with violated combs: %d \n' % handle_counter)
+	newfile.write('Total number of violated combs found: %d \n' % comb_counter)
+
+	return None
+	'''
 	counter = 0
 	viol_comb_list = list()
 	for i in range(len(handle_pool)):
@@ -84,7 +105,6 @@ def find_comb(teeth_pool,handle_pool):
 		newfile.write('\n Handle: \n')
 		newfile.write(repr(handle) + '\n')
 		x_delta_H = handle_pool[i][1]
-
 
 		eligible_teeth=find_all_teeth(F,G,handle)
 		if len(list(eligible_teeth.nodes())) >=3:
@@ -147,65 +167,45 @@ def find_comb(teeth_pool,handle_pool):
 	
 
 	return viol_comb_list
-
+	'''
 
 
 if __name__ == "__main__":
 	# Variables:
-	## creat_dom_graph:
-	teeth_surplus_bound = 1.0
-	node_num_upper_bd = 100000
-
-	## all_handles:
-	handle_num_bound = 2600
-	x_delta_H_bound = 15
-
-	## find_all_teeth:
-	epsilon= 0.1     #
+	# create_cutpool:
+	teeth_num_upper_bd = 20000
+	handle_num_upper_bd = 1000
 	
 	## find_comb:
-	krange = 1
+	eps = 0.015
 
 	# start:
 	start = timer()
-	newfilename='fl1577_htt3.3rewrite_test_4.txt'			# change it every time you run it!
+	newfilename='small_uk49_htt6_test_1.txt'			# change it every time you run it!
 	newfile=open(newfilename, 'w')
 
 	
 	newfile.write('Variables: \n')
-	newfile.write('teeth_surplus_bound: %.5f \n' % teeth_surplus_bound)
-	newfile.write('node_num_upper_bd: %d \n' % node_num_upper_bd)
-	newfile.write('handle_num_bound: %d \n' % handle_num_bound)
-	newfile.write('x_delta_H_bound: %.5f \n' % x_delta_H_bound)
-	newfile.write('epsilon: %.5f \n' % epsilon)
-	newfile.write('krange: %d \n \n' % krange)
+	newfile.write('teeth_num_upper_bd: %.5f \n' % teeth_num_upper_bd)
+	newfile.write('handle_num_upper_bd: %d \n' % handle_num_upper_bd)
+	newfile.write('eps: %.5f \n\n' % eps)
 	
 	# constants:
-	F=build_support_graph('fl1577.x')											# you may need to change this
-	G=create_dom_graph2('fl1577.dom', teeth_surplus_bound, node_num_upper_bd)	# you may need to change this
+	handle_pool=create_cutpool('small_uk49.handles', handle_num_upper_bd)
+	teeth_pool=create_cutpool('small_uk49.teeth', teeth_num_upper_bd)
+
 
 	newfile.write('Constants: \n')
-	newfile.write('Total number of dominoes: %d \n' % G.number_of_nodes())
+	newfile.write('Total number of handles: %d \n' % len(handle_pool))	
+	newfile.write('Total number of teeth: %d \n\n' % len(teeth_pool))
 
-	handle_pool= all_handles('fl1577.pool.txt')					# you may need to change this
 	
-	newfile.write('Total number of handles considered: %d \n\n' % len(handle_pool))
-	# main function
-	viol_comb_list= find_comb(F,G,handle_pool)
+	find_comb2(teeth_pool,handle_pool)
 
 	# miscellaneous
 	end=timer()
 	print('Total running time: %.5f'%(end-start))
-	newfile.write('\n Total running time: %.5f'%(end-start))
+	newfile.write('\nTotal running time: %.5f'%(end-start))
 		
 	newfile.close()
 
-	# write to the handle file
-	newhandlefilename='handle_'+ newfilename
-	newhandlefile = open(newhandlefilename, 'w')
-
-	newhandlefile.write('%d\n'%len(handle_pool))
-	for handle, x_delta_H in handle_pool:
-		newhandlefile.write( str(x_delta_H) + ' ' + ' '.join(map(str,handle))+ '\n')     
-
-	newhandlefile.close()

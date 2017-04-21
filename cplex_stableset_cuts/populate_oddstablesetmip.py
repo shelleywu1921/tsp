@@ -101,13 +101,13 @@ def populate_odd_weighted_stableset(graph,xdH):
         sum_xdT = sum(eligible_teeth['nodes'][j][1] for j,x in enumerate(prob.solution.pool.get_values(i)[:-1]) if x == 1.0)
         comb_surplus = xdH+sum_xdT-3*num_of_teeth
 
-        newfile.write('Number of Teeth: %d \n' % len(odd_teeth))
         newfile.write('Set of Teeth: \n'+ repr(odd_teeth))
-        newfile.write('{0:<20}{1:<20}{2:<20}\n'.format('x(delta(H))', 'sum x(delta(Ti))', 'CombSurp'))
-        newfile.write('{0:<20}{1:<20}{2:<20}\n\n'.format(xdH, sum_xdT , comb_surplus))
-    newfile.write('\n')
+        newfile.write('{0:<20}{1:<20}{2:<20}{3:<20}\n'.format('NumofTeeth', 'x(delta(H))', 'sum x(delta(Ti))', 'CombSurp'))
+        newfile.write('{0:<20}{1:<20}{2:<20}{3:<20}\n\n'.format(num_of_teeth ,xdH, sum_xdT , comb_surplus))
 
-    newfile.write('Total number of violated combs for this handle: %d' % prob.solution.pool.get_num())
+    newfile.write('\n')
+    newfile.write('Total number of violated combs for this handle: %d \n\n' % prob.solution.pool.get_num())
+
     return prob.solution.pool.get_num()    
 
     '''
