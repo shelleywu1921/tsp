@@ -4,7 +4,7 @@ import math
 
 '''
 cutpool.py
-creates a dict() cutpool where cutpool[node]= dict
+creates a dict() cutpool where cutpool[node]= dict()
 cutpool[node]['xds'] = x(delta(S))
 cutpool[node]['cutset']=frozenset([1,2,3...])
 
