@@ -1,129 +1,81 @@
-from mindomcut3_1 import build_support_graph #, find_handle, add_s_t, del_s_t
-from domgraph4_1 import create_dom_graph2 #, find_stable_set
-from ABcut import edges_cross
+from cutpool import create_cutpool
 from itertools import product
-import networkx as nx
 from timeit import default_timer as timer
 
 # stableset
-from oddstablesetmip import odd_weighted_stable_set
-'''
-version 3.2
-1. changed the stable set function to be a cplex maximum weight stable set function
-    from stablesetmip import weighted_stable_set. Odd stable set is still the naive way:
-    pop out the lightest set if the number is even
-2. find_all_teeth now added an attribute to nodes in eligible_teeth:    
-    eligible_teeth.node[domino]['grwt']=xE_A_B - 0.5*G.node[domino]['surplus']
-3. Can consider settting krange = 1
-'''
-
+from populate_oddstablesetmip import populate_odd_weighted_stableset
 
 '''
-Things that this new version does: 
-	1. add krange, handle_num_bound, x_delta_H_bound as variables
-	2. write a more detailed summary to the file. 
-	3. Note that in the end, 
-	handle_no is not the actual position of the handle in handlepool.txt, b/c some
-	handles in the handlepool are not eligible
-
-Major changes made:
-	1. handle_pool is now a list of [frozenset, float]
-''' 
-
+Version 6:
+1. Changed from optimize to populate to get a family of violated combs 
+2. compute the weight 'xdT' directly using 3-x(delta(T))
 
 '''
-handle_pool = all_handles('att532.pool.txt')
 
-'''
-# CONSTANTS:
-# F=build_support_graph('att532.x')
-# 	it is the support graph of att532.x
-# G=create_dom_graph2('att532.dom', teeth_surplus_bound, node_num_upper_bd)
-#   G is a graph with no edges. Each node represents a domino whose surplus < teeth_surplus_bound
-#   the total number of nodes in G is around node_num_upper_bd
-#   For example, G.node[k]['surplus'], G.node[k]['vertices'], G.node[k]['A'], G.node[k]['B']
-#   	where k is the k+1 th domino appearing in att532.dom
-
-
-
-
-# for example: all_handles('att532.pool.txt')
-# and it produces handle_pool: a list of handles in the handlefilename (e.g. att532.pool.txt)
-# Each handle in handle_pool is a [frozenset, float], where frozenset represents the handle H,
-# and float represents x(delta(H))
-def all_handles(handlefilename):
-	global handle_num_bound, x_delta_H_bound, F
-
-	handle_pool = list()
-	handlefile=open(handlefilename, 'r')
-	first_line=handlefile.readline().split()
-	for i in range(min(int(first_line[1]), handle_num_bound)):
-		number_of_node=int(handlefile.readline().split()[0])
-		handle_set=frozenset(map(int,handlefile.readline().split()))
-
-		if number_of_node >= 3:
-			x_delta_H = x_delta_S(F,handle_set)
-			print(x_delta_H)
-			if x_delta_H <= x_delta_H_bound:
-				handle_pool.append([handle_set, x_delta_H])
-	handlefile.close()
-	return handle_pool
-
-
-
-# the returned value: eligible_teeth, is a nx.Graph()
-# its nodes represents teeth in G that respect the handle given. 
+# teeth_pool is a cutpool. See cutpool.py
+# handleset is a frozenset
+# the returned value: eligible_teeth, is a dict
+# eligible_teeth['nodes'] is a list of [cutname, xdT]
+# eligible_teeth['edges'] is a set of tuples (u,v), representing edges, with no repetition
+# its nodes represents teeth in teeth_pool that respect the handle given. 
 # Moreover, eligible_teeth contains all such nodes
 # (u,v) is an edge in eligible_teeth iff the dominoes u and v intersect
-def find_all_teeth(F, G, handle):
+def find_all_teeth2(teeth_pool, handleset):
 	global newfile
 	
-	eligible_teeth=nx.Graph()
-	for domino in G.nodes():
-		A=G.node[domino]['A']
-		B=G.node[domino]['B']
-		E_A_B=edges_cross(F,A,B)
-		xE_A_B=sum(F[u][v]['weight'] for (u,v) in E_A_B)
-		#print('find all teeth %.5f' % xE_A_B)
+	eligible_teeth=dict()
+	eligible_teeth['nodes']=list()
+	eligible_teeth['edges']=set()
+	for tooth in teeth_pool:
+		xdT=teeth_pool[tooth]['xds']
+		cutset=teeth_pool[tooth]['cutset']
+		if (not cutset <= handleset) and (not cutset.isdisjoint(handleset)) :
+			eligible_teeth['nodes'].append( [tooth, xdT])
 	
-		# we only want that teeth if 1/2teethsurplus < x(E(A,B)), not even equality
-		if 0.5*G.node[domino]['surplus'] <= xE_A_B -epsilon:
-			if (A<= handle and len(B & handle) ==0) or (B<= handle and len(A& handle) ==0):
-				eligible_teeth.add_node(domino, grwt = xE_A_B - 0.5*G.node[domino]['surplus']) #, surplus = G.node[domino]['surplus'],vertices = G.node[domino]['A'].union(G.node[domino]['B']))
-	for u in eligible_teeth.nodes():
-		for v in eligible_teeth.nodes():
-			uteeth = G.node[u]['vertices']
-			vteeth= G.node[v]['vertices']
-			if (v!=u) and not uteeth.isdisjoint(vteeth):
-				eligible_teeth.add_edge(u,v)
+	for i in len(eligible_teeth['nodes']):
+		for j in range(i, len(eligible_teeth['nodes'])):
+			u=eligible_teeth['nodes'][i][0]		# cut number
+			v=eligible_teeth['nodes'][j][0]
+			utooth=teeth_pool[u]['cutset']
+			vtooth=teeth_pool[v]['cutset']
+			if (v!=u) and not utooth.isdisjoint(vtooth):
+				eligible_teeth['edges'].add((u,v))
+				
 	newfile.write(' All eligible teeth for this handle are: \n')
-	newfile.write(repr(set(eligible_teeth.nodes())) +' \n')
-	newfile.write(' Total number of eligible teeth is: %d \n' % len(list(eligible_teeth.nodes())))
+	newfile.write(repr(eligible_teeth['nodes']) +' \n')
+	newfile.write(' Total number of eligible teeth is: %d \n' % len(eligible_teeth['nodes']))
 
-	print('total number of dominoes that can be teeth of the comb is: %d' % len(list(eligible_teeth.nodes())))
-	return eligible_teeth
-
-
-# S is a set()
-# x_delta_S computes x(delta(S)) 
-def x_delta_S(F, S):
-    delta=set()
-    for u in S:
-        for v in F[u]:
-            if (v not in S) and (v != 's') and (v !='t'):
-                delta.add((u,v))
-    #print('The number of edges in delta is %d' % len(delta))
-    delta_weight=sum(F[u][v]['weight'] for (u,v) in delta)
-    #print(delta_weight)
-    return delta_weight
+	print('total number of dominoes that can be teeth of the comb is: %d' % len(eligible_teeth['nodes']))
+	return eligible_teeth	
 
 
-# find_comb takes F the support graph, G the domino graph, and handle_pool, a set of handles
+
+
+# find_comb takes teeth_pool, a cutpool, and handle_pool, a cutpool,   the domino graph, and handle_pool, a set of handles
 # for each handle, it finds (at most 100) odd sets of disjoint teeth that respect the handle, 
 # then it computes the comb_surplus ( < 1.0 is good) of each comb
 
-def find_comb(F,G,handle_pool):
-	global newfile, krange
+def find_comb(teeth_pool,handle_pool):
+	global newfile
+
+	handle_counter=0 # counts the number of handles involving in violated combs
+	comb_counter=0 # counts the total number of violated combs found
+
+	for handle in handle_pool:
+		xdH=handle_pool[handle]['xds']
+		handleset=handle_pool[handle]['cutset']
+		eligible_teeth=find_all_teeth2(teeth_pool, handleset)
+		newfile.write('Handle Number: %d \n' %handle)
+		newfile.write('Number of eligible_teeth: %d \n' len(eligible_teeth['nodes']))
+		newfile.write('Handle Set: '+repr(handle_pool[handle]['cutset']) + '\n')
+		newfile.write('eligible_teeth: ' +repr([tooth for tooth, xdT in eligible_teeth['nodes']]) +'\n\n')
+		if len(eligible_teeth['nodes']) >=3:
+			num_viol_combs=populate_odd_weighted_stableset(eligible_teeth,xdH)
+			if num_viol_combs != None:
+				handle_counter +=1
+				comb_counter = comb_counter + num_viol_combs
+			else:
+				newfile.write('No violated comb using this handle is found. \n\n')
 
 	counter = 0
 	viol_comb_list = list()
