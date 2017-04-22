@@ -91,7 +91,7 @@ def find_comb2(teeth_pool,handle_pool):
 						num_of_teeth=len(odd_teeth)
 						sum_xdT = sum(eligible_teeth['nodes'][j][1] for j,x in enumerate(prob.solution.pool.get_values(i)[:-1]) if x == 1.0)
 						comb_surplus = xdH+sum_xdT-3*num_of_teeth
-						newfile.write('Set of Teeth: \n'+ repr(odd_teeth))
+						newfile.write('Set of Teeth: \n'+ repr(odd_teeth) + '\n')
 						newfile.write('{0:<20}{1:<20}{2:<20}{3:<20}\n'.format('NumofTeeth', 'x(delta(H))', 'sum x(delta(Ti))', 'CombSurp'))
 						newfile.write('{0:<20}{1:<20}{2:<20}{3:<20}\n\n'.format(num_of_teeth ,xdH, sum_xdT , comb_surplus))
 
@@ -139,7 +139,7 @@ if __name__ == "__main__":
 
 	# start:
 	start = timer()
-	newfilename='small1_uk49_htt6_test_2.txt'			# change it every time you run it!
+	newfilename='att532_small_test_1.txt'			# change it every time you run it!
 	newfile=open(newfilename, 'w')
 
 	
@@ -149,8 +149,8 @@ if __name__ == "__main__":
 	newfile.write('eps: %.5f \n\n' % eps)
 	
 	# constants:
-	handle_pool=create_cutpool('small1_uk49.handles', handle_num_upper_bd)	# maybe you want to change this
-	teeth_pool=create_cutpool('uk49_2c.teeth', teeth_num_upper_bd)		# maybe you want to change this
+	handle_pool=create_cutpool('att532_small_handle.txt', handle_num_upper_bd)	# maybe you want to change this
+	teeth_pool=create_cutpool('att532.cuts.txt', teeth_num_upper_bd)		# maybe you want to change this
 
 
 	newfile.write('Constants: \n')
