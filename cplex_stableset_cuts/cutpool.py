@@ -33,7 +33,7 @@ def create_cutpool(cutfilename, node_num_upper_bound):
 		# if i % step == 0:
 		line=cutfile.readline().split()
 		xds=float(line[0])
-		cutset= frozenset(list(map(int, line[3:])))
+		cutset= frozenset(list(map(int, line[2:])))
 		cutpool[i]=dict()
 		cutpool[i]['xds']=xds
 		cutpool[i]['cutset']=cutset

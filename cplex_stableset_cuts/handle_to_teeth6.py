@@ -131,26 +131,26 @@ def find_comb2(teeth_pool,handle_pool):
 if __name__ == "__main__":
 	# Variables:
 	# create_cutpool:
-	teeth_num_upper_bd = 600000
-	handle_num_upper_bd = 1000
+	teeth_num_upper_bd = 600000 # all the teeth
+	handle_num_upper_bd = 10000
 	
 	## find_comb:
 	eps = 0.015	 # sum 3-x(d(Ti)) >= x(d(H)) - 1  + eps
 
 	# start:
 	start = timer()
-	newfilename='att532_small_test_1.txt'			# change it every time you run it!
+	newfilename='uk96_test_1.txt'			# change it every time you run it!
 	newfile=open(newfilename, 'w')
 
 	
 	newfile.write('Variables: \n')
-	newfile.write('teeth_num_upper_bd: %.5f \n' % teeth_num_upper_bd)
+	newfile.write('teeth_num_upper_bd: %d \n' % teeth_num_upper_bd)
 	newfile.write('handle_num_upper_bd: %d \n' % handle_num_upper_bd)
 	newfile.write('eps: %.5f \n\n' % eps)
 	
 	# constants:
-	handle_pool=create_cutpool('att532_small_handle.txt', handle_num_upper_bd)	# maybe you want to change this
-	teeth_pool=create_cutpool('att532.cuts.txt', teeth_num_upper_bd)		# maybe you want to change this
+	handle_pool=create_cutpool('uk49_2c.handles', handle_num_upper_bd)	# maybe you want to change this
+	teeth_pool=create_cutpool('uk49_2c.teeth', teeth_num_upper_bd)		# maybe you want to change this
 
 
 	newfile.write('Constants: \n')
