@@ -79,7 +79,7 @@ def find_comb2(teeth_pool,handle_pool):
 			print('Number of eligible_teeth: %d' % len(eligible_teeth['nodes']))
 
 			if len(eligible_teeth['nodes']) >=3:
-				num_viol_combs=populate_odd_weighted_stableset(eligible_teeth,xdH)
+				num_viol_combs=populate_odd_weighted_stableset(eligible_teeth,xdH,eps)
 				if num_viol_combs != None:
 					handle_counter +=1
 					comb_counter = comb_counter + num_viol_combs
@@ -109,7 +109,7 @@ if __name__ == "__main__":
 	handle_num_upper_bd = 1000
 	
 	## find_comb:
-	eps = 0.015
+	eps = 0.015	 # sum 3-x(d(Ti)) >= x(d(H)) - 1  + eps
 
 	# start:
 	start = timer()

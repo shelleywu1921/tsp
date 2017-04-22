@@ -20,9 +20,7 @@ Note that the odd stable set found may only have one element
 # graph here is a dict. graph['nodes'] is a list of [tooth which is an int, xdT]
 # populate_odd_weighted_stableset(graph)
 # only consider stable sets with >= 3 nodes
-def populate_odd_weighted_stableset(graph,xdH):
-    global eps          # sum 3-x(d(Ti)) >= x(d(H)) - 1  + eps
-
+def populate_odd_weighted_stableset(graph,xdH,eps):
     # LP Model:
     ## nodes
     graph_obj=[]
