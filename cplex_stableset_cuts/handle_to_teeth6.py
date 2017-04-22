@@ -131,7 +131,7 @@ def find_comb2(teeth_pool,handle_pool):
 if __name__ == "__main__":
 	# Variables:
 	# create_cutpool:
-	teeth_num_upper_bd = 20000
+	teeth_num_upper_bd = 50000
 	handle_num_upper_bd = 1000
 	
 	## find_comb:
@@ -139,7 +139,7 @@ if __name__ == "__main__":
 
 	# start:
 	start = timer()
-	newfilename='small_uk49_htt6_test_1.txt'			# change it every time you run it!
+	newfilename='small1_uk49_htt6_test_1.txt'			# change it every time you run it!
 	newfile=open(newfilename, 'w')
 
 	
@@ -149,8 +149,8 @@ if __name__ == "__main__":
 	newfile.write('eps: %.5f \n\n' % eps)
 	
 	# constants:
-	handle_pool=create_cutpool('small_uk49.handles', handle_num_upper_bd)	# maybe you want to change this
-	teeth_pool=create_cutpool('small_uk49.teeth', teeth_num_upper_bd)		# maybe you want to change this
+	handle_pool=create_cutpool('small1_uk49.handles', handle_num_upper_bd)	# maybe you want to change this
+	teeth_pool=create_cutpool('small1_uk49.teeth', teeth_num_upper_bd)		# maybe you want to change this
 
 
 	newfile.write('Constants: \n')
