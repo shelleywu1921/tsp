@@ -85,7 +85,7 @@ def populate_odd_weighted_stableset(graph,xdH,eps):
     # solve the problem
     try:
         prob.populate_solution_pool()
-
+        return prob
     except cplex.exceptions.CplexError as e:
         print(e)
         return None
@@ -93,6 +93,7 @@ def populate_odd_weighted_stableset(graph,xdH,eps):
         print(e)
         return None    
 
+    '''
     for i in range(prob.solution.pool.get_num()):
         odd_teeth=[eligible_teeth['nodes'][j][0] for j ,x in enumerate(prob.solution.pool.get_values(i)[:-1]) if x ==1.0]
         num_of_teeth=len(odd_teeth)
@@ -107,7 +108,7 @@ def populate_odd_weighted_stableset(graph,xdH,eps):
     newfile.write('Total number of violated combs for this handle: %d \n\n' % prob.solution.pool.get_num())
 
     return prob.solution.pool.get_num()    
-
+    '''
 
 
 

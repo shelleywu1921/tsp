@@ -1,7 +1,7 @@
 from cutpool import create_cutpool
 from itertools import product
 from timeit import default_timer as timer
-
+import cplex
 # stableset
 from populate_oddstablesetmip import populate_odd_weighted_stableset
 
@@ -79,6 +79,27 @@ def find_comb2(teeth_pool,handle_pool):
 			print('Number of eligible_teeth: %d' % len(eligible_teeth['nodes']))
 
 			if len(eligible_teeth['nodes']) >=3:
+				prob = populate_odd_weighted_stableset(eligible_teeth,xdH,eps)
+
+				if prob != None:
+					handle_counter +=1
+					comb_counter = comb_counter + prob.solution.pool.get_num()
+
+				    for i in range(prob.solution.pool.get_num()):
+				        odd_teeth=[eligible_teeth['nodes'][j][0] for j ,x in enumerate(prob.solution.pool.get_values(i)[:-1]) if x ==1.0]
+				        num_of_teeth=len(odd_teeth)
+				        sum_xdT = sum(eligible_teeth['nodes'][j][1] for j,x in enumerate(prob.solution.pool.get_values(i)[:-1]) if x == 1.0)
+				        comb_surplus = xdH+sum_xdT-3*num_of_teeth
+
+				        newfile.write('Set of Teeth: \n'+ repr(odd_teeth))
+				        newfile.write('{0:<20}{1:<20}{2:<20}{3:<20}\n'.format('NumofTeeth', 'x(delta(H))', 'sum x(delta(Ti))', 'CombSurp'))
+				        newfile.write('{0:<20}{1:<20}{2:<20}{3:<20}\n\n'.format(num_of_teeth ,xdH, sum_xdT , comb_surplus))
+
+				    newfile.write('\n')
+				    newfile.write('Total number of violated combs for this handle: %d \n\n' % prob.solution.pool.get_num())
+
+
+				'''
 				num_viol_combs=populate_odd_weighted_stableset(eligible_teeth,xdH,eps)
 				if num_viol_combs != None:
 					handle_counter +=1
@@ -86,6 +107,7 @@ def find_comb2(teeth_pool,handle_pool):
 					print('More violated combs found!!!')
 					print('Number of handles that has a violated comb so far: %d' % handle_counter)
 					print('Number of violated combs found so far: %d' % comb_counter)
+				'''
 
 				else:
 					newfile.write('No violated comb using this handle is found. \n\n')
