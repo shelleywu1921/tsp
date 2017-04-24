@@ -139,7 +139,7 @@ if __name__ == "__main__":
 
 	# start:
 	start = timer()
-	newfilename='uk96_test_1.txt'			# change it every time you run it!
+	newfilename='uk96_test_3.txt'			# change it every time you run it!
 	newfile=open(newfilename, 'w')
 
 	
@@ -149,7 +149,7 @@ if __name__ == "__main__":
 	newfile.write('eps: %.5f \n\n' % eps)
 	
 	# constants:
-	handle_pool=create_cutpool('uk49_2c.handles', handle_num_upper_bd)	# maybe you want to change this
+	handle_pool=create_cutpool('comb_went_wrong.txt', handle_num_upper_bd)	# maybe you want to change this
 	teeth_pool=create_cutpool('uk49_2c.teeth', teeth_num_upper_bd)		# maybe you want to change this
 
 
