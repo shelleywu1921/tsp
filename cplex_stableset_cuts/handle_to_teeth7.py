@@ -3,7 +3,10 @@ from itertools import product
 from timeit import default_timer as timer
 import cplex
 # stableset
-from oddstablesetmip import odd_weighted_stable_set
+from oddstablesetmip_1 import odd_weighted_stableset_1
+
+import cProfile
+
 
 '''
 Version 7:
@@ -52,7 +55,7 @@ def find_all_teeth2(teeth_pool, handleset):
 		for j in range(i, len(eligible_teeth['nodes'])):
 			u=eligible_teeth['nodes'][i][0]		# cutname
 			v=eligible_teeth['nodes'][j][0]
-			utooth=teeth_pool[u]['cutset']
+			utooth=teeth_pool[u]['cutset']		# cutset
 			vtooth=teeth_pool[v]['cutset']
 			if (v!=u) and not utooth.isdisjoint(vtooth):
 				eligible_teeth['edges'].add((u,v))
@@ -71,7 +74,6 @@ def find_comb2(teeth_pool,handle_pool):
 	global newfile
 
 	handle_counter=0 # counts the number of handles involving in violated combs
-	comb_counter=0 # counts the total number of violated combs found
 
 	for handle in handle_pool:
 		xdH=handle_pool[handle]['xds']
@@ -95,33 +97,39 @@ def find_comb2(teeth_pool,handle_pool):
 			print('Number of eligible_teeth: %d' % len(eligible_teeth['nodes']))
 
 			if len(eligible_teeth['nodes']) >=3:
-				prob = populate_odd_weighted_stableset(eligible_teeth,xdH,eps)
+				# supposed to be the set of teeth of a comb with maximal violation wrt the handle
+				odd_teeth = odd_weighted_stableset_1(eligible_teeth,xdH,eps) 
 
-				if prob != None and prob.solution.pool.get_num() >=1 :
+				if odd_teeth != None: # and prob.solution.pool.get_num() >=1 :
 					handle_counter +=1
-					comb_counter = comb_counter + prob.solution.pool.get_num()
+					num_of_teeth=len(odd_teeth)
 
-					for i in range(prob.solution.pool.get_num()):
-						odd_teeth=[eligible_teeth['nodes'][j][0] for j ,x in enumerate(prob.solution.pool.get_values(i)[:-1]) if x ==1.0]
-						num_of_teeth=len(odd_teeth)
-						sum_xdT = sum(eligible_teeth['nodes'][j][1] for j,x in enumerate(prob.solution.pool.get_values(i)[:-1]) if x == 1.0)
-						comb_surplus = xdH+sum_xdT-3*num_of_teeth
-						newfile.write('Set of Teeth: \n'+ repr(odd_teeth) + '\n')
-						newfile.write('{0:<20}{1:<20}{2:<20}{3:<20}\n'.format('NumofTeeth', 'x(delta(H))', 'sum x(delta(Ti))', 'CombSurp'))
-						newfile.write('{0:<20}{1:<20}{2:<20}{3:<20}\n\n'.format(num_of_teeth ,xdH, sum_xdT , comb_surplus))
+					sum_xdT=sum(teeth_pool[tooth]['xds'] for tooth in odd_teeth)
+					comb_surplus=xdH+sum_xdT-3*num_of_teeth
 
-					newfile.write('\n')
-					newfile.write('Total number of violated combs for this handle: %d \n\n' % prob.solution.pool.get_num())
+					newfile.write('Set of Teeth: '+ repr(odd_teeth) + '\n')
+					newfile.write('{0:<20}{1:<20}{2:<20}{3:<20}\n'.format('NumofTeeth', 'x(delta(H))', 'sum x(delta(Ti))', 'CombSurp'))
+					newfile.write('{0:<20}{1:<20}{2:<20}{3:<20}\n\n'.format(num_of_teeth ,xdH, sum_xdT , comb_surplus))
+					
+					vio_comb_filename='vio_comb_'+str(handle)+'.txt'
+					vio_comb_file=open(vio_comb_filename,'w')
+					vio_comb_file.write(str(num_of_teeth+1)+'\n')
+
+					vio_comb_file.write(str(len(handleset))+ ' ' + ' '.join(list(map(str,list(handleset)))) + '\n')
+
+					for i in odd_teeth: 
+						toothset=teeth_pool[i]['cutset']
+						vio_comb_file.write(str(len(toothset)) + ' ' + ' '.join(list(map(str,list(toothset)))) + '\n')
+					vio_comb_file.write(str(3*num_of_teeth+1))
+					vio_comb_file.close()
 
 
 					'''
 					num_viol_combs=populate_odd_weighted_stableset(eligible_teeth,xdH,eps)
 					if num_viol_combs != None:
 						handle_counter +=1
-						comb_counter = comb_counter + num_viol_combs
 						print('More violated combs found!!!')
 						print('Number of handles that has a violated comb so far: %d' % handle_counter)
-						print('Number of violated combs found so far: %d' % comb_counter)
 					'''
 
 				else: 
@@ -133,11 +141,9 @@ def find_comb2(teeth_pool,handle_pool):
 
 	newfile.write('In summary: \n')
 	newfile.write('Number of handles with violated combs: %d \n' % handle_counter)
-	newfile.write('Total number of violated combs found: %d \n' % comb_counter)
 	
 	print('In summary:')
 	print('Number of handles with violated combs: %d' % handle_counter)
-	print('Total number of violated combs found: %d' % comb_counter)
 
 	return None
 
@@ -154,7 +160,7 @@ if __name__ == "__main__":
 
 	# start:
 	start = timer()
-	newfilename='uk96_test_3.txt'			# change it every time you run it!
+	newfilename='uk49_test_non_vio_comb_1.txt'			# change it every time you run it!
 	newfile=open(newfilename, 'w')
 
 	
@@ -164,7 +170,7 @@ if __name__ == "__main__":
 	newfile.write('eps: %.5f \n\n' % eps)
 	
 	# constants:
-	handle_pool=create_cutpool('comb_went_wrong.txt', handle_num_upper_bd)	# maybe you want to change this
+	handle_pool=create_cutpool('uk49_non_vio_comb.handle.txt', handle_num_upper_bd)	# maybe you want to change this
 	teeth_pool=create_cutpool('uk49_2c.teeth', teeth_num_upper_bd)		# maybe you want to change this
 
 
