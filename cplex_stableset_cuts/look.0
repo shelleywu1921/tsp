@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "handle_to_teeth7.py", line 173, in <module>
+    handle_pool=create_cutpool('uk49_2d.handles', handle_num_upper_bd)	# maybe you want to change this
+  File "/Users/SmartCat/tsp/cplex_stableset_cuts/cutpool.py", line 21, in create_cutpool
+    cutfile=open(cutfilename, 'r')
+IOError: [Errno 2] No such file or directory: 'uk49_2d.handles'
