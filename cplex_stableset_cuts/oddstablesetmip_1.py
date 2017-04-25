@@ -85,6 +85,35 @@ def odd_weighted_stableset_1(graph,xdH,eps):
     # solve the problem
     try:
         prob.solve()
+        numcols = prob.variables.get_num()
+        numrows = prob.linear_constraints.get_num()
+
+        slack = prob.solution.get_linear_slacks()
+        x = prob.solution.get_values()
+
+        #print(slack)
+        #    print(x)
+
+        '''
+        for i in range(len(slack)):
+            print('Row ' +graph_rownames[i] + ' :  Slack = %10f' %  slack[i])
+        '''
+
+        solution_list = []
+        for j in range(len(x)-1):
+            print('Column ' +graph_colnames[j] + ' :  Value = %10f' %  x[j])
+            solution_list.append((int(graph_colnames[j][1:]), x[j]))
+        print('Column z: Value = %10f' % x[-1])
+
+        print(solution_list)
+
+        # may want to comment this out
+        max_indep_set = []
+        for node, binary in solution_list:
+            if binary >= 0.9:
+                max_indep_set.append(node)
+        return max_indep_set
+        
     except cplex.exceptions.CplexError as e:
         print(e)
         return None
@@ -92,34 +121,7 @@ def odd_weighted_stableset_1(graph,xdH,eps):
         print(e)
         return None    
 
-    numcols = prob.variables.get_num()
-    numrows = prob.linear_constraints.get_num()
 
-    slack = prob.solution.get_linear_slacks()
-    x = prob.solution.get_values()
-
-    #print(slack)
-    #    print(x)
-
-    '''
-    for i in range(len(slack)):
-        print('Row ' +graph_rownames[i] + ' :  Slack = %10f' %  slack[i])
-    '''
-
-    solution_list = []
-    for j in range(len(x)-1):
-        print('Column ' +graph_colnames[j] + ' :  Value = %10f' %  x[j])
-        solution_list.append((int(graph_colnames[j][1:]), x[j]))
-    print('Column z: Value = %10f' % x[-1])
-
-    print(solution_list)
-
-    # may want to comment this out
-    max_indep_set = []
-    for node, binary in solution_list:
-        if binary >= 0.9:
-            max_indep_set.append(node)
-    return max_indep_set
 
 
 

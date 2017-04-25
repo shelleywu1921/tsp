@@ -160,7 +160,7 @@ if __name__ == "__main__":
 
 	# start:
 	start = timer()
-	newfilename='uk49_test_non_vio_comb_1.txt'			# change it every time you run it!
+	newfilename='uk49_2d_htt7_test_0.txt'			# change it every time you run it!
 	newfile=open(newfilename, 'w')
 
 	
@@ -170,8 +170,8 @@ if __name__ == "__main__":
 	newfile.write('eps: %.5f \n\n' % eps)
 	
 	# constants:
-	handle_pool=create_cutpool('uk49_non_vio_comb.handle.txt', handle_num_upper_bd)	# maybe you want to change this
-	teeth_pool=create_cutpool('uk49_2c.teeth', teeth_num_upper_bd)		# maybe you want to change this
+	handle_pool=create_cutpool('uk49_2d.handles', handle_num_upper_bd)	# maybe you want to change this
+	teeth_pool=create_cutpool('uk49_2d.teeth', teeth_num_upper_bd)		# maybe you want to change this
 
 
 	newfile.write('Constants: \n')
