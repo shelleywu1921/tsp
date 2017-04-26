@@ -1,0 +1,5 @@
+Variables: 
+teeth_num_upper_bd: 600000 
+handle_num_upper_bd: 10000 
+eps: 0.01500 
+
